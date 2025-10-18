@@ -7,7 +7,8 @@ import PricingSection from "./pages/PricingSection";
 import LocationsSection from "./pages/Location";
 import { BackgroundBeams } from "../components/ui/background-beams"
 import { motion } from "motion/react";
-
+import { Footer } from "./components/Footer";
+import ReviewsSection from "./components/ReviewsSection";
 export default function Home() {
   return (
     <div className="relative">
@@ -23,12 +24,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 relative border-t border-b border-blue-400/20 bg-gradient-to-br from-blue-400/20 to-black/30  p-8 md:p-12 backdrop-blur-sm overflow-hidden"
+            className="mt-12 relative border-t border-b border-blue-400/5 bg-gradient-to-b from-blue-400/20 to-black/30  p-8 md:p-12 backdrop-blur-sm overflow-hidden"
           >
-            {/* Background decoration */}
-
             <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
-              {/* Left side - Text content */}
               <div className="flex-1">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
                   FIND THE PERFECT DOMAIN
@@ -37,10 +35,7 @@ export default function Home() {
                   SECURE YOUR IDEAL DOMAIN NAME AND ESTABLISH YOUR ONLINE PRESENCE TODAY. FIND THE PERFECT MATCH FOR YOUR BRAND WITH EASE.
                 </p>
               </div>
-
-              {/* Right side - Search and domain extensions */}
               <div className="flex-1 w-full lg:w-auto">
-                {/* Search input */}
                 <div className="relative mb-4">
                   <input
                     type="text"
@@ -64,7 +59,6 @@ export default function Home() {
                   </button>
                 </div>
 
-                {/* Domain extensions */}
                 <div className="flex flex-wrap gap-2">
                   {['.COM', '.ORG', '.NET', '.SHOP', '.ONLINE', '.LIVE', '.RO'].map((ext) => (
                     <button
@@ -82,9 +76,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Section without background beams */}
       <FeaturesSection />
+      <LocationsSection />
       <PricingSection />
+      <Footer />
     </div>
   );
 }

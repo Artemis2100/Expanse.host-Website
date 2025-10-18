@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { FaBolt, FaServer, FaHeadset, FaGamepad, FaCloud, FaShieldAlt, FaDiscord } from 'react-icons/fa'
 import Image
     from 'next/image'
+import { Spotlight } from '@/components/ui/ripple'
 export const FeaturesSection = () => {
     const features = [
         {
@@ -72,8 +73,11 @@ export const FeaturesSection = () => {
     }
 
     return (
-        <section className="w-full py-24 px-4">
-            <div className="max-w-7xl mx-auto">
+        <section className="w-full py-24 px-4 relative overflow-hidden">
+                   <Spotlight />
+
+
+            <div className="max-w-7xl mx-auto relative z-10">
                 {/* Title */}
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
@@ -139,41 +143,7 @@ export const FeaturesSection = () => {
                 </motion.div>
 
                 {/* Discord Card */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="mt-12"
-                >
-                    <div className="relative group">
-                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-8 transition-all duration-300 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
-                            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                                <div className="flex items-center gap-6">
-                                    <div className="inline-flex items-center justify-center text-white  rounded-lg">
-                                        <FaDiscord className="w-10 h-10" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-white mb-2">
-                                            JOIN US ON DISCORD
-                                        </h3>
-                                        <p className="text-gray-200">
-                                            Connect with our community, get instant support, and stay updated with the latest news!
-                                        </p>
-                                    </div>
-                                </div>
-                                <Image
-                                    width={192}
-                                    height={192}
-                                    className="h-auto w-48"
-                                    alt="Join us on Discord"
-                                    src="/assets/joinus.png"
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-                </motion.div>
+               
             </div>
         </section>
     )

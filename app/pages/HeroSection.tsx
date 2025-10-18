@@ -6,7 +6,23 @@ import { motion } from 'framer-motion'
 const HeroSection = () => {
     return (
         <div className="relative w-full mt-40 flex items-center justify-center">
-            <div className="text-center max-w-3xl">
+            {/* Background blur effect */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
+                <svg width="2244" height="1173" viewBox="0 0 2244 1173" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+                    <g filter="url(#filter0_f_130_63)">
+                        <ellipse cx="1122" cy="586.5" rx="972" ry="436.5" fill="#10468C" fillOpacity="0.08"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_f_130_63" x="0" y="0" width="2244" height="1173" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_130_63"/>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+
+            <div className="text-center max-w-3xl relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}

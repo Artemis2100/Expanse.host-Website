@@ -2,30 +2,27 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { BackgroundRippleEffect } from '@/components/ui/background-ripple-effect'
+import { Spotlight } from '@/components/ui/ripple'
+import { CardSpotlight } from '@/components/ui/card-spotlight'
+import Image from 'next/image'
+import { FaDiscord } from 'react-icons/fa'
 const PricingSection = () => {
     const services = [
         {
-            title: 'Minecraft Hosting',
+            title: 'Game Hosting',
             description: 'High-performance servers with instant setup, custom control panel, and mod support.',
-            image: '/images/minecraft-hosting.jpg',
-            accent: 'blue'
-        },
-        {
-            title: 'Zenith Series VDS',
-            description: 'Virtual dedicated servers with NVMe storage, high-frequency CPUs, and guaranteed resources.',
-            image: '/images/zenith-vds.jpg',
-            accent: 'blue'
-        },
-        {
-            title: 'Eclipse Series VDS',
-            description: 'Enterprise-grade virtual servers with dedicated resources, SSD storage, and full root access.',
-            image: '/images/eclipse-vds.jpg',
+            image: '/minecraft.png',
             accent: 'blue'
         },
         {
             title: 'Bare Metal',
             description: 'Dedicated servers with the latest Ryzen processors, DDR5 RAM, and enterprise-grade hardware.',
+            image: '/images/bare-metal.jpg',
+            accent: 'blue'
+        },
+          {
+            title: 'Cloud Hosting',
+            description: 'Cloud hosting with the latest Intel processors, DDR5 RAM, and enterprise-grade hardware.',
             image: '/images/bare-metal.jpg',
             accent: 'blue'
         }
@@ -54,23 +51,14 @@ const PricingSection = () => {
     }
 
     return (
-        <section className="relative w-full py-24 px-4 overflow-hidden">
-            <BackgroundRippleEffect />
-            {/* Vignette Overlay - fades from edges to center */}
-            <div className="absolute inset-0 z-[5] pointer-events-none bg-gradient-radial from-transparent via-transparent to-black/80"
-                 style={{
-                     background: 'radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.9) 100%)'
-                 }}
-            />
+        <section className="relative w-full pt-24 px-4 overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto">
-                <div className="bg-blue-400/40 rounded-full h-2 w-16 mb-8"/>
-                {/* Title */}
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl  md:text-5xl font-bold text-white mb-16 text-left"
+                    className="text-4xl  md:text-5xl font-bold text-white mb-8 text-left"
                 >
                     We got what you <span className='text-blue-300'>need</span>
                     <p className='text-sm text-gray-300 font-medium mt-4'>All available plans that we offer, alot of them right?</p>
@@ -91,26 +79,13 @@ const PricingSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-                            className="relative group"
                         >
-                            <div className="relative h-full flex border border-blue-400/20 flex-col bg-gray-800/20 rounded-lg backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-blue-500/40">
-                                {/* Image Container */}
-                                <div className="relative w-full h-48 bg-gradient-to-br from-blue-400/20 to-blue-600/10 overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
-                                    {/* Placeholder for image - replace with actual images */}
-                                    <div className="w-full h-full flex items-center justify-center">
-                                        <svg
-                                            className="w-20 h-20 text-blue-300/40"
-                                            fill="currentColor"
-                                            viewBox="0 0 20 20"
-                                        >
-                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                                        </svg>
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex flex-col flex-grow p-6">
+                            <CardSpotlight
+                                className="h-full flex flex-col bg-black rounded-xl border-blue-400/20"
+                                radius={300}
+                                color="#1e40af"
+                            >
+                                <div className="flex flex-col flex-grow relative z-20">
                                     {/* Title */}
                                     <h3 className="text-xl font-bold text-gray-100 mb-3 tracking-wide">
                                         {service.title}
@@ -126,8 +101,7 @@ const PricingSection = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         transition={{ duration: 0.2 }}
-                                        className="w-full flex items-center justify-center px-6 py-3 bg-blue-400/40 border border-blue-400/20 text-white rounded-lg font-semibold hover:bg-blue-400/30 transition-colors shadow-inner"
-                                        style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
+                                        className="w-full flex items-center justify-center px-6 py-3 bg-blue-500/30 border border-blue-400/30 text-white rounded-lg font-semibold hover:bg-blue-500/40 transition-colors"
                                     >
                                         <span>Explore Now</span>
                                         <svg
@@ -142,13 +116,46 @@ const PricingSection = () => {
                                         </svg>
                                     </motion.button>
                                 </div>
-                            </div>
+                            </CardSpotlight>
                         </motion.div>
                     ))}
                 </motion.div>
 
-                {/* Domain Lookup Card */}
-                
+ <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="mt-6"
+                >
+                    <div className="relative group">
+                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-8 transition-all duration-300 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div className="flex items-center gap-6">
+                                    <div className="inline-flex items-center justify-center text-white  rounded-lg">
+                                        <FaDiscord className="w-10 h-10" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white mb-2">
+                                            JOIN US ON DISCORD
+                                        </h3>
+                                        <p className="text-gray-200">
+                                            Connect with our community, get instant support, and stay updated with the latest news!
+                                        </p>
+                                    </div>
+                                </div>
+                                <Image
+                                    width={192}
+                                    height={192}
+                                    className="h-auto w-48"
+                                    alt="Join us on Discord"
+                                    src="/assets/joinus.png"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+                </motion.div>                
             </div>
         </section>
     )
