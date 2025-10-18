@@ -11,7 +11,7 @@ const Advertisements = () => {
   ]
 
   return (
-    <section className="w-full py-32 ">
+    <section className="w-full pt-32 ">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-20">
           {companies.map((company) => (

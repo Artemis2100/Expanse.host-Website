@@ -34,7 +34,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
-                        className={`bg-gradient-to-r from-purple-400/50 to-purple-400/40 text-white py-2.5 px-4 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md' : ''}`}
+                        className={`bg-gradient-to-r from-blue-400/50 to-blue-400/40 text-white py-2.5 px-4 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md' : ''}`}
                     >
                         <div className="container mx-auto flex items-center justify-center relative">
                             <div className="flex items-center justify-center space-x-2 text-sm md:text-base">
@@ -129,7 +129,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Side Actions */}
-                    <div className="border-2 backdrop-blur-xl rounded-xl border-[#474778]/80 p-2 flex items-center ">
+                    <div className="border-2 backdrop-blur-xl rounded-xl border-blue-400/30 p-2 flex items-center ">
                         {/* Billing Button */}
                         <Link
                             href="/billing"
@@ -144,7 +144,7 @@ const Navbar = () => {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => toggleDropdown('panels')}
-                                className="flex border border-purple-400/20 items-center px-3 py-3 bg-purple-400/40 text-white rounded-lg font-semibold hover:bg-purple-400/60 transition-colors shadow-inner"
+                                className="flex border border-blue-400/20 items-center px-3 py-3 bg-blue-400/40 text-white rounded-lg font-semibold hover:bg-blue-400/60 transition-colors shadow-inner"
                                 style={{ boxShadow: "inset 2px 2px 6px rgba(0,0,0,0.6)" }}
                             >
                                 <svg className="h-6 mr-2 w-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75C2 2.784 2.784 2 3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 20.25 22H9.75a.75.75 0 0 1 0-1.5h10.5a.25.25 0 0 0 .25-.25V9h-17v3A.75.75 0 0 1 2 12ZM9 7.5h11.5V3.75a.25.25 0 0 0-.25-.25H9Zm-5.5 0h4v-4H3.75a.25.25 0 0 0-.25.25Z"></path><path d="m9.308 14.5-2.104-2.236a.75.75 0 1 1 1.092-1.028l3.294 3.5a.75.75 0 0 1 0 1.028l-3.294 3.5a.75.75 0 1 1-1.092-1.028L9.308 16H6.09a2.59 2.59 0 0 0-2.59 2.59v2.66a.75.75 0 0 1-1.5 0v-2.66a4.09 4.09 0 0 1 4.09-4.09h3.218Z"></path></svg>                                <span className="font-medium">PANELS</span>
@@ -159,7 +159,7 @@ const Navbar = () => {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute right-0 mt-6 w-72 bg-black/40 border-2 border-[#474778]/60 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden"
+                                        className="absolute right-0 mt-6 w-72 bg-black/40 border-2 border-blue-400/30 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden"
                                     >
                                         <div className='p-2 space-y-2'>
                                             <motion.div
@@ -173,7 +173,7 @@ const Navbar = () => {
                                                 >
                                                     <div className="flex items-center">
                                                         <div className="w-8 h-8 mr-2  rounded-lg flex items-center text-gray-300 justify-center">
-                                                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" stroke-linejoin="round" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><rect width="7" height="18" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect></svg>
+                                                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><rect width="7" height="18" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect></svg>
                                                         </div>
                                                         <div>
                                                             <div className="text-white text-sm font-semibold  transition-colors">GAME PANEL</div>
@@ -194,7 +194,7 @@ const Navbar = () => {
                                                 >
                                                     <div className="flex items-center">
                                                         <div className="w-8 h-8 mr-2 rounded-lg flex items-center text-gray-300 justify-center">
-                                                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" stroke-linejoin="round" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5"></path><path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5"></path><path d="M6 6h.01"></path><path d="M6 18h.01"></path><path d="m15.7 13.4-.9-.3"></path><path d="m9.2 10.9-.9-.3"></path><path d="m10.6 15.7.3-.9"></path><path d="m13.6 15.7-.4-1"></path><path d="m10.8 9.3-.4-1"></path><path d="m8.3 13.6 1-.4"></path><path d="m14.7 10.8 1-.4"></path><path d="m13.4 8.3-.3.9"></path></svg>                                            </div>
+                                                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5"></path><path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5"></path><path d="M6 6h.01"></path><path d="M6 18h.01"></path><path d="m15.7 13.4-.9-.3"></path><path d="m9.2 10.9-.9-.3"></path><path d="m10.6 15.7.3-.9"></path><path d="m13.6 15.7-.4-1"></path><path d="m10.8 9.3-.4-1"></path><path d="m8.3 13.6 1-.4"></path><path d="m14.7 10.8 1-.4"></path><path d="m13.4 8.3-.3.9"></path></svg>                                            </div>
                                                         <div>
                                                             <div className="text-white text-sm font-semibold  transition-colors">VPS PANEL</div>
                                                             <div className="text-gray-400 text-xs">Manage your VPS server</div>

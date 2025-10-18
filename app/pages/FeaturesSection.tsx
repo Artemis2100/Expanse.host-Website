@@ -2,140 +2,179 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaBolt, FaServer, FaHeadset, FaGamepad, FaCloud, FaShieldAlt } from 'react-icons/fa'
-
+import { FaBolt, FaServer, FaHeadset, FaGamepad, FaCloud, FaShieldAlt, FaDiscord } from 'react-icons/fa'
+import Image
+    from 'next/image'
 export const FeaturesSection = () => {
-  const features = [
-    {
-      icon: <FaBolt className="w-8 h-8" />,
-      title: 'INSTANT ACTIVATION',
-      description: 'NO WAITING, NO DELAYS! YOUR SERVICE IS ACTIVATED IMMEDIATELY AFTER PAYMENT, SO YOU CAN JUMP RIGHT INTO ACTION. YOUR ACCOUNT DETAILS WILL BE EMAILED WITHIN MINUTES.',
-      accent: 'cyan'
-    },
-    {
-      icon: <FaServer className="w-8 h-8" />,
-      title: 'POWERFUL SERVERS',
-      description: 'DOMINATE THE COMPETITION WITH HIGH-SPEED, CUTTING-EDGE HARDWARE OPTIMIZED FOR PEAK PERFORMANCE. ENJOY ZERO LAG, ULTRA-LOW LATENCY, AND A SEAMLESS EXPERIENCE FOR ALL YOUR NEEDS.',
-      accent: 'purple'
-    },
-    {
-      icon: <FaHeadset className="w-8 h-8" />,
-      title: 'SUPPORT 24/7',
-      description: 'GOT A QUESTION? NEED ASSISTANCE? WE\'VE GOT YOUR BACK! OUR TEAM IS AVAILABLE 24/7 VIA EMAIL AND DISCORD FOR IMMEDIATE SUPPORT.',
-      accent: 'purple',
-      buttons: [
-        { label: 'EMAIL US', variant: 'primary' },
-        { label: 'DISCORD', variant: 'secondary' }
-      ]
-    },
-    {
-      icon: <FaGamepad className="w-8 h-8" />,
-      title: 'PREMIUM GAME PANEL',
-      description: 'OUR PTERODACTYL GAME PANEL MAKES MANAGING YOUR SERVER SIMPLE. START, STOP, RESTART, AND CUSTOMIZE YOUR SERVER EASILY, ALL IN ONE PLACE.',
-      accent: 'cyan'
-    },
-    {
-      icon: <FaCloud className="w-8 h-8" />,
-      title: 'REMOTE BACKUPS',
-      description: 'NEVER LOSE YOUR PROGRESS! WE SECURELY BACK UP YOUR DATA TO ENCRYPTED OFFSITE STORAGE, ENSURING YOU CAN RESTORE IT ANYTIME.',
-      accent: 'cyan'
-    },
-    {
-      icon: <FaShieldAlt className="w-8 h-8" />,
-      title: 'SATISFACTION GUARANTEED',
-      description: 'WE\'RE CONFIDENT YOU\'LL LOVE FREAKINHOSTING! THAT\'S WHY WE OFFER A 72-HOUR MONEY-BACK GUARANTEE ON CERTAIN SERVICES. YOUR SATISFACTION IS OUR PRIORITY.',
-      accent: 'purple'
+    const features = [
+        {
+            icon: <FaBolt className="w-8 h-8" />,
+            title: 'INSTANT ACTIVATION',
+            description: 'NO WAITING, NO DELAYS! YOUR SERVICE IS ACTIVATED IMMEDIATELY AFTER PAYMENT, SO YOU CAN JUMP RIGHT INTO ACTION. YOUR ACCOUNT DETAILS WILL BE EMAILED WITHIN MINUTES.',
+            accent: 'cyan'
+        },
+        {
+            icon: <FaServer className="w-8 h-8" />,
+            title: 'POWERFUL SERVERS',
+            description: 'DOMINATE THE COMPETITION WITH HIGH-SPEED, CUTTING-EDGE HARDWARE OPTIMIZED FOR PEAK PERFORMANCE. ENJOY ZERO LAG, ULTRA-LOW LATENCY, AND A SEAMLESS EXPERIENCE FOR ALL YOUR NEEDS.',
+            accent: 'blue'
+        },
+        {
+            icon: <FaHeadset className="w-8 h-8" />,
+            title: 'SUPPORT 24/7',
+            description: 'GOT A QUESTION? NEED ASSISTANCE? WE\'VE GOT YOUR BACK! OUR TEAM IS AVAILABLE 24/7 VIA EMAIL AND DISCORD FOR IMMEDIATE SUPPORT.',
+            accent: 'blue',
+            buttons: [
+                { label: 'EMAIL US', variant: 'primary' },
+                { label: 'DISCORD', variant: 'secondary' }
+            ]
+        },
+        {
+            icon: <FaGamepad className="w-8 h-8" />,
+            title: 'PREMIUM GAME PANEL',
+            description: 'OUR PTERODACTYL GAME PANEL MAKES MANAGING YOUR SERVER SIMPLE. START, STOP, RESTART, AND CUSTOMIZE YOUR SERVER EASILY, ALL IN ONE PLACE.',
+            accent: 'cyan'
+        },
+        {
+            icon: <FaCloud className="w-8 h-8" />,
+            title: 'REMOTE BACKUPS',
+            description: 'NEVER LOSE YOUR PROGRESS! WE SECURELY BACK UP YOUR DATA TO ENCRYPTED OFFSITE STORAGE, ENSURING YOU CAN RESTORE IT ANYTIME.',
+            accent: 'cyan'
+        },
+        {
+            icon: <FaShieldAlt className="w-8 h-8" />,
+            title: 'SATISFACTION GUARANTEED',
+            description: 'WE\'RE CONFIDENT YOU\'LL LOVE FREAKINHOSTING! THAT\'S WHY WE OFFER A 72-HOUR MONEY-BACK GUARANTEE ON CERTAIN SERVICES. YOUR SATISFACTION IS OUR PRIORITY.',
+            accent: 'blue'
+        }
+    ]
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
     }
-  ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut" as const
+            }
+        }
     }
-  }
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut" as const
-      }
-    }
-  }
-
-  return (
-    <section className="w-full py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold text-white mb-12"
-        >
-          What we <br /> <span className='text-purple-300'>Offer</span>?
-        </motion.h2>
-
-        {/* Features Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className="relative group"
-            >
-              <div className="relative h-full   rounded-lg backdrop-blur-sm transition-all duration-300">
-                {/* Icon with accent color */}
-                <div className={`inline-flex items-center justify-center text-purple-300 w-16 h-16 mb-4 rounded-lg`}>
-                  {feature.icon}
-                </div>
-
+    return (
+        <section className="w-full py-24 px-4">
+            <div className="max-w-7xl mx-auto">
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-100 mb-3 tracking-wide">
-                  {feature.title}
-                </h3>
+                <motion.h2
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
+                >
+                    What we <span className='text-blue-300'>Offer</span>?
+                </motion.h2>
 
-                {/* Description */}
-                <p className="text-sm text-gray-400 leading-relaxed mb-4">
-                  {feature.description}
-                </p>
+                {/* Features Grid */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                    {features.map((feature, index) => (
+                        <motion.div
+                            key={index}
+                            variants={cardVariants}
+                            className="relative group"
+                        >
+                            <div className="relative h-full   rounded-lg backdrop-blur-sm transition-all duration-300">
+                                {/* Icon with accent color */}
+                                <div 
+                                style={{ boxShadow: "inset 2px 2px 6px rgba(0,0,0,0.6)" }}
+                                className={`inline-flex items-center bg-blue-400/40 justify-center text-white w-16 h-16 mb-4 rounded-lg`}>
+                                    {feature.icon}
+                                </div>
 
-                {/* Buttons if available */}
-                {feature.buttons && (
-                  <div className="flex gap-3 mt-6">
-                    {feature.buttons.map((button, btnIndex) => (
-                      <button
-                        key={btnIndex}
-                        className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
-                          button.variant === 'primary'
-                            ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30'
-                            : 'bg-transparent text-gray-300 border border-gray-700 hover:border-purple-500/30 hover:text-purple-300'
-                        }`}
-                      >
-                        {button.label}
-                      </button>
+                                {/* Title */}
+                                <h3 className="text-xl font-bold text-gray-100 mb-3 tracking-wide">
+                                    {feature.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                                    {feature.description}
+                                </p>
+
+                                {/* Buttons if available */}
+                                {feature.buttons && (
+                                    <div className="flex gap-3 mt-6">
+                                        {feature.buttons.map((button, btnIndex) => (
+                                            <button
+                                                key={btnIndex}
+                                                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${button.variant === 'primary'
+                                                    ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:bg-blue-500/30'
+                                                    : 'bg-transparent text-gray-300 border border-zinc-700 hover:border-blue-500/30 hover:text-blue-300'
+                                                    }`}
+                                            >
+                                                {button.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
                     ))}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  )
+                </motion.div>
+
+                {/* Discord Card */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="mt-12"
+                >
+                    <div className="relative group">
+                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-8 transition-all duration-300 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div className="flex items-center gap-6">
+                                    <div className="inline-flex items-center justify-center text-white  rounded-lg">
+                                        <FaDiscord className="w-10 h-10" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white mb-2">
+                                            JOIN US ON DISCORD
+                                        </h3>
+                                        <p className="text-gray-200">
+                                            Connect with our community, get instant support, and stay updated with the latest news!
+                                        </p>
+                                    </div>
+                                </div>
+                                <Image
+                                    width={192}
+                                    height={192}
+                                    className="h-auto w-48"
+                                    alt="Join us on Discord"
+                                    src="/assets/joinus.png"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    )
 }
