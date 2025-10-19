@@ -29,14 +29,14 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 relative border-t border-b border-blue-400/5 bg-gradient-to-br from-blue-400/20 to-black/30  p-8 md:p-12 backdrop-blur-sm overflow-hidden"
+          className="mt-12 relative border-t border-b border-muted bg-gradient-to-br from-blue-500/10 to-card/30 p-8 md:p-12 backdrop-blur-sm overflow-hidden"
         >
           <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
             <div className="flex-1">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
                 FIND THE PERFECT DOMAIN
               </h3>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl uppercase tracking-wide ">
+              <p className="text-muted text-sm md:text-base leading-relaxed max-w-xl uppercase tracking-wide">
                 SECURE YOUR IDEAL DOMAIN NAME AND ESTABLISH YOUR ONLINE PRESENCE TODAY. FIND THE PERFECT MATCH FOR YOUR BRAND WITH EASE.
               </p>
             </div>
@@ -45,9 +45,9 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="mydomain.com"
-                  className="w-full bg-black border border-blue-400/30 rounded-xl px-4 py-4 pr-12 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
+                  className="w-full bg-card border border-muted rounded-xl px-4 py-4 pr-12 text-foreground placeholder-muted focus:outline-none focus:border-primary/50 transition-colors"
                 />
-                <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                <button className="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-accent transition-colors">
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -68,8 +68,7 @@ export default function Home() {
                 {['.COM', '.ORG', '.NET', '.SHOP', '.ONLINE', '.LIVE', '.RO'].map((ext) => (
                   <button
                     key={ext}
-                    style={{ boxShadow: "inset 2px 2px 6px rgba(0,0,0,0.6)" }}
-                    className="px-4 py-2 bg-blue-400/40  rounded text-white text-sm font-mono transition-all"
+                    className="px-4 py-2 bg-button rounded text-primary-foreground text-sm font-mono transition-all hover:bg-blue-400/50"
                   >
                     {ext}
                   </button>

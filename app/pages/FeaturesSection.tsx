@@ -74,7 +74,6 @@ export const FeaturesSection = () => {
 
     return (
         <section className="w-full py-24 px-4 relative overflow-hidden">
-                   <Spotlight />
 
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -84,9 +83,9 @@ export const FeaturesSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
+                    className="text-4xl md:text-5xl font-bold text-center text-foreground mb-16"
                 >
-                    What we <span className='text-blue-300'>Offer</span>?
+                    What we <span className='text-accent'>Offer</span>?
                 </motion.h2>
 
                 {/* Features Grid */}
@@ -105,19 +104,18 @@ export const FeaturesSection = () => {
                         >
                             <div className="relative h-full   rounded-lg backdrop-blur-sm transition-all duration-300">
                                 {/* Icon with accent color */}
-                                <div 
-                                style={{ boxShadow: "inset 2px 2px 6px rgba(0,0,0,0.6)" }}
-                                className={`inline-flex items-center bg-blue-400/40 justify-center text-white w-16 h-16 mb-4 rounded-sm`}>
+                                <div
+                                className={`inline-flex items-center bg-button justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)]`}>
                                     {feature.icon}
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-xl font-bold text-gray-100 mb-3 tracking-wide">
+                                <h3 className="text-xl font-bold text-foreground mb-3 tracking-wide">
                                     {feature.title}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                                <p className="text-sm text-muted leading-relaxed mb-4">
                                     {feature.description}
                                 </p>
 
@@ -128,8 +126,8 @@ export const FeaturesSection = () => {
                                             <button
                                                 key={btnIndex}
                                                 className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${button.variant === 'primary'
-                                                    ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:bg-blue-500/30'
-                                                    : 'bg-transparent text-gray-300 border border-zinc-700 hover:border-blue-500/30 hover:text-blue-300'
+                                                    ? 'bg-blue-500/20 text-accent border border-blue-500/30 hover:bg-blue-500/30'
+                                                    : 'bg-transparent text-muted border border-border hover:border-border-accent hover:text-accent'
                                                     }`}
                                             >
                                                 {button.label}

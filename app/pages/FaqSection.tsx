@@ -84,7 +84,7 @@ export const FaqSection = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="text-3xl lg:text-5xl font-bold text-gray-200 mb-4 leading-tight"
+                            className="text-3xl lg:text-5xl font-bold text-foreground mb-4 leading-tight"
                         >
                             Frequently Asked Questions
                         </motion.h2>
@@ -93,7 +93,7 @@ export const FaqSection = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-gray-400 text-base mb-8 leading-relaxed max-w-xl"
+                            className="text-muted text-base mb-8 leading-relaxed max-w-xl"
                         >
                             Hungry for more info? Our FAQ is here to fill the gaps with clear answers to the questions we get asked most.
                         </motion.p>
@@ -104,8 +104,7 @@ export const FaqSection = () => {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="px-6 py-3 bg-blue-400/40 border border-blue-400/20 text-white font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-inner"
-                            style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
+                            className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.2)]"
                         >
                             Join the Discord
                         </motion.button>
@@ -130,10 +129,10 @@ export const FaqSection = () => {
                             >
                                 <button
                                     onClick={() => toggleFaq(index)}
-                                    className="w-full text-left px-6 py-4 bg-black/20 hover:bg-black/30 border border-gray-800/30 rounded-lg transition-all duration-300 group"
+                                    className="w-full text-left px-6 py-4 bg-card hover:bg-card border border-muted rounded-lg transition-all duration-300 group"
                                 >
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-200 group-hover:text-white font-medium pr-4 transition-colors">
+                                        <span className="text-foreground group-hover:text-accent font-medium pr-4 transition-colors">
                                             {faq.question}
                                         </span>
                                         <motion.div
@@ -142,7 +141,7 @@ export const FaqSection = () => {
                                             className="flex-shrink-0"
                                         >
                                             <FaChevronRight className={`w-4 h-4 transition-colors ${
-                                                openIndex === index ? 'text-blue-300' : 'text-gray-500'
+                                                openIndex === index ? 'text-accent' : 'text-muted'
                                             }`} />
                                         </motion.div>
                                     </div>
@@ -157,7 +156,7 @@ export const FaqSection = () => {
                                             transition={{ duration: 0.3 }}
                                             className="overflow-hidden"
                                         >
-                                            <div className="px-6 py-4 text-gray-400 text-base leading-relaxed bg-black/10 border-x border-b border-gray-800/30 rounded-b-lg">
+                                            <div className="px-6 py-4 text-muted text-base leading-relaxed bg-card border-x border-b border-muted rounded-b-lg">
                                                 {faq.answer}
                                             </div>
                                         </motion.div>

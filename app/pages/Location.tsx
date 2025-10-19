@@ -65,11 +65,11 @@ const LocationItem = memo(({ location, index }: { location: typeof locations[0],
                 />
                 <div className="flex-1">
                     <div className="flex items-center gap-2">
-                        <h3 className="text-gray-100 font-semibold text-base">
+                        <h3 className="text-foreground font-semibold text-base">
                             {location.name}
                         </h3>
                     </div>
-                    <p className="text-gray-400 text-sm mt-0.5">
+                    <p className="text-muted text-sm mt-0.5">
                         {location.region}
                     </p>
                 </div>
@@ -172,13 +172,13 @@ export default function LocationsSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-3xl lg:text-5xl font-bold text-gray-200 mb-4 leading-tight">
+                        <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
                             Global Presence,
                             <br />
-                            <span className="text-blue-300">Local Performance</span>
+                            <span className="text-accent">Local Performance</span>
                         </h2>
 
-                        <p className="text-gray-400 text-base mb-8 leading-relaxed max-w-xl">
+                        <p className="text-muted text-base mb-8 leading-relaxed max-w-xl">
                             Our rapidly expanding datacenter network spans across the Americas and Europe,
                             delivering ultra-low latency from anywhere and lightning-fast connections wherever you play.
                         </p>
@@ -187,7 +187,7 @@ export default function LocationsSection() {
                         <div className="grid sm:grid-cols-2 gap-8">
                             {/* Europe Section */}
                             <div>
-                                <h3 className="text-blue-300 text-lg mb-2">Europe</h3>
+                                <h3 className="text-accent text-lg mb-2">Europe</h3>
                                 <div className="space-y-1">
                                     {locations
                                         .filter(loc => loc.region.includes("EU"))
@@ -200,7 +200,7 @@ export default function LocationsSection() {
 
                             {/* Americas Section */}
                             <div>
-                                <h3 className="text-blue-300 text-lg  mb-2">Americas</h3>
+                                <h3 className="text-accent text-lg mb-2">Americas</h3>
                                 <div className="space-y-1">
                                     {locations
                                         .filter(loc => loc.region.includes("US"))

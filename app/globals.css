@@ -4,9 +4,91 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Light mode colors */
   --background: #ffffff;
   --foreground: #171717;
   --hi: rgba(30, 121, 196, 0.123);
+--button: #1972f7a9;
+--button-hover: #3482f7a9;
+  /* Primary colors */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  /* Secondary colors */
+  --secondary: #6b7280;
+  --secondary-foreground: #ffffff;
+
+  /* Accent colors */
+  --accent: #60a5fa;
+  --accent-foreground: #1e293b;
+
+  /* Muted colors */
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+
+  /* Card colors */
+  --card: #fafafa;
+  --card-foreground: #171717;
+
+  /* Border colors */
+  --border: #d7deec;
+  --border-accent: rgba(59, 130, 246, 0.5);
+
+  /* Destructive/Error colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Success colors */
+  --success: #10b981;
+  --success-foreground: #ffffff;
+
+  /* Warning colors */
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+}
+
+.dark {
+  /* Dark mode colors */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+--button: #1d5ab6;
+--button-hover: #3f8afaa9;
+
+  /* Primary colors */
+  --primary: #fafafa;
+  --primary-foreground: #ecebeb;
+
+  /* Secondary colors */
+  --secondary: #374151;
+  --secondary-foreground: #f9fafb;
+
+  /* Accent colors */
+  --accent: #3b82f6;
+  --accent-foreground: #f9fafb;
+
+  /* Muted colors */
+  --muted: #174a91;
+  --muted-foreground: #9ca3af;
+
+  /* Card colors */
+  --card: #111827;
+  --card-foreground: #f9fafb;
+
+  /* Border colors */
+  --border: rgba(22, 77, 165, 0.301);
+  --border-accent: rgba(96, 165, 250, 0.3);
+
+  /* Destructive/Error colors */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  /* Success colors */
+  --success: #059669;
+  --success-foreground: #ffffff;
+
+  /* Warning colors */
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
 }
 
 @theme inline {
@@ -41,13 +123,6 @@
     transform: translateY(calc(-100% - var(--gap)));
     }
   }}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
@@ -109,5 +184,111 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes for theme colors */
+@layer utilities {
+  /* Text colors */
+  .text-primary {
+    color: var(--primary);
+  }
+  .text-primary-foreground {
+    color: var(--primary-foreground);
+  }
+  .text-secondary {
+    color: var(--secondary);
+  }
+  .text-secondary-foreground {
+    color: var(--secondary-foreground);
+  }
+  .text-accent {
+    color: var(--accent);
+  }
+  .text-accent-foreground {
+    color: var(--accent-foreground);
+  }
+  .text-muted {
+    color: var(--muted-foreground);
+  }
+  .text-destructive {
+    color: var(--destructive);
+  }
+  .text-success {
+    color: var(--success);
+  }
+  .text-warning {
+    color: var(--warning);
+  }
+
+  /* Background colors */
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .bg-primary-foreground {
+    background-color: var(--primary-foreground);
+  }
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+  .bg-secondary-foreground {
+    background-color: var(--secondary-foreground);
+  }
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  .bg-accent-foreground {
+    background-color: var(--accent-foreground);
+  }
+  .bg-muted {
+    background-color: var(--muted);
+  }
+  .bg-muted-foreground {
+    background-color: var(--muted-foreground);
+  }
+  .bg-card {
+    background-color: var(--card);
+  }
+  .bg-card-foreground {
+    background-color: var(--card-foreground);
+  }
+  .bg-destructive {
+    background-color: var(--destructive);
+  }
+  .bg-success {
+    background-color: var(--success);
+  }
+  .bg-warning {
+    background-color: var(--warning);
+  }
+  .bg-button {
+        background-color: var(--button);
+  }
+  .bg-button:hover {
+            background-color: var(--button-hover) !important;
+
+  }
+
+  /* Border colors */
+  .border-primary {
+    border-color: var(--primary);
+  }
+  .border-secondary {
+    border-color: var(--secondary);
+  }
+  .border-accent {
+    border-color: var(--border-accent);
+  }
+  .border-muted {
+    border-color: var(--border);
+  }
+  .border-destructive {
+    border-color: var(--destructive);
+  }
+  .border-success {
+    border-color: var(--success);
+  }
+  .border-warning {
+    border-color: var(--warning);
   }
 }

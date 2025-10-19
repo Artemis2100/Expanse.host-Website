@@ -28,22 +28,21 @@ const HeroSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gradient-to-r from-blue-400/30 to-blue-400/10 border border-blue-500/20 rounded-3xl backdrop-blur-sm shadow-inner"
-                    style={{ boxShadow: "inset 0 2px 6px rgba(0, 0, 0, 0.34)" }}
                 >
-                    <span className="inline-flex items-center text-sm md:text-base text-gray-200 font-medium">
-                        <svg className="w-6 text-blue-400 h-6 mr-2" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 25.64l-12.8 12.72 160 160.04 12.8-12.8-160-159.96zm-32 95.96L128 128l-6.4 6.4 160 160 12.8-12.8-160-160zm-96.08 32L25.6 166.4l160 160 12.8-12.8-160.08-160zm314.78 86.6l-29.4 84.1-85.4 26 71 54-1.7 89.2 73.2-50.8 84.4 29.1-25.7-85.3 53.8-71.2-89.1-2-51.1-73.1z"></path></svg>
-                        New VPS lineup released! <span className='underline ml-1 text-blue-300'> Get started</span>
+                    <span className="inline-flex items-center text-sm md:text-base text-foreground dark:text-gray-200 font-medium">
+                        <svg className="w-6 text-primary h-6 mr-2" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 25.64l-12.8 12.72 160 160.04 12.8-12.8-160-159.96zm-32 95.96L128 128l-6.4 6.4 160 160 12.8-12.8-160-160zm-96.08 32L25.6 166.4l160 160 12.8-12.8-160.08-160zm314.78 86.6l-29.4 84.1-85.4 26 71 54-1.7 89.2 73.2-50.8 84.4 29.1-25.7-85.3 53.8-71.2-89.1-2-51.1-73.1z"></path></svg>
+                        New VPS lineup released! <span className='underline ml-1 text-accent'> Get started</span>
                     </span>
-                    <svg stroke="currentColor" fill="currentColor" className="w-3 h-3 text-blue-400/60" strokeWidth="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
+                    <svg stroke="currentColor" fill="currentColor" className="w-3 h-3 text-primary/60" strokeWidth="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                    className="text-gray-200 text-5xl md:text-7xl leading-[1.1] font-bold mb-8"
+                    className="text-foreground text-5xl md:text-7xl leading-[1.1] font-bold mb-8"
                 >
-                    Hosting perfected, <br />that&apos;s <span className='relative inline-block text-blue-300'>
+                    Hosting perfected, <br />that&apos;s <span className='relative inline-block text-accent'>
                         Expanse
 
                     </span>
@@ -52,7 +51,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-gray-400  mb-8"
+                    className="text-lg md:text-xl text-muted mb-8"
                 >
                     Experience lightning-fast performance, rock-solid reliability, and unparalleled support for your web projects.
                 </motion.p>
@@ -66,7 +65,7 @@ const HeroSection = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ duration: 0.2 }}
-                        className="flex border border-blue-400/20 items-center px-8 py-3 bg-blue-400/40 text-white rounded-lg font-semibold hover:bg-blue-400/30 transition-colors shadow-inner"
+                        className="flex border border-blue-400/20 items-center px-8 py-3 bg-button text-primary-foreground rounded-lg font-semibold hover:bg-blue-400/30 transition-colors shadow-inner"
                         style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
                     >
                         <span>View Plans</span>
@@ -86,7 +85,7 @@ const HeroSection = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ duration: 0.2 }}
-                        className="flex items-center px-4 py-3 bg-transparent text-gray-200 font-semibold hover:text-white transition-colors"
+                        className="flex items-center px-4 py-3 bg-transparent text-foreground font-semibold hover:text-accent transition-colors"
                     >
                         <span>Explore dedicated servers</span>
                         <svg

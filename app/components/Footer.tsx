@@ -63,18 +63,18 @@ export const Footer = () => {
             className="lg:col-span-1"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-blue-400/10 p-1.5">
+              <div className="relative w-10 h-10 rounded-lg overflow-hidden  p-1.5">
                 <Image
                   src="/logo.png"
                   alt="Expanse Logo"
-                  width={40}
-                  height={40}
+                  width={48}
+                  height={48}
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-blue-300">Expanse</h3>
+              <h3 className="text-2xl font-bold">Expanse</h3>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-muted text-sm leading-relaxed mb-6">
               Experience lightning-fast performance, rock-solid reliability, and unparalleled support for your web projects.
             </p>
             <div className="flex gap-3">
@@ -85,8 +85,7 @@ export const Footer = () => {
                   aria-label={social.label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center w-10 h-10 bg-blue-400/20 border border-blue-400/20 text-blue-300 rounded-lg hover:bg-blue-400/30 hover:border-blue-400/30 transition-all"
-                  style={{ boxShadow: 'inset 2px 2px 6px rgba(0,0,0,0.2)' }}
+                  className="inline-flex items-center justify-center w-10 h-10 bg-button text-white rounded-lg hover:bg-blue-400/30 hover:border-blue-400/30 transition-all"
                 >
                   {social.icon}
                 </motion.a>
@@ -101,15 +100,15 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-sm font-bold text-blue-300 mb-6 tracking-wider uppercase">Products</h4>
+            <h4 className="text-sm font-bold text-accent mb-6 tracking-wider uppercase">Products</h4>
             <ul className="space-y-3">
               {footerLinks.products.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-blue-300 transition-colors flex items-center gap-2 group"
+                    className="text-muted text-sm hover:text-accent transition-colors flex items-center gap-2 group"
                   >
-                    <span className="text-blue-400/40 group-hover:text-blue-300 transition-colors">
+                    <span className="text-primary/40 group-hover:text-accent transition-colors">
                       {link.icon}
                     </span>
                     {link.label}
@@ -126,15 +125,15 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="text-sm font-bold text-blue-300 mb-6 tracking-wider uppercase">Company</h4>
+            <h4 className="text-sm font-bold text-accent mb-6 tracking-wider uppercase">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-blue-300 transition-colors flex items-center gap-2 group"
+                    className="text-muted text-sm hover:text-accent transition-colors flex items-center gap-2 group"
                   >
-                    <span className="text-blue-400/40 group-hover:text-blue-300 transition-colors">
+                    <span className="text-primary/40 group-hover:text-accent transition-colors">
                       {link.icon}
                     </span>
                     {link.label}
@@ -151,15 +150,15 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h4 className="text-sm font-bold text-blue-300 mb-6 tracking-wider uppercase">Support</h4>
+            <h4 className="text-sm font-bold text-accent mb-6 tracking-wider uppercase">Support</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-blue-300 transition-colors flex items-center gap-2 group"
+                    className="text-muted text-sm hover:text-accent transition-colors flex items-center gap-2 group"
                   >
-                    <span className="text-blue-400/40 group-hover:text-blue-300 transition-colors">
+                    <span className="text-primary/40 group-hover:text-accent transition-colors">
                       {link.icon}
                     </span>
                     {link.label}
@@ -176,28 +175,20 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 mb-8 p-8 md:p-12 rounded-2xl bg-gradient-to-br from-blue-600/20 via-blue-500/10 to-blue-400/20 border border-blue-400/20 relative overflow-hidden"
+          className="mt-12 mb-8 p-6 md:p-12 rounded-2xl bg-card  border border-muted relative overflow-hidden"
         >
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
-              backgroundSize: '32px 32px'
-            }} />
-          </div>
-
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                 Switch to Expanse today
               </h3>
-              <p className="text-gray-300 text-base md:text-lg">
+              <p className="text-muted text-base md:text-lg">
                 We are on a mission to provide affordable server hosting to everyone
               </p>
             </div>
             <motion.button
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors whitespace-nowrap"
+              className="px-8 py-3 bg-button text-primary-foreground font-semibold rounded-lg transition-colors whitespace-nowrap"
             >
               TAKE ME THERE
             </motion.button>
@@ -211,21 +202,21 @@ export const Footer = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="border-t border-blue-400/10 pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <p className="text-gray-500 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} <span className="text-blue-400">Expanse Hosting</span>. All rights reserved.
+          <p className="text-muted text-sm text-center md:text-left">
+            © {new Date().getFullYear()} <span className="text-primary">Expanse Hosting</span>. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
-            <a href="#" className="text-gray-500 text-sm hover:text-blue-300 transition-colors relative group">
+            <a href="#" className="text-muted text-sm hover:text-accent transition-colors relative group">
               Privacy Policy
-              <span className="absolute bottom-0 left-0 w-0 h-px bg-blue-300 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
             </a>
-            <a href="#" className="text-gray-500 text-sm hover:text-blue-300 transition-colors relative group">
+            <a href="#" className="text-muted text-sm hover:text-accent transition-colors relative group">
               Terms of Service
-              <span className="absolute bottom-0 left-0 w-0 h-px bg-blue-300 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
             </a>
-            <a href="#" className="text-gray-500 text-sm hover:text-blue-300 transition-colors relative group">
+            <a href="#" className="text-muted text-sm hover:text-accent transition-colors relative group">
               Cookie Policy
-              <span className="absolute bottom-0 left-0 w-0 h-px bg-blue-300 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
             </a>
           </div>
         </motion.div>

@@ -58,16 +58,17 @@ const PricingSection = () => {
 
     return (
         <section className="relative w-full pt-24 px-4 overflow-hidden">
+                   <Spotlight />
             <div className="relative z-10 max-w-7xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl  md:text-5xl font-bold text-white mb-8 text-left"
+                    className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-left"
                 >
-                    We got what you <span className='text-blue-300'>need</span>
-                    <p className='text-sm text-gray-300 font-medium mt-4'>All available plans that we offer, alot of them right?</p>
+                    We got what <br />  <span className='text-accent'>YOU</span> need.
+                    <p className='text-sm text-muted font-medium mt-4'>All available plans that we offer, alot of them right?</p>
                 </motion.h2>
 
                 {/* Services Grid */}
@@ -86,24 +87,22 @@ const PricingSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                         >
-                            <CardSpotlight
-                                className="h-full flex flex-col bg-gray-800/20 rounded-lg border-blue-400/20"
-                                radius={300}
-                                color="#1e40af"
+                            <div
+                                className="h-full flex flex-col rounded-lg p-4  border border-muted"
                             >
                                 <div className="flex flex-col flex-grow relative z-20">
                                     {/* Icon */}
-                                    <div className="text-blue-400 mb-4">
+                                    <div className="text-primary mb-4">
                                         {service.icon}
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-xl font-bold text-gray-100 mb-3 tracking-wide">
+                                    <h3 className="text-xl font-bold text-foreground mb-3 tracking-wide">
                                         {service.title}
                                     </h3>
 
                                     {/* Description */}
-                                    <p className="text-sm text-gray-400 leading-relaxed mb-6 flex-grow">
+                                    <p className="text-sm text-muted leading-relaxed mb-6 flex-grow">
                                         {service.description}
                                     </p>
 
@@ -112,7 +111,7 @@ const PricingSection = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         transition={{ duration: 0.2 }}
-                                        className="w-full flex items-center justify-center px-6 py-3 bg-blue-500/30 border border-blue-400/30 text-white rounded-lg font-semibold hover:bg-blue-500/40 transition-colors"
+                                        className="w-full flex items-center justify-center px-6 py-3 bg-button border border-blue-400/30 text-primary-foreground rounded-lg font-semibold hover:bg-blue-500/40 transition-colors"
                                     >
                                         <span>Explore Now</span>
                                         <svg
@@ -127,7 +126,7 @@ const PricingSection = () => {
                                         </svg>
                                     </motion.button>
                                 </div>
-                            </CardSpotlight>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -140,7 +139,7 @@ const PricingSection = () => {
                     className="mt-6"
                 >
                     <div className="relative group">
-                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-8 transition-all duration-300 shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
+                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-8 transition-all duration-300 ">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                                 <div className="flex items-center gap-6">
                                     <div className="inline-flex items-center justify-center text-white  rounded-lg">

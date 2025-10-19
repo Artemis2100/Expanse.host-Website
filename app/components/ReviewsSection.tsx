@@ -115,24 +115,24 @@ const ReviewCard = ({
     <figure
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-        "border-blue-400/20 bg-black/20 hover:bg-black/30 transition-colors backdrop-blur-sm"
+        "border-muted bg-card/20 hover:bg-card transition-colors backdrop-blur-sm"
       )}
     >
       <div className="flex flex-row items-center gap-3 mb-3">
         <img className="rounded-full" width="40" height="40" alt={name} src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-semibold text-gray-200">
+          <figcaption className="text-sm font-semibold text-foreground">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-gray-500">{username}</p>
+          <p className="text-xs font-medium text-muted">{username}</p>
         </div>
       </div>
       <div className="flex gap-1 mb-2">
         {Array.from({ length: rating }).map((_, i) => (
-          <FaStar key={i} className="w-3 h-3 text-blue-400" />
+          <FaStar key={i} className="w-3 h-3 text-primary" />
         ))}
       </div>
-      <blockquote className="text-sm text-gray-400 leading-relaxed">{body}</blockquote>
+      <blockquote className="text-sm text-muted leading-relaxed">{body}</blockquote>
     </figure>
   )
 }
@@ -140,12 +140,51 @@ const ReviewCard = ({
 const ReviewsSection = () => {
   return (
     <section className="relative w-full py-24 px-4 overflow-hidden">
-     
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-start gap-12">
-          {/* 3D Marquee Reviews - Left Side */}
-          <div className="relative flex h-[500px] flex-1 flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
+
+          {/* Static Reviews Grid for Mobile - Hidden on Desktop */}
+          <div className="lg:hidden w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+                What Our <span className="text-accent">Customers</span> Say
+              </h2>
+              <p className="text-muted text-base leading-relaxed mb-6">
+                Join thousands of satisfied customers who trust us with their hosting needs
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg  transition-colors shadow-inner flex items-center gap-2"
+              >
+                <FaStar className="w-4 h-4" />
+                Check our Trustpilot
+              </motion.button>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {reviews.slice(0, 6).map((review, index) => (
+                <motion.div
+                  key={review.username}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <ReviewCard {...review} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* 3D Marquee Reviews - Desktop Only */}
+          <div className="hidden lg:flex relative h-[500px] flex-1 flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
             <div
               className="flex flex-row items-center gap-4"
               style={{
@@ -153,53 +192,53 @@ const ReviewsSection = () => {
                   "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
               }}
             >
-            <Marquee pauseOnHover vertical className="[--duration:20s]">
-              {firstRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
-              ))}
-            </Marquee>
-            <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-              {secondRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
-              ))}
-            </Marquee>
-            <Marquee pauseOnHover className="[--duration:20s]" vertical>
-              {thirdRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
-              ))}
-            </Marquee>
-            <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-              {fourthRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
-              ))}
-            </Marquee>
-          </div>
+              <Marquee pauseOnHover vertical className="[--duration:20s]">
+                {firstRow.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+              <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
+                {secondRow.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+              <Marquee pauseOnHover className="[--duration:20s]" vertical>
+                {thirdRow.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+              <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
+                {fourthRow.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+            </div>
 
             {/* Gradient overlays */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-[#0a0a0a]"></div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#0a0a0a]"></div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#0a0a0a]"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#0a0a0a]"></div>
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
           </div>
 
-          {/* Header - Right Side */}
+          {/* Header - Right Side - Desktop Only */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:w-1/3 flex-shrink-0"
+            className="hidden lg:block lg:w-1/3 flex-shrink-0"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-200 mb-4 leading-tight">
-              What Our <span className="text-blue-300">Customers</span> Say
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+              What Our <span className="text-accent">Customers</span> Say
             </h2>
-            <p className="text-gray-400 text-base leading-relaxed mb-6">
+            <p className="text-muted text-base leading-relaxed mb-6">
               Join thousands of satisfied customers who trust us with their hosting needs
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-3 bg-blue-400/40 border border-blue-400/20 text-white font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-inner flex items-center gap-2"
+              className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-inner flex items-center gap-2"
               style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
             >
               <FaStar className="w-4 h-4" />
