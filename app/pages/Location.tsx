@@ -130,23 +130,43 @@ export default function LocationsSection() {
                 location: [location.lat, location.lng] as [number, number],
                 size: 0.08,
             })),
-        onRender: () => {},
+        onRender: () => { },
     }), []);
 
     return (
-        <div className="relative py-6 sm:py-12 md:py-16 overflow-hidden px-4 sm:px-6 lg:px-8">
+        <div className="relative   px-4 sm:px-6 lg:px-8">
             {/* Top border with fade effect */}
-            <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
-                <div
-                    className="h-full w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"
-                    style={{
-                        maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-                        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
-                    }}
-                />
-            </div>
+            <div className="[--color:#3b82f6] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_50%)] my-[-18.8rem] before:absolute before:inset-0 before:h-full before:w-full before:opacity-40 before:[background-image:radial-gradient(circle_at_bottom_center,var(--color),transparent_70%)] after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-blue-500 after:bg-background"></div>
 
-          
+            {/* Blue gradient SVG - Center */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <svg width="1463" height="926" viewBox="0 0 1463 926" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_f_0_1)">
+                        <ellipse cx="887.5" cy="402.5" rx="275.5" ry="102.5" fill={isDark ? "#1665CD" : "#3b82f6"} fillOpacity={isDark ? 0.47 : 0.25} />
+                    </g>
+                    <g filter="url(#filter1_f_0_1)">
+                        <ellipse cx="575.5" cy="523.5" rx="275.5" ry="102.5" fill={isDark ? "#1665CD" : "#3b82f6"} fillOpacity={isDark ? 0.47 : 0.25} />
+                    </g>
+                    <defs>
+                        <filter id="filter0_f_0_1" x="312" y="0" width="1151" height="805" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_0_1" />
+                        </filter>
+                        <filter id="filter1_f_0_1" x="0" y="121" width="1151" height="805" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_0_1" />
+                        </filter>
+                    </defs>
+                </svg>
+
+
+
+
+
+
+            </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -215,7 +235,16 @@ export default function LocationsSection() {
                 </div>
             </div>
 
-            
+            {/* Bottom border with fade effect */}
+            <div className="absolute bottom-0 left-0 right-0 h-px overflow-hidden">
+                <div
+                    className="h-full w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"
+                    style={{
+                        maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+                    }}
+                />
+            </div>
         </div>
     );
 }

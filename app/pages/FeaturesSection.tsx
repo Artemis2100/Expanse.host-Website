@@ -73,7 +73,7 @@ export const FeaturesSection = () => {
     }
 
     return (
-        <section className="w-full py-24 px-4 relative overflow-hidden">
+        <section className="w-full py-24 px-4 relative ">
 
 
             <div className="max-w-7xl mx-auto relative z-10">

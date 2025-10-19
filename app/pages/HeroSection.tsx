@@ -3,17 +3,31 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { BackgroundBeams } from '@/components/ui/background-beams'
 const HeroSection = () => {
     return (
         <div className="relative w-full mt-20 sm:mt-32 md:mt-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
             {/* Background blur effect */}
+            <BackgroundBeams />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
-                <svg width="934" height="584" viewBox="0 0 934 584" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_f_1_31)">
+                <svg width="934" height="584" viewBox="0 0 934 584" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:hidden">
+                    <g filter="url(#filter0_f_1_31_light)">
+                        <ellipse cx="467" cy="292" rx="267" ry="92" fill="#93C5FD" fill-opacity="0.4" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_f_1_31_light" x="0" y="0" width="934" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1_31" />
+                        </filter>
+                    </defs>
+                </svg>
+                <svg width="934" height="584" viewBox="0 0 934 584" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden dark:block">
+                    <g filter="url(#filter0_f_1_31_dark)">
                         <ellipse cx="467" cy="292" rx="267" ry="92" fill="#1665CD" fill-opacity="0.6" />
                     </g>
                     <defs>
-                        <filter id="filter0_f_1_31" x="0" y="0" width="934" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <filter id="filter0_f_1_31_dark" x="0" y="0" width="934" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                             <feFlood flood-opacity="0" result="BackgroundImageFix" />
                             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                             <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1_31" />
