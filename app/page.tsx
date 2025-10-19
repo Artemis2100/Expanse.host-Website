@@ -24,7 +24,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 relative border-t border-b border-blue-400/5 bg-gradient-to-b from-blue-400/20 to-black/30  p-8 md:p-12 backdrop-blur-sm overflow-hidden"
+            className="mt-12 relative border-t border-b border-blue-400/5 bg-gradient-to-br from-blue-400/20 to-black/30  p-8 md:p-12 backdrop-blur-sm overflow-hidden"
           >
             <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
               <div className="flex-1">

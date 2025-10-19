@@ -81,7 +81,7 @@ const PricingSection = () => {
                             transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                         >
                             <CardSpotlight
-                                className="h-full flex flex-col bg-black rounded-xl border-blue-400/20"
+                                className="h-full flex flex-col bg-gray-800/20 rounded-sm border-blue-400/20"
                                 radius={300}
                                 color="#1e40af"
                             >
