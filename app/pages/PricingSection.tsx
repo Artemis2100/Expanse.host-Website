@@ -6,25 +6,31 @@ import { Spotlight } from '@/components/ui/ripple'
 import { CardSpotlight } from '@/components/ui/card-spotlight'
 import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
+import { AiOutlineCloudServer } from "react-icons/ai";
+import { CiServer } from "react-icons/ci";
+
 const PricingSection = () => {
     const services = [
         {
             title: 'Game Hosting',
             description: 'High-performance servers with instant setup, custom control panel, and mod support.',
-            image: '/minecraft.png',
-            accent: 'blue'
+            image: '/creeper.png',
+            accent: 'blue',
+            icon: <Image src="/products/creeper.png" alt="Game Hosting" width={48} height={48} className="w-12 h-auto" />
         },
         {
             title: 'Bare Metal',
             description: 'Dedicated servers with the latest Ryzen processors, DDR5 RAM, and enterprise-grade hardware.',
             image: '/images/bare-metal.jpg',
-            accent: 'blue'
+            accent: 'blue',
+            icon: <CiServer className="w-12 h-auto" />
         },
-          {
+        {
             title: 'Cloud Hosting',
             description: 'Cloud hosting with the latest Intel processors, DDR5 RAM, and enterprise-grade hardware.',
             image: '/images/bare-metal.jpg',
-            accent: 'blue'
+            accent: 'blue',
+            icon: <AiOutlineCloudServer className="w-12 h-auto" />
         }
     ]
 
@@ -70,7 +76,7 @@ const PricingSection = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
                 >
                     {services.map((service, index) => (
                         <motion.div
@@ -81,11 +87,16 @@ const PricingSection = () => {
                             transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                         >
                             <CardSpotlight
-                                className="h-full flex flex-col bg-gray-800/20 rounded-sm border-blue-400/20"
+                                className="h-full flex flex-col bg-gray-800/20 rounded-lg border-blue-400/20"
                                 radius={300}
                                 color="#1e40af"
                             >
                                 <div className="flex flex-col flex-grow relative z-20">
+                                    {/* Icon */}
+                                    <div className="text-blue-400 mb-4">
+                                        {service.icon}
+                                    </div>
+
                                     {/* Title */}
                                     <h3 className="text-xl font-bold text-gray-100 mb-3 tracking-wide">
                                         {service.title}

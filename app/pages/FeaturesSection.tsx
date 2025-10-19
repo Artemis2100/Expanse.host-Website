@@ -107,7 +107,7 @@ export const FeaturesSection = () => {
                                 {/* Icon with accent color */}
                                 <div 
                                 style={{ boxShadow: "inset 2px 2px 6px rgba(0,0,0,0.6)" }}
-                                className={`inline-flex items-center bg-blue-400/40 justify-center text-white w-16 h-16 mb-4 rounded-lg`}>
+                                className={`inline-flex items-center bg-blue-400/40 justify-center text-white w-16 h-16 mb-4 rounded-sm`}>
                                     {feature.icon}
                                 </div>
 

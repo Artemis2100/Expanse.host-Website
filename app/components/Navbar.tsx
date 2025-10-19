@@ -25,7 +25,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <nav className="sticky top-0 z-50">
+        <nav className={`sticky top-0 z-[100] transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-black/80' : 'bg-transparent'}`}>
             {/* Promotional Banner */}
             <AnimatePresence>
                 {showBanner && (
@@ -61,7 +61,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className={`container mx-auto px-4 lg:px-8 pt-4 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-black/20' : ''}`}
+                className="container mx-auto px-4 lg:px-8 pt-4 pb-4"
             >
                 <div className="flex items-center justify-between h-20 relative">
                     {/* Logo */}
