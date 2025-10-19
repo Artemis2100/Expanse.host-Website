@@ -106,11 +106,11 @@ export function Globe({
         const themeConfig = {
             ...config,
             dark: isDark ? 1 : 0,
-            baseColor: isDark ? [0.1, 0.2, 0.3] : [0.8, 0.85, 0.9],
+            baseColor: isDark ? [0.1, 0.2, 0.3] as [number, number, number] : [0.8, 0.85, 0.9] as [number, number, number],
             markerColor: isDark
-                ? [96 / 255, 165 / 255, 250 / 255]  // Light blue for dark mode
-                : [59 / 255, 130 / 255, 246 / 255],  // Darker blue for light mode
-            glowColor: isDark ? [0.1, 0.2, 0.3] : [0.6, 0.7, 0.8],
+                ? [96 / 255, 165 / 255, 250 / 255] as [number, number, number]  // Light blue for dark mode
+                : [59 / 255, 130 / 255, 246 / 255] as [number, number, number],  // Darker blue for light mode
+            glowColor: isDark ? [0.1, 0.2, 0.3] as [number, number, number] : [1, 1, 1] as [number, number, number],
         }
 
         const globe = createGlobe(canvasRef.current!, {

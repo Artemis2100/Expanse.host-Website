@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { memo, useMemo } from "react";
+import { memo, useMemo, useState, useEffect } from "react";
 import { Globe } from "@/components/ui/globe";
 
 const locations = [
@@ -85,6 +85,27 @@ LocationItem.displayName = 'LocationItem';
 
 
 export default function LocationsSection() {
+    const [isDark, setIsDark] = useState(true);
+
+    useEffect(() => {
+        // Check theme on mount and listen for changes
+        const checkTheme = () => {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            setIsDark(isDarkMode);
+        };
+
+        checkTheme();
+
+        // Watch for theme changes
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     const containerVariants = useMemo(() => ({
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0 }
@@ -129,13 +150,13 @@ export default function LocationsSection() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                <svg width="2468" height="1218" viewBox="0 0 2468 1218" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_f_0_1)">
-<ellipse cx="1154" cy="438" rx="664" ry="288" fill="#10468C" fillOpacity="0.08"/>
+<ellipse cx="1154" cy="438" rx="664" ry="288" fill={isDark ? "#10468C" : "#3b82f6"} fillOpacity={isDark ? "0.08" : "0.12"}/>
 </g>
 <g filter="url(#filter1_f_0_1)">
-<ellipse cx="631" cy="870.5" rx="481" ry="197.5" fill="#10468C" fillOpacity="0.06"/>
+<ellipse cx="631" cy="870.5" rx="481" ry="197.5" fill={isDark ? "#10468C" : "#3b82f6"} fillOpacity={isDark ? "0.06" : "0.09"}/>
 </g>
 <g filter="url(#filter2_f_0_1)">
-<ellipse cx="1837" cy="780.5" rx="481" ry="197.5" fill="#10468C" fillOpacity="0.13"/>
+<ellipse cx="1837" cy="780.5" rx="481" ry="197.5" fill={isDark ? "#10468C" : "#3b82f6"} fillOpacity={isDark ? "0.13" : "0.16"}/>
 </g>
 <defs>
 <filter id="filter0_f_0_1" x="340" y="0" width="1628" height="876" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
