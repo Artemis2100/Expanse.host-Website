@@ -2,47 +2,50 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import Image from 'next/image'
 const HeroSection = () => {
     return (
-        <div className="relative w-full mt-40 flex items-center justify-center">
+        <div className="relative w-full mt-20 sm:mt-32 md:mt-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
             {/* Background blur effect */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
-                <svg width="2244" height="1173" viewBox="0 0 2244 1173" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <g filter="url(#filter0_f_130_63)">
-                        <ellipse cx="1122" cy="586.5" rx="972" ry="436.5" fill="#10468C" fillOpacity="0.08"/>
+                <svg width="934" height="584" viewBox="0 0 934 584" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_f_1_31)">
+                        <ellipse cx="467" cy="292" rx="267" ry="92" fill="#1665CD" fill-opacity="0.6" />
                     </g>
                     <defs>
-                        <filter id="filter0_f_130_63" x="0" y="0" width="2244" height="1173" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_130_63"/>
+                        <filter id="filter0_f_1_31" x="0" y="0" width="934" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1_31" />
                         </filter>
                     </defs>
                 </svg>
+
             </div>
 
-            <div className="text-center max-w-3xl relative z-10">
+            <div className="text-center max-w-3xl w-full relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gradient-to-r from-blue-400/30 to-blue-400/10 border border-blue-500/20 rounded-3xl backdrop-blur-sm shadow-inner"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 bg-gradient-to-r from-blue-400/30 to-blue-400/10 border border-blue-500/20 rounded-3xl backdrop-blur-sm shadow-inner"
                 >
-                    <span className="inline-flex items-center text-sm md:text-base text-foreground dark:text-gray-200 font-medium">
-                        <svg className="w-6 text-primary h-6 mr-2" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 25.64l-12.8 12.72 160 160.04 12.8-12.8-160-159.96zm-32 95.96L128 128l-6.4 6.4 160 160 12.8-12.8-160-160zm-96.08 32L25.6 166.4l160 160 12.8-12.8-160.08-160zm314.78 86.6l-29.4 84.1-85.4 26 71 54-1.7 89.2 73.2-50.8 84.4 29.1-25.7-85.3 53.8-71.2-89.1-2-51.1-73.1z"></path></svg>
-                        New VPS lineup released! <span className='underline ml-1 text-accent'> Get started</span>
+                    <span className="inline-flex items-center text-xs sm:text-sm md:text-base text-foreground dark:text-gray-200 font-medium">
+                        <svg className="w-4 sm:w-5 md:w-6 text-primary h-4 sm:h-5 md:h-6 mr-1.5 sm:mr-2 flex-shrink-0" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 25.64l-12.8 12.72 160 160.04 12.8-12.8-160-159.96zm-32 95.96L128 128l-6.4 6.4 160 160 12.8-12.8-160-160zm-96.08 32L25.6 166.4l160 160 12.8-12.8-160.08-160zm314.78 86.6l-29.4 84.1-85.4 26 71 54-1.7 89.2 73.2-50.8 84.4 29.1-25.7-85.3 53.8-71.2-89.1-2-51.1-73.1z"></path></svg>
+                        <span className="hidden xs:inline">New VPS lineup released!</span>
+                        <span className="xs:hidden">New VPS lineup!</span>
+                        <span className='underline ml-1 text-accent'> Get started</span>
                     </span>
-                    <svg stroke="currentColor" fill="currentColor" className="w-3 h-3 text-primary/60" strokeWidth="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
+                    <svg stroke="currentColor" fill="currentColor" className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-primary/60 flex-shrink-0" strokeWidth="0" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                    className="text-foreground text-5xl md:text-7xl leading-[1.1] font-bold mb-8"
+                    className="text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] font-bold mb-4 sm:mb-6 md:mb-8"
                 >
-                    Hosting perfected, <br />that&apos;s <span className='relative inline-block text-accent'>
+                    Hosting perfected, <br className="hidden xs:block" />that&apos;s <span className='relative inline-block text-accent'>
                         Expanse
 
                     </span>
@@ -51,7 +54,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-muted mb-8"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl text-muted mb-6 sm:mb-8 px-2 sm:px-0"
                 >
                     Experience lightning-fast performance, rock-solid reliability, and unparalleled support for your web projects.
                 </motion.p>
@@ -59,37 +62,34 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-                    className="flex items-center justify-center gap-2"
+                    className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2"
                 >
                     <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ duration: 0.2 }}
-                        className="flex border border-blue-400/20 items-center px-8 py-3 bg-button text-primary-foreground rounded-lg font-semibold hover:bg-blue-400/30 transition-colors shadow-inner"
+                        className="w-full sm:w-auto flex border border-blue-400/20 items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 bg-button text-primary-foreground rounded-xl font-medium hover:bg-blue-400/30 transition-colors shadow-inner text-sm sm:text-base"
                         style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
                     >
-                        <span>View Plans</span>
-                        <svg
-                            className="ml-2 w-5 h-5"
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth="0"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-                        </svg>
+                        <Image 
+                        alt="logo"
+                        width={32}
+                        height={32}
+                        className='mr-2 invert brightness-0'
+                        src="/logo.png" />
+                        <span>Get Started Today</span>
                     </motion.button>
 
                     <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ duration: 0.2 }}
-                        className="flex items-center px-4 py-3 bg-transparent text-foreground font-semibold hover:text-accent transition-colors"
+                        className="w-full sm:w-auto flex items-center justify-center px-4 py-2.5 sm:py-3 bg-transparent text-foreground font-semibold hover:text-accent transition-colors text-sm sm:text-base"
                     >
-                        <span>Explore dedicated servers</span>
+                        <span className="hidden sm:inline">Explore dedicated servers</span>
+                        <span className="sm:hidden">Dedicated servers</span>
                         <svg
-                            className="ml-2 w-5 h-5"
+                            className="ml-2 w-4 sm:w-5 h-4 sm:h-5"
                             stroke="currentColor"
                             fill="currentColor"
                             strokeWidth="0"

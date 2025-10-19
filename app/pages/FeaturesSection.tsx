@@ -6,6 +6,7 @@ import { FaBolt, FaServer, FaHeadset, FaGamepad, FaCloud, FaShieldAlt, FaDiscord
 import Image
     from 'next/image'
 import { Spotlight } from '@/components/ui/ripple'
+import { Ripple } from '@/components/ui/background-ripple-effect'
 export const FeaturesSection = () => {
     const features = [
         {
@@ -26,8 +27,7 @@ export const FeaturesSection = () => {
             description: 'GOT A QUESTION? NEED ASSISTANCE? WE\'VE GOT YOUR BACK! OUR TEAM IS AVAILABLE 24/7 VIA EMAIL AND DISCORD FOR IMMEDIATE SUPPORT.',
             accent: 'blue',
             buttons: [
-                { label: 'EMAIL US', variant: 'primary' },
-                { label: 'DISCORD', variant: 'secondary' }
+                { label: 'DISCORD', variant: 'primary' },
             ]
         },
         {
@@ -86,6 +86,7 @@ export const FeaturesSection = () => {
                     className="text-4xl md:text-5xl font-bold text-center text-foreground mb-16"
                 >
                     What we <span className='text-accent'>Offer</span>?
+                    <p className='text-muted leading-relaxed max-w-xl mx-auto text-sm sm:text-base mt-4 font-light'>Built by devs, for devs. Every feature is designed to keep your server running smooth, secure, and stress-free.</p>
                 </motion.h2>
 
                 {/* Features Grid */}
@@ -102,7 +103,7 @@ export const FeaturesSection = () => {
                             variants={cardVariants}
                             className="relative group"
                         >
-                            <div className="relative h-full   rounded-lg backdrop-blur-sm transition-all duration-300">
+                            <div className="relative h-full p-2  rounded-lg backdrop-blur-sm transition-all duration-300">
                                 {/* Icon with accent color */}
                                 <div
                                 className={`inline-flex items-center bg-button justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)]`}>
@@ -121,11 +122,11 @@ export const FeaturesSection = () => {
 
                                 {/* Buttons if available */}
                                 {feature.buttons && (
-                                    <div className="flex gap-3 mt-6">
+                                    <div className="flex gap-3 mt-2">
                                         {feature.buttons.map((button, btnIndex) => (
                                             <button
                                                 key={btnIndex}
-                                                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${button.variant === 'primary'
+                                                className={`px-4 py-2 text-sm font-semibold rounded-sm transition-all duration-200 ${button.variant === 'primary'
                                                     ? 'bg-blue-500/20 text-accent border border-blue-500/30 hover:bg-blue-500/30'
                                                     : 'bg-transparent text-muted border border-border hover:border-border-accent hover:text-accent'
                                                     }`}

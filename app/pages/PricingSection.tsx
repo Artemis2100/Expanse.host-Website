@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
 import { AiOutlineCloudServer } from "react-icons/ai";
 import { CiServer } from "react-icons/ci";
-
+import { Ripple } from '@/components/ui/background-ripple-effect'
 const PricingSection = () => {
     const services = [
         {
@@ -57,18 +57,18 @@ const PricingSection = () => {
     }
 
     return (
-        <section className="relative w-full pt-24 px-4 overflow-hidden">
-                   <Spotlight />
+        <section className="relative w-full  px-4 ">
+            <div className="[--color:#3b82f6] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_50%)] my-[-18.8rem] before:absolute before:inset-0 before:h-full before:w-full before:opacity-40 before:[background-image:radial-gradient(circle_at_bottom_center,var(--color),transparent_70%)] after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-blue-500 after:bg-background"></div>
             <div className="relative z-10 max-w-7xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-left"
+                    className="text-3xl sm:text-4xl md:text-5xl mt-8 sm:mt-12 md:mt-16 font-bold text-foreground mb-6 sm:mb-8 text-left px-2 sm:px-0"
                 >
                     We got what <br />  <span className='text-accent'>YOU</span> need.
-                    <p className='text-sm text-muted font-medium mt-4'>All available plans that we offer, alot of them right?</p>
+                    <p className='text-xs sm:text-sm text-muted font-medium mt-3 sm:mt-4'>All available plans that we offer, alot of them right?</p>
                 </motion.h2>
 
                 {/* Services Grid */}
@@ -77,7 +77,7 @@ const PricingSection = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
                 >
                     {services.map((service, index) => (
                         <motion.div
@@ -88,21 +88,24 @@ const PricingSection = () => {
                             transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                         >
                             <div
-                                className="h-full flex flex-col rounded-lg p-4  border border-muted"
+                                className="h-full flex flex-col rounded-xl  border border-muted"
                             >
-                                <div className="flex flex-col flex-grow relative z-20">
+
+                                <div className="flex flex-col flex-grow  rounded-xl relative z-20">
+                                <Ripple />
+                                 <div className="p-4 sm:p-6 rounded-xl">
                                     {/* Icon */}
                                     <div className="text-primary mb-4">
                                         {service.icon}
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-xl font-bold text-foreground mb-3 tracking-wide">
+                                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 tracking-wide">
                                         {service.title}
                                     </h3>
 
                                     {/* Description */}
-                                    <p className="text-sm text-muted leading-relaxed mb-6 flex-grow">
+                                    <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4 sm:mb-6 flex-grow">
                                         {service.description}
                                     </p>
 
@@ -111,11 +114,11 @@ const PricingSection = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         transition={{ duration: 0.2 }}
-                                        className="w-full flex items-center justify-center px-6 py-3 bg-button border border-blue-400/30 text-primary-foreground rounded-lg font-semibold hover:bg-blue-500/40 transition-colors"
+                                        className="w-full flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-button border border-blue-400/30 text-primary-foreground rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-500/40 transition-colors"
                                     >
                                         <span>Explore Now</span>
                                         <svg
-                                            className="ml-2 w-5 h-5"
+                                            className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
                                             stroke="currentColor"
                                             fill="currentColor"
                                             strokeWidth="0"
@@ -125,6 +128,7 @@ const PricingSection = () => {
                                             <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
                                         </svg>
                                     </motion.button>
+                                </div>
                                 </div>
                             </div>
                         </motion.div>
@@ -136,20 +140,20 @@ const PricingSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="mt-6"
+                    className="mt-6 sm:mt-8"
                 >
                     <div className="relative group">
-                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-8 transition-all duration-300 ">
-                            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                                <div className="flex items-center gap-6">
-                                    <div className="inline-flex items-center justify-center text-white  rounded-lg">
-                                        <FaDiscord className="w-10 h-10" />
+                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-all duration-300 ">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+                                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">
+                                    <div className="inline-flex items-center justify-center text-white rounded-lg flex-shrink-0">
+                                        <FaDiscord className="w-8 h-8 sm:w-10 sm:h-10" />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-bold text-white mb-2">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                                             JOIN US ON DISCORD
                                         </h3>
-                                        <p className="text-gray-200">
+                                        <p className="text-sm sm:text-base text-gray-200">
                                             Connect with our community, get instant support, and stay updated with the latest news!
                                         </p>
                                     </div>
@@ -157,7 +161,7 @@ const PricingSection = () => {
                                 <Image
                                     width={192}
                                     height={192}
-                                    className="h-auto w-48"
+                                    className="h-auto w-32 sm:w-40 md:w-48 flex-shrink-0"
                                     alt="Join us on Discord"
                                     src="/assets/joinus.png"
                                 />

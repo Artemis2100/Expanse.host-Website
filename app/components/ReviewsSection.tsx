@@ -114,7 +114,8 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-full sm:w-64 cursor-pointer overflow-hidden rounded-xl border p-4"
+,
         "border-muted bg-card/20 hover:bg-card transition-colors backdrop-blur-sm"
       )}
     >
