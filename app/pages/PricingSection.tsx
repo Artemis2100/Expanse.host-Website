@@ -139,10 +139,10 @@ const PricingSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="mt-6 sm:mt-8"
+                    className="mt-4 sm:mt-6"
                 >
                     <div className="relative group">
-                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-all duration-300 ">
+                        <div className="relative h-full bg-[#5865f2] rounded-lg backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-all duration-300">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
                                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">
                                     <div className="inline-flex items-center justify-center text-white rounded-lg flex-shrink-0">

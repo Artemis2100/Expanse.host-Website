@@ -1,0 +1,37 @@
+[
+  {
+    "id": "de",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "countryCode": "DE",
+    "flag": "/flags/germany.png"
+  },
+  {
+    "id": "us",
+    "city": "New York",
+    "country": "United States",
+    "countryCode": "USA",
+    "flag": "/flags/usa.png"
+  },
+  {
+    "id": "sg",
+    "city": "Singapore",
+    "country": "Singapore",
+    "countryCode": "SG",
+    "flag": "/flags/singapore.png"
+  },
+  {
+    "id": "my",
+    "city": "Johor Bahru",
+    "country": "Malaysia",
+    "countryCode": "MY",
+    "flag": "/flags/singapore.png"
+  },
+  {
+    "id": "in",
+    "city": "Mumbai",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "/flags/india.png"
+  }
+]
