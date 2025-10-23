@@ -2,9 +2,65 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Menu, X } from 'lucide-react'
 import Image from "next/image"
 import { motion, AnimatePresence } from 'framer-motion'
+
+/**
+ * NAVIGATION CONFIGURATION
+ *
+ * Easy to manage navigation links and dropdowns!
+ *
+ * HOW TO ADD A DROPDOWN MENU:
+ * {
+ *   label: 'MENU NAME',
+ *   items: [
+ *     { label: 'Submenu Item', href: '/path', description: 'Optional description' },
+ *     { label: 'Another Item', href: '/path2' }
+ *   ]
+ * }
+ *
+ * HOW TO ADD A SIMPLE LINK:
+ * {
+ *   label: 'LINK NAME',
+ *   href: '/path'
+ * }
+ *
+ * To remove a link/dropdown: Simply delete its entry from the array below
+ */
+
+type NavLink = {
+    label: string
+    href?: string
+    items?: { label: string; href: string; description?: string }[]
+}
+
+const navigationConfig: NavLink[] = [
+    {
+        label: 'GAME SERVERS',
+        items: [
+            { label: 'Minecraft', href: '/games/minecraft', description: 'Java & Bedrock hosting' },
+        ]
+    },
+    {
+        label: 'OTHER SERVERS',
+        items: [
+            { label: 'VPS', href: '/vps', description: 'Virtual private servers' },
+            { label: 'Dedicated', href: '/dedicated', description: 'Bare metal servers' },
+        ]
+    },
+    {
+        label: 'INFRASTRUCTURE',
+        href: '/infrastructure'
+    },
+    {
+        label: 'SUPPORT',
+        items: [
+            { label: 'Contact Us', href: '/contact', description: 'Get in touch' },
+            { label: 'Discord', href: 'https://discord.gg/example', description: 'Join our community' },
+        ]
+    },
+]
 
 const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -24,6 +80,11 @@ const Navbar = () => {
         localStorage.setItem('theme', newTheme)
     }
 
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false)
+        setActiveDropdown(null)
+    }
+
     React.useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20)
@@ -41,6 +102,34 @@ const Navbar = () => {
 
         setTheme(initialTheme)
         document.documentElement.classList.toggle('dark', initialTheme === 'dark')
+    }, [])
+
+    // Close mobile menu on escape key and prevent scroll
+    React.useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu()
+            }
+        }
+
+        if (isMobileMenuOpen) {
+            document.addEventListener('keydown', handleEscape)
+            document.body.style.overflow = 'hidden'
+            document.documentElement.style.overflowX = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape)
+            document.body.style.overflow = ''
+        }
+    }, [isMobileMenuOpen])
+
+    // Prevent horizontal scroll at all times
+    React.useEffect(() => {
+        document.documentElement.style.overflowX = 'hidden'
+        document.body.style.overflowX = 'hidden'
     }, [])
 
     return (
@@ -82,13 +171,14 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-3 sm:pb-4"
+                className="w-full px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-3 sm:pb-4 overflow-visible"
             >
-                <div className="flex items-center justify-between h-16 sm:h-20 relative">
+                <div className="flex items-center justify-between gap-2 sm:gap-4 h-16 sm:h-20 w-full max-w-[1400px] mx-auto relative">
                     {/* Logo */}
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.2 }}
+                        className="flex-shrink-0 z-10"
                     >
                         <Link href="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
                         <Image
@@ -98,55 +188,99 @@ const Navbar = () => {
                             src="/logo.png"
                             className="w-10 h-10 sm:w-12 sm:h-12" />
                             <div className="flex flex-col">
-                                <span className="text-foreground font-bold text-lg sm:text-xl tracking-tight">EXPANSE</span>
+                                <span className="text-foreground font-bold text-base sm:text-lg lg:text-xl tracking-tight whitespace-nowrap">EXPANSE</span>
                             </div>
                         </Link>
                     </motion.div>
 
-                    {/* Navigation Menu */}
-                    <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 transform -translate-x-1/2">
-                        {/* Game Servers */}
-                        <div className="relative">
-                            <button
-                                onClick={() => toggleDropdown('game')}
-                                className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
-                            >
-                                <span className="font-medium">GAME SERVERS</span>
-                                <ChevronDown className="w-4 h-4" />
-                            </button>
-                        </div>
+                    {/* Desktop Navigation Menu */}
+                    <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
+                        {navigationConfig.map((navItem, index) => (
+                            <div key={index} className="relative">
+                                {navItem.items ? (
+                                    // Dropdown menu
+                                    <>
+                                        <button
+                                            onClick={() => toggleDropdown(navItem.label)}
+                                            className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
+                                        >
+                                            <span className="font-medium">{navItem.label}</span>
+                                            <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === navItem.label ? 'rotate-180' : ''}`} />
+                                        </button>
 
-                        {/* Other Servers */}
-                        <div className="relative">
-                            <button
-                                onClick={() => toggleDropdown('other')}
-                                className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
-                            >
-                                <span className="font-medium">OTHER SERVERS</span>
-                                <ChevronDown className="w-4 h-4" />
-                            </button>
-                        </div>
-
-                        {/* Support */}
-                        <div className="relative">
-                            <button
-                                onClick={() => toggleDropdown('support')}
-                                className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
-                            >
-                                <span className="font-medium">SUPPORT</span>
-                                <ChevronDown className="w-4 h-4" />
-                            </button>
-                        </div>
+                                        {/* Dropdown Content */}
+                                        <AnimatePresence>
+                                            {activeDropdown === navItem.label && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="absolute left-0 mt-2 w-64 bg-card border-2 border-blue-400/30 backdrop-blur-xl rounded-lg shadow-2xl overflow-hidden z-[150]"
+                                                    onMouseLeave={() => setActiveDropdown(null)}
+                                                >
+                                                    <div className="p-2">
+                                                        {navItem.items.map((item, idx) => (
+                                                            <motion.div
+                                                                key={idx}
+                                                                initial={{ opacity: 0, x: -10 }}
+                                                                animate={{ opacity: 1, x: 0 }}
+                                                                transition={{ delay: idx * 0.05 }}
+                                                            >
+                                                                <Link
+                                                                    href={item.href}
+                                                                    onClick={() => setActiveDropdown(null)}
+                                                                    className="block p-3 rounded-lg hover:bg-accent/10 transition-colors group"
+                                                                >
+                                                                    <div className="text-foreground text-sm font-semibold group-hover:text-accent transition-colors">
+                                                                        {item.label}
+                                                                    </div>
+                                                                    {item.description && (
+                                                                        <div className="text-muted text-xs mt-1">
+                                                                            {item.description}
+                                                                        </div>
+                                                                    )}
+                                                                </Link>
+                                                            </motion.div>
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </>
+                                ) : (
+                                    // Simple link
+                                    <Link
+                                        href={navItem.href || '#'}
+                                        className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
+                                    >
+                                        <span className="font-medium">{navItem.label}</span>
+                                    </Link>
+                                )}
+                            </div>
+                        ))}
                     </div>
 
                     {/* Right Side Actions */}
-                    <div className="border-2 backdrop-blur-xl rounded-xl border-blue-400/30 p-1.5 sm:p-2 flex items-center gap-1.5 sm:gap-2">
-                        {/* Theme Toggle Button */}
+                    <div className="border-2 backdrop-blur-xl rounded-xl border-blue-400/30 p-1.5 sm:p-2 flex items-center gap-1.5 sm:gap-2 flex-shrink-0 z-10">
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
+                            aria-label="Toggle mobile menu"
+                        >
+                            {isMobileMenuOpen ? (
+                                <X className="w-6 h-6" />
+                            ) : (
+                                <Menu className="w-6 h-6" />
+                            )}
+                        </button>
+                        {/* Theme Toggle Button - Hidden on mobile */}
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={toggleTheme}
-                            className="flex items-center justify-center p-2 sm:p-3 text-foreground hover:bg-muted rounded-lg transition-colors"
+                            className="hidden sm:flex items-center justify-center p-2 sm:p-3 text-foreground hover:bg-muted rounded-lg transition-colors"
                             aria-label="Toggle theme"
                         >
                             {theme === 'dark' ? (
@@ -160,10 +294,10 @@ const Navbar = () => {
                             )}
                         </motion.button>
 
-                       
 
-                        {/* Panels Button */}
-                        <div className="relative">
+
+                        {/* Panels Button - Hidden on mobile */}
+                        <div className="relative hidden sm:block">
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
@@ -183,7 +317,7 @@ const Navbar = () => {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute right-0 mt-3 sm:mt-6 w-64 sm:w-72 bg-black/40 border-2 border-blue-400/30 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden z-50"
+                                        className="absolute right-0 mt-3 sm:mt-6 w-64 sm:w-72 bg-black/40 border-2 border-blue-400/30 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden z-[150]"
                                     >
                                         <div className='p-2 space-y-2'>
                                             <motion.div
@@ -235,6 +369,185 @@ const Navbar = () => {
                     </div>
                 </div>
             </motion.div>
+
+            {/* Mobile Sidebar */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+                            onClick={closeMobileMenu}
+                        />
+
+                        {/* Sidebar */}
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed right-0 top-0 bottom-0 w-[85vw] max-w-[320px] bg-background border-l-2 border-blue-400/30 shadow-2xl z-50 overflow-y-auto lg:hidden"
+                        >
+                            <div className="p-4 sm:p-6">
+                                {/* Close Button */}
+                                <div className="flex justify-between items-center mb-8">
+                                    <div className="flex items-center space-x-2">
+                                        <Image
+                                            width={40}
+                                            height={40}
+                                            alt="logo"
+                                            src="/logo.png"
+                                            className="w-10 h-10"
+                                        />
+                                        <span className="text-foreground font-bold text-xl">EXPANSE</span>
+                                    </div>
+                                    <button
+                                        onClick={closeMobileMenu}
+                                        className="p-2 text-foreground hover:text-accent transition-colors"
+                                        aria-label="Close menu"
+                                    >
+                                        <X className="w-6 h-6" />
+                                    </button>
+                                </div>
+
+                                {/* Navigation Links */}
+                                <nav className="space-y-2">
+                                    {navigationConfig.map((navItem, index) => (
+                                        <div key={index}>
+                                            {navItem.items ? (
+                                                // Expandable dropdown section
+                                                <div className="border-b border-muted pb-2 mb-2">
+                                                    <button
+                                                        onClick={() => toggleDropdown(navItem.label)}
+                                                        className="w-full flex items-center justify-between p-3 text-foreground hover:text-accent transition-colors"
+                                                    >
+                                                        <span className="font-semibold">{navItem.label}</span>
+                                                        <ChevronDown
+                                                            className={`w-5 h-5 transition-transform ${
+                                                                activeDropdown === navItem.label ? 'rotate-180' : ''
+                                                            }`}
+                                                        />
+                                                    </button>
+
+                                                    <AnimatePresence>
+                                                        {activeDropdown === navItem.label && (
+                                                            <motion.div
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: 'auto', opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                                transition={{ duration: 0.2 }}
+                                                                className="overflow-hidden"
+                                                            >
+                                                                <div className="pl-4 space-y-1 mt-2">
+                                                                    {navItem.items.map((item, idx) => (
+                                                                        <Link
+                                                                            key={idx}
+                                                                            href={item.href}
+                                                                            onClick={closeMobileMenu}
+                                                                            className="block p-3 rounded-lg hover:bg-accent/10 transition-colors group"
+                                                                        >
+                                                                            <div className="text-foreground text-sm font-medium group-hover:text-accent transition-colors">
+                                                                                {item.label}
+                                                                            </div>
+                                                                            {item.description && (
+                                                                                <div className="text-muted text-xs mt-1">
+                                                                                    {item.description}
+                                                                                </div>
+                                                                            )}
+                                                                        </Link>
+                                                                    ))}
+                                                                </div>
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+                                            ) : (
+                                                // Simple link
+                                                <Link
+                                                    href={navItem.href || '#'}
+                                                    onClick={closeMobileMenu}
+                                                    className="block p-3 text-foreground hover:text-accent transition-colors font-semibold border-b border-muted"
+                                                >
+                                                    {navItem.label}
+                                                </Link>
+                                            )}
+                                        </div>
+                                    ))}
+                                </nav>
+
+                                {/* Theme Toggle in Mobile */}
+                                <div className=" ">
+                                    <button
+                                        onClick={toggleTheme}
+                                        className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-accent/10 transition-colors"
+                                    >
+                                        <span className="text-foreground font-semibold">Theme</span>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-muted text-sm">{theme === 'dark' ? 'Dark' : 'Light'}</span>
+                                            {theme === 'dark' ? (
+                                                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                                </svg>
+                                            ) : (
+                                                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                            )}
+                                        </div>
+                                    </button>
+                                </div>
+
+                                {/* Panel Links in Mobile */}
+                                <div className="mt-4 pt-4 border-t border-muted">
+                                    <div className="space-y-3">
+                                        <Link
+                                            href="/panel/starbase"
+                                            onClick={closeMobileMenu}
+                                            className="flex items-center p-3 bg-accent/10 border border-accent rounded-xl hover:bg-accent/20 transition-colors"
+                                        >
+                                            <div className="w-8 h-8 mr-3 flex items-center text-accent justify-center">
+                                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="7" height="18" x="3" y="3" rx="1"></rect>
+                                                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                                                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div className="text-foreground text-sm font-semibold">GAME PANEL</div>
+                                                <div className="text-muted text-xs">Manage your game server</div>
+                                            </div>
+                                        </Link>
+
+                                        <Link
+                                            href="/panel/vps"
+                                            onClick={closeMobileMenu}
+                                            className="flex items-center p-3 bg-accent/10 border border-accent rounded-xl hover:bg-accent/20 transition-colors"
+                                        >
+                                            <div className="w-8 h-8 mr-3 flex items-center text-accent justify-center">
+                                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                    <path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5"></path>
+                                                    <path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5"></path>
+                                                    <path d="M6 6h.01"></path>
+                                                    <path d="M6 18h.01"></path>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div className="text-foreground text-sm font-semibold">VPS PANEL</div>
+                                                <div className="text-muted text-xs">Manage your VPS server</div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </nav>
     )
 }

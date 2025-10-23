@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { Marquee } from '@/components/ui/marquee'
 import { FaStar } from 'react-icons/fa'
+import Image from 'next/image'
 
 const reviews = [
   {
@@ -120,7 +121,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-3 mb-3">
-        <img className="rounded-full" width="40" height="40" alt={name} src={img} />
+        <Image className="rounded-full" width={40} height={40} alt={name} src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-semibold text-foreground">
             {name}
