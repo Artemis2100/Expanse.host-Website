@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useMemo, memo, useEffect, useRef } from "react";
-import { FiCpu, FiHardDrive, FiShield, FiServer, FiChevronDown } from "react-icons/fi";
+import { FiCpu, FiHardDrive, FiShield, FiServer, FiChevronDown, FiFilter } from "react-icons/fi";
 import { BiNetworkChart } from "react-icons/bi";
 import { Ripple } from "@/components/ui/background-ripple-effect";
 import Image from "next/image";
@@ -79,10 +79,11 @@ const CPUDropdown = memo(({
     };
 
     const getCPUImage = (cpu: string) => {
-        if (cpu === "all") return "/cpu/ryzen9.png";
+        if (cpu === "all") return "/cpu/intel.png";
         if (cpu.includes("Ryzen 9 7950X")) return "/cpu/ryzen9.png";
         if (cpu.includes("Ryzen 9 5950X")) return "/cpu/ryzen9.png";
-        if (cpu.includes("EPYC")) return "/cpu/intel.png";
+        if (cpu.includes("Intel")) return "/cpu/intel.png";
+        if (cpu.includes("EPYC")) return "/cpu/epyc.png";
         return "/cpu/ryzen9.png";
     };
 
@@ -101,7 +102,7 @@ const CPUDropdown = memo(({
                     e.stopPropagation();
                     setIsOpen(!isOpen);
                 }}
-                className="w-full sm:w-64 px-4 py-2.5 sm:py-3 backdrop-blur-sm bg-card border border-muted rounded-lg text-foreground text-sm hover:border-accent focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all flex items-center justify-between gap-3"
+                className="w-full sm:w-64 px-4 py-2.5 sm:py-2.5 backdrop-blur-sm bg-card border border-muted rounded text-foreground text-sm hover:border-accent focus:outline-none transition-all flex items-center justify-between gap-3"
             >
                 <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                     <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-sm overflow-hidden flex-shrink-0">
@@ -173,57 +174,65 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-            className="relative h-full"
+            transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+            className="relative w-full"
         >
             {/* Badge */}
             {plan.badge && (
                 <div className="absolute -top-3 left-6 z-10">
-                    <span className="px-3 py-1 text-xs font-bold bg-accent text-accent-foreground rounded-md shadow-lg">
+                    <span className="px-4 py-1.5 text-xs font-bold bg-white dark:bg-black border border-muted text-accent-foreground rounded ">
                         {plan.badge}
                     </span>
                 </div>
             )}
 
-            {/* Card */}
-            <div className="h-full flex flex-col rounded-xl border border-muted hover:border-accent/50 transition-all duration-300">
-                <div className="flex flex-col flex-grow rounded-xl relative z-50">
-                    <Ripple />
-                    <div className="p-4 sm:p-5 md:p-6 rounded-xl">
-                        {/* Header */}
-                        <div className="flex flex-col xs:flex-row items-start xs:justify-between mb-4 gap-3 xs:gap-2">
-                            <div className="flex-1">
-                                <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 tracking-wide">
-                                    {plan.name}
-                                </h3>
-                                <div className="flex flex-wrap items-center gap-2 mb-1">
-                                    <span className={`text-xs font-medium ${statusColors[plan.status]}`}>
-                                        {statusText[plan.status]}
-                                    </span>
-                                    <span className="text-xs text-muted hidden xs:inline">•</span>
-                                    <span className="text-xs text-muted">{plan.deliveryTime}</span>
-                                </div>
-                            </div>
-                            <div className="text-left xs:text-right">
-                                <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-foreground">
-                                    ${plan.price}
-                                </div>
-                                <div className="text-xs text-muted">/month</div>
+            {/* Horizontal Card */}
+            <div className="group relative rounded border border-muted hover:border-accent/50 transition-all duration-300 overflow-hidden bg-card/50 backdrop-blur-sm">
+                <Ripple />
+                <div className="relative z-10 flex flex-col lg:flex-row items-stretch">
+                    {/* Left Section - Header & Status */}
+                    <div className="flex-shrink-0 lg:w-56bg-gradient-to-br from-accent/5 to-transparent border-b lg:border-b-0 lg:border-r border-muted flex flex-col">
+                        <div className="flex-grow  p-5 sm:p-6 ">
+                            <h3 className="text-lg mt-8 sm:text-xl font-bold uppercase text-foreground mb-2 tracking-tight">
+                                {plan.name}
+                            </h3>
+                            <div className="flex flex-wrap items-center gap-2">
+                                <span className={`inline-flex items-center rounded-full text-xs font-semibold ${statusColors[plan.status]}`}>
+                                    {statusText[plan.status]}
+                                </span>
+                                <span className="text-xs text-muted">{plan.deliveryTime}</span>
                             </div>
                         </div>
 
-                        {/* Specs Grid */}
-                        <div className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
+                        {/* Tags at the bottom of left section */}
+                        <div className="flex flex-wrap gap-2 mt-4 pt-4  p-5 sm:p-6  border-t border-muted">
+                            <span className="px-2.5 py-1  text-accent text-xs font-medium  border border-muted">
+                                {plan.storage.type} Storage
+                            </span>
+                            {plan.ram.type === "DDR5" && (
+                            <span className="px-2.5 py-1 text-accent text-xs font-medium rounded border border-muted">
+                                    DDR5 RAM
+                                </span>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Middle Section - Specs Grid */}
+                    <div className="flex-grow p-3 sm:p-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {/* CPU */}
-                            <div className="flex items-start gap-2.5 sm:gap-3">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
-                                    <FiCpu className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                        <FiCpu className="w-5 h-5 text-accent" />
+                                    </div>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">
+                                    <div className="text-xs text-muted mb-1 uppercase tracking-wide font-medium">CPU</div>
+                                    <div className="text-sm font-bold text-foreground mb-0.5">
                                         {plan.cpu.cores}
                                     </div>
                                     <div className="text-xs text-muted truncate">{plan.cpu.model}</div>
@@ -231,12 +240,15 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                             </div>
 
                             {/* RAM */}
-                            <div className="flex items-start gap-2.5 sm:gap-3">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
-                                    <FiServer className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                        <FiServer className="w-5 h-5 text-accent" />
+                                    </div>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">
+                                    <div className="text-xs text-muted mb-1 uppercase tracking-wide font-medium">RAM</div>
+                                    <div className="text-sm font-bold text-foreground mb-0.5">
                                         {plan.ram.size}
                                     </div>
                                     <div className="text-xs text-muted">{plan.ram.type}</div>
@@ -244,12 +256,15 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                             </div>
 
                             {/* Storage */}
-                            <div className="flex items-start gap-2.5 sm:gap-3">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
-                                    <FiHardDrive className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                        <FiHardDrive className="w-5 h-5 text-accent" />
+                                    </div>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">
+                                    <div className="text-xs text-muted mb-1 uppercase tracking-wide font-medium">Storage</div>
+                                    <div className="text-sm font-bold text-foreground mb-0.5">
                                         {plan.storage.size}
                                     </div>
                                     <div className="text-xs text-muted">{plan.storage.type}</div>
@@ -257,12 +272,15 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                             </div>
 
                             {/* Network */}
-                            <div className="flex items-start gap-2.5 sm:gap-3">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
-                                    <BiNetworkChart className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                        <BiNetworkChart className="w-5 h-5 text-accent" />
+                                    </div>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">
+                                    <div className="text-xs text-muted mb-1 uppercase tracking-wide font-medium">Network</div>
+                                    <div className="text-sm font-bold text-foreground mb-0.5">
                                         {plan.network.speed}
                                     </div>
                                     <div className="text-xs text-muted">{plan.network.description}</div>
@@ -270,31 +288,42 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                             </div>
 
                             {/* DDoS Protection */}
-                            <div className="flex items-start gap-2.5 sm:gap-3">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors sm:col-span-2 lg:col-span-1">
                                 <div className="flex-shrink-0 mt-0.5">
-                                    <FiShield className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                        <FiShield className="w-5 h-5 text-accent" />
+                                    </div>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">
-                                        GSL DDoS Protection
+                                    <div className="text-xs text-muted mb-1 uppercase tracking-wide font-medium">Protection</div>
+                                    <div className="text-sm font-bold text-foreground mb-0.5">
+                                        GSL DDoS
                                     </div>
                                     <div className="text-xs text-muted">{plan.ddos.level}</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        {/* CTA Button */}
+                    {/* Right Section - Price & CTA */}
+                    <div className="flex-shrink-0 lg:w-64 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-muted bg-gradient-to-br from-transparent to-accent/5 ">
+                        <div className="mb-6 text-center">
+                            <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">
+                                ${plan.price}
+                            </div>
+                            <div className="text-sm text-muted font-medium">per month</div>
+                        </div>
                         <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             transition={{ duration: 0.2 }}
                             disabled={plan.status === "out_of_stock"}
-                            className="w-full flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-button text-primary-foreground rounded-lg text-sm sm:text-base font-semibold hover:bg-button-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-t border-b border-muted hover:bg-button  text-accent-foreground font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
                         >
-                            <span className="truncate">{plan.status === "out_of_stock" ? "Out of Stock" : "Request this server"}</span>
+                            <span>{plan.status === "out_of_stock" ? "Out of Stock" : "Order Now"}</span>
                             {plan.status !== "out_of_stock" && (
                                 <svg
-                                    className="ml-2 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
+                                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
                                     stroke="currentColor"
                                     fill="currentColor"
                                     strokeWidth="0"
@@ -320,6 +349,10 @@ export default function VDSPricing() {
     const [showOutOfStock, setShowOutOfStock] = useState(true);
     const [isDark, setIsDark] = useState(true);
     const [selectedLocation, setSelectedLocation] = useState<Location>(locations[0]);
+    const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 1000 });
+    const [currentPage, setCurrentPage] = useState(1);
+    const [showFilters, setShowFilters] = useState(false);
+    const itemsPerPage = 6;
 
     useEffect(() => {
         const checkTheme = () => {
@@ -338,6 +371,14 @@ export default function VDSPricing() {
         return () => observer.disconnect();
     }, []);
 
+    // Initialize price range based on actual data
+    useEffect(() => {
+        const prices = vdsPlans.map(plan => plan.price);
+        const min = Math.min(...prices);
+        const max = Math.max(...prices);
+        setPriceRange({ min, max });
+    }, []);
+
     const filteredPlans = useMemo(() => {
         return vdsPlans.filter((plan) => {
             const matchesSearch = plan.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -347,9 +388,32 @@ export default function VDSPricing() {
 
             const matchesStock = showOutOfStock || plan.status !== "out_of_stock";
 
-            return matchesSearch && matchesCPU && matchesStock;
+            const matchesPrice = plan.price >= priceRange.min && plan.price <= priceRange.max;
+
+            return matchesSearch && matchesCPU && matchesStock && matchesPrice;
         });
-    }, [searchQuery, selectedCPU, showOutOfStock]);
+    }, [searchQuery, selectedCPU, showOutOfStock, priceRange]);
+
+    // Get min and max prices from all plans
+    const priceMinMax = useMemo(() => {
+        const prices = vdsPlans.map(plan => plan.price);
+        return {
+            min: Math.min(...prices),
+            max: Math.max(...prices)
+        };
+    }, []);
+
+    // Calculate pagination
+    const totalPages = Math.ceil(filteredPlans.length / itemsPerPage);
+    const paginatedPlans = useMemo(() => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        return filteredPlans.slice(startIndex, startIndex + itemsPerPage);
+    }, [filteredPlans, currentPage]);
+
+    // Reset to page 1 when filters change
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchQuery, selectedCPU, showOutOfStock, priceRange]);
 
     const cpuOptions = useMemo(() => {
         const cpus = Array.from(new Set(vdsPlans.map(plan => plan.cpu.model)));
@@ -426,10 +490,10 @@ export default function VDSPricing() {
                         <button
                             key={location.id}
                             onClick={() => setSelectedLocation(location)}
-                            className={`px-3 sm:px-4 py-2 bg-card border rounded-lg text-xs sm:text-sm text-foreground font-medium transition-all duration-200 flex items-center gap-2 ${
+                            className={`px-3 sm:px-4 py-2 bg-card border rounded text-xs sm:text-sm text-foreground font-medium transition-all duration-200 flex items-center gap-2 ${
                                 selectedLocation.id === location.id
-                                    ? 'border-accent bg-accent/10 shadow-md'
-                                    : 'border-muted hover:border-accent hover:shadow-sm'
+                                    ? 'border-transparent bg-button text-white'
+                                    : 'border-muted hover:border-accent '
                             }`}
                         >
                             <div className="relative w-4 h-4 sm:w-5 sm:h-5 rounded-sm overflow-hidden flex-shrink-0">
@@ -440,7 +504,7 @@ export default function VDSPricing() {
                                     className="object-cover"
                                 />
                             </div>
-                            <span className="whitespace-nowrap">{location.city}</span>
+                            <span className="whitespace-nowrap ">{location.city}</span>
                         </button>
                     ))}
                 </motion.div>
@@ -451,33 +515,120 @@ export default function VDSPricing() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5 sm:mb-6 items-stretch sm:items-center"
+                    className="flex flex-col gap-3 sm:gap-4 mb-5 sm:mb-6"
                 >
-                    {/* Search */}
-                    <div className="relative flex-1 w-full min-w-0">
-                        <input
-                            type="text"
-                            placeholder="Search servers..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full px-4 py-2.5 sm:py-3 bg-card border border-muted rounded-lg text-foreground text-sm placeholder:text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
+                        {/* Search */}
+                        <div className="relative flex-1 w-full min-w-0">
+                            <input
+                                type="text"
+                                placeholder="Search servers..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full px-4 py-2.5 sm:py-3 bg-card border border-muted rounded text-foreground text-sm placeholder:text-muted focus:outline-none  transition-all"
+                            />
+                            <svg
+                                className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-muted pointer-events-none"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+
+                        {/* CPU Filter */}
+                        <CPUDropdown
+                            selectedCPU={selectedCPU}
+                            onCPUChange={setSelectedCPU}
+                            cpuOptions={cpuOptions}
                         />
-                        <svg
-                            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-muted pointer-events-none"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
+
+                        {/* Filter Toggle Button */}
+                        <button
+                            onClick={() => setShowFilters(!showFilters)}
+                            className={`px-4 py-2.5 sm:py-2.5 backdrop-blur-sm bg-card border rounded text-foreground text-sm hover:border-accent focus:outline-none transition-all flex items-center gap-2 ${
+                                showFilters ? 'bg-button text-white border-transparent' : 'border-muted'
+                            }`}
                         >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
+                            <FiFilter className="w-4 h-4" />
+                            <span className="font-medium">Filters</span>
+                        </button>
                     </div>
 
-                    {/* CPU Filter */}
-                    <CPUDropdown
-                        selectedCPU={selectedCPU}
-                        onCPUChange={setSelectedCPU}
-                        cpuOptions={cpuOptions}
-                    />
+                    {/* Collapsible Filter Panel */}
+                    {showFilters && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden"
+                        >
+                            <div className="p-4 sm:p-5 bg-card border border-muted rounded">
+                                <div className="flex flex-col gap-4">
+                                    {/* Price Range Filter */}
+                                    <div>
+                                        <h3 className="text-sm font-semibold text-foreground mb-3">Price Range (per month)</h3>
+                                        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-end">
+                                            {/* Min Price Input */}
+                                            <div className="flex-1 w-full">
+                                                <label className="block text-xs text-muted mb-2">Min Price</label>
+                                                <div className="relative">
+                                                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted text-sm">$</span>
+                                                    <input
+                                                        type="number"
+                                                        min={priceMinMax.min}
+                                                        max={priceRange.max}
+                                                        value={priceRange.min}
+                                                        onChange={(e) => {
+                                                            const newMin = Number(e.target.value);
+                                                            if (newMin >= priceMinMax.min && newMin < priceRange.max) {
+                                                                setPriceRange(prev => ({ ...prev, min: newMin }));
+                                                            }
+                                                        }}
+                                                        className="w-full pl-7 pr-3 py-2.5 bg-background border border-muted rounded text-foreground text-sm focus:outline-none focus:border-accent transition-all"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Max Price Input */}
+                                            <div className="flex-1 w-full">
+                                                <label className="block text-xs text-muted mb-2">Max Price</label>
+                                                <div className="relative">
+                                                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted text-sm">$</span>
+                                                    <input
+                                                        type="number"
+                                                        min={priceRange.min}
+                                                        max={priceMinMax.max}
+                                                        value={priceRange.max}
+                                                        onChange={(e) => {
+                                                            const newMax = Number(e.target.value);
+                                                            if (newMax <= priceMinMax.max && newMax > priceRange.min) {
+                                                                setPriceRange(prev => ({ ...prev, max: newMax }));
+                                                            }
+                                                        }}
+                                                        className="w-full pl-7 pr-3 py-2.5 bg-background border border-muted rounded text-foreground text-sm focus:outline-none focus:border-accent transition-all"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Reset Button */}
+                                            <button
+                                                onClick={() => setPriceRange({ min: priceMinMax.min, max: priceMinMax.max })}
+                                                className="px-4 py-2.5 text-sm font-medium text-accent border border-muted rounded hover:bg-muted/10 transition-colors whitespace-nowrap"
+                                            >
+                                                Reset
+                                            </button>
+                                        </div>
+                                        <p className="text-xs text-muted mt-2">
+                                            Showing servers from ${priceRange.min} to ${priceRange.max}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
 
                 </motion.div>
 
@@ -494,19 +645,98 @@ export default function VDSPricing() {
                     </p>
                 </motion.div>
 
-                {/* VDS Plans Grid */}
+                {/* VDS Plans List - Horizontal Layout */}
                 {filteredPlans.length > 0 ? (
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-50px" }}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
-                    >
-                        {filteredPlans.map((plan, index) => (
-                            <VDSCard key={plan.id} plan={plan} index={index} />
-                        ))}
-                    </motion.div>
+                    <>
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-50px" }}
+                            className="flex flex-col gap-5 md:gap-6"
+                        >
+                            {paginatedPlans.map((plan, index) => (
+                                <VDSCard key={plan.id} plan={plan} index={index} />
+                            ))}
+                        </motion.div>
+
+                        {/* Pagination */}
+                        {totalPages > 1 && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 sm:mt-10 pt-6 border-t border-muted"
+                            >
+                                {/* Page Info */}
+                                <div className="text-sm text-muted">
+                                    Page {currentPage} of {totalPages} ({filteredPlans.length} total servers)
+                                </div>
+
+                                {/* Pagination Controls */}
+                                <div className="flex items-center gap-2">
+                                    {/* Previous Button */}
+                                    <button
+                                        onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                        disabled={currentPage === 1}
+                                        className="px-3 py-2 border border-muted rounded text-foreground hover:bg-muted/10 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+
+                                    {/* Page Numbers */}
+                                    <div className="flex items-center gap-1">
+                                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                                            // Show first page, last page, current page, and pages around current
+                                            const showPage = page === 1 ||
+                                                           page === totalPages ||
+                                                           Math.abs(page - currentPage) <= 1;
+
+                                            const showEllipsisBefore = page === currentPage - 2 && currentPage > 3;
+                                            const showEllipsisAfter = page === currentPage + 2 && currentPage < totalPages - 2;
+
+                                            if (showEllipsisBefore || showEllipsisAfter) {
+                                                return (
+                                                    <span key={page} className="px-2 text-muted">
+                                                        ...
+                                                    </span>
+                                                );
+                                            }
+
+                                            if (!showPage) return null;
+
+                                            return (
+                                                <button
+                                                    key={page}
+                                                    onClick={() => setCurrentPage(page)}
+                                                    className={`min-w-[40px] px-3 py-2 border rounded text-sm font-medium transition-all ${
+                                                        currentPage === page
+                                                            ? 'bg-accent text-white border-accent'
+                                                            : 'border-muted text-foreground hover:bg-muted/10'
+                                                    }`}
+                                                >
+                                                    {page}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+
+                                    {/* Next Button */}
+                                    <button
+                                        onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                        disabled={currentPage === totalPages}
+                                        className="px-3 py-2 border border-muted rounded text-foreground hover:bg-muted/10 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </motion.div>
+                        )}
+                    </>
                 ) : (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}

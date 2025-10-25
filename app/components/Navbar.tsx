@@ -39,7 +39,7 @@ const navigationConfig: NavLink[] = [
     {
         label: 'GAME SERVERS',
         items: [
-            { label: 'Minecraft', href: '/games/minecraft', description: 'Java & Bedrock hosting' },
+            { label: 'Minecraft', href: '/minecraft', description: 'Java & Bedrock hosting' },
         ]
     },
     {
@@ -133,7 +133,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <nav className={`sticky top-0 z-[100] transition-all duration-300 ${isScrolled ? 'backdrop-blur-xl ' : 'bg-transparent'}`}>
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-xl ' : 'bg-transparent'}`}>
             {/* Promotional Banner */}
             <AnimatePresence>
                 {showBanner && (

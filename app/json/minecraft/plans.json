@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Basic",
+    "icon": "creeper",
+    "price": "$4.99",
+    "period": "/month",
+    "features": [
+      { "icon": "ram", "text": "2GB RAM" },
+      { "icon": "cpu", "text": "2 CPU Threads" },
+      { "icon": "storage", "text": "25GB NVMe Storage" },
+      { "icon": "backup", "text": "1 Off-site Backup" },
+      { "icon": "shield", "text": "3+ Tbps DDoS Protection" }
+    ],
+    "highlighted": false,
+    "color": "text-green-500",
+    "borderColor": "border-green-500",
+    "bgColor": "bg-green-500",
+    "hoverBgColor": "hover:bg-green-600",
+    "glowColor": "34, 197, 94"
+  },
+  {
+    "name": "Pro",
+    "icon": "zombie",
+    "price": "$9.99",
+    "period": "/month",
+    "features": [
+      { "icon": "ram", "text": "4GB RAM" },
+      { "icon": "cpu", "text": "3 CPU Threads" },
+      { "icon": "storage", "text": "50GB NVMe Storage" },
+      { "icon": "backup", "text": "2 Off-site Backups" },
+      { "icon": "shield", "text": "3+ Tbps DDoS Protection" }
+    ],
+    "highlighted": true,
+    "color": "text-blue-500",
+    "borderColor": "border-blue-500",
+    "bgColor": "bg-blue-500",
+    "hoverBgColor": "hover:bg-blue-600",
+    "glowColor": "59, 130, 246"
+  },
+  {
+    "name": "Premium",
+    "icon": "blaze",
+    "price": "$19.99",
+    "period": "/month",
+    "features": [
+      { "icon": "ram", "text": "8GB RAM" },
+      { "icon": "cpu", "text": "4 CPU Threads" },
+      { "icon": "storage", "text": "100GB NVMe Storage" },
+      { "icon": "backup", "text": "3 Off-site Backups" },
+      { "icon": "shield", "text": "3+ Tbps DDoS Protection" }
+    ],
+    "highlighted": false,
+    "color": "text-yellow-500",
+    "borderColor": "border-yellow-500",
+    "bgColor": "bg-yellow-500",
+    "hoverBgColor": "hover:bg-yellow-600",
+    "glowColor": "234, 179, 8"
+  },
+  {
+    "name": "Enterprise",
+    "icon": "enderman",
+    "price": "$39.99",
+    "period": "/month",
+    "features": [
+      { "icon": "ram", "text": "16GB RAM" },
+      { "icon": "cpu", "text": "6 CPU Threads" },
+      { "icon": "storage", "text": "200GB NVMe Storage" },
+      { "icon": "backup", "text": "5 Off-site Backups" },
+      { "icon": "shield", "text": "3+ Tbps DDoS Protection" }
+    ],
+    "highlighted": false,
+    "color": "text-purple-500",
+    "borderColor": "border-purple-500",
+    "bgColor": "bg-purple-500",
+    "hoverBgColor": "hover:bg-purple-600",
+    "glowColor": "168, 85, 247"
+  }
+]

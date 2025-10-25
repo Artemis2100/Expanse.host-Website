@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased overflow-x-hidden`}
       >
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );

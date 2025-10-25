@@ -1,0 +1,58 @@
+[
+  {
+    "id": "usa",
+    "name": "United States",
+    "city": "New York",
+    "flag": "/flags/usa.png",
+    "ping": "5ms"
+  },
+  {
+    "id": "canada",
+    "name": "Canada",
+    "city": "Toronto",
+    "flag": "/flags/canada.png",
+    "ping": "8ms"
+  },
+  {
+    "id": "germany",
+    "name": "Germany",
+    "city": "Frankfurt",
+    "flag": "/flags/germany.png",
+    "ping": "12ms"
+  },
+  {
+    "id": "france",
+    "name": "France",
+    "city": "Paris",
+    "flag": "/flags/france.png",
+    "ping": "15ms"
+  },
+  {
+    "id": "spain",
+    "name": "Spain",
+    "city": "Madrid",
+    "flag": "/flags/spain.png",
+    "ping": "18ms"
+  },
+  {
+    "id": "portugal",
+    "name": "Portugal",
+    "city": "Lisbon",
+    "flag": "/flags/portugal.png",
+    "ping": "20ms"
+  },
+  {
+    "id": "russia",
+    "name": "Russia",
+    "city": "Moscow",
+    "flag": "/flags/russian.png",
+    "ping": "25ms"
+  },
+  {
+    "id": "turkey",
+    "name": "Turkey",
+    "city": "Istanbul",
+    "flag": "/flags/turkey.png",
+    "ping": "22ms"
+  }
+]

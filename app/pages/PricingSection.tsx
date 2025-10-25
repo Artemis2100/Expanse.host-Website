@@ -64,9 +64,9 @@ const PricingSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-3xl sm:text-4xl md:text-5xl mt-8 sm:mt-12 md:mt-16 font-bold text-foreground mb-6 sm:mb-8 text-left px-2 sm:px-0"
+                    className="text-3xl sm:text-4xl md:text-5xl mt-8 sm:mt-12 md:mt-16 font-bold text-foreground mb-6 sm:mb-8 text-center px-2 sm:px-0"
                 >
-                    We got what <br />  <span className='text-accent'>YOU</span> need.
+                    We got what <span className='text-accent'>YOU</span> need.
                     <p className='text-xs sm:text-sm text-muted font-medium mt-3 sm:mt-4'>All available plans that we offer, alot of them right?</p>
                 </motion.h2>
 
@@ -91,50 +91,50 @@ const PricingSection = () => {
                             >
 
                                 <div className="flex flex-col flex-grow  rounded-xl relative z-20">
-                                <Ripple />
-                                 <div className="p-4 sm:p-6 rounded-xl">
-                                    {/* Icon */}
-                                    <div className="text-primary mb-4">
-                                        {service.icon}
-                                    </div>
+                                    <Ripple />
+                                    <div className="p-4 sm:p-6 rounded-xl">
+                                        {/* Icon */}
+                                        <div className="text-primary mb-4">
+                                            {service.icon}
+                                        </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 tracking-wide">
-                                        {service.title}
-                                    </h3>
+                                        {/* Title */}
+                                        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 tracking-wide">
+                                            {service.title}
+                                        </h3>
 
-                                    {/* Description */}
-                                    <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4 sm:mb-6 flex-grow">
-                                        {service.description}
-                                    </p>
+                                        {/* Description */}
+                                        <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4 sm:mb-6 flex-grow">
+                                            {service.description}
+                                        </p>
 
-                                    {/* Button */}
-                                    <motion.button
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="w-full flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-button border border-blue-400/30 text-primary-foreground rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-500/40 transition-colors"
-                                    >
-                                        <span>Explore Now</span>
-                                        <svg
-                                            className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
-                                            stroke="currentColor"
-                                            fill="currentColor"
-                                            strokeWidth="0"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
+                                        {/* Button */}
+                                        <motion.button
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="w-full flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-button border border-blue-400/30 text-primary-foreground rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-500/40 transition-colors"
                                         >
-                                            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-                                        </svg>
-                                    </motion.button>
-                                </div>
+                                            <span>Explore Now</span>
+                                            <svg
+                                                className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
+                                                stroke="currentColor"
+                                                fill="currentColor"
+                                                strokeWidth="0"
+                                                viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                                            </svg>
+                                        </motion.button>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
                     ))}
                 </motion.div>
 
- <motion.div
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -160,15 +160,16 @@ const PricingSection = () => {
                                 <Image
                                     width={192}
                                     height={192}
-                                    className="h-auto w-32 sm:w-40 md:w-48 flex-shrink-0"
+                                    className="h-auto w-32 sm:w-40 md:w-48 flex-shrink-0 invert brightness-0"
                                     alt="Join us on Discord"
                                     src="/assets/joinus.png"
                                 />
+
                             </div>
                         </div>
 
                     </div>
-                </motion.div>                
+                </motion.div>
             </div>
         </section>
     )
