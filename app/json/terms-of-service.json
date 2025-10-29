@@ -1,0 +1,116 @@
+{
+  "title": "Terms of Service",
+  "lastUpdated": "January 2025",
+  "introduction": "Welcome to ExpanseHost. By using our services, you agree to comply with and be bound by the following terms and conditions. Please review these terms carefully.",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Acceptance of Terms",
+      "content": "By accessing and using ExpanseHost's services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+    },
+    {
+      "id": 2,
+      "title": "Service Description",
+      "content": "ExpanseHost provides web hosting, VPS hosting, Minecraft server hosting, and related services. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time.",
+      "subsections": [
+        {
+          "subtitle": "Service Availability",
+          "text": "While we strive for 99.9% uptime, we do not guarantee uninterrupted service availability."
+        },
+        {
+          "subtitle": "Service Modifications",
+          "text": "We reserve the right to modify or discontinue services with reasonable notice to customers."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "User Responsibilities",
+      "content": "As a user of our services, you agree to:",
+      "list": [
+        "Provide accurate and complete registration information",
+        "Maintain the security of your account credentials",
+        "Comply with all applicable laws and regulations",
+        "Not use our services for illegal activities or to harm others",
+        "Not engage in activities that could damage or overburden our infrastructure"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Prohibited Activities",
+      "content": "Users are strictly prohibited from:",
+      "list": [
+        "Hosting or distributing malware, viruses, or malicious code",
+        "Engaging in phishing, spam, or other fraudulent activities",
+        "Hosting copyright-infringing content without proper authorization",
+        "Running adult content, gambling sites, or illegal services",
+        "Mining cryptocurrency without prior written approval",
+        "Attempting to gain unauthorized access to our systems or other users' accounts"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Payment Terms",
+      "content": "All services must be paid for in accordance with the pricing and payment terms presented at the time of purchase.",
+      "subsections": [
+        {
+          "subtitle": "Billing Cycles",
+          "text": "Services are billed according to the selected billing cycle (monthly, quarterly, annually)."
+        },
+        {
+          "subtitle": "Refund Policy",
+          "text": "We offer a 7-day money-back guarantee for first-time customers. Refunds are processed within 5-10 business days."
+        },
+        {
+          "subtitle": "Late Payments",
+          "text": "Accounts with overdue payments may be suspended or terminated after a grace period of 7 days."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Data and Privacy",
+      "content": "We are committed to protecting your privacy and data. Your use of our services is also governed by our Privacy Policy, which is incorporated into these terms by reference."
+    },
+    {
+      "id": 7,
+      "title": "Service Termination",
+      "content": "We reserve the right to suspend or terminate your account if you violate these terms, engage in fraudulent activity, or use our services in a manner that causes harm to our infrastructure or other users.",
+      "subsections": [
+        {
+          "subtitle": "Termination by User",
+          "text": "You may cancel your services at any time through your account dashboard or by contacting support."
+        },
+        {
+          "subtitle": "Termination by ExpanseHost",
+          "text": "We may terminate services immediately for violations of our terms without prior notice or refund."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Limitation of Liability",
+      "content": "ExpanseHost shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use our services. Our total liability shall not exceed the amount paid by you for the services in the past 12 months."
+    },
+    {
+      "id": 9,
+      "title": "Indemnification",
+      "content": "You agree to indemnify and hold harmless ExpanseHost, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services or violation of these terms."
+    },
+    {
+      "id": 10,
+      "title": "Changes to Terms",
+      "content": "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services after changes constitutes acceptance of the modified terms."
+    },
+    {
+      "id": 11,
+      "title": "Governing Law",
+      "content": "These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which ExpanseHost operates, without regard to its conflict of law provisions."
+    },
+    {
+      "id": 12,
+      "title": "Contact Information",
+      "content": "If you have any questions about these Terms of Service, please contact us at support@expansehost.com or through our support ticket system."
+    }
+  ]
+}

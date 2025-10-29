@@ -1,0 +1,185 @@
+[
+  {
+    "id": "vps-starter",
+    "name": "VPS Starter",
+    "cpu": {
+      "cores": "1 vCore",
+      "speed": "3.4GHz",
+      "type": "Ryzen"
+    },
+    "ram": "2GB",
+    "storage": {
+      "size": "25GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": "1TB",
+    "network": "1Gbps",
+    "features": [
+      "Full Root Access",
+      "DDoS Protection",
+      "99.9% Uptime SLA",
+      "24/7 Support"
+    ],
+    "price": 4.99,
+    "status": "in_stock",
+    "deliveryTime": "Instant",
+    "popular": false,
+    "availableLocations": ["us", "de", "sg"],
+    "availableCPUs": ["Ryzen"]
+  },
+  {
+    "id": "vps-basic",
+    "name": "VPS Basic",
+    "cpu": {
+      "cores": "2 vCores",
+      "speed": "3.4GHz",
+      "type": "Ryzen"
+    },
+    "ram": "4GB",
+    "storage": {
+      "size": "50GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": "2TB",
+    "network": "1Gbps",
+    "features": [
+      "Full Root Access",
+      "DDoS Protection",
+      "99.9% Uptime SLA",
+      "24/7 Support",
+      "Free Backups"
+    ],
+    "price": 9.99,
+    "status": "in_stock",
+    "deliveryTime": "Instant",
+    "popular": true,
+    "availableLocations": ["us", "de", "sg", "my"],
+    "availableCPUs": ["Ryzen"]
+  },
+  {
+    "id": "vps-standard",
+    "name": "VPS Standard",
+    "cpu": {
+      "cores": "3 vCores",
+      "speed": "4.5GHz",
+      "type": "EPYC"
+    },
+    "ram": "8GB",
+    "storage": {
+      "size": "100GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": "3TB",
+    "network": "2Gbps",
+    "features": [
+      "Full Root Access",
+      "Advanced DDoS Protection",
+      "99.9% Uptime SLA",
+      "Priority Support",
+      "Free Backups",
+      "Free Snapshots"
+    ],
+    "price": 19.99,
+    "status": "in_stock",
+    "deliveryTime": "Instant",
+    "popular": false,
+    "availableLocations": ["us", "de"],
+    "availableCPUs": ["EPYC"]
+  },
+  {
+    "id": "vps-advanced",
+    "name": "VPS Advanced",
+    "cpu": {
+      "cores": "4 vCores",
+      "speed": "4.5GHz",
+      "type": "EPYC"
+    },
+    "ram": "16GB",
+    "storage": {
+      "size": "200GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": "5TB",
+    "network": "2Gbps",
+    "features": [
+      "Full Root Access",
+      "Advanced DDoS Protection",
+      "99.9% Uptime SLA",
+      "Priority Support",
+      "Free Backups",
+      "Free Snapshots",
+      "Control Panel"
+    ],
+    "price": 39.99,
+    "status": "in_stock",
+    "deliveryTime": "Instant",
+    "popular": false,
+    "availableLocations": ["us", "in"],
+    "availableCPUs": ["EPYC", "Ryzen"]
+  },
+  {
+    "id": "vps-professional",
+    "name": "VPS Professional",
+    "cpu": {
+      "cores": "6 vCores",
+      "speed": "4.5GHz",
+      "type": "EPYC"
+    },
+    "ram": "32GB",
+    "storage": {
+      "size": "400GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": "8TB",
+    "network": "5Gbps",
+    "features": [
+      "Full Root Access",
+      "Enterprise DDoS Protection",
+      "99.99% Uptime SLA",
+      "Priority Support",
+      "Free Backups",
+      "Free Snapshots",
+      "Control Panel",
+      "Dedicated IP"
+    ],
+    "price": 79.99,
+    "status": "low_stock",
+    "deliveryTime": "Instant",
+    "popular": false,
+    "availableLocations": ["sg", "my"],
+    "availableCPUs": ["EPYC"]
+  },
+  {
+    "id": "vps-enterprise",
+    "name": "VPS Enterprise",
+    "cpu": {
+      "cores": "8 vCores",
+      "speed": "5.0GHz",
+      "type": "EPYC"
+    },
+    "ram": "64GB",
+    "storage": {
+      "size": "800GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": "12TB",
+    "network": "10Gbps",
+    "features": [
+      "Full Root Access",
+      "Enterprise DDoS Protection",
+      "99.99% Uptime SLA",
+      "24/7 Priority Support",
+      "Free Backups",
+      "Free Snapshots",
+      "Control Panel",
+      "Dedicated IP",
+      "Private Network"
+    ],
+    "price": 149.99,
+    "status": "in_stock",
+    "deliveryTime": "Instant",
+    "popular": false,
+    "availableLocations": ["us", "de", "sg", "my", "in"],
+    "availableCPUs": ["EPYC", "Ryzen"]
+  }
+]

@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "title": "Build the Future with Us",
+    "subtitle": "Join a team of explorers, engineers, and innovators powering the next generation of hosting.",
+    "ctaText": "See Open Roles"
+  },
+  "whyWorkHere": {
+    "title": "Why Work at Expanse",
+    "subtitle": "At Expanse, we're building the future of hosting with a team of passionate individuals who share our vision. Here's what makes working with us special:",
+    "benefits": [
+      {
+        "title": "Innovation First",
+        "description": "We're constantly pushing the boundaries of what's possible in hosting technology, from hardware to software.",
+        "icon": "innovation"
+      },
+      {
+        "title": "Remote-Friendly",
+        "description": "Work from anywhere in the world. We believe great talent shouldn't be limited by geography.",
+        "icon": "remote"
+      },
+      {
+        "title": "Flexible Hours",
+        "description": "We focus on results, not hours. Work when you're most productive and maintain a healthy work-life balance.",
+        "icon": "flexible"
+      },
+      {
+        "title": "Rapid Growth",
+        "description": "Join a fast-growing company where you'll have opportunities to take on new challenges and advance your career.",
+        "icon": "growth"
+      },
+      {
+        "title": "Ownership Culture",
+        "description": "Everyone at Expanse has a voice. We encourage ownership, initiative, and the freedom to pursue your ideas.",
+        "icon": "ownership"
+      },
+      {
+        "title": "Cutting-Edge Tech",
+        "description": "Work with the latest technologies, including AMD Ryzen 9950X processors, AI automation, and Ceph storage systems.",
+        "icon": "tech"
+      },
+      {
+        "title": "Continuous Learning",
+        "description": "We invest in your growth with learning stipends, conference budgets, and regular knowledge-sharing sessions.",
+        "icon": "learning"
+      },
+      {
+        "title": "Real Impact",
+        "description": "See the direct impact of your work on thousands of customers and millions of end-users around the world.",
+        "icon": "impact"
+      }
+    ]
+  },
+  "openRoles": {
+    "title": "Open Roles",
+    "subtitle": "Join our team of explorers and help us build the future of hosting. We're looking for passionate individuals who share our vision and values.",
+    "roles": [
+      {
+        "id": 1,
+        "title": "Full Stack Developer",
+        "department": "Engineering",
+        "location": "Remote (Global)",
+        "type": "Part-time (Internship-Voluntary)",
+        "description": "Help us build Expanse's next-gen billing and management panel. You'll work with our core team to create fast, modern, and modular UI/UX systems that integrate with our VPS provisioning, billing, and user dashboard logic.",
+        "tags": ["Internship", "Urgent"]
+      },
+      {
+        "id": 2,
+        "title": "AI Integration Developer",
+        "department": "Engineering",
+        "location": "Remote (Global)",
+        "type": "Part-time (Internship-Voluntary)",
+        "description": "Shape the intelligence behind Expanse. Work on LLM-based tools to summarize internal activity, monitor customer conversations, automate support, and generate insights across Expanse systems.",
+        "tags": ["AI", "Internship"]
+      },
+      {
+        "id": 3,
+        "title": "Content Writer",
+        "department": "Creative",
+        "location": "Remote",
+        "type": "Full-time (Internship-Voluntary)",
+        "description": "Craft clear, engaging, and technically accurate content for our knowledge base, blog, and product documentation. You'll help users understand our infrastructure and services through tutorials, feature guides, and educational articles, collaborating with our support and engineering teams to simplify complex topics into user-friendly resources.",
+        "tags": ["Writing", "Internship"]
+      },
+      {
+        "id": 4,
+        "title": "Growth & Marketing",
+        "department": "Marketing",
+        "location": "Remote (Global)",
+        "type": "Part-time (Internship-Voluntary)",
+        "description": "Fuel Expanse's growth. Help us reach more customers, refine our positioning, and drive adoption of our new billing panel, VPS offerings, and AI tools. This is a perfect role for someone who loves tech, marketing, and fast-paced startups.",
+        "tags": ["Growth", "Internship"]
+      }
+    ]
+  },
+  "team": {
+    "title": "Meet the Team",
+    "subtitle": "Get to know the people behind Expanse. We're a diverse team of engineers, designers, and visionaries working together to build something extraordinary.",
+    "members": [
+      {
+        "name": "Sam J.",
+        "role": "Founder & CEO",
+        "description": "CSE and AI/ML student who founded Expanse with a vision to revolutionize hosting with cutting-edge technology and transparent pricing.",
+        "image": "/team/sam.jpg"
+      },
+      {
+        "name": "Shaun C.",
+        "role": "Developer & Designer",
+        "description": "A Computer Science student with extensive expertise in software development, system design, and emerging technologies",
+        "image": "/team/shaun.jpg"
+      },
+      {
+        "name": "Daniel C.",
+        "role": "Minecraft-side Management",
+        "description": "Passionate software engineer from New Zealand, currently leading infrastructure and development initiatives at Expanse Host with a focus on scalable, efficient hosting solutions.",
+        "image": "/team/daniel.jpg"
+      },
+      {
+        "name": "Micheal C.",
+        "role": "Minecraft-side Management",
+        "description": "DevOps & Software Engineer focused on scalable infrastructure, automation, and cloud-native deployments for Minecraft servers.",
+        "image": "/team/micheal.jpg"
+      }
+    ]
+  },
+  "earlyCareers": {
+    "title": "Early Careers",
+    "description": "At Expanse, we're passionate about nurturing the next generation of tech talent. Our founder started Expanse while still a CSE and AI/ML student, and we believe in the power of fresh perspectives and innovative thinking.",
+    "subtitle": "Whether you're a student, recent graduate, or early in your career, we offer various programs to help you grow and make a real impact in the world of cloud infrastructure.",
+    "ctaText": "Apply for Student Programs",
+    "programs": [
+      {
+        "title": "Internship Program",
+        "description": "Gain real-world experience working alongside our engineering, product, and marketing teams. Open to students and recent graduates."
+      },
+      {
+        "title": "Early Access & Credits",
+        "description": "Get early access to our latest tools and receive free credits to explore and deploy projects on Expanse infrastructure."
+      },
+      {
+        "title": "Project-Based Collaborations",
+        "description": "Join us on meaningful, short-term projects around automation, monitoring, and AI — perfect for those looking to contribute and learn without long-term commitment."
+      },
+      {
+        "title": "Learning Programs",
+        "description": "Access our learning resources, mentorship opportunities, and technical workshops to accelerate your career."
+      }
+    ]
+  }
+}

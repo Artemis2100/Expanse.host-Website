@@ -135,10 +135,7 @@ export default function LocationsSection() {
 
     return (
         <div className="relative   px-4 sm:px-6 lg:px-8">
-            {/* Top border with fade effect */}
             <div className="[--color:#3b82f6] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_50%)] my-[-18.8rem] before:absolute before:inset-0 before:h-full before:w-full before:opacity-40 before:[background-image:radial-gradient(circle_at_bottom_center,var(--color),transparent_70%)] after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-blue-500 after:bg-background"></div>
-
-            {/* Blue gradient SVG - Center */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                 <svg width="1463" height="926" viewBox="0 0 1463 926" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_0_1)">
@@ -170,13 +167,8 @@ export default function LocationsSection() {
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-                    {/* Left Column - Content */}
                     <motion.div
                         variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 leading-tight">
                             Global Presence,
@@ -189,7 +181,6 @@ export default function LocationsSection() {
                             delivering ultra-low latency from anywhere and lightning-fast connections wherever you play.
                         </p>
 
-                        {/* Locations Lists */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                             {/* Europe Section */}
                             <div>

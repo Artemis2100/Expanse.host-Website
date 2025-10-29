@@ -1,0 +1,82 @@
+{
+  "journey": [
+    {
+      "quarter": "Q1 - 2023",
+      "title": "Expanse Launch",
+      "description": "Founded with a mission to provide transparent, high-performance hosting solutions."
+    },
+    {
+      "quarter": "Q2 - 2023",
+      "title": "Game Server Expansion",
+      "description": "Launched our game server platform with instant deployment and custom control panel."
+    },
+    {
+      "quarter": "Q3 - 2024",
+      "title": "Global Infrastructure",
+      "description": "Expanded to 4 regions worldwide with state-of-the-art data centers and 1Gbps networks."
+    },
+    {
+      "quarter": "Q4 - 2024",
+      "title": "Ryzen 9000 Series",
+      "description": "One of the first hosting provider to deploy AMD Ryzen 9950X processors across our entire infrastructure."
+    },
+    {
+      "quarter": "Q3 2025",
+      "title": "AI-Enhanced Platform",
+      "description": "Introduced AI-powered automation tools for server management and performance optimization."
+    }
+  ],
+  "differentiators": [
+    {
+      "title": "Ryzen 9950X Deployments",
+      "description": "Industry-leading performance with the latest AMD processors, delivering exceptional single and multi-threaded performance."
+    },
+    {
+      "title": "Global Data Centers",
+      "description": "Strategic locations worldwide ensure low-latency connections and optimal performance for users across different regions."
+    },
+    {
+      "title": "Ceph Storage Architecture",
+      "description": "Distributed storage system providing unmatched reliability, performance, and scalability for all your data needs."
+    },
+    {
+      "title": "Enterprise Security",
+      "description": "Advanced DDoS protection with up to 2.4+ Tbps mitigation capacity, keeping your services online 24/7."
+    }
+  ],
+  "team": [
+    {
+      "name": "Sam J.",
+      "role": "Founder & CEO",
+      "description": "CSE and AI/ML student who founded Expanse with a vision to revolutionize hosting with cutting-edge technology and transparent pricing."
+    },
+    {
+      "name": "Shaun C.",
+      "role": "Head of Development",
+      "description": "A Computer Science student with extensive expertise in software development, system design, and emerging technologies"
+    },
+    {
+      "name": "Micheal Caleb",
+      "role": "Sales Lead",
+      "description": "Experienced sales lead driving growth through strategy and client success."
+    }
+  ],
+  "stats": [
+    {
+      "value": "8,000+",
+      "label": "Servers Deployed"
+    },
+    {
+      "value": "13",
+      "label": "Global Regions"
+    },
+    {
+      "value": "99.99%",
+      "label": "Uptime Percentage"
+    },
+    {
+      "value": "200+",
+      "label": "Live Clients Worldwide"
+    }
+  ]
+}

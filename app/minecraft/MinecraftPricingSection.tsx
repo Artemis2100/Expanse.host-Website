@@ -86,11 +86,11 @@ interface PricingTier {
   period: string;
   features: Feature[];
   highlighted?: boolean;
-  color: string; // Tailwind color class for text
-  borderColor: string; // Tailwind border color class
-  bgColor: string; // Tailwind background color class
-  hoverBgColor: string; // Tailwind hover background color class
-  glowColor: string; // RGB color for glow effect
+  color: string; 
+  borderColor: string; 
+  bgColor: string;
+  hoverBgColor: string; 
+  glowColor: string;
 }
 
 const pricingTiers: PricingTier[] = pricingPlans as PricingTier[];
@@ -159,7 +159,6 @@ export default function MinecraftPricingSection() {
 
   return (
     <section className="relative py-20 px-4 bg-white dark:bg-black">
-      {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -169,12 +168,10 @@ export default function MinecraftPricingSection() {
           backgroundRepeat: 'no-repeat'
         }}
       />
-      {/* Overlay with radial gradient */}
       <div
         className="absolute inset-0 z-0 dark:bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.85)_0%,_rgba(0,0,0,0.95)_50%,_rgba(0,0,0,1)_60%)] bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.6)_0%,_rgba(255,255,255,0.85)_40%,_rgba(255,255,255,1)_70%)]"
       />
 
-      {/* Blue gradient SVG - Top Middle */}
       <div className="absolute opacity-80 top-0 left-1/2 -translate-x-1/2 pointer-events-none">
         <svg width="1463" height="926" viewBox="0 0 1463 926" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_f_minecraft)">
@@ -198,7 +195,6 @@ export default function MinecraftPricingSection() {
         </svg>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-left mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center gap-3 text-gray-900 dark:text-white">
@@ -213,16 +209,14 @@ export default function MinecraftPricingSection() {
           {pricingTiers.map((tier, index) => (
             <div
               key={index}
-              className={`relative rounded-xl p-8 transition-all duration-300 flex flex-col h-full border-2 ${tier.borderColor}`}
+              className={`relative rounded-xl p-8 transition-all duration-300 flex flex-col h-full border ${tier.borderColor}`}
             >
-              {/* Light mode gradient */}
               <div
                 className="absolute inset-0 rounded-xl dark:hidden"
                 style={{
                   background: `linear-gradient(to bottom, rgba(${tier.glowColor}, 0.15) 0%, rgba(255, 255, 255, 0.95) 100%)`,
                 }}
               />
-              {/* Dark mode gradient */}
               <div
                 className="absolute inset-0 rounded-xl hidden dark:block"
                 style={{
@@ -276,7 +270,6 @@ export default function MinecraftPricingSection() {
         </div>
       </div>
 
-      {/* Bottom border with fade effect */}
       <div className="absolute bottom-0 left-0 right-0 h-px overflow-hidden">
         <div
           className="h-full w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"
@@ -287,7 +280,6 @@ export default function MinecraftPricingSection() {
         />
       </div>
 
-      {/* Location Modal */}
       <LocationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

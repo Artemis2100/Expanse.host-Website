@@ -132,19 +132,11 @@ export const FaqSection = () => {
 
                     {/* Right side - FAQ Items */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
                         className="space-y-3"
                     >
                         {faqs.map((faq, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.05 }}
                                 className="relative"
                             >
                                 <button

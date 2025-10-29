@@ -216,7 +216,7 @@ const Navbar = () => {
                                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                                     transition={{ duration: 0.2 }}
-                                                    className="absolute left-0 mt-2 w-64 bg-card border-2 border-blue-400/30 backdrop-blur-xl rounded-lg shadow-2xl overflow-hidden z-[150]"
+                                                    className="absolute left-0 mt-2 w-64 backdrop-blur-3xl border border-muted backdrop-blur-xl rounded-md shadow-2xl overflow-hidden z-[150]"
                                                     onMouseLeave={() => setActiveDropdown(null)}
                                                 >
                                                     <div className="p-2">
@@ -261,9 +261,7 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    {/* Right Side Actions */}
                     <div className="border-2 backdrop-blur-xl rounded-xl border-blue-400/30 p-1.5 sm:p-2 flex items-center gap-1.5 sm:gap-2 flex-shrink-0 z-10">
-                        {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
@@ -275,7 +273,6 @@ const Navbar = () => {
                                 <Menu className="w-6 h-6" />
                             )}
                         </button>
-                        {/* Theme Toggle Button - Hidden on mobile */}
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -296,7 +293,6 @@ const Navbar = () => {
 
 
 
-                        {/* Panels Button - Hidden on mobile */}
                         <div className="relative hidden sm:block">
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
@@ -309,7 +305,6 @@ const Navbar = () => {
                                 <ChevronDown className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4" />
                             </motion.button>
 
-                            {/* Panels Dropdown */}
                             <AnimatePresence>
                                 {activeDropdown === 'panels' && (
                                     <motion.div
@@ -370,11 +365,9 @@ const Navbar = () => {
                 </div>
             </motion.div>
 
-            {/* Mobile Sidebar */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <>
-                        {/* Backdrop */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -384,7 +377,6 @@ const Navbar = () => {
                             onClick={closeMobileMenu}
                         />
 
-                        {/* Sidebar */}
                         <motion.div
                             initial={{ x: '100%' }}
                             animate={{ x: 0 }}
@@ -393,7 +385,6 @@ const Navbar = () => {
                             className="fixed right-0 top-0 bottom-0 w-[85vw] max-w-[320px] bg-background border-l-2 border-blue-400/30 shadow-2xl z-50 overflow-y-auto lg:hidden"
                         >
                             <div className="p-4 sm:p-6">
-                                {/* Close Button */}
                                 <div className="flex justify-between items-center mb-8">
                                     <div className="flex items-center space-x-2">
                                         <Image
@@ -419,7 +410,6 @@ const Navbar = () => {
                                     {navigationConfig.map((navItem, index) => (
                                         <div key={index}>
                                             {navItem.items ? (
-                                                // Expandable dropdown section
                                                 <div className="border-b border-muted pb-2 mb-2">
                                                     <button
                                                         onClick={() => toggleDropdown(navItem.label)}
@@ -466,7 +456,6 @@ const Navbar = () => {
                                                     </AnimatePresence>
                                                 </div>
                                             ) : (
-                                                // Simple link
                                                 <Link
                                                     href={navItem.href || '#'}
                                                     onClick={closeMobileMenu}
@@ -479,7 +468,6 @@ const Navbar = () => {
                                     ))}
                                 </nav>
 
-                                {/* Theme Toggle in Mobile */}
                                 <div className=" ">
                                     <button
                                         onClick={toggleTheme}
@@ -501,7 +489,6 @@ const Navbar = () => {
                                     </button>
                                 </div>
 
-                                {/* Panel Links in Mobile */}
                                 <div className="mt-4 pt-4 border-t border-muted">
                                     <div className="space-y-3">
                                         <Link

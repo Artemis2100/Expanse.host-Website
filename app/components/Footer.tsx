@@ -51,7 +51,7 @@ export const Footer = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 py-16 relative ">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Section */}
@@ -177,7 +177,7 @@ export const Footer = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12 mb-8 p-6 md:p-12 rounded-2xl bg-card  border border-muted relative overflow-hidden"
         >
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                 Switch to Expanse today
