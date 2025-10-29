@@ -56,7 +56,7 @@ const navigationConfig: NavLink[] = [
     {
         label: 'SUPPORT',
         items: [
-            { label: 'Contact Us', href: '/contact', description: 'Get in touch' },
+            { label: 'Contact Us', href: '/contact-us', description: 'Get in touch' },
             { label: 'Discord', href: 'https://discord.gg/example', description: 'Join our community' },
         ]
     },
@@ -134,7 +134,7 @@ const Navbar = () => {
 
     return (
         <nav className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-xl ' : 'bg-transparent'}`}>
-            {/* Promotional Banner */}
+            
             <AnimatePresence>
                 {showBanner && (
                     <motion.div
@@ -174,7 +174,7 @@ const Navbar = () => {
                 className="w-full px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-3 sm:pb-4 overflow-visible"
             >
                 <div className="flex items-center justify-between gap-2 sm:gap-4 h-16 sm:h-20 w-full max-w-[1400px] mx-auto relative">
-                    {/* Logo */}
+                    
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.2 }}
@@ -193,7 +193,7 @@ const Navbar = () => {
                         </Link>
                     </motion.div>
 
-                    {/* Desktop Navigation Menu */}
+                    
                     <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
                         {navigationConfig.map((navItem, index) => (
                             <div key={index} className="relative">
@@ -208,7 +208,7 @@ const Navbar = () => {
                                             <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === navItem.label ? 'rotate-180' : ''}`} />
                                         </button>
 
-                                        {/* Dropdown Content */}
+                                        
                                         <AnimatePresence>
                                             {activeDropdown === navItem.label && (
                                                 <motion.div
@@ -405,7 +405,7 @@ const Navbar = () => {
                                     </button>
                                 </div>
 
-                                {/* Navigation Links */}
+                                
                                 <nav className="space-y-2">
                                     {navigationConfig.map((navItem, index) => (
                                         <div key={index}>

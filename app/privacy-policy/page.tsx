@@ -36,7 +36,7 @@ const PrivacySection = memo(({ section, index }: { section: Section; index: numb
             {section.content}
         </p>
 
-        {/* Render list if exists */}
+        
         {section.list && section.list.length > 0 && (
             <ul className="space-y-2 mb-4 ml-4">
                 {section.list.map((item, idx) => (
@@ -48,7 +48,7 @@ const PrivacySection = memo(({ section, index }: { section: Section; index: numb
             </ul>
         )}
 
-        {/* Render subsections if exists */}
+        
         {section.subsections && section.subsections.length > 0 && (
             <div className="space-y-4 mt-4 ml-4">
                 {section.subsections.map((subsection, idx) => (
@@ -76,10 +76,10 @@ export default function PrivacyPolicyPage() {
             </div>
             <Navbar />
 
-            {/* Content */}
+            
             <div className="relative px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32 md:mt-32">
                 <div className="relative z-10 max-w-4xl mx-auto mb-20">
-                    {/* Header */}
+                    
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ export default function PrivacyPolicyPage() {
                         </p>
                     </motion.div>
 
-                    {/* All Sections Stacked */}
+                    
                     <div>
                         {privacyData.sections.map((section, index) => (
                             <PrivacySection key={section.id} section={section} index={index} />

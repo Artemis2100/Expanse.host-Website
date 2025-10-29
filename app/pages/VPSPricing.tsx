@@ -106,9 +106,9 @@ const VPSCard = memo(({ plan, index }: { plan: VPSPlan; index: number }) => {
 
                 </div>
 
-                {/* Specs Section */}
+                
                 <div className="relative z-10 flex-grow py-4 space-y-2">
-                    {/* CPU & RAM */}
+                    
                     <div className="space-y-3">
                         <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/10">
                             <div className="flex-shrink-0 mt-0.5">

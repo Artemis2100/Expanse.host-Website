@@ -25,7 +25,7 @@ const TimelineItem = memo(({ item, index, isLast }: { item: any; index: number; 
       transition={{ duration: 0.6, delay: index * 0.15 }}
       className="relative grid grid-cols-[1fr_auto_1fr] gap-0 mb-16 last:mb-0"
     >
-      {/* Left side content (even items) */}
+      
       {isEven ? (
         <div className="text-right pr-8 relative">
           <span className="inline-block text-xs font-bold text-accent/80 mb-3 px-3 py-1 bg-accent/10 rounded-full">
@@ -39,14 +39,14 @@ const TimelineItem = memo(({ item, index, isLast }: { item: any; index: number; 
               {item.description}
             </p>
           </div>
-          {/* Connector line to center */}
+          
           <div className="absolute top-1.5 -right-8 w-14 h-0.5 border-muted border-2" />
         </div>
       ) : (
         <div />
       )}
 
-      {/* Center timeline */}
+      
       <div className="relative flex flex-col items-center w-12">
         <div className="w-3 h-3 rounded-full bg-accent border-2 border-accent relative z-10" />
         {!isLast && (
@@ -54,7 +54,7 @@ const TimelineItem = memo(({ item, index, isLast }: { item: any; index: number; 
         )}
       </div>
 
-      {/* Right side content (odd items) */}
+      
       {!isEven ? (
         <div className="text-left pl-8 relative">
           <span className="inline-block text-xs font-bold text-accent/80 mb-3 px-3 py-1 bg-accent/10 rounded-full">
@@ -68,7 +68,7 @@ const TimelineItem = memo(({ item, index, isLast }: { item: any; index: number; 
               {item.description}
             </p>
           </div>
-          {/* Connector line to center */}
+          
           <div className="absolute top-1.5 -left-8 w-14 h-0.5 border-muted border-2" />
         </div>
       ) : (
@@ -240,7 +240,7 @@ export default function AboutPage() {
       </div>
       <Navbar />
 
-      {/* Hero Section */}
+      
       <div className="relative w-full mt-20 sm:mt-32 md:mt-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <svg width="934" height="584" viewBox="0 0 934 584" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:hidden">
@@ -306,12 +306,12 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Mission & Vision Section */}
+      
       <section className="w-full py-24 border-t border-b border-muted mt-32 px-4 relative overflow-hidden">
         <Ripple />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Text content */}
+            
             <div>
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
@@ -330,7 +330,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6 }}
               >
                 <p className="text-base text-muted leading-relaxed mb-6">
-                  At Expanse, we're on a mission to redefine what's possible in the hosting industry. We believe in a future where infrastructure is not just a utility, but a competitive advantage that empowers businesses to innovate without constraints.
+                  At Expanse, we&apos;re on a mission to redefine what&apos;s possible in the hosting industry. We believe in a future where infrastructure is not just a utility, but a competitive advantage that empowers businesses to innovate without constraints.
                 </p>
                 <p className="text-base text-muted leading-relaxed">
                   Our vision is to build the most advanced hosting platform on the planet, combining cutting-edge AMD hardware, global infrastructure, and intelligent automation to deliver unmatched performance, reliability, and value.
@@ -338,7 +338,7 @@ export default function AboutPage() {
               </motion.div>
             </div>
 
-            {/* Right side - Feature cards */}
+            
             <div className="space-y-4">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -392,7 +392,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Journey Timeline Section */}
+      
       <section className="w-full py-24 px-4 relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
@@ -429,7 +429,7 @@ export default function AboutPage() {
       </section>
 
 
-      {/* Team Section */}
+      
       <section className="w-full py-24 px-4 relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
@@ -460,7 +460,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      
       <section className="w-full pt-24 pb-8 px-4 relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
@@ -481,7 +481,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      
       <section className="w-full pb-24 px-4 relative">
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <motion.div

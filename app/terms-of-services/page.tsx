@@ -38,7 +38,7 @@ const TOSSection = memo(({ section, index }: { section: Section; index: number }
                 {section.content}
             </p>
 
-            {/* Render list if exists */}
+            
             {section.list && section.list.length > 0 && (
                 <ul className="space-y-2 mb-4">
                     {section.list.map((item, idx) => (
@@ -50,7 +50,7 @@ const TOSSection = memo(({ section, index }: { section: Section; index: number }
                 </ul>
             )}
 
-            {/* Render subsections if exists */}
+            
             {section.subsections && section.subsections.length > 0 && (
                 <div className="space-y-4 mt-4">
                     {section.subsections.map((subsection, idx) => (
@@ -113,10 +113,10 @@ export default function TermsOfServicePage() {
             </div>
             <Navbar />
 
-            {/* Hero Section */}
+            
             <div className="relative px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32 md:mt-32">
                 <div className="relative z-10 max-w-7xl mx-auto mb-20">
-                    {/* Header */}
+                    
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -133,12 +133,12 @@ export default function TermsOfServicePage() {
                     </motion.div>
 
                     <div className="grid lg:grid-cols-[300px_1fr] gap-8 items-start">
-                        {/* Table of Contents - Desktop */}
+                        
                         <div className="hidden lg:block">
                             <TableOfContents sections={tosData.sections} />
                         </div>
 
-                        {/* Terms Sections */}
+                        
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -147,19 +147,19 @@ export default function TermsOfServicePage() {
                             transition={{ duration: 0.6 }}
                             className="space-y-6"
                         >
-                            {/* Table of Contents - Mobile */}
+                            
                             <div className="lg:hidden mb-8">
                                 <TableOfContents sections={tosData.sections} />
                             </div>
 
-                            {/* All Sections */}
+                            
                             {tosData.sections.map((section, index) => (
                                 <div key={section.id} id={`section-${section.id}`}>
                                     <TOSSection section={section} index={index} />
                                 </div>
                             ))}
 
-                            {/* Contact CTA */}
+                            
                             
 
                         </motion.div>

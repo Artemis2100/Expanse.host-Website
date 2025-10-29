@@ -34,7 +34,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -43,7 +43,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
             className="fixed inset-0 bg-gray-950/60 backdrop-blur-sm z-50"
           />
 
-          {/* Modal */}
+          
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
             className="fixed inset-0 z-[101] flex items-center justify-center p-4"
           >
             <div className=" bg-white dark:bg-black/60 backdrop-blur-sm border border-muted rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-              {/* Header */}
+              
               <div className=" p-6 relative">
                 <button
                   onClick={onClose}
@@ -68,7 +68,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
                 </p>
               </div>
 
-              {/* Content */}
+              
               <div className="p-6 overflow-y-auto max-h-[calc(90vh-240px)]">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {locations.map((location) => (
@@ -83,7 +83,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
                           : 'border-muted hover:border-blue-300 dark:hover:border-blue-600'
                       }`}
                     >
-                      {/* Selection indicator */}
+                      
                       {selectedLocation === location.id && (
                         <motion.div
                           layoutId="selected-location"
@@ -95,7 +95,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
                         </motion.div>
                       )}
 
-                      {/* Flag */}
+                      
                       <div className="flex items-center gap-4 ">
                         <div className="relative w-16 h-12 rounded-md overflow-hidden  flex-shrink-0">
                           <Image
@@ -119,7 +119,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
                 </div>
               </div>
 
-              {/* Footer */}
+              
               <div className="border-t border-muted p-6 ">
                 <div className="flex items-center justify-between gap-4">
                   <button

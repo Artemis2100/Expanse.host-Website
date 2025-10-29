@@ -8,22 +8,20 @@ import Image from 'next/image'
 export const Footer = () => {
   const footerLinks = {
     products: [
-      { label: 'Game Hosting', href: '#', icon: <FaGamepad className="w-4 h-4" /> },
-      { label: 'VPS Hosting', href: '#', icon: <FaServer className="w-4 h-4" /> },
-      { label: 'Dedicated Servers', href: '#', icon: <FaDatabase className="w-4 h-4" /> },
-      { label: 'Domain Names', href: '#', icon: <FaGlobe className="w-4 h-4" /> },
+      { label: 'Game Hosting', href: '/minecraft', icon: <FaGamepad className="w-4 h-4" /> },
+      { label: 'VPS Hosting', href: '/vps', icon: <FaServer className="w-4 h-4" /> },
+      { label: 'Dedicated Servers', href: '/dedicated', icon: <FaDatabase className="w-4 h-4" /> },
     ],
     company: [
-      { label: 'About Us', href: '#', icon: <FaInfoCircle className="w-4 h-4" /> },
-      { label: 'Contact', href: '#', icon: <FaEnvelope className="w-4 h-4" /> },
-      { label: 'Terms of Service', href: '#', icon: <FaFileContract className="w-4 h-4" /> },
-      { label: 'Privacy Policy', href: '#', icon: <FaShieldAlt className="w-4 h-4" /> },
+      { label: 'About Us', href: '/about', icon: <FaInfoCircle className="w-4 h-4" /> },
+      { label: 'Contact', href: '/contact-us', icon: <FaEnvelope className="w-4 h-4" /> },
+      { label: 'Terms of Service', href: '/terms-of-services', icon: <FaFileContract className="w-4 h-4" /> },
+      { label: 'Privacy Policy', href: '/privacy-policy', icon: <FaShieldAlt className="w-4 h-4" /> },
     ],
     support: [
       { label: 'Knowledge Base', href: '#', icon: <FaBook className="w-4 h-4" /> },
-      { label: 'FAQ', href: '#', icon: <FaQuestionCircle className="w-4 h-4" /> },
       { label: 'Server Status', href: '#', icon: <FaChartLine className="w-4 h-4" /> },
-      { label: 'Contact Support', href: '#', icon: <FaHeadset className="w-4 h-4" /> },
+      { label: 'Contact Support', href: '/contact-us', icon: <FaHeadset className="w-4 h-4" /> },
     ],
   }
 
@@ -35,7 +33,7 @@ export const Footer = () => {
 
   return (
     <footer className="w-full border-t rounded-t-3xl border-blue-400/20 relative overflow-hidden">
-      {/* Background blur effect */}
+      
       <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none opacity-30">
         <svg width="2468" height="800" viewBox="0 0 2468 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_f_footer)">
@@ -52,9 +50,9 @@ export const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 relative ">
-        {/* Main Footer Content */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand Section */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +91,7 @@ export const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Products */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +116,7 @@ export const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Company */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +141,7 @@ export const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Support */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +167,7 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        {/* CTA Section */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -202,20 +200,21 @@ export const Footer = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="border-t border-blue-400/10 pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <p className="text-muted text-sm text-center md:text-left">
-            © {new Date().getFullYear()} <span className="text-primary">Expanse Hosting</span>. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-2 text-center md:text-left">
+            <p className="text-muted text-sm">
+              Copyright © 2025, Expanse Hosting
+            </p>
+            <p className="text-muted text-xs">
+              COSMORACK LTD | Company number: 15759478
+            </p>
+          </div>
           <div className="flex flex-wrap gap-6 justify-center">
-            <a href="#" className="text-muted text-sm hover:text-accent transition-colors relative group">
+            <a href="/privacy-policy" className="text-muted text-sm hover:text-accent transition-colors relative group">
               Privacy Policy
               <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
             </a>
-            <a href="#" className="text-muted text-sm hover:text-accent transition-colors relative group">
+            <a href="/terms-of-services" className="text-muted text-sm hover:text-accent transition-colors relative group">
               Terms of Service
-              <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
-            </a>
-            <a href="#" className="text-muted text-sm hover:text-accent transition-colors relative group">
-              Cookie Policy
               <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
             </a>
           </div>

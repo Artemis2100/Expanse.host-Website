@@ -1,0 +1,37 @@
+[
+    {
+        "type": "Region",
+        "title": "Mumbai, India Data Center",
+        "description": "New data center in Mumbai to serve the growing Indian market with low-latency connections.",
+        "expected": "Q4 2025",
+        "icon": "AiOutlineCloudServer"
+    },
+    {
+        "type": "Hardware",
+        "title": "AMD EPYC 9000 series Deployment",
+        "description": "Introducing our Nova Series powered by AMD EPYC 9000 processors with upto 96 cores and 192 threads for enterprise workloads.",
+        "expected": "Q4 2026",
+        "icon": "CiServer"
+    },
+    {
+        "type": "Region",
+        "title": "São Paulo, Brazil Data Center",
+        "description": "Expanding to South America with a new data center in São Paulo, Brazil.",
+        "expected": "Q4 2026",
+        "icon": "AiOutlineCloudServer"
+    },
+    {
+        "type": "Service",
+        "title": "FiveM Servers",
+        "description": "Expanding our footprint to FiveM hosting to serve the evergrowing demand",
+        "expected": "Q4 2025",
+        "icon": "FaRocket"
+    },
+    {
+        "type": "Region",
+        "title": "Sydney, Australia Data Center",
+        "description": "New data center in Sydney to better serve customers in Australia and Oceania.",
+        "expected": "Q1 2025",
+        "icon": "AiOutlineCloudServer"
+    }
+]

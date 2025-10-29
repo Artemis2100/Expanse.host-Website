@@ -1,0 +1,170 @@
+[
+    {
+        "name": "Phoenix",
+        "country": "United States",
+        "flag": "/flags/usa.png",
+        "emoji": "🇺🇸",
+        "status": "active",
+        "specs": {
+            "processor": "Dual Intel Xeon E5-2697v4",
+            "cores": "36 Cores / 72 Threads",
+            "boost": "3.6 GHz Boost",
+            "memory": "512GB DDR4-3200",
+            "storage": "2x4TB SSD RAID",
+            "network": "10Gbps",
+            "tdp": "290W TDP"
+        },
+        "network": {
+            "providers": ["Path.net"],
+            "latency": {
+                "us": "< 20ms",
+                "europe": "90-110ms",
+                "asia": "150-180ms"
+            }
+        }
+    },
+    {
+        "name": "NewYork",
+        "country": "United States",
+        "flag": "/flags/usa.png",
+        "emoji": "🇺🇸",
+        "status": "active",
+        "specs": {
+            "processor": "Dual Intel Xeon E5-2697v4",
+            "cores": "36 Cores / 72 Threads",
+            "boost": "3.6 GHz Boost",
+            "memory": "512GB DDR4-3200",
+            "storage": "2x4TB SSD RAID",
+            "network": "10Gbps",
+            "tdp": "290W TDP"
+        },
+        "network": {
+            "providers": ["Path.net"],
+            "latency": {
+                "us": "< 20ms",
+                "europe": "80-100ms",
+                "asia": "160-190ms"
+            }
+        }
+    },
+    {
+        "name": "Frankfurt",
+        "country": "Germany",
+        "flag": "/flags/germany.png",
+        "emoji": "🇩🇪",
+        "status": "active",
+        "specs": {
+            "processor": "Dual Intel Xeon E5-2697v4",
+            "cores": "36 Cores / 72 Threads",
+            "boost": "3.6 GHz Boost",
+            "memory": "512GB DDR4-3200",
+            "storage": "2x4TB SSD RAID",
+            "network": "10Gbps",
+            "tdp": "290W TDP"
+        },
+        "network": {
+            "providers": ["Path.net"],
+            "latency": {
+                "us": "90-110ms",
+                "europe": "< 20ms",
+                "asia": "140-170ms"
+            }
+        }
+    },
+    {
+        "name": "Johor",
+        "country": "Malaysia",
+        "flag": "/flags/malaysia.png",
+        "emoji": "🇲🇾",
+        "status": "active",
+        "specs": {
+            "processor": "Dual Intel Xeon E5-2697v4",
+            "cores": "36 Cores / 72 Threads",
+            "boost": "3.6 GHz Boost",
+            "memory": "512GB DDR4-3200",
+            "storage": "2x4TB SSD RAID",
+            "network": "10Gbps",
+            "tdp": "290W TDP"
+        },
+        "network": {
+            "providers": ["Path.net"],
+            "latency": {
+                "us": "150-180ms",
+                "europe": "140-170ms",
+                "asia": "< 20ms"
+            }
+        }
+    },
+    {
+        "name": "Hong Kong",
+        "country": "China",
+        "flag": "/flags/chinese.png",
+        "emoji": "🇭🇰",
+        "status": "active",
+        "specs": {
+            "processor": "Dual Intel Xeon E5-2697v4",
+            "cores": "36 Cores / 72 Threads",
+            "boost": "3.6 GHz Boost",
+            "memory": "512GB DDR4-3200",
+            "storage": "2x4TB SSD RAID",
+            "network": "10Gbps",
+            "tdp": "290W TDP"
+        },
+        "network": {
+            "providers": ["Path.net"],
+            "latency": {
+                "us": "160-190ms",
+                "europe": "150-180ms",
+                "asia": "< 20ms"
+            }
+        }
+    },
+    {
+        "name": "Singapore",
+        "country": "Singapore",
+        "flag": "/flags/singapore.png",
+        "emoji": "🇸🇬",
+        "status": "active",
+        "specs": {
+            "processor": "Dual Intel Xeon E5-2697v4",
+            "cores": "36 Cores / 72 Threads",
+            "boost": "3.6 GHz Boost",
+            "memory": "512GB DDR4-3200",
+            "storage": "2x4TB SSD RAID",
+            "network": "10Gbps",
+            "tdp": "290W TDP"
+        },
+        "network": {
+            "providers": ["Path.net"],
+            "latency": {
+                "us": "150-180ms",
+                "europe": "140-170ms",
+                "asia": "< 20ms"
+            }
+        }
+    },
+    {
+        "name": "Mumbai",
+        "country": "India",
+        "flag": "/flags/india.png",
+        "emoji": "🇮🇳",
+        "status": "coming-soon",
+        "specs": {
+            "processor": "TBA",
+            "cores": "TBA",
+            "boost": "TBA",
+            "memory": "TBA",
+            "storage": "TBA",
+            "network": "TBA",
+            "tdp": "TBA"
+        },
+        "network": {
+            "providers": ["TBA"],
+            "latency": {
+                "us": "TBA",
+                "europe": "TBA",
+                "asia": "TBA"
+            }
+        }
+    }
+]

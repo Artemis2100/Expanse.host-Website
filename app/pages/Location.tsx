@@ -182,7 +182,7 @@ export default function LocationsSection() {
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-                            {/* Europe Section */}
+                            
                             <div>
                                 <h3 className="text-accent text-base sm:text-lg mb-2">Europe</h3>
                                 <div className="space-y-1">
@@ -195,7 +195,7 @@ export default function LocationsSection() {
                                 </div>
                             </div>
 
-                            {/* Americas Section */}
+                            
                             <div>
                                 <h3 className="text-accent text-base sm:text-lg mb-2">Americas</h3>
                                 <div className="space-y-1">
@@ -211,7 +211,7 @@ export default function LocationsSection() {
 
                     </motion.div>
 
-                    {/* Right Column - Globe */}
+                    
                     <motion.div
                         className="relative hidden lg:block lg:h-[600px]"
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -226,7 +226,7 @@ export default function LocationsSection() {
                 </div>
             </div>
 
-            {/* Bottom border with fade effect */}
+            
             <div className="absolute bottom-0 left-0 right-0 h-px overflow-hidden">
                 <div
                     className="h-full w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"

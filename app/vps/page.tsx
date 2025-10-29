@@ -7,6 +7,7 @@ import { Footer } from "../components/Footer";
 import VPSPricing from "../pages/VPSPricing";
 import FaqSection from "../pages/FaqSection";
 import { Spotlight } from "@/components/ui/ripple";
+import VPSPanelShowcase from "../pages/VPSPanelShowcase";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </div>
       <Navbar />
       <VPSPricing />
+      <VPSPanelShowcase />
       <FeaturesSection />
       <LocationsSection/>
       <PricingSection />

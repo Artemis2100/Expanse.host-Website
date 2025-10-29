@@ -10,6 +10,7 @@ import { Footer } from "../components/Footer";
 import ReviewsSection from "../components/ReviewsSection";
 import FaqSection from "../pages/FaqSection";
 import VDSPricing from "../pages/VDSPricing";
+import PanelShowcase from "../pages/PanelShowcase";
 import { BackgroundBeams } from "../../components/ui/background-beams"
 import { Spotlight } from "@/components/ui/ripple";
 
@@ -21,6 +22,7 @@ export default function Home() {
       </div>
       <Navbar />
       <VDSPricing />
+      <PanelShowcase />
       <FeaturesSection />
       <LocationsSection/>
       <PricingSection />

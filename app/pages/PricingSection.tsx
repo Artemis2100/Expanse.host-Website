@@ -70,7 +70,7 @@ const PricingSection = () => {
                     <p className='text-xs sm:text-sm text-muted font-medium mt-3 sm:mt-4'>All available plans that we offer, alot of them right?</p>
                 </motion.h2>
 
-                {/* Services Grid */}
+                
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -93,22 +93,22 @@ const PricingSection = () => {
                                 <div className="flex flex-col flex-grow  rounded-xl relative z-20">
                                     <Ripple />
                                     <div className="p-4 sm:p-6 rounded-xl">
-                                        {/* Icon */}
+                                        
                                         <div className="text-primary mb-4">
                                             {service.icon}
                                         </div>
 
-                                        {/* Title */}
+                                        
                                         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 tracking-wide">
                                             {service.title}
                                         </h3>
 
-                                        {/* Description */}
+                                        
                                         <p className="text-xs sm:text-sm text-muted leading-relaxed mb-4 sm:mb-6 flex-grow">
                                             {service.description}
                                         </p>
 
-                                        {/* Button */}
+                                        
                                         <motion.button
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}

@@ -77,7 +77,7 @@ export const FeaturesSection = () => {
 
 
             <div className="max-w-7xl mx-auto relative z-10">
-                {/* Title */}
+                
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ export const FeaturesSection = () => {
                     <p className='text-muted leading-relaxed max-w-xl mx-auto text-sm sm:text-base mt-4 font-light'>Built by devs, for devs. Every feature is designed to keep your server running smooth, secure, and stress-free.</p>
                 </motion.h2>
 
-                {/* Features Grid */}
+                
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -104,23 +104,23 @@ export const FeaturesSection = () => {
                             className="relative group"
                         >
                             <div className="relative h-full p-2  rounded-lg backdrop-blur-sm transition-all duration-300">
-                                {/* Icon with accent color */}
+                                
                                 <div
                                 className={`inline-flex items-center bg-button justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)]`}>
                                     {feature.icon}
                                 </div>
 
-                                {/* Title */}
+                                
                                 <h3 className="text-xl font-bold text-foreground mb-3 tracking-wide">
                                     {feature.title}
                                 </h3>
 
-                                {/* Description */}
+                                
                                 <p className="text-sm text-muted leading-relaxed mb-4">
                                     {feature.description}
                                 </p>
 
-                                {/* Buttons if available */}
+                                
                                 {feature.buttons && (
                                     <div className="flex gap-3 mt-2">
                                         {feature.buttons.map((button, btnIndex) => (
@@ -141,7 +141,7 @@ export const FeaturesSection = () => {
                     ))}
                 </motion.div>
 
-                {/* Discord Card */}
+                
                
             </div>
         </section>

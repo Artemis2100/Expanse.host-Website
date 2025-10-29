@@ -77,10 +77,10 @@ export default function ContactPage() {
             </div>
             <Navbar />
 
-            {/* Hero Section */}
+            
             <div className="relative px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32 md:mt-32">
                 <div className="relative z-10 max-w-7xl mx-auto">
-                    {/* Header */}
+                    
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </motion.div>
 
                     <div className="grid lg:grid-cols-2  items-start mb-20">
-                        {/* Contact Form */}
+                        
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -106,7 +106,7 @@ export default function ContactPage() {
                         >
                             <div className=" backdrop-blur-sm border border-muted rounded-md">
                                 <form onSubmit={handleSubmit} className="space-y-5">
-                                    {/* Name Field */}
+                                    
                                     <div className="px-8 py-2">
                                         <div >
                                             <label htmlFor="name" className="py-2 block text-sm font-medium text-foreground mb-2">
@@ -129,7 +129,7 @@ export default function ContactPage() {
                                             </div>
                                         </div>
 
-                                        {/* Email Field */}
+                                        
                                         <div>
                                             <label htmlFor="email" className="pt-4 block text-sm font-medium text-foreground mb-2">
                                                 Email Address
@@ -151,7 +151,7 @@ export default function ContactPage() {
                                             </div>
                                         </div>
 
-                                        {/* Subject Field */}
+                                        
                                         <div>
                                             <label htmlFor="subject" className="pt-4 block text-sm font-medium text-foreground mb-2">
                                                 Subject
@@ -173,7 +173,7 @@ export default function ContactPage() {
                                             </div>
                                         </div>
 
-                                        {/* Message Field */}
+                                        
                                         <div>
                                             <label htmlFor="message" className="pt-4 block text-sm font-medium text-foreground mb-2">
                                                 Message
@@ -190,7 +190,7 @@ export default function ContactPage() {
                                             />
                                         </div>
                                     </div>
-                                    {/* Submit Button */}
+                                    
                                     <div className="flex justify-end  pb-4 ">
                                         <motion.button
                                             type="submit"
@@ -215,7 +215,7 @@ export default function ContactPage() {
                             </div>
                         </motion.div>
 
-                        {/* Contact Methods */}
+                        
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"

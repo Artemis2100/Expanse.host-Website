@@ -52,7 +52,7 @@ export const FaqSection = () => {
 
     return (
         <section className="w-full py-24 mt-24 px-4 relative overflow-hidden">
-            {/* Top border with fade effect */}
+            
             <div className="absolute top-0 left-0 right-0 h-px ">
                 <div
                     className="h-full w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"
@@ -63,7 +63,7 @@ export const FaqSection = () => {
                 />
             </div>
 
-            {/* Background blur effect - matching Location */}
+            
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                 <svg width="2468" height="1218" viewBox="0 0 2468 1218" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_faq)">
@@ -97,7 +97,7 @@ export const FaqSection = () => {
 
             <div className="max-w-6xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    {/* Left side - Header */}
+                    
                     <div>
                         <motion.h2
                             initial={{ opacity: 0, x: -20 }}
@@ -130,7 +130,7 @@ export const FaqSection = () => {
                         </motion.button>
                     </div>
 
-                    {/* Right side - FAQ Items */}
+                    
                     <motion.div
                         className="space-y-3"
                     >

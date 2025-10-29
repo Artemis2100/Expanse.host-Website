@@ -145,7 +145,7 @@ const ReviewsSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-start gap-12">
 
-          {/* Static Reviews Grid for Mobile - Hidden on Desktop */}
+          
           <div className="lg:hidden w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ const ReviewsSection = () => {
             </div>
           </div>
 
-          {/* 3D Marquee Reviews - Desktop Only */}
+          
           <div className="hidden lg:flex relative h-[500px] flex-1 flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
             <div
               className="flex flex-row items-center gap-4"
@@ -216,14 +216,14 @@ const ReviewsSection = () => {
               </Marquee>
             </div>
 
-            {/* Gradient overlays */}
+            
             <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
             <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
           </div>
 
-          {/* Header - Right Side - Desktop Only */}
+          
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

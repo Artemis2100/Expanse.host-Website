@@ -122,7 +122,7 @@ const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
       className="relative group h-full"
     >
       <div className="relative p-4 border border-muted rounded-md bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-all duration-300 h-full flex flex-col">
-        {/* Header with PFP and Name */}
+        
         <div className="flex items-center gap-4 mb-4">
           <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-accent/20">
             <Image
@@ -142,7 +142,7 @@ const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
           </div>
         </div>
 
-        {/* Description with blur overlay when collapsed */}
+        
         <div className="relative flex-grow">
           <p className={`text-sm text-muted leading-relaxed transition-all duration-300 ${
             isExpanded ? '' : 'line-clamp-3'
@@ -150,13 +150,13 @@ const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
             {member.description}
           </p>
 
-          {/* Blur overlay when collapsed */}
+          
           {!isExpanded && (
             <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-card/90 to-transparent pointer-events-none" />
           )}
         </div>
 
-        {/* Read More Button */}
+        
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="mt-4 text-accent text-sm font-medium hover:underline flex items-center gap-2 transition-all"
@@ -166,7 +166,7 @@ const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
         </button>
       </div>
 
-      {/* Full screen overlay when expanded */}
+      
       {isExpanded && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -252,7 +252,7 @@ export default function CareersPage() {
       </div>
       <Navbar />
 
-      {/* Hero Section */}
+      
       <div className="relative w-full mt-20 sm:mt-32 md:mt-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
         <BackgroundBeams />
 
@@ -320,10 +320,10 @@ export default function CareersPage() {
         </div>
       </div>
 
-      {/* Why Work Here Section */}
+      
       
 
-      {/* Open Roles Section */}
+      
       <section className="w-full py-24 px-4 relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
@@ -382,7 +382,7 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-      {/* Team Section */}
+      
       <section className="w-full py-24 px-4 relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
@@ -413,7 +413,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Early Careers Section */}
+      
       <section className="w-full py-24 px-4 relative">
         <div className="max-w-7xl mx-auto relative ">
           <motion.div

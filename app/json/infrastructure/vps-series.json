@@ -1,0 +1,45 @@
+[
+    {
+        "name": "Zenith Series",
+        "recommended": true,
+        "processor": "AMD Ryzen 9 9950X",
+        "cores": "16 Cores / 32 Threads",
+        "memory": "DDR5-6400",
+        "storage": "NVMe (7000MB/s)",
+        "pricing": "From $20/mo",
+        "useCases": [
+            "High-performance applications",
+            "Database servers",
+            "AI/ML workloads"
+        ]
+    },
+    {
+        "name": "Eclipse Series",
+        "recommended": false,
+        "processor": "Dual Intel Xeon E5-2697v4",
+        "cores": "36 Cores / 72 Threads",
+        "memory": "DDR4-3200",
+        "storage": "NVMe (3500MB/s)",
+        "pricing": "From $15/mo",
+        "useCases": [
+            "Multi-threaded applications",
+            "Web servers",
+            "Containerized workloads"
+        ]
+    },
+    {
+        "name": "Nova Series",
+        "recommended": false,
+        "comingSoon": true,
+        "processor": "AMD EPYC 9654",
+        "cores": "97 Cores / 192 Threads",
+        "memory": "DDR5-6400",
+        "storage": "NVMe (7000MB/s)",
+        "pricing": "From $40/mo",
+        "useCases": [
+            "Enterprise applications",
+            "Large-scale databases",
+            "High-density computing"
+        ]
+    }
+]

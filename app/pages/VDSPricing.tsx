@@ -95,7 +95,7 @@ const CPUDropdown = memo(({
 
     return (
         <div className="relative w-full sm:w-auto" ref={dropdownRef}>
-            {/* Dropdown Button */}
+            
             <button
                 type="button"
                 onClick={(e) => {
@@ -121,7 +121,7 @@ const CPUDropdown = memo(({
                 />
             </button>
 
-            {/* Dropdown Menu */}
+            
             {isOpen && (
                 <div
                     className="absolute top-full left-0 right-0 mt-2 z-[9999] backdrop-blur-xl bg-card border border-muted rounded-lg shadow-2xl overflow-hidden max-h-60 sm:max-h-64 overflow-y-auto"
@@ -179,9 +179,9 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-            className="relative w-full"
+            className="relative w-full "
         >
-            {/* Badge */}
+            
             {plan.badge && (
                 <div className="absolute -top-3 left-6 z-10">
                     <span className="px-4 py-1.5 text-xs font-bold bg-white dark:bg-black border border-muted text-accent-foreground rounded ">
@@ -190,11 +190,11 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                 </div>
             )}
 
-            {/* Horizontal Card */}
-            <div className="group relative rounded border border-muted hover:border-accent/50 transition-all duration-300 overflow-hidden bg-card/50 backdrop-blur-sm">
+            
+            <div className=" group relative rounded border border-muted hover:border-accent/50 transition-all duration-300 overflow-hidden bg-card/50 backdrop-blur-sm">
                 <Ripple />
                 <div className="relative z-10 flex flex-col lg:flex-row items-stretch">
-                    {/* Left Section - Header & Status */}
+                    
                     <div className="flex-shrink-0 lg:w-56bg-gradient-to-br from-accent/5 to-transparent border-b lg:border-b-0 lg:border-r border-muted flex flex-col">
                         <div className="flex-grow  p-5 sm:p-6 ">
                             <h3 className="text-lg mt-8 sm:text-xl font-bold uppercase text-foreground mb-2 tracking-tight">
@@ -208,7 +208,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                             </div>
                         </div>
 
-                        {/* Tags at the bottom of left section */}
+                        
                         <div className="flex flex-wrap gap-2 mt-4 pt-4  p-5 sm:p-6  border-t border-muted">
                             <span className="px-2.5 py-1  text-accent text-xs font-medium  border border-muted">
                                 {plan.storage.type} Storage
@@ -221,10 +221,10 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                         </div>
                     </div>
 
-                    {/* Middle Section - Specs Grid */}
+                    
                     <div className="flex-grow p-3 sm:p-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {/* CPU */}
+                            
                             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
                                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -240,7 +240,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                                 </div>
                             </div>
 
-                            {/* RAM */}
+                            
                             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
                                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -256,7 +256,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                                 </div>
                             </div>
 
-                            {/* Storage */}
+                            
                             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
                                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -272,7 +272,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                                 </div>
                             </div>
 
-                            {/* Network */}
+                            
                             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                                 <div className="flex-shrink-0 mt-0.5">
                                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -288,7 +288,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                                 </div>
                             </div>
 
-                            {/* DDoS Protection */}
+                            
                             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors sm:col-span-2 lg:col-span-1">
                                 <div className="flex-shrink-0 mt-0.5">
                                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -306,7 +306,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                         </div>
                     </div>
 
-                    {/* Right Section - Price & CTA */}
+                    
                     <div className="flex-shrink-0 lg:w-64 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-muted bg-gradient-to-br from-transparent to-accent/5 ">
                         <div className="mb-6 text-center">
                             <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">
@@ -444,8 +444,8 @@ export default function VDSPricing() {
     };
 
     return (
-        <section className="relative w-full px-4 sm:px-6 mt-20 sm:mt-28 md:mt-32 lg:px-8">
-            {/* Blue gradient SVG - matching Location.tsx pattern */}
+        <section className="mb-16 relative w-full px-4 sm:px-6 mt-20 sm:mt-28 md:mt-32 lg:px-8">
+            
             <div className="absolute top-1/2 left-1/2 opacity-50 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                 <svg width="1463" height="926" viewBox="0 0 1463 926" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_vps_1)">
@@ -470,7 +470,7 @@ export default function VDSPricing() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
-                {/* Header */}
+                
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -491,7 +491,7 @@ export default function VDSPricing() {
                     </p>
                 </motion.div>
 
-                {/* Location Buttons */}
+                
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -522,7 +522,7 @@ export default function VDSPricing() {
                     ))}
                 </motion.div>
 
-                {/* Filters */}
+                
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -531,7 +531,7 @@ export default function VDSPricing() {
                     className="flex flex-col gap-3 sm:gap-4 mb-5 sm:mb-6"
                 >
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
-                        {/* Search */}
+                        
                         <div className="relative flex-1 w-full min-w-0">
                             <input
                                 type="text"
@@ -550,14 +550,14 @@ export default function VDSPricing() {
                             </svg>
                         </div>
 
-                        {/* CPU Filter */}
+                        
                         <CPUDropdown
                             selectedCPU={selectedCPU}
                             onCPUChange={setSelectedCPU}
                             cpuOptions={cpuOptions}
                         />
 
-                        {/* Filter Toggle Button */}
+                        
                         <button
                             onClick={() => setShowFilters(!showFilters)}
                             className={`px-4 py-2.5 sm:py-2.5 backdrop-blur-sm bg-card border rounded text-foreground text-sm hover:border-accent focus:outline-none transition-all flex items-center gap-2 ${
@@ -569,7 +569,7 @@ export default function VDSPricing() {
                         </button>
                     </div>
 
-                    {/* Collapsible Filter Panel */}
+                    
                     {showFilters && (
                         <motion.div
                             initial={{ opacity: 0, height: 0 }}
@@ -580,11 +580,11 @@ export default function VDSPricing() {
                         >
                             <div className="p-4 sm:p-5 bg-card border border-muted rounded">
                                 <div className="flex flex-col gap-4">
-                                    {/* Price Range Filter */}
+                                    
                                     <div>
                                         <h3 className="text-sm font-semibold text-foreground mb-3">Price Range (per month)</h3>
                                         <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-end">
-                                            {/* Min Price Input */}
+                                            
                                             <div className="flex-1 w-full">
                                                 <label className="block text-xs text-muted mb-2">Min Price</label>
                                                 <div className="relative">
@@ -605,7 +605,7 @@ export default function VDSPricing() {
                                                 </div>
                                             </div>
 
-                                            {/* Max Price Input */}
+                                            
                                             <div className="flex-1 w-full">
                                                 <label className="block text-xs text-muted mb-2">Max Price</label>
                                                 <div className="relative">
@@ -626,7 +626,7 @@ export default function VDSPricing() {
                                                 </div>
                                             </div>
 
-                                            {/* Reset Button */}
+                                            
                                             <button
                                                 onClick={() => setPriceRange({ min: priceMinMax.min, max: priceMinMax.max })}
                                                 className="px-4 py-2.5 text-sm font-medium text-accent border border-muted rounded hover:bg-muted/10 transition-colors whitespace-nowrap"
@@ -645,7 +645,7 @@ export default function VDSPricing() {
 
                 </motion.div>
 
-                {/* Results Count */}
+                
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -658,7 +658,7 @@ export default function VDSPricing() {
                     </p>
                 </motion.div>
 
-                {/* VDS Plans List - Horizontal Layout */}
+                
                 {filteredPlans.length > 0 ? (
                     <>
                         <motion.div
@@ -673,7 +673,7 @@ export default function VDSPricing() {
                             ))}
                         </motion.div>
 
-                        {/* Pagination */}
+                        
                         {totalPages > 1 && (
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -681,14 +681,14 @@ export default function VDSPricing() {
                                 transition={{ duration: 0.5 }}
                                 className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 sm:mt-10 pt-6 border-t border-muted"
                             >
-                                {/* Page Info */}
+                                
                                 <div className="text-sm text-muted">
                                     Page {currentPage} of {totalPages} ({filteredPlans.length} total servers)
                                 </div>
 
-                                {/* Pagination Controls */}
+                                
                                 <div className="flex items-center gap-2">
-                                    {/* Previous Button */}
+                                    
                                     <button
                                         onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                                         disabled={currentPage === 1}
@@ -699,7 +699,7 @@ export default function VDSPricing() {
                                         </svg>
                                     </button>
 
-                                    {/* Page Numbers */}
+                                    
                                     <div className="flex items-center gap-1">
                                         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
                                             // Show first page, last page, current page, and pages around current
@@ -736,7 +736,7 @@ export default function VDSPricing() {
                                         })}
                                     </div>
 
-                                    {/* Next Button */}
+                                    
                                     <button
                                         onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                                         disabled={currentPage === totalPages}
