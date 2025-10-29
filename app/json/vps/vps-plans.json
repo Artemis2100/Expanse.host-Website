@@ -25,7 +25,8 @@
     "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us", "de", "sg"],
-    "availableCPUs": ["Ryzen"]
+    "availableCPUs": ["Ryzen"],
+    "orderLink": "https://example.com/order/vps-starter"
   },
   {
     "id": "vps-basic",
@@ -54,7 +55,8 @@
     "deliveryTime": "Instant",
     "popular": true,
     "availableLocations": ["us", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"]
+    "availableCPUs": ["Ryzen"],
+    "orderLink": "https://example.com/order/vps-basic"
   },
   {
     "id": "vps-standard",
@@ -84,7 +86,8 @@
     "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us", "de"],
-    "availableCPUs": ["EPYC"]
+    "availableCPUs": ["EPYC"],
+    "orderLink": "https://example.com/order/vps-standard"
   },
   {
     "id": "vps-advanced",
@@ -115,7 +118,8 @@
     "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us", "in"],
-    "availableCPUs": ["EPYC", "Ryzen"]
+    "availableCPUs": ["EPYC", "Ryzen"],
+    "orderLink": "https://example.com/order/vps-advanced"
   },
   {
     "id": "vps-professional",
@@ -147,7 +151,8 @@
     "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["sg", "my"],
-    "availableCPUs": ["EPYC"]
+    "availableCPUs": ["EPYC"],
+    "orderLink": "https://example.com/order/vps-professional"
   },
   {
     "id": "vps-enterprise",
@@ -180,6 +185,7 @@
     "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us", "de", "sg", "my", "in"],
-    "availableCPUs": ["EPYC", "Ryzen"]
+    "availableCPUs": ["EPYC", "Ryzen"],
+    "orderLink": "https://example.com/order/vps-enterprise"
   }
 ]

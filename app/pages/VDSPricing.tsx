@@ -44,6 +44,7 @@ interface VDSPlan {
     status: "in_stock" | "low_stock" | "out_of_stock";
     deliveryTime: string;
     badge?: string;
+    orderLink: string;
 }
 
 // Load data from JSON files with type assertions
@@ -313,15 +314,27 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                             </div>
                             <div className="text-sm text-muted font-medium">per month</div>
                         </div>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            transition={{ duration: 0.2 }}
-                            disabled={plan.status === "out_of_stock"}
-                            className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-t border-b border-muted hover:bg-button  text-accent-foreground font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
-                        >
-                            <span>{plan.status === "out_of_stock" ? "Out of Stock" : "Order Now"}</span>
-                            {plan.status !== "out_of_stock" && (
+                        {plan.status === "out_of_stock" ? (
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                                disabled={true}
+                                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-t border-b border-muted hover:bg-button  text-accent-foreground font-semibold transition-all opacity-50 cursor-not-allowed group"
+                            >
+                                <span>Out of Stock</span>
+                            </motion.button>
+                        ) : (
+                            <motion.a
+                                href={plan.orderLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-t border-b border-muted hover:bg-button  text-accent-foreground font-semibold transition-all group"
+                            >
+                                <span>Order Now</span>
                                 <svg
                                     className="w-5 h-5 transition-transform group-hover:translate-x-1"
                                     stroke="currentColor"
@@ -332,8 +345,8 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                                 >
                                     <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
                                 </svg>
-                            )}
-                        </motion.button>
+                            </motion.a>
+                        )}
                     </div>
                 </div>
             </div>

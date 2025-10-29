@@ -45,6 +45,7 @@ interface VPSPlan {
     popular?: boolean;
     availableLocations: string[];
     availableCPUs: ("Ryzen" | "EPYC")[];
+    orderLink: string;
 }
 
 const locations: Location[] = locationsData as Location[];
@@ -170,17 +171,30 @@ const VPSCard = memo(({ plan, index }: { plan: VPSPlan; index: number }) => {
                 </div>
 
                 <div className="relative z-10 pb-4 bg-gradient-to-br from-transparent to-accent/5">
-                    <div className="flex justify-end"> 
-                        <motion.button
-                            transition={{ duration: 0.2 }}
-                            disabled={plan.status === "out_of_stock"}
-                            className={`py-3.5 px-8 border-muted font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-2 ${plan.popular
-                                    ? 'bg-accent border-l border-r rounded-l-3xl text-white hover:bg-button'
-                                    : 'border-t border-b border-l rounded-l-3xl border-muted hover:bg-button'
-                                }`}
-                        >
-                            <span>{plan.status === "out_of_stock" ? "Out of Stock" : "Get Started"}</span>
-                            {plan.status !== "out_of_stock" && (
+                    <div className="flex justify-end">
+                        {plan.status === "out_of_stock" ? (
+                            <motion.button
+                                transition={{ duration: 0.2 }}
+                                disabled={true}
+                                className={`py-3.5 px-8 border-muted font-semibold transition-all opacity-50 cursor-not-allowed group flex items-center justify-center gap-2 ${plan.popular
+                                        ? 'bg-accent border-l border-r rounded-l-3xl text-white'
+                                        : 'border-t border-b border-l rounded-l-3xl border-muted'
+                                    }`}
+                            >
+                                <span>Out of Stock</span>
+                            </motion.button>
+                        ) : (
+                            <motion.a
+                                href={plan.orderLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                transition={{ duration: 0.2 }}
+                                className={`py-3.5 px-8 border-muted font-semibold transition-all group flex items-center justify-center gap-2 ${plan.popular
+                                        ? 'bg-accent border-l border-r rounded-l-3xl text-white hover:bg-button'
+                                        : 'border-t border-b border-l rounded-l-3xl border-muted hover:bg-button'
+                                    }`}
+                            >
+                                <span>Get Started</span>
                                 <svg
                                     className="w-5 h-5 transition-transform group-hover:translate-x-1"
                                     stroke="currentColor"
@@ -191,8 +205,8 @@ const VPSCard = memo(({ plan, index }: { plan: VPSPlan; index: number }) => {
                                 >
                                     <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
                                 </svg>
-                            )}
-                        </motion.button>
+                            </motion.a>
+                        )}
                     </div>
                 </div>
 

@@ -24,7 +24,8 @@
     },
     "price": 9.99,
     "status": "in_stock",
-    "deliveryTime": "Instant Setup"
+    "deliveryTime": "Instant Setup",
+    "orderLink": "https://example.com/order/vds-starter"
   },
   {
     "id": "vds-professional",
@@ -52,7 +53,8 @@
     "price": 19.99,
     "status": "in_stock",
     "deliveryTime": "Instant Setup",
-    "badge": "POPULAR"
+    "badge": "POPULAR",
+    "orderLink": "https://example.com/order/vds-professional"
   },
   {
     "id": "vds-business",
@@ -79,7 +81,8 @@
     },
     "price": 39.99,
     "status": "in_stock",
-    "deliveryTime": "Instant Setup"
+    "deliveryTime": "Instant Setup",
+    "orderLink": "https://example.com/order/vds-business"
   },
   {
     "id": "vds-enterprise",
@@ -106,7 +109,8 @@
     },
     "price": 79.99,
     "status": "low_stock",
-    "deliveryTime": "1-2 Hours"
+    "deliveryTime": "1-2 Hours",
+    "orderLink": "https://example.com/order/vds-enterprise"
   },
   {
     "id": "vds-ultimate",
@@ -133,6 +137,7 @@
     },
     "price": 149.99,
     "status": "in_stock",
-    "deliveryTime": "2-4 Hours"
+    "deliveryTime": "2-4 Hours",
+    "orderLink": "https://example.com/order/vds-ultimate"
   }
 ]

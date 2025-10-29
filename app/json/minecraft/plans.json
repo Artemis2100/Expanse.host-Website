@@ -4,6 +4,7 @@
     "icon": "creeper",
     "price": "$4.99",
     "period": "/month",
+    "orderLink": "https://example.com/order/basic",
     "features": [
       { "icon": "ram", "text": "2GB RAM" },
       { "icon": "cpu", "text": "2 CPU Threads" },
@@ -23,6 +24,7 @@
     "icon": "zombie",
     "price": "$9.99",
     "period": "/month",
+    "orderLink": "https://example.com/order/pro",
     "features": [
       { "icon": "ram", "text": "4GB RAM" },
       { "icon": "cpu", "text": "3 CPU Threads" },
@@ -42,6 +44,7 @@
     "icon": "blaze",
     "price": "$19.99",
     "period": "/month",
+    "orderLink": "https://example.com/order/premium",
     "features": [
       { "icon": "ram", "text": "8GB RAM" },
       { "icon": "cpu", "text": "4 CPU Threads" },
@@ -61,6 +64,7 @@
     "icon": "enderman",
     "price": "$39.99",
     "period": "/month",
+    "orderLink": "https://example.com/order/enterprise",
     "features": [
       { "icon": "ram", "text": "16GB RAM" },
       { "icon": "cpu", "text": "6 CPU Threads" },

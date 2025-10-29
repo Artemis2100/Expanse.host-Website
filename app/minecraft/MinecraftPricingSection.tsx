@@ -84,12 +84,13 @@ interface PricingTier {
   icon: 'creeper' | 'zombie' | 'enderman' | 'blaze';
   price: string;
   period: string;
+  orderLink: string;
   features: Feature[];
   highlighted?: boolean;
-  color: string; 
-  borderColor: string; 
+  color: string;
+  borderColor: string;
   bgColor: string;
-  hoverBgColor: string; 
+  hoverBgColor: string;
   glowColor: string;
 }
 
@@ -255,15 +256,17 @@ export default function MinecraftPricingSection() {
                   ))}
                 </ul>
 
-                <button
-                  onClick={() => handleGetStarted(tier)}
-                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mt-auto ${tier.bgColor} ${tier.hoverBgColor} text-white`}
+                <a
+                  href={tier.orderLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mt-auto ${tier.bgColor} ${tier.hoverBgColor} text-white text-center block`}
                   style={{
                     boxShadow: `inset 0 2px 8px rgba(0, 0, 0, 0.6)`
                   }}
                 >
                   Get Started
-                </button>
+                </a>
               </div>
             </div>
           ))}
