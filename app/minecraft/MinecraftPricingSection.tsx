@@ -131,7 +131,7 @@ const renderFeatureIcon = (iconName: string, color: string) => {
 
 export default function MinecraftPricingSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<{ name: string; price: string } | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; price: string; orderLink: string } | null>(null);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -154,7 +154,7 @@ export default function MinecraftPricingSection() {
   }, []);
 
   const handleGetStarted = (plan: PricingTier) => {
-    setSelectedPlan({ name: plan.name, price: plan.price });
+    setSelectedPlan({ name: plan.name, price: plan.price, orderLink: plan.orderLink });
     setIsModalOpen(true);
   };
 
@@ -256,17 +256,15 @@ export default function MinecraftPricingSection() {
                   ))}
                 </ul>
 
-                <a
-                  href={tier.orderLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handleGetStarted(tier)}
                   className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mt-auto ${tier.bgColor} ${tier.hoverBgColor} text-white text-center block`}
                   style={{
                     boxShadow: `inset 0 2px 8px rgba(0, 0, 0, 0.6)`
                   }}
                 >
                   Get Started
-                </a>
+                </button>
               </div>
             </div>
           ))}

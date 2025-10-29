@@ -16,9 +16,9 @@ import { Spotlight } from "@/components/ui/ripple";
 export default function Home() {
   return (
     <div className="relative">
-      
-      <div className="absolute top-0 left-0 right-0 h-screen overflow-hidden pointer-events-none">
 
+      <div className="absolute top-0 left-0 right-0 h-screen bg-black/20 overflow-hidden pointer-events-none">
+        <BackgroundBeams />
       </div>
 
       <Navbar />

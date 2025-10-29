@@ -3,12 +3,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { BackgroundBeams } from '@/components/ui/background-beams'
 const HeroSection = () => {
     return (
         <div className="relative w-full mt-20 sm:mt-32 md:mt-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-            
-            <BackgroundBeams />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
                 <svg width="934" height="584" viewBox="0 0 934 584" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:hidden">
                     <g filter="url(#filter0_f_1_31_light)">

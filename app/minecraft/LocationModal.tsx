@@ -11,6 +11,7 @@ interface LocationModalProps {
   selectedPlan: {
     name: string;
     price: string;
+    orderLink: string;
   } | null;
 }
 
@@ -20,13 +21,10 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
   const handleContinueToCheckout = () => {
     if (!selectedLocation || !selectedPlan) return;
 
-    // Here you would typically redirect to checkout with the selected plan and location
-    console.log('Proceeding to checkout with:', {
-      plan: selectedPlan,
-      location: selectedLocation
-    });
+    // Redirect to the order link
+    window.open(selectedPlan.orderLink, '_blank', 'noopener,noreferrer');
 
-    // For now, just close the modal
+    // Close the modal
     onClose();
   };
 
