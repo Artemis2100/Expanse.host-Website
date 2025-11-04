@@ -10,9 +10,6 @@ import { motion } from "motion/react";
 import { Footer } from "./components/Footer";
 import ReviewsSection from "./components/ReviewsSection";
 import FaqSection from "./pages/FaqSection";
-import { DotPattern } from "@/components/ui/dot-pattern";
-import { cn } from "@/lib/utils";
-import { Spotlight } from "@/components/ui/ripple";
 export default function Home() {
   return (
     <div className="relative">

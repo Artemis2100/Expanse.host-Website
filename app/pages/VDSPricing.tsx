@@ -702,7 +702,7 @@ export default function VDSPricing() {
                                     
                                     <div className="flex items-center gap-1">
                                         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                                            // Show first page, last page, current page, and pages around current
+                                            // zaddy... why did u leave me zaddy..
                                             const showPage = page === 1 ||
                                                            page === totalPages ||
                                                            Math.abs(page - currentPage) <= 1;

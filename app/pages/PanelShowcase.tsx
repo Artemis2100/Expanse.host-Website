@@ -82,7 +82,6 @@ export default function PanelShowcase({
             <BackgroundBeams />
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
-                    {/* Left Side - Panel Info & Features */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +89,6 @@ export default function PanelShowcase({
                         transition={{ duration: 0.6 }}
                         className="space-y-8"
                     >
-                        {/* Panel Description */}
                         <div>
                             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                                 Meet <span className="text-accent">{panelName}</span>
@@ -100,7 +98,6 @@ export default function PanelShowcase({
                             </p>
                         </div>
 
-                        {/* Features Grid */}
                         <div className="grid sm:grid-cols-2 gap-4">
                             {features.map((feature, index) => (
                                 <motion.div
@@ -125,7 +122,6 @@ export default function PanelShowcase({
                             ))}
                         </div>
 
-                        {/* CTA Button */}
                         {ctaLink && (
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -157,8 +153,6 @@ export default function PanelShowcase({
                             </motion.div>
                         )}
                     </motion.div>
-
-                    {/* Right Side - Image Showcase */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -166,7 +160,6 @@ export default function PanelShowcase({
                         transition={{ duration: 0.6 }}
                         className="relative"
                     >
-                        {/* Main Image Display */}
                         <div className="relative rounded-lg border border-muted overflow-hidden bg-card/50 backdrop-blur-sm shadow-2xl">
                             <Ripple />
                             <div className="relative z-10 aspect-video w-full">
@@ -187,7 +180,6 @@ export default function PanelShowcase({
                             )}
                         </div>
 
-                        {/* Thumbnail Navigation */}
                         {images.length > 1 && (
                             <div className="flex gap-3 mt-4 justify-center">
                                 {images.map((image, index) => (

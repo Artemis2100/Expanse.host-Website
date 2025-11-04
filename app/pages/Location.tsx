@@ -88,15 +88,13 @@ export default function LocationsSection() {
     const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
-        // Check theme on mount and listen for changes
+        // omfg daddy, chill please..
         const checkTheme = () => {
             const isDarkMode = document.documentElement.classList.contains('dark');
             setIsDark(isDarkMode);
         };
 
         checkTheme();
-
-        // Watch for theme changes
         const observer = new MutationObserver(checkTheme);
         observer.observe(document.documentElement, {
             attributes: true,

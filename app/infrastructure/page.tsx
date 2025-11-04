@@ -10,20 +10,15 @@ import { FaDatabase, FaShieldAlt, FaNetworkWired, FaRocket } from "react-icons/f
 import { MdStorage, MdSpeed } from "react-icons/md"
 import Navbar from '@/app/components/Navbar'
 import { Footer } from '@/app/components/Footer'
-
-// Import JSON data
 import regionsData from '@/app/json/infrastructure/regions.json'
 import vpsSeriesData from '@/app/json/infrastructure/vps-series.json'
 import roadmapData from '@/app/json/infrastructure/roadmap.json'
-
-// Icon mapping for roadmap items
 const iconMap: Record<string, React.ReactNode> = {
     'AiOutlineCloudServer': <AiOutlineCloudServer className="w-6 h-6" />,
     'CiServer': <CiServer className="w-6 h-6" />,
     'FaRocket': <FaRocket className="w-6 h-6" />
 }
 
-// Map roadmap items with their icons
 const roadmapItems = roadmapData.map(item => ({
     ...item,
     icon: iconMap[item.icon] || <AiOutlineCloudServer className="w-6 h-6" />

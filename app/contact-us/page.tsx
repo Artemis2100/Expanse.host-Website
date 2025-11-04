@@ -51,10 +51,8 @@ export default function ContactPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Add your form submission logic here
         setTimeout(() => {
             setIsSubmitting(false);
-            // Reset form or show success message
         }, 2000);
     };
 

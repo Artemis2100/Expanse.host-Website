@@ -6,29 +6,6 @@ import { ChevronDown, Menu, X } from 'lucide-react'
 import Image from "next/image"
 import { motion, AnimatePresence } from 'framer-motion'
 
-/**
- * NAVIGATION CONFIGURATION
- *
- * Easy to manage navigation links and dropdowns!
- *
- * HOW TO ADD A DROPDOWN MENU:
- * {
- *   label: 'MENU NAME',
- *   items: [
- *     { label: 'Submenu Item', href: '/path', description: 'Optional description' },
- *     { label: 'Another Item', href: '/path2' }
- *   ]
- * }
- *
- * HOW TO ADD A SIMPLE LINK:
- * {
- *   label: 'LINK NAME',
- *   href: '/path'
- * }
- *
- * To remove a link/dropdown: Simply delete its entry from the array below
- */
-
 type NavLink = {
     label: string
     href?: string
@@ -95,7 +72,6 @@ const Navbar = () => {
     }, [])
 
     React.useEffect(() => {
-        // Check for saved theme preference or default to dark
         const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
         const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light')
@@ -126,7 +102,6 @@ const Navbar = () => {
         }
     }, [isMobileMenuOpen])
 
-    // Prevent horizontal scroll at all times
     React.useEffect(() => {
         document.documentElement.style.overflowX = 'hidden'
         document.body.style.overflowX = 'hidden'
@@ -249,7 +224,6 @@ const Navbar = () => {
                                         </AnimatePresence>
                                     </>
                                 ) : (
-                                    // Simple link
                                     <Link
                                         href={navItem.href || '#'}
                                         className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
