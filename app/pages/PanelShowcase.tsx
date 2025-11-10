@@ -46,28 +46,28 @@ export default function PanelShowcase({
         },
         {
             icon: <FiSettings className="w-6 h-6" />,
-            title: "One-Click Operations",
-            description: "Deploy, restart, or configure your servers with simple one-click actions."
+            title: "Easy Reinstall Options",
+            description: "Multiple pre-made and custom ISOs supported ranging from Debian , Ubuntu to Proxmox etc."
         },
         {
             icon: <FiShield className="w-6 h-6" />,
-            title: "Security First",
-            description: "Built-in security features including firewall management and access controls."
+            title: "Rescue System",
+            description: "Built-in resuce system to recover in any case of lock-outs"
         }
     ],
     images = [
         {
-            src: "/panel/tenantos.png",
+            src: "/panel/expanse-tenantos-main.png",
             alt: "Tenantos Dashboard",
             caption: "Main dashboard with real-time metrics"
         },
         {
-            src: "/panel/tenantos.png",
+            src: "/panel/expanse-tenantos-rescue.png",
             alt: "Server Management",
             caption: "Server management interface"
         },
         {
-            src: "/panel/tenantos.png",
+            src: "/panel/expanse-tenantos-reinstall.png",
             alt: "Settings Panel",
             caption: "Advanced configuration options"
         }

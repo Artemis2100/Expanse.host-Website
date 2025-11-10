@@ -395,40 +395,43 @@ const FAQItem = memo(({ faq, index }: { faq: any; index: number }) => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative group"
         >
-            <motion.div
-                animate={{ 
+            <div
+                className="border-2 rounded-2xl bg-card/30 backdrop-blur-xl overflow-hidden transition-all duration-200"
+                style={{
                     borderColor: isOpen ? "rgba(59, 130, 246, 0.5)" : "rgba(255, 255, 255, 0.1)",
                     backgroundColor: isOpen ? "rgba(59, 130, 246, 0.05)" : "transparent",
                 }}
-                className="border-2 border-muted/20 rounded-2xl bg-card/30 backdrop-blur-xl overflow-hidden transition-all duration-300"
             >
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-muted/5 transition-colors group"
+                    className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-muted/5 transition-colors duration-200 group"
                 >
-                    <h3 className="text-base font-bold text-foreground pr-4 group-hover:text-accent transition-colors">
+                    <h3 className="text-base font-bold text-foreground pr-4 group-hover:text-accent transition-colors duration-200">
                         {faq.question}
                     </h3>
-                    <motion.div
-                        animate={{ rotate: isOpen ? 45 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center"
+                    <div
+                        className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center transition-transform duration-300 ease-out"
+                        style={{
+                            transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                        }}
                     >
                         <FiX className="w-5 h-5 text-accent" />
-                    </motion.div>
+                    </div>
                 </button>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="px-6 pb-5"
-                    >
+                <div
+                    className="overflow-hidden transition-all duration-300 ease-out"
+                    style={{
+                        maxHeight: isOpen ? '500px' : '0px',
+                        opacity: isOpen ? 1 : 0,
+                        transitionProperty: 'max-height, opacity',
+                        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                >
+                    <div className="px-6 pb-5">
                         <p className="text-sm text-muted/80 leading-relaxed">{faq.answer}</p>
-                    </motion.div>
-                )}
-            </motion.div>
+                    </div>
+                </div>
+            </div>
         </motion.div>
     );
 });
@@ -696,7 +699,9 @@ export default function DomainsPage() {
                                 {domainsData.transfer.description}
                             </p>
                             <motion.a
-                                href="/contact"
+                                href="https://my.expanse.host/cart.php?a=add&domain=transfer"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white rounded-xl font-bold text-lg transition-all shadow-xl hover:shadow-purple-500/50"

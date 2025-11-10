@@ -220,30 +220,56 @@ export default function MinecraftPricingSection() {
           {(showAllPlans ? pricingTiers : pricingTiers.slice(0, 4)).map((tier, index) => (
             <div
               key={index}
-              className={`relative rounded-xl p-8 transition-all duration-300 flex flex-col h-full`}
+              className="relative rounded-xl p-8 transition-all duration-300 flex flex-col h-full"
             >
               <div
-                className="absolute inset-0 rounded-xl dark:hidden"
+                className="absolute inset-0 rounded-xl dark:hidden z-0"
                 style={{
                   background: `linear-gradient(to bottom, rgba(${tier.glowColor}, 0.15) 0%, rgba(255, 255, 255, 0.95) 100%)`,
                 }}
               />
               <div
-                className="absolute inset-0 rounded-xl hidden dark:block"
+                className="absolute inset-0 rounded-xl hidden dark:block z-0"
                 style={{
                   background: `linear-gradient(to bottom, rgba(${tier.glowColor}, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%)`,
                 }}
               />
 
-              <div className="relative z-10 flex flex-col h-full">
-                {/* POPULAR tag - top right corner, slightly overlapping */}
-                {tier.highlighted && (
-                  <div className="absolute -top-3 -right-3 z-30">
-                    <span className={`${tier.bgColor} text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase shadow-lg`}>
-                      POPULAR
-                    </span>
+              {/* POPULAR Arrow Tag */}
+              {tier.highlighted && (
+                <div className="absolute top-3 -right-2 z-30">
+                  <div className="relative">
+                    {/* Tag body with arrow shape */}
+                    <div
+                      className="relative px-3 py-1.5"
+                      style={{
+                        background: `rgba(${tier.glowColor}, 1)`,
+                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%)',
+                        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
+                      }}
+                    >
+                      <span className="text-white text-xs font-bold uppercase tracking-wider block">
+                        POPULAR
+                      </span>
+                    </div>
+                    {/* Arrow pointer */}
+                    <div
+                      className="absolute right-0 top-1/2"
+                      style={{
+                        transform: 'translateY(-50%) translateX(100%)',
+                        width: 0,
+                        height: 0,
+                        borderTop: '10px solid transparent',
+                        borderBottom: '10px solid transparent',
+                        borderLeft: `8px solid rgba(${tier.glowColor}, 1)`,
+                        filter: 'drop-shadow(2px 0 2px rgba(0, 0, 0, 0.2))',
+                      }}
+                    />
                   </div>
-                )}
+                </div>
+              )}
+
+              <div className="relative z-10 flex flex-col h-full">
 
                 {/* Promo Banner at the top - seamless, no borders */}
                 {tier.promoDiscount && (

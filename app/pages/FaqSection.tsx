@@ -1,31 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import React, { useState, useCallback } from 'react'
+import { motion } from 'motion/react'
 import { FaChevronRight } from 'react-icons/fa'
 
 export const FaqSection = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null)
-    const [isDark, setIsDark] = useState(true)
-
-    useEffect(() => {
-        // Check theme on mount and listen for changes
-        const checkTheme = () => {
-            const isDarkMode = document.documentElement.classList.contains('dark')
-            setIsDark(isDarkMode)
-        }
-
-        checkTheme()
-
-        // Watch for theme changes
-        const observer = new MutationObserver(checkTheme)
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['class']
-        })
-
-        return () => observer.disconnect()
-    }, [])
 
     const faqs = [
         {
@@ -37,24 +17,16 @@ export const FaqSection = () => {
             answer: 'Yes! We offer dedicated IP addresses on all our premium plans. You can purchase additional dedicated IPs at any time through your control panel, perfect for SSL certificates, email reputation, and application requirements.'
         },
         {
-            question: 'Can I invite people to co-manage my server?',
-            answer: 'Absolutely! Our Pterodactyl control panel allows you to create sub-users with customizable permissions. You can grant specific access levels to team members, from basic server controls to full administrative access.'
-        },
-        {
             question: 'How do I get support?',
             answer: 'Our support team is available 24/7 via email and Discord. Submit a ticket through your client area for technical issues, or join our Discord community for quick assistance. Most tickets receive a response within 15 minutes during peak hours. Live chat responses are typically under 30 minutes, support tickets under 3 hours, and email inquiries under 24 hours.'
         },
         {
             question: 'What DDoS protection do you offer?',
-            answer: 'We provide enterprise-grade DDoS protection through our NeoProtect system that can mitigate attacks up to 2.4+ Tbps. Our multi-layered protection ensures your services remain online and responsive, even during the most aggressive attacks.'
+            answer: 'We provide enterprise-grade DDoS protection through our G-Core system that can mitigate attacks up to 200+ Tbps. Our multi-layered protection ensures your services remain online and responsive, even during the most aggressive attacks.'
         },
         {
             question: 'What storage technology do you use?',
             answer: 'We use NVMe SSDs that deliver read/write speeds up to 7000MB/s, eliminating I/O bottlenecks for instant data access. For our distributed infrastructure, we utilize Ceph storage architecture which provides unmatched reliability, performance, and scalability with automatic replication and data protection.'
-        },
-        {
-            question: 'Where are your data centers located?',
-            answer: 'We have strategically positioned data centers in Phoenix (USA), New York (USA), Frankfurt (Germany), Johor (Malaysia), Hong Kong (China), Singapore, and Mumbai (India - coming soon). Each region is equipped with the latest hardware and connected to multiple tier-1 providers for optimal performance.'
         },
         {
             question: 'Can I scale my resources?',
@@ -62,9 +34,9 @@ export const FaqSection = () => {
         }
     ]
 
-    const toggleFaq = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index)
-    }
+    const toggleFaq = useCallback((index: number) => {
+        setOpenIndex(prevIndex => prevIndex === index ? null : index)
+    }, [])
 
     return (
         <section className="w-full py-24 mt-24 px-4 relative overflow-hidden">
@@ -80,16 +52,16 @@ export const FaqSection = () => {
             </div>
 
             
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-40 dark:opacity-60">
                 <svg width="2468" height="1218" viewBox="0 0 2468 1218" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_faq)">
-                        <ellipse cx="1154" cy="438" rx="664" ry="288" fill={isDark ? "#10468C" : "#3b82f6"} fillOpacity={isDark ? "0.08" : "0.12"}/>
+                        <ellipse cx="1154" cy="438" rx="664" ry="288" fill="#10468C" fillOpacity="0.2"/>
                     </g>
                     <g filter="url(#filter1_f_faq)">
-                        <ellipse cx="631" cy="870.5" rx="481" ry="197.5" fill={isDark ? "#10468C" : "#3b82f6"} fillOpacity={isDark ? "0.06" : "0.09"}/>
+                        <ellipse cx="631" cy="870.5" rx="481" ry="197.5" fill="#10468C" fillOpacity="0.15"/>
                     </g>
                     <g filter="url(#filter2_f_faq)">
-                        <ellipse cx="1837" cy="780.5" rx="481" ry="197.5" fill={isDark ? "#10468C" : "#3b82f6"} fillOpacity={isDark ? "0.13" : "0.16"}/>
+                        <ellipse cx="1837" cy="780.5" rx="481" ry="197.5" fill="#10468C" fillOpacity="0.25"/>
                     </g>
                     <defs>
                         <filter id="filter0_f_faq" x="340" y="0" width="1628" height="876" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -133,66 +105,69 @@ export const FaqSection = () => {
                         >
                             Hungry for more info? Our FAQ is here to fill the gaps with clear answers to the questions we get asked most.
                         </motion.p>
-                        <motion.button
+                        <motion.a
+                            href="https://discord.expanse.host"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.2)]"
+                            className="inline-block px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.2)]"
                         >
                             Join the Discord
-                        </motion.button>
+                        </motion.a>
                     </div>
 
                     
-                    <motion.div
-                        className="space-y-3"
-                    >
-                        {faqs.map((faq, index) => (
-                            <motion.div
-                                key={index}
-                                className="relative"
-                            >
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="w-full text-left px-6 py-4 bg-card hover:bg-card border border-muted rounded-lg transition-all duration-300 group"
+                    <div className="space-y-3">
+                        {faqs.map((faq, index) => {
+                            const isOpen = openIndex === index
+                            return (
+                                <div
+                                    key={index}
+                                    className="relative"
                                 >
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-foreground group-hover:text-accent font-medium pr-4 transition-colors">
-                                            {faq.question}
-                                        </span>
-                                        <motion.div
-                                            animate={{ rotate: openIndex === index ? 90 : 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="flex-shrink-0"
-                                        >
-                                            <FaChevronRight className={`w-4 h-4 transition-colors ${
-                                                openIndex === index ? 'text-accent' : 'text-muted'
-                                            }`} />
-                                        </motion.div>
-                                    </div>
-                                </button>
-
-                                <AnimatePresence>
-                                    {openIndex === index && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: 'auto', opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="overflow-hidden"
-                                        >
-                                            <div className="px-6 py-4 text-muted text-base leading-relaxed bg-card border-x border-b border-muted rounded-b-lg">
-                                                {faq.answer}
+                                    <button
+                                        onClick={() => toggleFaq(index)}
+                                        className="w-full text-left px-6 py-4 bg-card hover:bg-card border border-muted rounded-lg transition-colors duration-200 group"
+                                    >
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-foreground group-hover:text-accent font-medium pr-4 transition-colors duration-200">
+                                                {faq.question}
+                                            </span>
+                                            <div
+                                                className="flex-shrink-0 transition-transform duration-300 ease-out"
+                                                style={{
+                                                    transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+                                                }}
+                                            >
+                                                <FaChevronRight className={`w-4 h-4 transition-colors duration-200 ${
+                                                    isOpen ? 'text-accent' : 'text-muted'
+                                                }`} />
                                             </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                                        </div>
+                                    </button>
+
+                                    <div
+                                        className="overflow-hidden transition-all duration-300 ease-out"
+                                        style={{
+                                            maxHeight: isOpen ? '500px' : '0px',
+                                            opacity: isOpen ? 1 : 0,
+                                            transitionProperty: 'max-height, opacity',
+                                            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                                        }}
+                                    >
+                                        <div className="px-6 py-4 text-muted text-base leading-relaxed bg-card border-x border-b border-muted rounded-b-lg">
+                                            {faq.answer}
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </section>

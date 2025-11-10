@@ -314,7 +314,7 @@ export default function VPSPricing() {
                     </p>
                     <p className="text-xs sm:text-sm text-muted mt-2 leading-relaxed">
                         Need custom configurations or enterprise solutions? Our sales team is ready to help via{" "}
-                        <span className="text-accent underline cursor-pointer">Discord</span> or{" "}
+                        <a href="https://discord.expanse.host" target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80">Discord</a> or{" "}
                         <span className="text-accent underline cursor-pointer">Support Ticket</span>
                     </p>
                 </motion.div>

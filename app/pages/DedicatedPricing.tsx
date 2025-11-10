@@ -330,6 +330,42 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
     const [selectedStorage, setSelectedStorage] = useState(plan.storage.default);
     const [selectedNetwork, setSelectedNetwork] = useState(plan.network.default);
 
+    // Calculate total price based on selected options
+    const calculateTotalPrice = useMemo(() => {
+        const basePrice = plan.price;
+        
+        // Find selected RAM option price
+        const ramOption = plan.ram.options.find(opt => opt.value === selectedRAM);
+        const ramPrice = ramOption?.price || 0;
+        
+        // Find selected Storage option price
+        const storageOption = plan.storage.options.find(opt => opt.value === selectedStorage);
+        const storagePrice = storageOption?.price || 0;
+        
+        // Find selected Network option price
+        const networkOption = plan.network.options.find(opt => opt.value === selectedNetwork);
+        const networkPrice = networkOption?.price || 0;
+        
+        return basePrice + ramPrice + storagePrice + networkPrice;
+    }, [plan.price, plan.ram.options, plan.storage.options, plan.network.options, selectedRAM, selectedStorage, selectedNetwork]);
+
+    // Generate order link with selected options
+    const generateOrderLink = () => {
+        const locationName = locations.find(l => l.id === plan.location);
+        const locationLabel = locationName ? `${locationName.city}, ${locationName.countryCode}` : plan.location;
+        
+        const message = `Hi, I'd like to purchase the dedicated server listed on your website with the following specs:
+
+${plan.name}, ${selectedRAM}, ${selectedStorage}
+${selectedNetwork}
+${locationLabel}
+Unmanaged
+
+Thanks in advance!`;
+
+        return `https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=${encodeURIComponent("Dedicated Server Inquiry")}&message=${encodeURIComponent(message)}`;
+    };
+
     const statusColors = {
         in_stock: "bg-green-500/10 text-green-500 border-green-500/20",
         low_stock: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
@@ -348,7 +384,7 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
         in_stock: "Request this server",
         low_stock: "Limited Stock",
         out_of_stock: "Out of Stock",
-        pre_order: "Book This Server"
+        pre_order: "Pre-Book This Server"
     };
 
     const location = locations.find(l => l.id === plan.location);
@@ -367,12 +403,25 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
                     {/* Header - Compact */}
                     <div className="flex items-start justify-between mb-3">
                         <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-1">
+                            <div className="flex items-center gap-2 mb-1 flex-wrap">
                                 <h3 className="text-lg font-bold text-foreground">{plan.name}</h3>
                                 {plan.badge && (
                                     <span className="px-2 py-0.5 text-xs font-semibold bg-accent/10 text-accent border border-accent/20 rounded whitespace-nowrap">
                                         {plan.badge}
                                     </span>
+                                )}
+                                {location && (
+                                    <div className="flex items-center gap-1.5 px-2 py-0.5 bg-muted/30 border border-muted rounded whitespace-nowrap">
+                                        <div className="relative w-4 h-3 rounded-sm overflow-hidden flex-shrink-0">
+                                            <Image
+                                                src={location.flag}
+                                                alt={location.country}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                        <span className="text-xs text-muted font-medium">{location.city}, {location.countryCode}</span>
+                                    </div>
                                 )}
                             </div>
                             <p className="text-xs text-muted leading-relaxed">{plan.description}</p>
@@ -392,15 +441,15 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
                         <div className="flex items-center gap-2">
                             <FiServer className="w-4 h-4 text-accent flex-shrink-0" />
                             <div className="flex flex-col">
-                                <span className="text-xs font-bold text-foreground leading-tight">{plan.ram.default.split(' ')[0]}</span>
-                                <span className="text-xs text-muted leading-tight">{plan.ram.default.split(' ').slice(1).join(' ')}</span>
+                                <span className="text-xs font-bold text-foreground leading-tight">{selectedRAM.split(' ')[0]}</span>
+                                <span className="text-xs text-muted leading-tight">{selectedRAM.split(' ').slice(1).join(' ')}</span>
                             </div>
                         </div>
 
                         <div className="flex items-center gap-2">
                             <FiHardDrive className="w-4 h-4 text-accent flex-shrink-0" />
                             <div className="flex flex-col">
-                                <span className="text-xs font-bold text-foreground leading-tight">{plan.storage.default}</span>
+                                <span className="text-xs font-bold text-foreground leading-tight">{selectedStorage.replace(/ \([^)]*\)/g, '').trim()}</span>
                                 <span className="text-xs text-muted leading-tight">NVMe</span>
                             </div>
                         </div>
@@ -416,8 +465,8 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
                         <div className="flex items-center gap-2">
                             <BiNetworkChart className="w-4 h-4 text-accent flex-shrink-0" />
                             <div className="flex flex-col">
-                                <span className="text-xs font-bold text-foreground leading-tight">{plan.network.default.split(' @ ')[0]}</span>
-                                <span className="text-xs text-muted leading-tight">Network Speed : {plan.network.default.split(' @ ')[1] || '10Gbps'}</span>
+                                <span className="text-xs font-bold text-foreground leading-tight">{selectedNetwork.split(' @ ')[0]}</span>
+                                <span className="text-xs text-muted leading-tight">Network Speed : {selectedNetwork.split(' @ ')[1] || selectedNetwork.split(' : ')[1] || '10Gbps'}</span>
                             </div>
                         </div>
                     </div>
@@ -452,7 +501,7 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
                             </span>
                             <span className="text-xs text-muted">Delivery {plan.deliveryTime}</span>
                             <span className="text-lg font-bold text-foreground">
-                                <PriceDisplay usdPrice={plan.price} />/mo
+                                <PriceDisplay usdPrice={calculateTotalPrice} />/mo
                             </span>
                         </div>
                         {plan.status === "out_of_stock" ? (
@@ -464,7 +513,7 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
                             </button>
                         ) : (
                             <a
-                                href={plan.orderLink}
+                                href={generateOrderLink()}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded text-xs font-semibold transition-colors whitespace-nowrap"

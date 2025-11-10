@@ -151,7 +151,7 @@
       {
         "number": "#3",
         "title": "Add-ons",
-        "description": "Free DNS, forwarding, email setup"
+        "description": "Forwarding, email setup"
       },
       {
         "number": "#4",
@@ -202,10 +202,6 @@
       "answer": "Yes, you can purchase your domain from us and choose any hosting service you prefer with no obligations. However, please note that support is only available for our hosting customers, and domain management will be self-managed."
     },
     {
-      "question": "Do you provide free DNS?",
-      "answer": "Yes, we can provide free DNS. Alternatively you can use multicast DNS providers like Cloudflare, Akamai or Route 53 from AWS."
-    },
-    {
       "question": "What is the cookie duration for domain referrals?",
       "answer": "We offer a 90-day cookie window for our affiliate program. This means if someone clicks your affiliate link, you'll receive credit for any purchase they make within 90 days."
     },
@@ -220,7 +216,6 @@
   ],
   "features": [
     "Free SSL Certificate",
-    "Free DNS Management",
     "Free Email Forwarding",
     "Domain Privacy Protection",
     "Easy Domain Transfer",
