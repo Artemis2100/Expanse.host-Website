@@ -308,7 +308,7 @@ export default function InfrastructurePage() {
                     {[
                         {
                             title: 'Distributed Storage',
-                            description: 'Ceph is a distributed storage system that provides object, block, and file storage in a unified platform. It\'s designed to be self-healing and self-managing, with no single point of failure.'
+                            description: 'Ceph is a distributed storage system that provides object, block, and file storage in a unified platform. It&apos;s designed to be self-healing and self-managing, with no single point of failure.'
                         },
                         {
                             title: 'NVMe Performance',

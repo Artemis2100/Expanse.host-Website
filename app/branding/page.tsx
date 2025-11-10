@@ -223,7 +223,7 @@ export default function BrandingPage() {
                                 </ul>
                             </div>
                             <div className="p-6 border border-muted rounded-lg bg-card/50 backdrop-blur-sm">
-                                <h3 className="text-lg font-semibold text-foreground mb-3">❌ Don't</h3>
+                                <h3 className="text-lg font-semibold text-foreground mb-3">❌ Don&apos;t</h3>
                                 <ul className="space-y-2 text-sm text-muted">
                                     <li className="flex items-start gap-2">
                                         <span className="text-red-500 mt-1">✗</span>
@@ -231,7 +231,7 @@ export default function BrandingPage() {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-red-500 mt-1">✗</span>
-                                        <span>Use brand colors that don't match our palette</span>
+                                        <span>Use brand colors that don&apos;t match our palette</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-red-500 mt-1">✗</span>

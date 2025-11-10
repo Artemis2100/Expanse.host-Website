@@ -134,23 +134,6 @@ export const FeaturesSection = () => {
                                 <p className="text-sm text-muted leading-relaxed mb-4">
                                     {feature.description}
                                 </p>
-
-                                
-                                {feature.buttons && (
-                                    <div className="flex gap-3 mt-2">
-                                        {feature.buttons.map((button, btnIndex) => (
-                                            <button
-                                                key={btnIndex}
-                                                className={`px-4 py-2 text-sm font-semibold rounded-sm transition-all duration-200 ${button.variant === 'primary'
-                                                    ? 'bg-blue-500/20 text-accent border border-blue-500/30 hover:bg-blue-500/30'
-                                                    : 'bg-transparent text-muted border border-border hover:border-border-accent hover:text-accent'
-                                                    }`}
-                                            >
-                                                {button.label}
-                                            </button>
-                                        ))}
-                                    </div>
-                                )}
                             </div>
                         </motion.div>
                     ))}

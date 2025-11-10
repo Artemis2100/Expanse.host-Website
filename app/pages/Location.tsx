@@ -543,9 +543,12 @@ export default function LocationsSection() {
 
     // Tooltip component that uses latency hook
     const HoveredLocationTooltip = memo(({ location, mousePos, refreshTrigger }: { location: Location | null; mousePos: { x: number; y: number } | null; refreshTrigger?: number }) => {
+        // Call hook unconditionally at the top level
+        const { latency, isPinging } = useLatency(location?.wsEndpoint, !!location, refreshTrigger);
+        
+        // Early return after hook call
         if (!location || !mousePos) return null;
         
-        const { latency, isPinging } = useLatency(location.wsEndpoint, true, refreshTrigger);
         const displayLatency = location.wsEndpoint ? latency : location.ping;
         
         return (

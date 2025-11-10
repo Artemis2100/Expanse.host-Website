@@ -75,7 +75,7 @@ export const Footer = () => {
               <h3 className="text-2xl font-bold">Expanse</h3>
             </div>
             <p className="text-muted text-sm leading-relaxed mb-6">
-              Expanse fuels the leaders — and you're next. Our platform delivers unmatched features and performance you simply won't find anywhere else.
+              Expanse fuels the leaders — and you&apos;re next. Our platform delivers unmatched features and performance you simply won&apos;t find anywhere else.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
