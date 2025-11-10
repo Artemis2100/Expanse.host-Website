@@ -3,7 +3,18 @@
 import React from 'react'
 import { motion } from 'motion/react'
 import Image from 'next/image'
-const HeroSection = () => {
+import Link from 'next/link'
+
+interface HeroSectionProps {
+    getStartedLink?: string
+    exploreDedicatedLink?: string
+}
+
+const HeroSection = (props: HeroSectionProps = {}) => {
+    const { 
+        getStartedLink = '/minecraft', 
+        exploreDedicatedLink = '/dedicated' 
+    } = props;
     return (
         <div className="relative w-full mt-20 sm:mt-32 md:mt-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
@@ -75,43 +86,51 @@ const HeroSection = () => {
                     transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2"
                 >
-                    <motion.button
+                    <motion.div
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ duration: 0.2 }}
-                        className="w-full sm:w-auto flex border border-blue-400/20 items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 bg-button text-primary-foreground rounded-xl font-medium hover:bg-blue-400/30 transition-colors shadow-inner text-sm sm:text-base"
-                        style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
                     >
-                        <Image 
-                        alt="logo"
-                        width={32}
-                        height={32}
-                        className='mr-2 invert brightness-0'
-                        src="/logo.png" />
-                        <span>Get Started Today</span>
-                    </motion.button>
-
-                    <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        transition={{ duration: 0.2 }}
-                        className="w-full sm:w-auto flex items-center justify-center px-4 py-2.5 sm:py-3 bg-transparent text-foreground font-semibold hover:text-accent transition-colors text-sm sm:text-base"
-                    >
-                        <span className="hidden sm:inline">Explore dedicated servers</span>
-                        <span className="sm:hidden">Dedicated servers</span>
-                        <svg
-                            className="ml-2 w-4 sm:w-5 h-4 sm:h-5"
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth="0"
-                            version="1.2"
-                            baseProfile="tiny"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
+                        <Link
+                            href={getStartedLink}
+                            className="w-full sm:w-auto flex border border-blue-400/20 items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 bg-button text-primary-foreground rounded-xl font-medium hover:bg-blue-400/30 transition-colors shadow-inner text-sm sm:text-base"
+                            style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
                         >
-                            <path d="M10 20c-.802 0-1.555-.312-2.122-.879-.566-.566-.878-1.32-.878-2.121s.312-1.555.879-2.122l2.878-2.878-2.878-2.879c-.567-.566-.879-1.32-.879-2.121s.312-1.555.879-2.122c1.133-1.132 3.109-1.133 4.243.001l7.121 7.121-7.122 7.121c-.566.567-1.319.879-2.121.879zm0-14c-.268 0-.518.104-.707.292-.189.19-.293.441-.293.708s.104.518.293.707l4.292 4.293-4.292 4.293c-.189.189-.293.439-.293.707s.104.518.293.707c.378.379 1.037.378 1.414.001l5.708-5.708-5.708-5.707c-.189-.189-.439-.293-.707-.293z"></path>
-                        </svg>
-                    </motion.button>
+                            <Image 
+                            alt="logo"
+                            width={32}
+                            height={32}
+                            className='mr-2 invert brightness-0'
+                            src="/logo.png" />
+                            <span>Get Started Today</span>
+                        </Link>
+                    </motion.div>
+
+                    <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <Link
+                            href={exploreDedicatedLink}
+                            className="w-full sm:w-auto flex items-center justify-center px-4 py-2.5 sm:py-3 bg-transparent text-foreground font-semibold hover:text-accent transition-colors text-sm sm:text-base"
+                        >
+                            <span className="hidden sm:inline">Explore dedicated servers</span>
+                            <span className="sm:hidden">Dedicated servers</span>
+                            <svg
+                                className="ml-2 w-4 sm:w-5 h-4 sm:h-5"
+                                stroke="currentColor"
+                                fill="currentColor"
+                                strokeWidth="0"
+                                version="1.2"
+                                baseProfile="tiny"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M10 20c-.802 0-1.555-.312-2.122-.879-.566-.566-.878-1.32-.878-2.121s.312-1.555.879-2.122l2.878-2.878-2.878-2.879c-.567-.566-.879-1.32-.879-2.121s.312-1.555.879-2.122c1.133-1.132 3.109-1.133 4.243.001l7.121 7.121-7.122 7.121c-.566.567-1.319.879-2.121.879zm0-14c-.268 0-.518.104-.707.292-.189.19-.293.441-.293.708s.104.518.293.707l4.292 4.293-4.292 4.293c-.189.189-.293.439-.293.707s.104.518.293.707c.378.379 1.037.378 1.414.001l5.708-5.708-5.708-5.707c-.189-.189-.439-.293-.707-.293z"></path>
+                            </svg>
+                        </Link>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>

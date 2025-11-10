@@ -484,7 +484,7 @@ export default function VDSPricing() {
                     </h2>
                     <p className="text-xs sm:text-sm text-muted leading-relaxed">
                         Feel free to contact us at any time if you need help picking a server via{" "}
-                        <span className="text-accent underline cursor-pointer">Discord</span> or a{" "}
+                        <a href="https://discord.expanse.host" target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80">Discord</a> or a{" "}
                         <span className="text-accent underline cursor-pointer">Sales ticket</span>
                     </p>
                     <p className="text-xs sm:text-sm text-muted mt-2 leading-relaxed">

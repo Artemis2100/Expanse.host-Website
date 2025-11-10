@@ -157,6 +157,16 @@ body {
   }
 }
 
+/* Advertisement scrolling animation */
+@keyframes scroll-advertisements {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1.25rem));
+  }
+}
+
 @layer base {
   body {
     @apply bg-background text-foreground;
@@ -290,5 +300,17 @@ body {
   }
   .border-warning {
     border-color: var(--warning);
+  }
+}
+
+/* Glow animation for popular Minecraft plans */
+@keyframes pulse-glow-popular {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
   }
 }

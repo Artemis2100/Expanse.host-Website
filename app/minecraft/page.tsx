@@ -38,23 +38,23 @@ export default function Home() {
           },
           {
             icon: <FiShield className="w-6 h-6" />,
-            title: "Security First",
-            description: "Built-in security features including firewall management and access controls."
+            title: "Plugin and Mod Installers",
+            description: "Built-in Plugin , Mods and Modpack installer for ease of use."
           }
         ]}
         images={[
           {
-            src: "/panel/virtfusion.png",
+            src: "/panel/expanse-panel-console.png",
             alt: "Expanse Panel Dashboard",
             caption: "Main dashboard with real-time metrics"
           },
           {
-            src: "/panel/virtfusion.png",
+            src: "/panel/expanse-panel-plugins.png",
             alt: "Minecraft Server Management",
             caption: "Server management interface"
           },
           {
-            src: "/panel/virtfusion.png",
+            src: "/panel/expanse-panel-softwares.png",
             alt: "Settings Panel",
             caption: "Advanced configuration options"
           }

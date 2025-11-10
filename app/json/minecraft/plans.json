@@ -125,7 +125,7 @@
     "orderLink": "https://expanse.host/billing/store/minecraft-hosting/premium-24gb",
     "features": [
       { "icon": "ram", "text": "24GB RAM" },
-      { "icon": "players", "text": "50+ players" },
+      { "icon": "players", "text": "60+ players" },
       { "icon": "cpu", "text": "7 CPU Threads" },
       { "icon": "cpuModel", "text": "Ryzen 9950X" },
       { "icon": "storage", "text": "250GB NVMe Storage" }
@@ -148,7 +148,7 @@
     "orderLink": "https://expanse.host/billing/store/minecraft-hosting/premium-32gb",
     "features": [
       { "icon": "ram", "text": "32GB RAM" },
-      { "icon": "players", "text": "75+ players" },
+      { "icon": "players", "text": "100+ players" },
       { "icon": "cpu", "text": "8 CPU Threads" },
       { "icon": "cpuModel", "text": "Ryzen 9950X" },
       { "icon": "storage", "text": "300GB NVMe Storage" }
@@ -159,5 +159,28 @@
     "bgColor": "bg-cyan-500",
     "hoverBgColor": "hover:bg-cyan-600",
     "glowColor": "6, 182, 212"
+  },
+  {
+    "name": "64GB Ram",
+    "icon": "blaze",
+    "price": "$128.00",
+    "firstMonthPrice": "$108.80",
+    "period": "/month",
+    "promoCode": "3UX37XLVPL",
+    "promoDiscount": "15% First Month Discount",
+    "orderLink": "https://expanse.host/billing/store/minecraft-hosting/premium-64gb",
+    "features": [
+      { "icon": "ram", "text": "64GB RAM" },
+      { "icon": "players", "text": "200+ players" },
+      { "icon": "cpu", "text": "12 CPU Threads" },
+      { "icon": "cpuModel", "text": "Ryzen 9950X" },
+      { "icon": "storage", "text": "1024GB NVMe Storage" }
+    ],
+    "highlighted": false,
+    "color": "text-purple-500",
+    "borderColor": "border-purple-500",
+    "bgColor": "bg-purple-500",
+    "hoverBgColor": "hover:bg-purple-600",
+    "glowColor": "168, 85, 247"
   }
 ]

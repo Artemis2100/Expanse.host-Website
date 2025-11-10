@@ -18,7 +18,7 @@ export const FeaturesSection = () => {
         {
             icon: <FaShieldAlt className="w-8 h-8" />,
             title: 'ADVANCED DDOS PROTECTION',
-            description: 'Stay protected with our enterprise-grade NeoProtect system that mitigates attacks up to 2.4+ Tbps, keeping your services online.',
+            description: 'Stay protected with our enterprise-grade G-Core system that mitigates attacks up to 200+ Tbps, keeping your services online.',
             accent: 'blue'
         },
         {

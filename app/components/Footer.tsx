@@ -28,7 +28,7 @@ export const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: <FaDiscord className="w-5 h-5" />, href: '#', label: 'Discord' },
+    { icon: <FaDiscord className="w-5 h-5" />, href: 'https://discord.expanse.host', label: 'Discord' },
     { icon: <FaTwitter className="w-5 h-5" />, href: '#', label: 'Twitter' },
     { icon: <FaGithub className="w-5 h-5" />, href: '#', label: 'GitHub' },
   ]
