@@ -39,14 +39,14 @@ const reviews = [
   {
     name: "Alex Johnson",
     username: "@alexj",
-    body: "Best hosting provider I've ever used. Lightning-fast servers and excellent support team. Highly recommend!",
+    body: "Best hosting provider I&apos;ve ever used. Lightning-fast servers and excellent support team. Highly recommend!",
     img: "https://avatar.vercel.sh/alex",
     rating: 5,
   },
   {
     name: "Sarah Miller",
     username: "@sarahm",
-    body: "Switched from another host and couldn't be happier. The control panel is intuitive and performance is outstanding.",
+    body: "Switched from another host and couldn&apos;t be happier. The control panel is intuitive and performance is outstanding.",
     img: "https://avatar.vercel.sh/sarah",
     rating: 5,
   },

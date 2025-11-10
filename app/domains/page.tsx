@@ -818,7 +818,7 @@ export default function DomainsPage() {
                                     Got another questions?
                                 </h3>
                                 <p className="text-muted/80 mb-8 max-w-2xl mx-auto text-lg">
-                                    Reach out to us anytime to learn more about our services and how we can support you. Don't hesitate, contact us now and let's chat!
+                                    Reach out to us anytime to learn more about our services and how we can support you. Don&apos;t hesitate, contact us now and let&apos;s chat!
                                 </p>
                                 <motion.a
                                     href="/contact"

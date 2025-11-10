@@ -574,7 +574,7 @@ export default function DedicatedPricing() {
                         Find the perfect <span className="text-accent">Dedicated Server</span> for you
                     </h1>
                     <p className="text-base sm:text-lg text-muted mb-4">
-                        Fully owned hardware in top tier facilities. We won't let you down.
+                        Fully owned hardware in top tier facilities. We won&apos;t let you down.
                     </p>
                     <p className="text-sm sm:text-base text-muted mb-2">
                         Feel free to contact us at any time if you need help picking a server via{" "}

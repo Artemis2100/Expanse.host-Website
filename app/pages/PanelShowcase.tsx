@@ -37,7 +37,7 @@ export default function PanelShowcase({
         {
             icon: <FiMonitor className="w-6 h-6" />,
             title: "Intuitive Dashboard",
-            description: "Monitor your server's performance at a glance with real-time metrics and insights."
+            description: "Monitor your server&apos;s performance at a glance with real-time metrics and insights."
         },
         {
             icon: <FiServer className="w-6 h-6" />,

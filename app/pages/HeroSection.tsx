@@ -67,7 +67,7 @@ const HeroSection = () => {
                     transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
                     className="text-sm sm:text-base md:text-lg lg:text-xl text-muted mb-6 sm:mb-8 px-2 sm:px-0"
                 >
-                    Expanse fuels the leaders — and you're next. Our platform delivers unmatched features and performance you simply won't find anywhere else.
+                    Expanse fuels the leaders — and you&apos;re next. Our platform delivers unmatched features and performance you simply won&apos;t find anywhere else.
                 </motion.p>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

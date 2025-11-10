@@ -108,10 +108,10 @@ export default function ContactPage() {
                         className="text-center mb-12"
                     >
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-                            We're Here to Help
+                            We&apos;re Here to Help
                         </h1>
                         <p className="text-sm sm:text-base text-muted max-w-2xl mx-auto">
-                            Got questions? Feedback? Just want to say hi? Reach out to our team anytime. We're committed to providing exceptional support for all your hosting needs.
+                            Got questions? Feedback? Just want to say hi? Reach out to our team anytime. We&apos;re committed to providing exceptional support for all your hosting needs.
                         </p>
                     </motion.div>
 
@@ -264,7 +264,7 @@ export default function ContactPage() {
                                             onChange={handleChange}
                                             required
                                             className="w-full px-4 py-3 bg-background border border-muted rounded-lg focus:outline-none focus:border-accent transition-all text-foreground placeholder:text-muted/50"
-                                            placeholder="What's this about?"
+                                            placeholder="What&apos;s this about?"
                                         />
                                     </div>
 
