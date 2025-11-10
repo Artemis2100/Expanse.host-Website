@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { FaChevronRight } from 'react-icons/fa'
 
 export const FaqSection = () => {
@@ -30,7 +30,7 @@ export const FaqSection = () => {
     const faqs = [
         {
             question: 'What performance can I expect from Expanse?',
-            answer: 'Our servers are powered by cutting-edge hardware including AMD Ryzen processors and NVMe SSD storage, delivering exceptional performance with ultra-low latency. You can expect 99.9% uptime and lightning-fast load times for all your applications.'
+            answer: 'Our servers are powered by cutting-edge hardware including AMD Ryzen 9 9950X processors, DDR5 memory, and NVMe SSD storage, delivering exceptional performance with ultra-low latency. Our servers deliver up to 35% better performance than comparable offerings, ensuring your applications run at peak efficiency. You can expect 99.9% uptime and lightning-fast load times for all your applications.'
         },
         {
             question: 'Does Expanse support dedicated IP Addresses?',
@@ -42,7 +42,23 @@ export const FaqSection = () => {
         },
         {
             question: 'How do I get support?',
-            answer: 'Our support team is available 24/7 via email and Discord. Submit a ticket through your client area for technical issues, or join our Discord community for quick assistance. Most tickets receive a response within 15 minutes during peak hours.'
+            answer: 'Our support team is available 24/7 via email and Discord. Submit a ticket through your client area for technical issues, or join our Discord community for quick assistance. Most tickets receive a response within 15 minutes during peak hours. Live chat responses are typically under 30 minutes, support tickets under 3 hours, and email inquiries under 24 hours.'
+        },
+        {
+            question: 'What DDoS protection do you offer?',
+            answer: 'We provide enterprise-grade DDoS protection through our NeoProtect system that can mitigate attacks up to 2.4+ Tbps. Our multi-layered protection ensures your services remain online and responsive, even during the most aggressive attacks.'
+        },
+        {
+            question: 'What storage technology do you use?',
+            answer: 'We use NVMe SSDs that deliver read/write speeds up to 7000MB/s, eliminating I/O bottlenecks for instant data access. For our distributed infrastructure, we utilize Ceph storage architecture which provides unmatched reliability, performance, and scalability with automatic replication and data protection.'
+        },
+        {
+            question: 'Where are your data centers located?',
+            answer: 'We have strategically positioned data centers in Phoenix (USA), New York (USA), Frankfurt (Germany), Johor (Malaysia), Hong Kong (China), Singapore, and Mumbai (India - coming soon). Each region is equipped with the latest hardware and connected to multiple tier-1 providers for optimal performance.'
+        },
+        {
+            question: 'Can I scale my resources?',
+            answer: 'Yes! Unlike traditional hosting providers that force you into rigid plans, our modular pricing allows you to pay only for the resources you need. Scale individual components like CPU, RAM, and storage independently to create your perfect configuration.'
         }
     ]
 

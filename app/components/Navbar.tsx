@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import Image from "next/image"
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
+import CurrencySelector from './CurrencySelector'
 
 type NavLink = {
     label: string
@@ -14,27 +15,43 @@ type NavLink = {
 
 const navigationConfig: NavLink[] = [
     {
-        label: 'GAME SERVERS',
+        label: 'GAMES',
         items: [
             { label: 'Minecraft', href: '/minecraft', description: 'Java & Bedrock hosting' },
         ]
     },
     {
-        label: 'OTHER SERVERS',
+        label: 'CLOUD',
         items: [
-            { label: 'VPS', href: '/vps', description: 'Virtual private servers' },
-            { label: 'Dedicated', href: '/dedicated', description: 'Bare metal servers' },
+            { label: 'VPS Hosting', href: '/vps', description: 'Virtual private servers' },
+            { label: 'Web Hosting', href: '/webhosting', description: 'Shared & WordPress hosting' },
+            { label: 'Domains', href: '/domains', description: 'Domain registration' },
+        ]
+    },
+    {
+        label: 'SERVERS',
+        items: [
+            { label: 'Bare Metals', href: '/dedicated', description: 'Dedicated servers' },
+            { label: 'Colocation', href: '/colocation', description: 'Enterprise colocation services' },
         ]
     },
     {
         label: 'INFRASTRUCTURE',
-        href: '/infrastructure'
+        items: [
+            { label: 'Hardware Information', href: '/infrastructure#hardware', description: 'Server specifications' },
+            { label: 'Data Centers', href: '/infrastructure#data-centers', description: 'Global locations' },
+            { label: 'DDOS Protection', href: '/infrastructure#ddos-protection', description: 'Security features' },
+            { label: 'Network', href: '/infrastructure#network', description: 'Network infrastructure' },
+            { label: 'Status Page', href: 'https://status.expanse.host', description: 'System status' },
+        ]
     },
     {
-        label: 'SUPPORT',
+        label: 'MORE',
         items: [
-            { label: 'Contact Us', href: '/contact-us', description: 'Get in touch' },
-            { label: 'Discord', href: 'https://discord.gg/example', description: 'Join our community' },
+            { label: 'About Us', href: '/about', description: 'Learn about Expanse' },
+            { label: 'Careers', href: '/careers', description: 'Join our team' },
+            { label: 'Affiliate Program', href: '/affiliate', description: 'Earn with us' },
+            { label: 'Contact Us', href: '/contact', description: 'Get in touch' },
         ]
     },
 ]
@@ -247,23 +264,26 @@ const Navbar = () => {
                                 <Menu className="w-6 h-6" />
                             )}
                         </button>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={toggleTheme}
-                            className="hidden sm:flex items-center justify-center p-2 sm:p-3 text-foreground hover:bg-muted rounded-lg transition-colors"
-                            aria-label="Toggle theme"
-                        >
-                            {theme === 'dark' ? (
-                                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                            ) : (
-                                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                </svg>
-                            )}
-                        </motion.button>
+                        <div className="hidden sm:flex items-center gap-2">
+                            <CurrencySelector />
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={toggleTheme}
+                                className="flex items-center justify-center p-2 sm:p-3 text-foreground hover:bg-muted rounded-lg transition-colors"
+                                aria-label="Toggle theme"
+                            >
+                                {theme === 'dark' ? (
+                                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                ) : (
+                                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                    </svg>
+                                )}
+                            </motion.button>
+                        </div>
 
 
 
@@ -286,47 +306,126 @@ const Navbar = () => {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute right-0 mt-3 sm:mt-6 w-64 sm:w-72 bg-black/40 border-2 border-blue-400/30 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden z-[150]"
+                                        className="absolute right-0 mt-3 sm:mt-6 w-72 sm:w-80 bg-gradient-to-br from-card/95 to-card/90 border border-accent/20 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden z-[150]"
                                     >
-                                        <div className='p-2 space-y-2'>
+                                        {/* Header */}
+                                        <div className="px-4 py-3 border-b border-muted/30 bg-gradient-to-r from-accent/10 to-transparent">
+                                            <h3 className="text-sm font-bold text-foreground uppercase tracking-wide">Control Panels</h3>
+                                            <p className="text-xs text-muted mt-0.5">Access your services</p>
+                                        </div>
+                                        
+                                        <div className='p-3 space-y-2'>
+                                            {/* Billing Area */}
+                                            <motion.div
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: 0.05 }}
+                                            >
+                                                <Link
+                                                    href="https://my.expanse.host"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 hover:border-blue-500/40 hover:from-blue-500/20 hover:to-purple-500/20 transition-all duration-300 overflow-hidden"
+                                                >
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                    <div className="relative z-10 w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div className="relative z-10 flex-1 min-w-0">
+                                                        <div className="text-sm font-bold text-foreground group-hover:text-blue-400 transition-colors">Billing Area</div>
+                                                        <div className="text-xs text-muted mt-0.5">Manage invoices & payments</div>
+                                                    </div>
+                                                    <div className="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </div>
+                                                </Link>
+                                            </motion.div>
+
+                                            {/* VPS Panel */}
                                             <motion.div
                                                 initial={{ opacity: 0, x: -10 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: 0.1 }}
                                             >
                                                 <Link
-                                                    href="/panel/starbase"
-                                                    className="flex items-center justify-between p-3 sm:p-4 bg-[#171a3a]/50 border-1 border-[#474778]/40 rounded-xl hover:bg-[#171a3a]/70 transition-colors group"
+                                                    href="/panel/vps"
+                                                    className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 hover:border-cyan-500/40 hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 overflow-hidden"
                                                 >
-                                                    <div className="flex items-center">
-                                                        <div className="w-7 h-7 sm:w-8 sm:h-8 mr-2 rounded-lg flex items-center text-gray-300 justify-center">
-                                                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg"><rect width="7" height="18" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect></svg>
-                                                        </div>
-                                                        <div>
-                                                            <div className="text-white text-xs sm:text-sm font-semibold transition-colors">GAME PANEL</div>
-                                                            <div className="text-gray-400 text-[10px] sm:text-xs">Manage your game server</div>
-                                                        </div>
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                    <div className="relative z-10 w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                                                        </svg>
+                                                    </div>
+                                                    <div className="relative z-10 flex-1 min-w-0">
+                                                        <div className="text-sm font-bold text-foreground group-hover:text-cyan-400 transition-colors">VPS Panel</div>
+                                                        <div className="text-xs text-muted mt-0.5">Manage your VPS server</div>
+                                                    </div>
+                                                    <div className="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
                                                     </div>
                                                 </Link>
                                             </motion.div>
 
+                                            {/* Game Panel */}
                                             <motion.div
                                                 initial={{ opacity: 0, x: -10 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: 0.15 }}
                                             >
                                                 <Link
-                                                    href="/panel/vps"
-                                                    className="flex items-center justify-between p-3 sm:p-4 bg-[#171a3a]/50 border-1 border-[#474778]/40 rounded-xl hover:bg-[#171a3a]/70 transition-colors group"
+                                                    href="/panel/starbase"
+                                                    className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 hover:border-green-500/40 hover:from-green-500/20 hover:to-emerald-500/20 transition-all duration-300 overflow-hidden"
                                                 >
-                                                    <div className="flex items-center">
-                                                        <div className="w-7 h-7 sm:w-8 sm:h-8 mr-2 rounded-lg flex items-center text-gray-300 justify-center">
-                                                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5"></path><path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5"></path><path d="M6 6h.01"></path><path d="M6 18h.01"></path><path d="m15.7 13.4-.9-.3"></path><path d="m9.2 10.9-.9-.3"></path><path d="m10.6 15.7.3-.9"></path><path d="m13.6 15.7-.4-1"></path><path d="m10.8 9.3-.4-1"></path><path d="m8.3 13.6 1-.4"></path><path d="m14.7 10.8 1-.4"></path><path d="m13.4 8.3-.3.9"></path></svg>
-                                                        </div>
-                                                        <div>
-                                                            <div className="text-white text-xs sm:text-sm font-semibold transition-colors">VPS PANEL</div>
-                                                            <div className="text-gray-400 text-[10px] sm:text-xs">Manage your VPS server</div>
-                                                        </div>
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/5 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                    <div className="relative z-10 w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div className="relative z-10 flex-1 min-w-0">
+                                                        <div className="text-sm font-bold text-foreground group-hover:text-green-400 transition-colors">Game Panel</div>
+                                                        <div className="text-xs text-muted mt-0.5">Manage your game server</div>
+                                                    </div>
+                                                    <div className="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </div>
+                                                </Link>
+                                            </motion.div>
+
+                                            {/* Bare Metal Control */}
+                                            <motion.div
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: 0.2 }}
+                                            >
+                                                <Link
+                                                    href="/panel/baremetal"
+                                                    className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 hover:border-orange-500/40 hover:from-orange-500/20 hover:to-red-500/20 transition-all duration-300 overflow-hidden"
+                                                >
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                    <div className="relative z-10 w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div className="relative z-10 flex-1 min-w-0">
+                                                        <div className="text-sm font-bold text-foreground group-hover:text-orange-400 transition-colors">Bare Metal Control</div>
+                                                        <div className="text-xs text-muted mt-0.5">Manage dedicated servers</div>
+                                                    </div>
+                                                    <div className="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
                                                     </div>
                                                 </Link>
                                             </motion.div>
@@ -442,7 +541,10 @@ const Navbar = () => {
                                     ))}
                                 </nav>
 
-                                <div className=" ">
+                                <div className="space-y-2 mt-4">
+                                    <div className="p-3">
+                                        <CurrencySelector />
+                                    </div>
                                     <button
                                         onClick={toggleTheme}
                                         className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-accent/10 transition-colors"
@@ -464,42 +566,72 @@ const Navbar = () => {
                                 </div>
 
                                 <div className="mt-4 pt-4 border-t border-muted">
-                                    <div className="space-y-3">
+                                    <h3 className="text-xs font-bold text-foreground uppercase tracking-wide mb-3 px-3">Control Panels</h3>
+                                    <div className="space-y-2">
                                         <Link
-                                            href="/panel/starbase"
+                                            href="https://my.expanse.host"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             onClick={closeMobileMenu}
-                                            className="flex items-center p-3 bg-accent/10 border border-accent rounded-xl hover:bg-accent/20 transition-colors"
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-all"
                                         >
-                                            <div className="w-8 h-8 mr-3 flex items-center text-accent justify-center">
-                                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="7" height="18" x="3" y="3" rx="1"></rect>
-                                                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
-                                                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                                                 </svg>
                                             </div>
-                                            <div>
-                                                <div className="text-foreground text-sm font-semibold">GAME PANEL</div>
-                                                <div className="text-muted text-xs">Manage your game server</div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-bold text-foreground">Billing Area</div>
+                                                <div className="text-xs text-muted mt-0.5">Manage invoices & payments</div>
                                             </div>
                                         </Link>
 
                                         <Link
                                             href="/panel/vps"
                                             onClick={closeMobileMenu}
-                                            className="flex items-center p-3 bg-accent/10 border border-accent rounded-xl hover:bg-accent/20 transition-colors"
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 hover:border-cyan-500/40 transition-all"
                                         >
-                                            <div className="w-8 h-8 mr-3 flex items-center text-accent justify-center">
-                                                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="12" cy="12" r="3"></circle>
-                                                    <path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5"></path>
-                                                    <path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5"></path>
-                                                    <path d="M6 6h.01"></path>
-                                                    <path d="M6 18h.01"></path>
+                                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                                                 </svg>
                                             </div>
-                                            <div>
-                                                <div className="text-foreground text-sm font-semibold">VPS PANEL</div>
-                                                <div className="text-muted text-xs">Manage your VPS server</div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-bold text-foreground">VPS Panel</div>
+                                                <div className="text-xs text-muted mt-0.5">Manage your VPS server</div>
+                                            </div>
+                                        </Link>
+
+                                        <Link
+                                            href="/panel/starbase"
+                                            onClick={closeMobileMenu}
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 hover:border-green-500/40 transition-all"
+                                        >
+                                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-bold text-foreground">Game Panel</div>
+                                                <div className="text-xs text-muted mt-0.5">Manage your game server</div>
+                                            </div>
+                                        </Link>
+
+                                        <Link
+                                            href="/panel/baremetal"
+                                            onClick={closeMobileMenu}
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 hover:border-orange-500/40 transition-all"
+                                        >
+                                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                                                </svg>
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="text-sm font-bold text-foreground">Bare Metal Control</div>
+                                                <div className="text-xs text-muted mt-0.5">Manage dedicated servers</div>
                                             </div>
                                         </Link>
                                     </div>

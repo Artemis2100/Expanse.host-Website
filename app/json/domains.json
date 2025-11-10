@@ -1,0 +1,231 @@
+{
+  "hero": {
+    "title": "Secure your domain registration today",
+    "subtitle": "Take the first step towards digital success with a strong, reliable domain, no gimmicks, no hidden costs. Enjoy straightforward pricing with no low introductory rates followed by high renewal fees.",
+    "transferText": "Already have domain? Transfer to us"
+  },
+  "popularExtensions": [
+    {
+      "extension": ".com",
+      "name": ".com",
+      "description": "Get more trust with .com",
+      "price": 12.99,
+      "renewalPrice": 14.99,
+      "popular": true
+    },
+    {
+      "extension": ".net",
+      "name": ".net",
+      "description": "For your tech company",
+      "price": 13.99,
+      "renewalPrice": 15.99,
+      "popular": false
+    },
+    {
+      "extension": ".org",
+      "name": ".org",
+      "description": "For your organisation",
+      "price": 13.99,
+      "renewalPrice": 15.99,
+      "popular": false
+    },
+    {
+      "extension": ".io",
+      "name": ".io",
+      "description": "Popular for tech startups",
+      "price": 29.99,
+      "renewalPrice": 34.99,
+      "popular": true
+    },
+    {
+      "extension": ".co",
+      "name": ".co",
+      "description": "Short and memorable",
+      "price": 19.99,
+      "renewalPrice": 24.99,
+      "popular": false
+    },
+    {
+      "extension": ".xyz",
+      "name": ".xyz",
+      "description": "Modern and versatile",
+      "price": 1.99,
+      "renewalPrice": 14.99,
+      "popular": false
+    },
+    {
+      "extension": ".dev",
+      "name": ".dev",
+      "description": "For developers",
+      "price": 19.99,
+      "renewalPrice": 24.99,
+      "popular": false
+    },
+    {
+      "extension": ".app",
+      "name": ".app",
+      "description": "For applications",
+      "price": 19.99,
+      "renewalPrice": 24.99,
+      "popular": false
+    }
+  ],
+  "bundle": {
+    "title": "Bundle your domain with our services and get more benefits",
+    "description": "Choose from a range of web hosting packages. We have packages designed to fit every budget",
+    "cta": "Find Services"
+  },
+  "whyImportant": {
+    "title": "Why a strong domain name is crucial for your business",
+    "subtitle": "Your domain name is the first impression people get. Make it count!",
+    "benefits": [
+      {
+        "title": "Brand Credibility & Authority",
+        "description": "A custom domain builds trust and shows you're serious. Professional web and email addresses make a big difference"
+      },
+      {
+        "title": "Memorability & SEO Benefits",
+        "description": "Short, keyword-relevant domains are easier to remember and help drive organic traffic"
+      },
+      {
+        "title": "Protect Your Brand",
+        "description": "Owning your domain prevents competitors from grabbing similar names"
+      }
+    ]
+  },
+  "tips": {
+    "title": "Choose a domain that works for you",
+    "subtitle": "These expert tips might help you find a domain that's memorable, functional, and future-proof.",
+    "items": [
+      {
+        "number": "1",
+        "title": "Keep It Short & Memorable",
+        "description": "Aim for 6–14 characters, easy to spell."
+      },
+      {
+        "number": "2",
+        "title": "Use Relevant Keywords",
+        "description": "Helps both users and search engines."
+      },
+      {
+        "number": "3",
+        "title": "Use the Right TLD",
+        "description": ".com is universal; local TLDs build regional trust."
+      },
+      {
+        "number": "4",
+        "title": "Avoid Numbers & Hyphens",
+        "description": "They're easy to misinterpret or forget."
+      },
+      {
+        "number": "5",
+        "title": "Check Social Handles",
+        "description": "Consistency across domain + social media boosts brand cohesion."
+      },
+      {
+        "number": "6",
+        "title": "Act Fast",
+        "description": "Good domains get snapped up quickly—lock in yours today"
+      }
+    ]
+  },
+  "transfer": {
+    "title": "Already have a domain? Move it to Expanse Hosting without hassle",
+    "description": "Transfer now to let Expanse Hosting manage your domain. Our renewal process is fully automated upon payment.",
+    "cta": "Transfer Now!"
+  },
+  "howItWorks": {
+    "title": "Simple & transparent domain registration",
+    "subtitle": "Just follow these simple steps to secure your domain in minutes.",
+    "steps": [
+      {
+        "number": "#1",
+        "title": "Search",
+        "description": "for your ideal domain"
+      },
+      {
+        "number": "#2",
+        "title": "Select",
+        "description": "from available TLD options and pricing."
+      },
+      {
+        "number": "#3",
+        "title": "Add-ons",
+        "description": "Free DNS, forwarding, email setup"
+      },
+      {
+        "number": "#4",
+        "title": "Bundle & save",
+        "description": "Combine with hosting, SSL, email plans."
+      },
+      {
+        "number": "#5",
+        "title": "Manage everything",
+        "description": "via our easy control panel."
+      },
+      {
+        "number": "#6",
+        "title": "Transfer with ease",
+        "description": "Already have a domain? Move it to Expanse Hosting without hassle"
+      }
+    ]
+  },
+  "whyChoose": {
+    "title": "Why choose Expanse Hosting as your provider?",
+    "description": "Expanse Hosting is your trusted partner for reliable and scalable domain registration services. We empower businesses with cutting-edge solutions and unparalleled support.",
+    "features": [
+      {
+        "title": "Global Network",
+        "description": "Our servers have low latency worldwide. New York, Germany, Singapore, Malaysia, and more locations."
+      },
+      {
+        "title": "Enterprise Grade Hardware",
+        "description": "Discover unmatched performance and reliability with our enterprise-grade hardware and servers."
+      },
+      {
+        "title": "Scalable Infrastructure",
+        "description": "Our infrastructure will scale with you as your business grows."
+      },
+      {
+        "title": "Expert Support",
+        "description": "Our dedicated support team is available 24/7 to assist you with everything from domain setup to advanced configuration."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Do I need hosting after registering a domain?",
+      "answer": "Yes, registering a domain is only the first step. To make your website accessible online, you'll need a hosting plan. After completing your domain registration, you can explore our VPS hosting and web hosting packages to get your site up and running quickly."
+    },
+    {
+      "question": "Can I just purchase domain registration services?",
+      "answer": "Yes, you can purchase your domain from us and choose any hosting service you prefer with no obligations. However, please note that support is only available for our hosting customers, and domain management will be self-managed."
+    },
+    {
+      "question": "Do you provide free DNS?",
+      "answer": "Yes, we can provide free DNS. Alternatively you can use multicast DNS providers like Cloudflare, Akamai or Route 53 from AWS."
+    },
+    {
+      "question": "What is the cookie duration for domain referrals?",
+      "answer": "We offer a 90-day cookie window for our affiliate program. This means if someone clicks your affiliate link, you'll receive credit for any purchase they make within 90 days."
+    },
+    {
+      "question": "Can I transfer my domain to Expanse Hosting?",
+      "answer": "Yes! Transferring your domain to Expanse Hosting is easy. Our renewal process is fully automated upon payment, and we'll help you through the transfer process."
+    },
+    {
+      "question": "Are there any hidden fees?",
+      "answer": "No! We offer transparent pricing with no low introductory rates followed by high renewal fees. What you see is what you pay."
+    }
+  ],
+  "features": [
+    "Free SSL Certificate",
+    "Free DNS Management",
+    "Free Email Forwarding",
+    "Domain Privacy Protection",
+    "Easy Domain Transfer",
+    "24/7 Support",
+    "Auto-Renewal Option",
+    "Domain Lock Protection"
+  ]
+}

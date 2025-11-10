@@ -7,7 +7,7 @@
     "flag": "/flags/germany.png"
   },
   {
-    "id": "us",
+    "id": "us-ny",
     "city": "New York",
     "country": "United States",
     "countryCode": "USA",
@@ -25,7 +25,7 @@
     "city": "Johor Bahru",
     "country": "Malaysia",
     "countryCode": "MY",
-    "flag": "/flags/singapore.png"
+    "flag": "/flags/malaysia.png"
   },
   {
     "id": "in",

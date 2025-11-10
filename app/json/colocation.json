@@ -1,0 +1,175 @@
+{
+  "hero": {
+    "slogan": "Enterprise-Grade Colocation Services",
+    "subtitle": "Host your hardware in our world-class data centers",
+    "uptime": "99.99%",
+    "features": [
+      {
+        "title": "N+1 Redundancies",
+        "color": "blue"
+      },
+      {
+        "title": "24/7 Security",
+        "color": "purple"
+      },
+      {
+        "title": "SLA Reliability",
+        "color": "cyan"
+      }
+    ]
+  },
+  "partners": [
+    {
+      "name": "Juniper Networks",
+      "logo": "/partners/juniper.png"
+    },
+    {
+      "name": "CORE",
+      "logo": "/partners/core.png"
+    },
+    {
+      "name": "ARISTA",
+      "logo": "/partners/arista.png"
+    },
+    {
+      "name": "EQUINIX",
+      "logo": "/partners/equinix.png"
+    },
+    {
+      "name": "Global Secure Layer",
+      "logo": "/partners/gsl.png"
+    }
+  ],
+  "locations": [
+    {
+      "id": "nyc",
+      "city": "New York City",
+      "country": "United States",
+      "countryCode": "US",
+      "flag": "/flags/usa.png"
+    },
+    {
+      "id": "sg",
+      "city": "Singapore",
+      "country": "Singapore",
+      "countryCode": "SG",
+      "flag": "/flags/singapore.png"
+    },
+    {
+      "id": "hk",
+      "city": "Hong Kong",
+      "country": "Hong Kong",
+      "countryCode": "HK",
+      "flag": "/flags/chinese.png"
+    },
+    {
+      "id": "in",
+      "city": "Mumbai",
+      "country": "India",
+      "countryCode": "IN",
+      "flag": "/flags/india.png"
+    }
+  ],
+  "plans": [
+    {
+      "id": "1u",
+      "name": "1U",
+      "rackSpace": "1U (1.75\" x 19\")",
+      "powerAllocated": "2A @ 120V / 1A @ 208V",
+      "powerOutlets": "2",
+      "bandwidth": "1 Gbps",
+      "uplink": "1 Gbps",
+      "ipAddresses": "1 IPv4 + 1 IPv6",
+      "price": 199,
+      "popular": false
+    },
+    {
+      "id": "2u",
+      "name": "2U",
+      "rackSpace": "2U (3.5\" x 19\")",
+      "powerAllocated": "4A @ 120V / 2A @ 208V",
+      "powerOutlets": "4",
+      "bandwidth": "1 Gbps",
+      "uplink": "1 Gbps",
+      "ipAddresses": "2 IPv4 + 1 IPv6",
+      "price": 349,
+      "popular": true
+    },
+    {
+      "id": "4u",
+      "name": "4U",
+      "rackSpace": "4U (7\" x 19\")",
+      "powerAllocated": "8A @ 120V / 4A @ 208V",
+      "powerOutlets": "8",
+      "bandwidth": "10 Gbps",
+      "uplink": "10 Gbps",
+      "ipAddresses": "4 IPv4 + 1 IPv6",
+      "price": 599,
+      "popular": false
+    },
+    {
+      "id": "half-rack",
+      "name": "Half Rack",
+      "rackSpace": "21U (36.75\" x 19\")",
+      "powerAllocated": "20A @ 120V / 10A @ 208V",
+      "powerOutlets": "20",
+      "bandwidth": "10 Gbps",
+      "uplink": "10 Gbps",
+      "ipAddresses": "16 IPv4 + 1 IPv6",
+      "price": 1499,
+      "popular": false
+    },
+    {
+      "id": "full-rack",
+      "name": "Full Rack",
+      "rackSpace": "42U (73.5\" x 19\")",
+      "powerAllocated": "30A @ 120V / 20A @ 208V",
+      "powerOutlets": "30",
+      "bandwidth": "100 Gbps",
+      "uplink": "100 Gbps",
+      "ipAddresses": "32 IPv4 + 1 IPv6",
+      "price": 2999,
+      "popular": false
+    }
+  ],
+  "certifications": [
+    "ISO 27001",
+    "SOC 2 Type II",
+    "PCI DSS Level 1",
+    "HIPAA Compliant",
+    "Tier III Data Center"
+  ],
+  "features": [
+    {
+      "title": "99.99% Uptime Reliability",
+      "description": "Guaranteed uptime with redundant systems and 24/7 monitoring",
+      "icon": "uptime"
+    },
+    {
+      "title": "24/7 Datacenter Security",
+      "description": "Physical security with biometric access, 24/7 on-site staff, and CCTV monitoring",
+      "icon": "security"
+    },
+    {
+      "title": "N+1 Power Redundancy",
+      "description": "Multiple power sources with automatic failover to ensure continuous operation",
+      "icon": "power"
+    },
+    {
+      "title": "Climate Control",
+      "description": "Advanced cooling systems maintaining optimal temperature and humidity",
+      "icon": "climate"
+    },
+    {
+      "title": "Fire Suppression",
+      "description": "State-of-the-art fire detection and suppression systems",
+      "icon": "fire"
+    },
+    {
+      "title": "Remote Hands Support",
+      "description": "24/7 remote hands support for maintenance and troubleshooting",
+      "icon": "support"
+    }
+  ]
+}
+

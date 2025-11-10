@@ -1,0 +1,72 @@
+{
+  "title": "Service Level Agreement",
+  "introduction": "This agreement governs the use of Expanse Hosting's services and establishes the terms and conditions applicable to their use. By accessing or utilizing our services, you acknowledge that you have read, understood, and agreed to the terms outlined herein. Expanse Hosting reserves the right to amend or update this agreement at any time without prior notice.",
+  "lastReviewed": "September 30, 2025",
+  "nextReview": "January 2, 2026",
+  "sections": [
+    {
+      "id": 1,
+      "title": "SLA COVERAGE",
+      "intro": "a. This Service Level Agreement (SLA) applies to the following types of service interruptions:",
+      "subsections": [
+        {
+          "subtitle": "i. Network",
+          "text": "We guarantee a network availability of 99.99% for all applicable services. In the event that network availability falls below this threshold for a continuous period of 10 minutes or more, the affected service will qualify for coverage under this Service Level Agreement (SLA)."
+        },
+        {
+          "subtitle": "ii. Panel",
+          "text": "We guarantee 99% availability of the control panel for all applicable services. If panel availability falls below this threshold for a continuous period of 20 minutes or more, the affected service will qualify for coverage under this Service Level Agreement (SLA). Please note that panel downtime differs from network downtime, as the server IP may remain pingable while the control panel is inaccessible."
+        },
+        {
+          "subtitle": "iii. Hardware",
+          "text": "We guarantee that our physical servers will maintain uninterrupted service for all applicable services. In the event that our physical machines fail to meet this standard for a continuous period of 5 minutes or more, the affected service will qualify for coverage under this Service Level Agreement (SLA)."
+        },
+        {
+          "subtitle": "iv. Denial of Service Attack (DoS/DDoS)",
+          "text": "We guarantee protection against all forms of Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks. If the Company is unable to mitigate such an attack within a continuous period of 5 minutes, the affected service will qualify for coverage under this Service Level Agreement (SLA)."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "SLA LIMITATIONS",
+      "intro": "a. This Service Level Agreement (SLA) does not apply under the following circumstances:",
+      "subsections": [
+        {
+          "subtitle": "i. Planned Maintenance",
+          "text": "We will provide advance notice of all scheduled maintenance activities through email notifications or announcements on our official website."
+        },
+        {
+          "subtitle": "ii. Software Limitations",
+          "text": "Software-related issues are outside the scope of our services. As such, errors, crashes, or service interruptions caused by software are not covered under this Service Level Agreement (SLA)."
+        },
+        {
+          "subtitle": "iii. Client-Caused Interruption",
+          "text": "We do not assume responsibility for service issues resulting from actions taken by the client, including but not limited to the installation of third-party files, plugins, software, or custom scripts. Such problems are not covered under this Service Level Agreement (SLA)."
+        },
+        {
+          "subtitle": "iv. Resource Overutilization",
+          "text": "Service interruptions caused by the affected service exceeding its allocated resource limits are not covered under this Service Level Agreement (SLA)."
+        },
+        {
+          "subtitle": "v. Force Majeure",
+          "text": "Service interruptions caused by events beyond our reasonable control, including but not limited to acts of government, natural disasters, extreme weather conditions, or other force majeure events, are not covered under this Service Level Agreement (SLA)."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "SERVICE COMPENSATION",
+      "intro": "a. In the event of non-compliance with this Service Level Agreement (SLA), the following terms apply:",
+      "list": [
+        "i. For every twelve (12) hours of uninterrupted downtime, the client will receive one (1) additional day of service as compensation",
+        "ii. To request compensation, the client must submit an SLA claim via a support ticket through their client account within seven (7) days of the outage.",
+        "iii. All SLA claims will undergo a thorough investigation, and the outcome will be determined solely at our discretion.",
+        "iv. SLA claims for scheduled maintenance or downtime will not be considered.",
+        "v. We reserve the right to deny SLA claims if there is reasonable evidence that the client intentionally caused or contributed to a service disruption (e.g., initiating a Denial of Service (DoS) or Distributed Denial of Service (DDoS) attack on their own service).",
+        "vi. This SLA applies exclusively to direct clients of Expanse Hosting and does not extend to third-party users or resellers."
+      ]
+    }
+  ]
+}
+

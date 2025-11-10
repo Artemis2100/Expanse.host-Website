@@ -21,6 +21,17 @@
                 "europe": "90-110ms",
                 "asia": "150-180ms"
             }
+        },
+        "datacenter": {
+            "location": "1200 N 75th Ave, Phoenix, AZ 85043, United States",
+            "image": "/datacenters/phoenix.jpg",
+            "certifications": [
+                "ISO 27001",
+                "SOC 2 Type II",
+                "PCI DSS Level 1",
+                "HIPAA Compliant",
+                "Tier III Data Center"
+            ]
         }
     },
     {
@@ -45,6 +56,17 @@
                 "europe": "80-100ms",
                 "asia": "160-190ms"
             }
+        },
+        "datacenter": {
+            "location": "111 8th Ave, New York, NY 10011, United States",
+            "image": "/datacenters/newyork.jpg",
+            "certifications": [
+                "ISO 27001",
+                "SOC 2 Type II",
+                "PCI DSS Level 1",
+                "HIPAA Compliant",
+                "Tier III Data Center"
+            ]
         }
     },
     {
@@ -69,6 +91,17 @@
                 "europe": "< 20ms",
                 "asia": "140-170ms"
             }
+        },
+        "datacenter": {
+            "location": "Lyoner Str. 15, 60528 Frankfurt am Main, Germany",
+            "image": "/datacenters/frankfurt.jpg",
+            "certifications": [
+                "ISO 27001",
+                "SOC 2 Type II",
+                "PCI DSS Level 1",
+                "GDPR Compliant",
+                "Tier III Data Center"
+            ]
         }
     },
     {
@@ -93,6 +126,16 @@
                 "europe": "140-170ms",
                 "asia": "< 20ms"
             }
+        },
+        "datacenter": {
+            "location": "1 Jalan Tun Razak, 50400 Kuala Lumpur, Malaysia",
+            "image": "/datacenters/johor.jpg",
+            "certifications": [
+                "ISO 27001",
+                "SOC 2 Type II",
+                "PCI DSS Level 1",
+                "Tier III Data Center"
+            ]
         }
     },
     {
@@ -117,6 +160,16 @@
                 "europe": "150-180ms",
                 "asia": "< 20ms"
             }
+        },
+        "datacenter": {
+            "location": "1 Leighton Road, Causeway Bay, Hong Kong",
+            "image": "/datacenters/hongkong.jpg",
+            "certifications": [
+                "ISO 27001",
+                "SOC 2 Type II",
+                "PCI DSS Level 1",
+                "Tier III Data Center"
+            ]
         }
     },
     {
@@ -141,6 +194,16 @@
                 "europe": "140-170ms",
                 "asia": "< 20ms"
             }
+        },
+        "datacenter": {
+            "location": "20 Ayer Rajah Crescent, Singapore 139964",
+            "image": "/datacenters/singapore.jpg",
+            "certifications": [
+                "ISO 27001",
+                "SOC 2 Type II",
+                "PCI DSS Level 1",
+                "Tier III Data Center"
+            ]
         }
     },
     {
@@ -165,6 +228,11 @@
                 "europe": "TBA",
                 "asia": "TBA"
             }
+        },
+        "datacenter": {
+            "location": "TBA",
+            "image": "/datacenters/mumbai.jpg",
+            "certifications": []
         }
     }
 ]
