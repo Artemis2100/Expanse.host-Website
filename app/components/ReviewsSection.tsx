@@ -1,13 +1,41 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import { Marquee } from '@/components/ui/marquee'
 import { FaStar } from 'react-icons/fa'
 import Image from 'next/image'
 
 const reviews = [
+  {
+    name: "ST Roberto H. Calarmal",
+    username: "@roberto",
+    body: "Honestly awesome and decent hosting, Cheap, Reliable, 24/7 support and also a very friendly hosting owner!",
+    img: "/pfp/unknown.png",
+    rating: 5,
+  },
+  {
+    name: "Gladys Hawkins",
+    username: "@gladys",
+    body: "Using Expanse got almost 3 months now and had a 100% uptime. No words, they are just excellent!",
+    img: "/pfp/unknown.png",
+    rating: 5,
+  },
+  {
+    name: "Sean Williams",
+    username: "@sean",
+    body: "This is a very good host better than 99% of others. The owner himself helped me in resolving quite a few issues with my VPS installation and was resolved in 5m.",
+    img: "/pfp/unknown.png",
+    rating: 5,
+  },
+  {
+    name: "Bambui Zeplin",
+    username: "@bambui",
+    body: "Bought a server the setup was instant! Friendly support and fast servers!",
+    img: "/pfp/unknown.png",
+    rating: 5,
+  },
   {
     name: "Alex Johnson",
     username: "@alexj",
@@ -62,34 +90,6 @@ const reviews = [
     username: "@sophial",
     body: "Customer support is phenomenal. They helped me optimize my server configuration and it runs perfectly now.",
     img: "https://avatar.vercel.sh/sophia",
-    rating: 5,
-  },
-  {
-    name: "Daniel Kim",
-    username: "@danielk",
-    body: "The backup system saved me when I accidentally deleted files. Instant restore, no hassle. These guys know what they're doing.",
-    img: "https://avatar.vercel.sh/daniel",
-    rating: 5,
-  },
-  {
-    name: "Ava Garcia",
-    username: "@avag",
-    body: "Uptime has been perfect. My community loves the server performance. Best decision I made for my gaming community!",
-    img: "https://avatar.vercel.sh/ava",
-    rating: 5,
-  },
-  {
-    name: "Lucas Taylor",
-    username: "@lucast",
-    body: "The dedicated IP and custom ports feature is exactly what I needed. Setup was incredibly straightforward.",
-    img: "https://avatar.vercel.sh/lucas",
-    rating: 5,
-  },
-  {
-    name: "Mia Anderson",
-    username: "@miaa",
-    body: "Amazing performance for the price. My server handles 100+ players without any lag. Impressive hardware!",
-    img: "https://avatar.vercel.sh/mia",
     rating: 5,
   },
 ]
@@ -196,22 +196,50 @@ const ReviewsSection = () => {
             >
               <Marquee pauseOnHover vertical className="[--duration:20s]">
                 {firstRow.map((review) => (
-                  <ReviewCard key={review.username} {...review} />
+                  <ReviewCard 
+                    key={review.username} 
+                    img={review.img}
+                    name={review.name}
+                    username={review.username}
+                    body={review.body}
+                    rating={review.rating}
+                  />
                 ))}
               </Marquee>
               <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
                 {secondRow.map((review) => (
-                  <ReviewCard key={review.username} {...review} />
+                  <ReviewCard 
+                    key={review.username} 
+                    img={review.img}
+                    name={review.name}
+                    username={review.username}
+                    body={review.body}
+                    rating={review.rating}
+                  />
                 ))}
               </Marquee>
               <Marquee pauseOnHover className="[--duration:20s]" vertical>
                 {thirdRow.map((review) => (
-                  <ReviewCard key={review.username} {...review} />
+                  <ReviewCard 
+                    key={review.username} 
+                    img={review.img}
+                    name={review.name}
+                    username={review.username}
+                    body={review.body}
+                    rating={review.rating}
+                  />
                 ))}
               </Marquee>
               <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
                 {fourthRow.map((review) => (
-                  <ReviewCard key={review.username} {...review} />
+                  <ReviewCard 
+                    key={review.username} 
+                    img={review.img}
+                    name={review.name}
+                    username={review.username}
+                    body={review.body}
+                    rating={review.rating}
+                  />
                 ))}
               </Marquee>
             </div>

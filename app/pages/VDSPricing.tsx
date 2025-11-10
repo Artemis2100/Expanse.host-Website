@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState, useMemo, memo, useEffect, useRef } from "react";
 import { FiCpu, FiHardDrive, FiShield, FiServer, FiChevronDown, FiFilter } from "react-icons/fi";
 import { BiNetworkChart } from "react-icons/bi";
@@ -8,6 +8,7 @@ import { Ripple } from "@/components/ui/background-ripple-effect";
 import Image from "next/image";
 import vpsPlansData from "@/app/json/dedicated/vds-plans.json";
 import locationsData from "@/app/json/dedicated/locations.json";
+import { PriceDisplay } from "../components/Price";
 
 interface Location {
     id: string;
@@ -310,7 +311,7 @@ const VDSCard = memo(({ plan, index }: { plan: VDSPlan; index: number }) => {
                     <div className="flex-shrink-0 lg:w-64 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-muted bg-gradient-to-br from-transparent to-accent/5 ">
                         <div className="mb-6 text-center">
                             <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">
-                                ${plan.price}
+                                <PriceDisplay usdPrice={plan.price} />
                             </div>
                             <div className="text-sm text-muted font-medium">per month</div>
                         </div>

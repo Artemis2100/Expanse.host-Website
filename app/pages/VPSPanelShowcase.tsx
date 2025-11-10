@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 import { FiMonitor, FiServer, FiSettings, FiShield } from "react-icons/fi";

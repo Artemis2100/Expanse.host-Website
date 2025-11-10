@@ -1,0 +1,120 @@
+{
+  "hero": {
+    "tagline": "5 minute setup, 10% back on all sales, forever.",
+    "title": "Cover your hosting costs, and a whole lot more.",
+    "description": "10% back on all sales, forever, for as long as your conversion does business with us. Running a gaming community? We recommend taking advantage of this program!",
+    "ctaPrimary": "Join For Free",
+    "ctaSecondary": "Apply For Partnership"
+  },
+  "stats": [
+    {
+      "value": "10+",
+      "label": "Affiliate Earners"
+    },
+    {
+      "value": "$100-200+/mo",
+      "label": "Average Income Range for Top Earners"
+    },
+    {
+      "value": "$600+",
+      "label": "Top Affiliate Yearly Earnings"
+    }
+  ],
+  "benefits": [
+    {
+      "icon": "clock",
+      "title": "48 Hour Payout"
+    },
+    {
+      "icon": "infinity",
+      "title": "No Limit on Earnings"
+    },
+    {
+      "icon": "repeat",
+      "title": "Recurring Payouts"
+    },
+    {
+      "icon": "link",
+      "title": "Unique URLs"
+    },
+    {
+      "icon": "monitor",
+      "title": "Affiliates Panel"
+    },
+    {
+      "icon": "gift",
+      "title": "Free $1 Upon Signup"
+    },
+    {
+      "icon": "percent",
+      "title": "Up to 10% Commission"
+    },
+    {
+      "icon": "wallet",
+      "title": "Store Credit or Money Payout"
+    }
+  ],
+  "earnings": {
+    "title": "How much can I earn?",
+    "points": [
+      {
+        "value": "$30",
+        "label": "Minimum Payout",
+        "description": "This makes it easy for you as an affiliate to request a payout faster."
+      },
+      {
+        "value": "10%",
+        "label": "Commission",
+        "description": "Earn 10% of all sales that your conversions make, recurring forever."
+      }
+    ]
+  },
+  "promotion": {
+    "title": "How can I get people to use my link?",
+    "description": "Create valuable content that showcases Expanse Hosting's services, highlighting features like our high-performance hardware and 24/7 support at competitive prices. Share this content across your social media platforms and engage with communities interested in hosting services, ensuring you provide genuine value and maintain transparency about your affiliate relationship to build trust with your audience."
+  },
+  "tips": {
+    "title": "Tips to Succeed in The Expanse Host Affiliate Program",
+    "items": [
+      {
+        "icon": "share",
+        "title": "Leverage Social Media",
+        "description": "Share your content and affiliate link on platforms like Twitter, Facebook, and Reddit. Engage with communities interested in hosting services, and provide helpful insights along with your link."
+      },
+      {
+        "icon": "file",
+        "title": "Create Valuable Content",
+        "description": "Develop blog posts, tutorials, or videos that showcase Expanse Hosting's services. For example, you could create a guide on setting up a Minecraft server using Expanse Host, highlighting its affordability and performance."
+      },
+      {
+        "icon": "target",
+        "title": "Use Call-to-Actions (CTAs)",
+        "description": "Don't just drop your link—tell people why they should click it. Phrases like \"Start your server today with my exclusive link!\" or \"Click here to get up to 50% off!\" help drive action."
+      },
+      {
+        "icon": "compare",
+        "title": "Create Comparison Content",
+        "description": "Make posts or videos comparing Expanse Hosting to other hosts. Highlight why you prefer Expanse Hosting (better pricing, support, features, etc.), and naturally include your affiliate link."
+      }
+    ]
+  },
+  "gettingStarted": {
+    "title": "Getting started is easy.",
+    "steps": [
+      {
+        "icon": "link",
+        "title": "Generate your unique referral link."
+      },
+      {
+        "icon": "share",
+        "title": "Promote Expanse Hosting to your community."
+      },
+      {
+        "icon": "dollar",
+        "title": "Enjoy your passive income!"
+      }
+    ],
+    "cta": "Sounds easy right? Start earning today"
+  }
+}
+

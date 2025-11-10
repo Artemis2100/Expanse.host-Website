@@ -1,0 +1,179 @@
+[
+  {
+    "id": "visa",
+    "name": "Visa",
+    "category": "Credit/Debit Cards",
+    "description": "Accepted worldwide, secure and instant processing",
+    "icon": "💳",
+    "available": true
+  },
+  {
+    "id": "mastercard",
+    "name": "Mastercard",
+    "category": "Credit/Debit Cards",
+    "description": "Accepted worldwide, secure and instant processing",
+    "icon": "💳",
+    "available": true
+  },
+  {
+    "id": "amex",
+    "name": "American Express",
+    "category": "Credit/Debit Cards",
+    "description": "Accepted worldwide, secure and instant processing",
+    "icon": "💳",
+    "available": true
+  },
+  {
+    "id": "discover",
+    "name": "Discover",
+    "category": "Credit/Debit Cards",
+    "description": "Accepted worldwide, secure and instant processing",
+    "icon": "💳",
+    "available": true
+  },
+  {
+    "id": "paypal",
+    "name": "PayPal",
+    "category": "Digital Wallets",
+    "description": "Fast, secure payments using your PayPal account or linked cards",
+    "icon": "🔵",
+    "available": true
+  },
+  {
+    "id": "apple-pay",
+    "name": "Apple Pay",
+    "category": "Digital Wallets",
+    "description": "Quick and secure payments using your Apple device",
+    "icon": "🍎",
+    "available": true
+  },
+  {
+    "id": "google-pay",
+    "name": "Google Pay",
+    "category": "Digital Wallets",
+    "description": "Fast checkout with your Google account",
+    "icon": "🔴",
+    "available": true
+  },
+  {
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "category": "Cryptocurrencies",
+    "description": "Decentralized digital currency, instant transactions",
+    "icon": "₿",
+    "available": true
+  },
+  {
+    "id": "ethereum",
+    "name": "Ethereum",
+    "category": "Cryptocurrencies",
+    "description": "Smart contract platform, fast and secure",
+    "icon": "Ξ",
+    "available": true
+  },
+  {
+    "id": "litecoin",
+    "name": "Litecoin",
+    "category": "Cryptocurrencies",
+    "description": "Faster transaction times, lower fees",
+    "icon": "Ł",
+    "available": true
+  },
+  {
+    "id": "usdt",
+    "name": "Tether (USDT)",
+    "category": "Cryptocurrencies",
+    "description": "Stablecoin pegged to USD, instant processing",
+    "icon": "₮",
+    "available": true
+  },
+  {
+    "id": "usdc",
+    "name": "USD Coin (USDC)",
+    "category": "Cryptocurrencies",
+    "description": "Stablecoin backed by US dollars",
+    "icon": "💵",
+    "available": true
+  },
+  {
+    "id": "bank-transfer",
+    "name": "Bank Transfer",
+    "category": "Bank Transfers",
+    "description": "Direct bank-to-bank transfer, may take 1-3 business days",
+    "icon": "🏦",
+    "available": true
+  },
+  {
+    "id": "wire-transfer",
+    "name": "Wire Transfer",
+    "category": "Bank Transfers",
+    "description": "International wire transfers, secure and reliable",
+    "icon": "🌐",
+    "available": true
+  },
+  {
+    "id": "sofort",
+    "name": "Sofort",
+    "category": "Bank Transfers",
+    "description": "Popular in Europe, instant bank transfers",
+    "icon": "🇪🇺",
+    "available": true
+  },
+  {
+    "id": "ideal",
+    "name": "iDEAL",
+    "category": "Bank Transfers",
+    "description": "Dutch payment method, direct bank transfers",
+    "icon": "🇳🇱",
+    "available": true
+  },
+  {
+    "id": "sepa",
+    "name": "SEPA",
+    "category": "Bank Transfers",
+    "description": "Single Euro Payments Area, European bank transfers",
+    "icon": "🇪🇺",
+    "available": true
+  },
+  {
+    "id": "skrill",
+    "name": "Skrill",
+    "category": "Digital Wallets",
+    "description": "Digital wallet for fast online payments",
+    "icon": "💼",
+    "available": true
+  },
+  {
+    "id": "neteller",
+    "name": "Neteller",
+    "category": "Digital Wallets",
+    "description": "Secure e-wallet for online transactions",
+    "icon": "💼",
+    "available": true
+  },
+  {
+    "id": "amazon-pay",
+    "name": "Amazon Pay",
+    "category": "Digital Wallets",
+    "description": "Pay with your Amazon account",
+    "icon": "📦",
+    "available": true
+  },
+  {
+    "id": "alipay",
+    "name": "Alipay",
+    "category": "Digital Wallets",
+    "description": "Popular in China and Asia, secure mobile payments",
+    "icon": "🇨🇳",
+    "available": true
+  },
+  {
+    "id": "wechat-pay",
+    "name": "WeChat Pay",
+    "category": "Digital Wallets",
+    "description": "Popular in China, integrated with WeChat",
+    "icon": "💬",
+    "available": true
+  }
+]
+

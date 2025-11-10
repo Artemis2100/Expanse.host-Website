@@ -1,0 +1,326 @@
+[
+  {
+    "id": "ryzen-9950x-frankfurt",
+    "name": "AMD Ryzen 9 9950X",
+    "description": "For servers that need the absolute best performance at high population. Perfect for Rust or Garry's Mod.",
+    "badge": "LIMITED",
+    "cpu": {
+      "model": "AMD Ryzen 9 9950X",
+      "cores": "16C/32T",
+      "frequency": "4.3GHz/5.7GHz"
+    },
+    "ram": {
+      "default": "128GB DDR5",
+      "options": [
+        { "value": "128GB DDR5", "price": 0 },
+        { "value": "256GB DDR5", "price": 50 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "20TB @ 10Gbps",
+      "options": [
+        { "value": "20TB @ 10Gbps", "price": 0 }
+      ]
+    },
+    "ddos": {
+      "provider": "GSL DDoS Protection",
+      "level": "Upto 1+ Tbps"
+    },
+    "price": 279.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A20TB%20%40%2010Gbps%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-7c13-frankfurt",
+    "name": "AMD EPYC 7C13",
+    "description": "For servers that need the absolute best performance at high population. Perfect for Rust or Garry's Mod.",
+    "cpu": {
+      "model": "AMD EPYC 7C13",
+      "cores": "64C/128T",
+      "frequency": "2.0GHz/3.7GHz"
+    },
+    "ram": {
+      "default": "256GB DDR4",
+      "options": [
+        { "value": "256GB DDR4", "price": 0 },
+        { "value": "512GB DDR4", "price": 60 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "25TB @ 10Gbps",
+      "options": [
+        { "value": "25TB @ 10Gbps", "price": 0 }
+      ]
+    },
+    "ddos": {
+      "provider": "GSL DDoS Protection",
+      "level": "Upto 1+ Tbps"
+    },
+    "price": 499.99,
+    "status": "in_stock",
+    "deliveryTime": "4+ weeks",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%207C13%2C%20256GB%20DDR4%2C%202x4TB%20NVMe%0A25TB%20%40%2010Gbps%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-9454-frankfurt",
+    "name": "AMD EPYC 9454",
+    "description": "For enterprise applications requiring massive parallelism and exceptional multi-threaded performance.",
+    "cpu": {
+      "model": "AMD EPYC 9454",
+      "cores": "48C/96T",
+      "frequency": "2.8GHz/3.8GHz"
+    },
+    "ram": {
+      "default": "512GB DDR5",
+      "options": [
+        { "value": "512GB DDR5", "price": 0 },
+        { "value": "1TB DDR5", "price": 120 }
+      ]
+    },
+    "storage": {
+      "default": "2x2TB NVMe",
+      "options": [
+        { "value": "2x2TB NVMe (-$10)", "price": -10 },
+        { "value": "2x2TB NVMe", "price": 0 },
+        { "value": "1x4TB NVMe", "price": 0 },
+        { "value": "2x4TB NVMe", "price": 10 }
+      ]
+    },
+    "network": {
+      "default": "20TB @ 10Gbps",
+      "options": [
+        { "value": "20TB @ 10Gbps", "price": 0 },
+        { "value": "40TB @ 10Gbps", "price": 40 },
+        { "value": "60TB @ 10Gbps", "price": 100 },
+        { "value": "Unmetered @ 1Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "GSL DDoS Protection",
+      "level": "Upto 1+ Tbps"
+    },
+    "price": 739.99,
+    "status": "out_of_stock",
+    "deliveryTime": "1 week",
+    "location": "de",
+    "orderLink": ""
+  },
+  {
+    "id": "ryzen-9950x-ny",
+    "name": "AMD Ryzen 9 9950X",
+    "description": "For servers that need the absolute best performance at high population. Perfect for Rust or Garry's Mod.",
+    "badge": "LIMITED",
+    "cpu": {
+      "model": "AMD Ryzen 9 9950X",
+      "cores": "16C/32T",
+      "frequency": "4.3GHz/5.7GHz"
+    },
+    "ram": {
+      "default": "128GB DDR5",
+      "options": [
+        { "value": "128GB DDR5", "price": 0 },
+        { "value": "256GB DDR5", "price": 50 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "20TB @ 10Gbps",
+      "options": [
+        { "value": "20TB @ 10Gbps", "price": 0 },
+        { "value": "30TB @ 10Gbps", "price": 20 },
+        { "value": "50TB @ 10Gbps", "price": 100 },
+        { "value": "Unmetered @ 1Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "G-Core Protection",
+      "level": "over 200Tbps"
+    },
+    "price": 279.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "us-ny",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A20TB%20%40%2010Gbps%0ANew%20York%2C%20USA%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "ryzen-9950x-singapore",
+    "name": "AMD Ryzen 9 9950X",
+    "description": "For servers that need excellent multi-threaded performance. Perfect for game servers and web applications.",
+    "badge": "Coming Soon",
+    "cpu": {
+      "model": "AMD Ryzen 9 9950X",
+      "cores": "16C/32T",
+      "frequency": "4.5GHz/5.7GHz"
+    },
+    "ram": {
+      "default": "128GB DDR5",
+      "options": [
+        { "value": "128GB DDR5", "price": 0 },
+        { "value": "256GB DDR5", "price": 30 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "10TB @ 10Gbps",
+      "options": [
+        { "value": "10TB @ 10Gbps", "price": 0 }
+      ]
+    },
+    "ddos": {
+      "provider": "GSL DDoS Protection",
+      "level": "Upto 30+Tbps"
+    },
+    "price": 389.99,
+    "status": "pre_order",
+    "deliveryTime": "2-3 weeks",
+    "location": "sg",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0ASingapore%2C%20SG%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-7c13-singapore",
+    "name": "AMD EPYC 7C13",
+    "description": "For servers that need the absolute best performance at high population. Perfect for Rust or Garry's Mod.",
+    "cpu": {
+      "model": "AMD EPYC 7C13",
+      "cores": "64C/128T",
+      "frequency": "2.0GHz/3.7GHz"
+    },
+    "ram": {
+      "default": "256GB DDR4",
+      "options": [
+        { "value": "256GB DDR4", "price": 0 },
+        { "value": "512GB DDR4", "price": 60 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "25TB @ 10Gbps",
+      "options": [
+        { "value": "25TB @ 10Gbps", "price": 0 }
+      ]
+    },
+    "ddos": {
+      "provider": "GSL DDoS Protection",
+      "level": "Upto 2Gbps*"
+    },
+    "price": 549.99,
+    "status": "out_of_stock",
+    "deliveryTime": "2-3 weeks",
+    "location": "sg",
+    "orderLink": ""
+  },
+  {
+    "id": "ryzen-9950x-johor",
+    "name": "AMD Ryzen 9 9950x",
+    "description": "For servers that need excellent single and multi-threaded performance. Perfect for game servers.",
+    "badge": "1 Available",
+    "cpu": {
+      "model": "AMD Ryzen 9 9950x",
+      "cores": "16C/32T",
+      "frequency": "4.3GHz/5.7GHz"
+    },
+    "ram": {
+      "default": "256GB DDR5",
+      "options": [
+        { "value": "256GB DDR5 (+$40)", "price": 40 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "10TB @ 10Gbps",
+      "options": [
+        { "value": "10TB @ 10Gbps", "price": 0 },
+        { "value": "30TB @ 10Gbps", "price": 30 },
+        { "value": "50TB @ 10Gbps", "price": 60 },
+        { "value": "Unmetered @ 1Gbps", "price": 750 }
+      ]
+    },
+    "ddos": {
+      "provider": "GSL DDoS Protection",
+      "level": "Upto 30+Tbps"
+    },
+    "price": 419.99,
+    "status": "low_stock",
+    "deliveryTime": "1-3 weeks",
+    "location": "my",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950x%2C%20256GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0AJohor%20Bahru%2C%20MY%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "ryzen-9950x-mumbai",
+    "name": "AMD Ryzen 9 9950x",
+    "description": "For servers that need excellent single and multi-threaded performance. Perfect for game servers.",
+    "badge": "1 Available",
+    "cpu": {
+      "model": "AMD Ryzen 9 9950x",
+      "cores": "16C/32T",
+      "frequency": "4.3GHz/5.7GHz"
+    },
+    "ram": {
+      "default": "128GB DDR5",
+      "options": [
+        { "value": "128GB DDR5", "price": 0 },
+        { "value": "256GB DDR5", "price": 40 }
+      ]
+    },
+    "storage": {
+      "default": "2x4TB NVMe",
+      "options": [
+        { "value": "2x4TB NVMe", "price": 0 }
+      ]
+    },
+    "network": {
+      "default": "10TB @ 10Gbps",
+      "options": [
+        { "value": "10TB @ 10Gbps", "price": 0 },
+        { "value": "30TB @ 10Gbps", "price": 30 },
+        { "value": "50TB @ 10Gbps", "price": 60 },
+        { "value": "Unmetered @ 1Gbps", "price": 750 }
+      ]
+    },
+    "ddos": {
+      "provider": "No DDoS Protection",
+      "level": ""
+    },
+    "price": 379.99,
+    "status": "pre_order",
+    "deliveryTime": "1-3 weeks",
+    "location": "in",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950x%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0AMumbai%2C%20IN%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  }
+]
+

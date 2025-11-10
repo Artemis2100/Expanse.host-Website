@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import LocationModal from './LocationModal';
 import pricingPlans from '@/app/json/minecraft/plans.json';
-import { FaMemory, FaMicrochip, FaDatabase, FaShieldAlt } from 'react-icons/fa';
+import { FaMemory, FaMicrochip, FaDatabase, FaShieldAlt, FaUsers } from 'react-icons/fa';
 import { MdBackup } from 'react-icons/md';
+import { HiCpuChip } from 'react-icons/hi2';
+import { PriceDisplay } from '../components/Price';
 
 const CreeperIcon = ({ color }: { color: string }) => (
   <div
@@ -75,7 +77,7 @@ const BlazeIcon = ({ color }: { color: string }) => (
 );
 
 interface Feature {
-  icon: 'ram' | 'cpu' | 'storage' | 'backup' | 'shield';
+  icon: 'ram' | 'cpu' | 'storage' | 'backup' | 'shield' | 'players' | 'cpuModel';
   text: string;
 }
 
@@ -83,7 +85,10 @@ interface PricingTier {
   name: string;
   icon: 'creeper' | 'zombie' | 'enderman' | 'blaze';
   price: string;
+  firstMonthPrice?: string;
   period: string;
+  promoCode?: string;
+  promoDiscount?: string;
   orderLink: string;
   features: Feature[];
   highlighted?: boolean;
@@ -124,6 +129,10 @@ const renderFeatureIcon = (iconName: string, color: string) => {
       return <MdBackup className={iconClass} />;
     case 'shield':
       return <FaShieldAlt className={iconClass} />;
+    case 'players':
+      return <FaUsers className={iconClass} />;
+    case 'cpuModel':
+      return <HiCpuChip className={iconClass} />;
     default:
       return null;
   }
@@ -133,6 +142,7 @@ export default function MinecraftPricingSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{ name: string; price: string; orderLink: string } | null>(null);
   const [isDark, setIsDark] = useState(true);
+  const [showAllPlans, setShowAllPlans] = useState(false);
 
   useEffect(() => {
     // Check theme on mount and listen for changes
@@ -198,19 +208,19 @@ export default function MinecraftPricingSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-left mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center gap-3 text-gray-900 dark:text-white">
-            Choose Your <img src="/wallpapers/minecraft-logo.png" alt="Minecraft" className="h-10 md:h-12 inline-block" /> Plan
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+            Choose Your Perfect Server
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Power up your server with our optimized hosting plans
+            Select from our pre-configured Minecraft hosting plans designed for optimal performance.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {pricingTiers.map((tier, index) => (
+          {(showAllPlans ? pricingTiers : pricingTiers.slice(0, 4)).map((tier, index) => (
             <div
               key={index}
-              className={`relative rounded-xl p-8 transition-all duration-300 flex flex-col h-full border ${tier.borderColor}`}
+              className={`relative rounded-xl p-8 transition-all duration-300 flex flex-col h-full`}
             >
               <div
                 className="absolute inset-0 rounded-xl dark:hidden"
@@ -226,11 +236,22 @@ export default function MinecraftPricingSection() {
               />
 
               <div className="relative z-10 flex flex-col h-full">
+                {/* POPULAR tag - top right corner, slightly overlapping */}
                 {tier.highlighted && (
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-20">
-                    <span className={`${tier.bgColor} text-white px-4 py-1 rounded text-sm font-semibold whitespace-nowrap`}>
-                      Most Popular
+                  <div className="absolute -top-3 -right-3 z-30">
+                    <span className={`${tier.bgColor} text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase shadow-lg`}>
+                      POPULAR
                     </span>
+                  </div>
+                )}
+
+                {/* Promo Banner at the top - seamless, no borders */}
+                {tier.promoDiscount && (
+                  <div className="mb-4 -mx-8 -mt-8 bg-gray-800/90 dark:bg-gray-900/90 backdrop-blur-sm px-4 py-2.5 rounded-t-xl">
+                    <div className="text-center">
+                      <div className="font-semibold text-sm text-yellow-400">{tier.promoCode} Promo</div>
+                      <div className="text-xs text-gray-300 dark:text-gray-400 mt-0.5">{tier.promoDiscount}</div>
+                    </div>
                   </div>
                 )}
 
@@ -238,15 +259,44 @@ export default function MinecraftPricingSection() {
                   {renderIcon(tier.icon, tier.color)}
                 </div>
 
-                <h3 className="text-2xl font-bold text-center mb-2 text-gray-900 dark:text-white">{tier.name}</h3>
+                <div className="text-center mb-2">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{tier.name}</h3>
+                  {/* CPU Model Badge - Creative display */}
+                  {tier.features.find(f => f.icon === 'cpuModel') && (
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-800/50 dark:bg-gray-700/50 rounded-full border border-gray-700/50">
+                      <HiCpuChip className="w-3.5 h-3.5 text-yellow-400" />
+                      <span className="text-xs font-semibold text-gray-300 dark:text-gray-200">
+                        {tier.features.find(f => f.icon === 'cpuModel')?.text}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-                <div className="text-center mb-6">
-                  <span className="text-4xl font-bold text-gray-900 dark:text-white">{tier.price}</span>
-                  <span className="text-gray-600 dark:text-gray-400">{tier.period}</span>
+                {/* Pricing Section - All 3 costs */}
+                <div className="text-center mb-4">
+                  {tier.firstMonthPrice && (
+                    <div className="mb-3">
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1.5">First month</p>
+                      <div className="flex items-baseline justify-center gap-2 mb-2">
+                        <span className="text-xl font-bold text-gray-400 dark:text-gray-500 line-through">
+                          <PriceDisplay usdPrice={tier.price} />
+                        </span>
+                        <span className="text-4xl font-bold text-yellow-500 dark:text-yellow-400">
+                          <PriceDisplay usdPrice={tier.firstMonthPrice} />
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                      <PriceDisplay usdPrice={tier.price} />
+                    </span>
+                    <span className="text-base text-gray-600 dark:text-gray-400">{tier.period}</span>
+                  </div>
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-grow">
-                  {tier.features.map((feature, featureIndex) => (
+                  {tier.features.filter(f => f.icon !== 'cpuModel').map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-gray-700 dark:text-gray-300">
                       <span className="mr-3 flex-shrink-0">
                         {renderFeatureIcon(feature.icon, tier.color)}
@@ -263,12 +313,23 @@ export default function MinecraftPricingSection() {
                     boxShadow: `inset 0 2px 8px rgba(0, 0, 0, 0.6)`
                   }}
                 >
-                  Get Started
+                  Select Plan
                 </button>
               </div>
             </div>
           ))}
         </div>
+
+        {pricingTiers.length > 4 && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setShowAllPlans(!showAllPlans)}
+              className="px-6 py-3 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+            >
+              {showAllPlans ? 'Show Fewer Plans' : 'Show More Plans'}
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-px overflow-hidden">

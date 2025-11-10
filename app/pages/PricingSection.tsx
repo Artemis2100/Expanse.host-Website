@@ -1,9 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
-import { Spotlight } from '@/components/ui/ripple'
-import { CardSpotlight } from '@/components/ui/card-spotlight'
+import { motion } from 'motion/react'
 import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
 import { AiOutlineCloudServer } from "react-icons/ai";
@@ -12,11 +10,25 @@ import { Ripple } from '@/components/ui/background-ripple-effect'
 const PricingSection = () => {
     const services = [
         {
-            title: 'Game Hosting',
+            title: 'Minecraft Hosting',
             description: 'High-performance servers with instant setup, custom control panel, and mod support.',
             image: '/creeper.png',
             accent: 'blue',
-            icon: <Image src="/products/creeper.png" alt="Game Hosting" width={48} height={48} className="w-12 h-auto" />
+            icon: <Image src="/products/creeper.png" alt="Minecraft Hosting" width={48} height={48} className="w-12 h-auto" />
+        },
+        {
+            title: 'Zenith Series VDS',
+            description: 'Virtual dedicated servers with NVMe storage, high-frequency CPUs, and guaranteed resources.',
+            image: '/images/bare-metal.jpg',
+            accent: 'blue',
+            icon: <AiOutlineCloudServer className="w-12 h-auto" />
+        },
+        {
+            title: 'Eclipse Series VDS',
+            description: 'Enterprise-grade virtual servers with dedicated resources, SSD storage, and full root access.',
+            image: '/images/bare-metal.jpg',
+            accent: 'blue',
+            icon: <AiOutlineCloudServer className="w-12 h-auto" />
         },
         {
             title: 'Bare Metal',
@@ -24,13 +36,6 @@ const PricingSection = () => {
             image: '/images/bare-metal.jpg',
             accent: 'blue',
             icon: <CiServer className="w-12 h-auto" />
-        },
-        {
-            title: 'Cloud Hosting',
-            description: 'Cloud hosting with the latest Intel processors, DDR5 RAM, and enterprise-grade hardware.',
-            image: '/images/bare-metal.jpg',
-            accent: 'blue',
-            icon: <AiOutlineCloudServer className="w-12 h-auto" />
         }
     ]
 
@@ -76,7 +81,7 @@ const PricingSection = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
                 >
                     {services.map((service, index) => (
                         <motion.div

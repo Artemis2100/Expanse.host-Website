@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { FaDiscord, FaTwitter, FaGithub, FaGamepad, FaServer, FaDatabase, FaGlobe, FaInfoCircle, FaEnvelope, FaFileContract, FaShieldAlt, FaBook, FaQuestionCircle, FaChartLine, FaHeadset } from 'react-icons/fa'
 import Image from 'next/image'
 
@@ -11,17 +11,19 @@ export const Footer = () => {
       { label: 'Game Hosting', href: '/minecraft', icon: <FaGamepad className="w-4 h-4" /> },
       { label: 'VPS Hosting', href: '/vps', icon: <FaServer className="w-4 h-4" /> },
       { label: 'Dedicated Servers', href: '/dedicated', icon: <FaDatabase className="w-4 h-4" /> },
+      { label: 'Colocation', href: '/colocation', icon: <FaServer className="w-4 h-4" /> },
+      { label: 'Web Hosting', href: '/webhosting', icon: <FaGlobe className="w-4 h-4" /> },
     ],
     company: [
       { label: 'About Us', href: '/about', icon: <FaInfoCircle className="w-4 h-4" /> },
-      { label: 'Contact', href: '/contact-us', icon: <FaEnvelope className="w-4 h-4" /> },
+      { label: 'Contact', href: '/contact', icon: <FaEnvelope className="w-4 h-4" /> },
       { label: 'Terms of Service', href: '/terms-of-services', icon: <FaFileContract className="w-4 h-4" /> },
       { label: 'Privacy Policy', href: '/privacy-policy', icon: <FaShieldAlt className="w-4 h-4" /> },
     ],
     support: [
       { label: 'Knowledge Base', href: '#', icon: <FaBook className="w-4 h-4" /> },
       { label: 'Server Status', href: '#', icon: <FaChartLine className="w-4 h-4" /> },
-      { label: 'Contact Support', href: '/contact-us', icon: <FaHeadset className="w-4 h-4" /> },
+      { label: 'Contact Support', href: '/contact', icon: <FaHeadset className="w-4 h-4" /> },
     ],
   }
 
@@ -73,7 +75,7 @@ export const Footer = () => {
               <h3 className="text-2xl font-bold">Expanse</h3>
             </div>
             <p className="text-muted text-sm leading-relaxed mb-6">
-              Experience lightning-fast performance, rock-solid reliability, and unparalleled support for your web projects.
+              Expanse fuels the leaders — and you're next. Our platform delivers unmatched features and performance you simply won't find anywhere else.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (

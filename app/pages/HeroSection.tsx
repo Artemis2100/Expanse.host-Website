@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import Image from 'next/image'
 const HeroSection = () => {
     return (
@@ -67,7 +67,7 @@ const HeroSection = () => {
                     transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
                     className="text-sm sm:text-base md:text-lg lg:text-xl text-muted mb-6 sm:mb-8 px-2 sm:px-0"
                 >
-                    Experience lightning-fast performance, rock-solid reliability, and unparalleled support for your web projects.
+                    Expanse fuels the leaders — and you're next. Our platform delivers unmatched features and performance you simply won't find anywhere else.
                 </motion.p>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

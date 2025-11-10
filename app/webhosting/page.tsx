@@ -4,19 +4,19 @@ import { FeaturesSection } from "../pages/FeaturesSection";
 import PricingSection from "../pages/PricingSection";
 import LocationsSection from "../pages/Location";
 import { Footer } from "../components/Footer";
-import DedicatedPricing from "../pages/DedicatedPricing";
+import WebHostingPricing from "../pages/WebHostingPricing";
 import FaqSection from "../pages/FaqSection";
 import { Spotlight } from "@/components/ui/ripple";
 import PanelShowcase from "../pages/PanelShowcase";
 
-export default function DedicatedPage() {
+export default function WebHostingPage() {
   return (
     <div className="relative">
       <div className="absolute top-0 left-0 right-0 h-screen overflow-hidden pointer-events-none">
         <Spotlight />
       </div>
       <Navbar />
-      <DedicatedPricing />
+      <WebHostingPricing />
       <PanelShowcase />
       <FeaturesSection />
       <LocationsSection/>
@@ -26,3 +26,4 @@ export default function DedicatedPage() {
     </div>
   );
 }
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState, useMemo, memo, useEffect } from "react";
 import { FiHardDrive, FiServer } from "react-icons/fi";
 import { BiNetworkChart } from "react-icons/bi";
@@ -8,6 +8,7 @@ import { Ripple } from "@/components/ui/background-ripple-effect";
 import Image from "next/image";
 import vpsPlansData from "@/app/json/vps/vps-plans.json";
 import locationsData from "@/app/json/dedicated/locations.json";
+import { PriceDisplay } from "../components/Price";
 
 const AMDIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 64 64" className={className} fill="currentColor">
@@ -98,7 +99,7 @@ const VPSCard = memo(({ plan, index }: { plan: VPSPlan; index: number }) => {
                         </div>
                         <div className="flex flex-col items-end">
                             <div className="text-3xl font-bold text-foreground">
-                                ${plan.price}
+                                <PriceDisplay usdPrice={plan.price} />
                             </div>
                             <div className="text-xs text-muted font-medium">per month</div>
                         </div>

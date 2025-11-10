@@ -1,17 +1,17 @@
 'use client'
 
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import Image from 'next/image'
 import { Ripple } from '@/components/ui/background-ripple-effect'
 import { AiOutlineCloudServer } from "react-icons/ai"
 import { CiServer } from "react-icons/ci"
-import { FaDatabase, FaShieldAlt, FaNetworkWired, FaRocket } from "react-icons/fa"
+import { FaDatabase, FaShieldAlt, FaNetworkWired, FaRocket, FaCheckCircle } from "react-icons/fa"
 import { MdStorage, MdSpeed } from "react-icons/md"
+import { FiMapPin } from "react-icons/fi"
 import Navbar from '@/app/components/Navbar'
 import { Footer } from '@/app/components/Footer'
 import regionsData from '@/app/json/infrastructure/regions.json'
-import vpsSeriesData from '@/app/json/infrastructure/vps-series.json'
 import roadmapData from '@/app/json/infrastructure/roadmap.json'
 const iconMap: Record<string, React.ReactNode> = {
     'AiOutlineCloudServer': <AiOutlineCloudServer className="w-6 h-6" />,
@@ -31,7 +31,7 @@ export default function InfrastructurePage() {
         <>
             <Navbar />
             <div className="relative w-full min-h-screen px-4 py-8 sm:py-12 md:py-16">
-            <section id="global-regions" className="relative z-10 max-w-7xl mx-auto mb-16 sm:mb-24">
+            <section id="data-centers" className="relative z-10 max-w-7xl mx-auto mb-16 sm:mb-24">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -193,131 +193,99 @@ export default function InfrastructurePage() {
                                 </div>
 
                                 
-                                <div>
+                                <div id="ddos-protection">
                                     <p className="text-sm text-accent mb-2">DDoS Protection</p>
                                     <p className="text-foreground font-medium mb-1">17Tbps Mitigation Capacity</p>
                                     <p className="text-xs text-muted">Multi-layered protection against L3-L7 attacks</p>
                                 </div>
 
                                 
-                                <div>
+                                <div id="network">
                                     <p className="text-sm text-accent mb-2">Connectivity</p>
                                     <p className="text-foreground font-medium mb-1">Direct peering with major networks</p>
                                     <p className="text-xs text-muted">Optimized routes to minimize latency and packet loss</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </motion.div>
-            </section>
 
-            
-            <section id="vps-series" className="relative z-10 max-w-7xl mx-auto mb-16 sm:mb-24">
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-                        VPS Series <span className="text-accent">Comparison</span>
-                    </h2>
-                    <p className="text-sm sm:text-base text-muted mb-8 max-w-3xl">
-                        Compare our different VPS series to find the perfect balance of performance, features, and value for your specific needs. All series come with our enterprise-grade network and DDoS protection.
-                    </p>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="overflow-x-auto"
-                >
-                    <table className="w-full border-collapse">
-                        <thead>
-                            <tr className="border-b border-muted">
-                                <th className="text-left p-4 text-sm font-semibold text-muted uppercase tracking-wide">Feature</th>
-                                {vpsSeriesData.map((series, index) => (
-                                    <th key={index} className="p-4 text-center">
-                                        <div className="flex flex-col items-center gap-2">
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-lg font-bold text-foreground">{series.name}</span>
+                        {/* Datacenter Details Section */}
+                        {regionsData[selectedRegion].datacenter && regionsData[selectedRegion].status === 'active' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                                className="border-t border-muted pt-6 mt-6"
+                            >
+                                <h4 className="text-xl font-bold text-foreground mb-6">Datacenter Details</h4>
+                                
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    {/* Left Side - Location and Certifications */}
+                                    <div className="space-y-6">
+                                        {/* Location */}
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-2 text-accent">
+                                                <FiMapPin className="w-5 h-5" />
+                                                <h5 className="font-semibold text-lg">Location</h5>
                                             </div>
-                                            <div className="flex flex-wrap justify-center gap-2">
-                                                {series.recommended && (
-                                                    <span className="px-2 py-1 text-xs bg-accent/20 text-accent rounded-full">
-                                                        Recommended
-                                                    </span>
-                                                )}
-                                                {series.comingSoon && (
-                                                    <span className="px-2 py-1 text-xs bg-accent/20 text-accent rounded-full">
-                                                        Coming Soon
-                                                    </span>
-                                                )}
-                                            </div>
+                                            <p className="text-foreground text-sm pl-7">
+                                                {regionsData[selectedRegion].datacenter.location}
+                                            </p>
                                         </div>
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="border-b border-muted hover:bg-accent/5 transition-colors">
-                                <td className="p-4 text-sm font-medium text-foreground">Pricing</td>
-                                {vpsSeriesData.map((series, index) => (
-                                    <td key={index} className="p-4 text-center text-lg font-bold text-accent">
-                                        {series.pricing}
-                                    </td>
-                                ))}
-                            </tr>
-                            <tr className="border-b border-muted hover:bg-accent/5 transition-colors">
-                                <td className="p-4 text-sm font-medium text-foreground">Processor</td>
-                                {vpsSeriesData.map((series, index) => (
-                                    <td key={index} className="p-4 text-center text-sm text-muted">
-                                        {series.processor}
-                                    </td>
-                                ))}
-                            </tr>
-                            <tr className="border-b border-muted hover:bg-accent/5 transition-colors">
-                                <td className="p-4 text-sm font-medium text-foreground">Cores / Threads</td>
-                                {vpsSeriesData.map((series, index) => (
-                                    <td key={index} className="p-4 text-center text-sm text-muted">
-                                        {series.cores}
-                                    </td>
-                                ))}
-                            </tr>
-                            <tr className="border-b border-muted hover:bg-accent/5 transition-colors">
-                                <td className="p-4 text-sm font-medium text-foreground">Memory</td>
-                                {vpsSeriesData.map((series, index) => (
-                                    <td key={index} className="p-4 text-center text-sm text-muted">
-                                        {series.memory}
-                                    </td>
-                                ))}
-                            </tr>
-                            <tr className="border-b border-muted hover:bg-accent/5 transition-colors">
-                                <td className="p-4 text-sm font-medium text-foreground">Storage</td>
-                                {vpsSeriesData.map((series, index) => (
-                                    <td key={index} className="p-4 text-center text-sm text-muted">
-                                        {series.storage}
-                                    </td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td className="p-4"></td>
-                                {vpsSeriesData.map((_, index) => (
-                                    <td key={index} className="p-4 text-center">
-                                        <motion.button
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                            className="px-6 py-3 bg-button border border-blue-400/30 text-primary-foreground rounded-lg text-sm font-semibold hover:bg-blue-500/40 transition-colors"
+
+                                        {/* Certifications */}
+                                        {regionsData[selectedRegion].datacenter.certifications && 
+                                         regionsData[selectedRegion].datacenter.certifications.length > 0 && (
+                                            <div className="space-y-3">
+                                                <div className="flex items-center gap-2 text-accent">
+                                                    <FaCheckCircle className="w-5 h-5" />
+                                                    <h5 className="font-semibold text-lg">Certifications</h5>
+                                                </div>
+                                                <div className="flex flex-wrap gap-3 pl-7">
+                                                    {regionsData[selectedRegion].datacenter.certifications.map((cert, idx) => (
+                                                        <motion.span
+                                                            key={idx}
+                                                            initial={{ opacity: 0, scale: 0.9 }}
+                                                            animate={{ opacity: 1, scale: 1 }}
+                                                            transition={{ duration: 0.3, delay: idx * 0.1 }}
+                                                            className="px-4 py-2 bg-green-500/10 border border-green-500/30 text-green-400 dark:text-green-300 rounded-lg text-sm font-medium shadow-sm hover:bg-green-500/20 hover:border-green-500/50 transition-all"
+                                                        >
+                                                            {cert}
+                                                        </motion.span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Right Side - Datacenter Image */}
+                                    {regionsData[selectedRegion].datacenter.image && (
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.5, delay: 0.4 }}
+                                            className="relative rounded-xl overflow-hidden border border-muted"
                                         >
-                                            View Plans
-                                        </motion.button>
-                                    </td>
-                                ))}
-                            </tr>
-                        </tbody>
-                    </table>
+                                            <div className="relative w-full h-64 lg:h-full min-h-[300px]">
+                                                <Image
+                                                    src={regionsData[selectedRegion].datacenter.image}
+                                                    alt={`${regionsData[selectedRegion].name} Datacenter`}
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                                                <div className="absolute bottom-4 left-4 right-4">
+                                                    <p className="text-white font-semibold text-sm">
+                                                        {regionsData[selectedRegion].name} Datacenter Facility
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
+                    </div>
                 </motion.div>
             </section>
 

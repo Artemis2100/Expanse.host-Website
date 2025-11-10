@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
-import { FaBolt, FaServer, FaHeadset, FaGamepad, FaCloud, FaShieldAlt, FaDiscord } from 'react-icons/fa'
+import { motion } from 'motion/react'
+import { FaBolt, FaServer, FaHeadset, FaGamepad, FaCloud, FaShieldAlt, FaDiscord, FaGlobe, FaArrowUp, FaDatabase } from 'react-icons/fa'
 import Image
     from 'next/image'
 import { Spotlight } from '@/components/ui/ripple'
@@ -10,43 +10,58 @@ import { Ripple } from '@/components/ui/background-ripple-effect'
 export const FeaturesSection = () => {
     const features = [
         {
+            icon: <FaServer className="w-8 h-8" />,
+            title: 'HIGH-PERFORMANCE HARDWARE',
+            description: 'Experience lightning-fast speeds with AMD Ryzen 9 9950X processors, DDR5 memory, and NVMe SSDs for unmatched computing power.',
+            accent: 'blue'
+        },
+        {
+            icon: <FaShieldAlt className="w-8 h-8" />,
+            title: 'ADVANCED DDOS PROTECTION',
+            description: 'Stay protected with our enterprise-grade NeoProtect system that mitigates attacks up to 2.4+ Tbps, keeping your services online.',
+            accent: 'blue'
+        },
+        {
             icon: <FaBolt className="w-8 h-8" />,
-            title: 'INSTANT ACTIVATION',
-            description: 'NO WAITING, NO DELAYS! YOUR SERVICE IS ACTIVATED IMMEDIATELY AFTER PAYMENT, SO YOU CAN JUMP RIGHT INTO ACTION. YOUR ACCOUNT DETAILS WILL BE EMAILED WITHIN MINUTES.',
+            title: 'ULTRA-FAST STORAGE',
+            description: 'Eliminate I/O bottlenecks with NVMe SSDs delivering read/write speeds up to 7000MB/s for instant data access.',
+            accent: 'cyan'
+        },
+        {
+            icon: <FaGlobe className="w-8 h-8" />,
+            title: 'GLOBAL NETWORK',
+            description: 'Connect to strategically positioned data centers worldwide for low-latency performance and optimal user experience.',
             accent: 'cyan'
         },
         {
             icon: <FaServer className="w-8 h-8" />,
-            title: 'POWERFUL SERVERS',
-            description: 'DOMINATE THE COMPETITION WITH HIGH-SPEED, CUTTING-EDGE HARDWARE OPTIMIZED FOR PEAK PERFORMANCE. ENJOY ZERO LAG, ULTRA-LOW LATENCY, AND A SEAMLESS EXPERIENCE FOR ALL YOUR NEEDS.',
+            title: '99.9% UPTIME GUARANTEE',
+            description: 'Count on our reliable infrastructure with redundant systems, proactive monitoring, and rapid response times.',
             accent: 'blue'
         },
         {
-            icon: <FaHeadset className="w-8 h-8" />,
-            title: 'SUPPORT 24/7',
-            description: 'GOT A QUESTION? NEED ASSISTANCE? WE\'VE GOT YOUR BACK! OUR TEAM IS AVAILABLE 24/7 VIA EMAIL AND DISCORD FOR IMMEDIATE SUPPORT.',
-            accent: 'blue',
-            buttons: [
-                { label: 'DISCORD', variant: 'primary' },
-            ]
-        },
-        {
-            icon: <FaGamepad className="w-8 h-8" />,
-            title: 'PREMIUM GAME PANEL',
-            description: 'OUR PTERODACTYL GAME PANEL MAKES MANAGING YOUR SERVER SIMPLE. START, STOP, RESTART, AND CUSTOMIZE YOUR SERVER EASILY, ALL IN ONE PLACE.',
+            icon: <FaArrowUp className="w-8 h-8" />,
+            title: 'SEAMLESS SCALABILITY',
+            description: 'Grow your infrastructure effortlessly with flexible scaling options to match your evolving business needs.',
             accent: 'cyan'
         },
         {
             icon: <FaCloud className="w-8 h-8" />,
-            title: 'REMOTE BACKUPS',
-            description: 'NEVER LOSE YOUR PROGRESS! WE SECURELY BACK UP YOUR DATA TO ENCRYPTED OFFSITE STORAGE, ENSURING YOU CAN RESTORE IT ANYTIME.',
+            title: 'ADVANCED VIRTUALIZATION',
+            description: 'Leverage cutting-edge virtualization technology for optimal resource allocation and isolation between instances.',
             accent: 'cyan'
         },
         {
             icon: <FaShieldAlt className="w-8 h-8" />,
-            title: 'SATISFACTION GUARANTEED',
-            description: 'WE\'RE CONFIDENT YOU\'LL LOVE FREAKINHOSTING! THAT\'S WHY WE OFFER A 72-HOUR MONEY-BACK GUARANTEE ON CERTAIN SERVICES. YOUR SATISFACTION IS OUR PRIORITY.',
+            title: 'ENTERPRISE SECURITY',
+            description: 'Protect your data with advanced security measures including firewall protection, intrusion detection, and regular security audits.',
             accent: 'blue'
+        },
+        {
+            icon: <FaDatabase className="w-8 h-8" />,
+            title: 'AUTOMATED BACKUPS',
+            description: 'Rest easy with scheduled automated backups and simple restore options to keep your data safe and recoverable.',
+            accent: 'cyan'
         }
     ]
 
