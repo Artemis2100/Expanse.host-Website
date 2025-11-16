@@ -1,5 +1,4 @@
 "use client"
-import type { Metadata } from "next";
 import React, { memo, useCallback, useRef } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./pages/HeroSection";
@@ -14,21 +13,6 @@ import ReviewsSection from "./components/ReviewsSection";
 import FaqSection from "./pages/FaqSection";
 
 // Memoized Domain Search Component to prevent re-renders of parent
-export const metadata: Metadata = {
-  title: "High‑Performance Minecraft, VPS & Dedicated Hosting",
-  description:
-    "Expanse Host delivers fast, reliable Minecraft servers, NVMe VPS, and dedicated/bare metal hosting with enterprise DDoS protection and a global low-latency network.",
-  keywords: [
-    "Minecraft hosting",
-    "VPS hosting",
-    "Dedicated servers",
-    "Game servers",
-    "DDoS protection",
-    "Low latency hosting",
-    "NVMe VPS",
-  ],
-  alternates: { canonical: "/" },
-};
 const DomainSearchSection = memo(() => {
   const inputRef = useRef<HTMLInputElement>(null);
 

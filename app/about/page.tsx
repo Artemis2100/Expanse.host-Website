@@ -1,13 +1,5 @@
 "use client";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "About Expanse — Mission, Team, and Vision",
-  description:
-    "Learn about Expanse Host: our mission, team, and innovation in high‑performance hosting — Minecraft, VPS, and dedicated servers with global infrastructure.",
-  keywords: ["About Expanse", "Hosting company", "Our mission", "Team"],
-  alternates: { canonical: "/about" },
-};
 import { motion } from "motion/react";
 import { memo, useState } from "react";
 import Image from "next/image";
