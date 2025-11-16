@@ -1,219 +1,262 @@
 [
   {
-    "id": "ryzen-8g",
-    "name": "Ryzen 8G",
-    "description": "High clock performance for devs.",
+    "id": "v1-micro",
+    "name": "V1 - Micro",
+    "cpu": {
+      "cores": "1 vCPU",
+      "speed": "AMD Ryzen 9 9950X",
+      "type": "Ryzen"
+    },
+    "ram": "2 GB",
+    "storage": {
+      "size": "30 GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": {
+      "naeu": "2 TB",
+      "apac": "1 TB"
+    },
+    "network": "10 Gbps",
+    "price": 6.45,
+    "status": "in_stock",
+    "popular": false,
+    "availableLocations": ["us-ny", "de", "sg", "my"],
+    "availableCPUs": ["Ryzen"],
+    "useCase": "Lightweight workloads, VPNs",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=1"
+  },
+  {
+    "id": "v2-starter",
+    "name": "V2 - Starter",
     "cpu": {
       "cores": "2 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "8GB",
+    "ram": "4 GB",
     "storage": {
-      "size": "64GB",
+      "size": "60 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "2TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 18.92,
+    "bandwidth": {
+      "naeu": "3 TB",
+      "apac": "1.5 TB"
+    },
+    "network": "10 Gbps",
+    "price": 11.70,
     "status": "in_stock",
-    "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-8g"
+    "useCase": "Entry sites, control panels",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=2"
   },
   {
-    "id": "ryzen-12g",
-    "name": "Ryzen 12G",
-    "description": "Perfect for multitasking apps.",
+    "id": "v3-standard",
+    "name": "V3 - Standard",
     "cpu": {
       "cores": "3 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "12GB",
+    "ram": "8 GB",
     "storage": {
-      "size": "96GB",
+      "size": "120 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "3TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 27.38,
+    "bandwidth": {
+      "naeu": "5 TB",
+      "apac": "2.5 TB"
+    },
+    "network": "10 Gbps",
+    "price": 21.60,
     "status": "in_stock",
-    "deliveryTime": "Instant",
-    "popular": false,
+    "popular": true,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-12g"
+    "useCase": "Web apps, databases, small game servers",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=3"
   },
   {
-    "id": "ryzen-16g",
-    "name": "Ryzen 16G",
-    "description": "Optimized for high concurrency.",
+    "id": "v4-pro",
+    "name": "V4 - Pro",
     "cpu": {
       "cores": "4 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "16GB",
+    "ram": "12 GB",
     "storage": {
-      "size": "128GB",
+      "size": "180 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "4TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 35.84,
+    "bandwidth": {
+      "naeu": "7 TB",
+      "apac": "3.5 TB"
+    },
+    "network": "10 Gbps",
+    "price": 31.50,
     "status": "in_stock",
-    "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-16g"
+    "useCase": "Production apps, backend workloads",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=4"
   },
   {
-    "id": "ryzen-24g",
-    "name": "Ryzen 24G",
-    "description": "Ideal for streaming or APIs.",
+    "id": "v5-enterprise",
+    "name": "V5 - Enterprise",
+    "cpu": {
+      "cores": "5 vCPU",
+      "speed": "AMD Ryzen 9 9950X",
+      "type": "Ryzen"
+    },
+    "ram": "16 GB",
+    "storage": {
+      "size": "240 GB",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": {
+      "naeu": "10 TB",
+      "apac": "5 TB"
+    },
+    "network": "10 Gbps",
+    "price": 41.40,
+    "status": "in_stock",
+    "popular": false,
+    "availableLocations": ["us-ny", "de", "sg", "my"],
+    "availableCPUs": ["Ryzen"],
+    "useCase": "Multi-service servers",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=5"
+  },
+  {
+    "id": "v6-titan",
+    "name": "V6 - Titan",
     "cpu": {
       "cores": "6 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "24GB",
+    "ram": "24 GB",
     "storage": {
-      "size": "192GB",
+      "size": "360 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "6TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 52.76,
+    "bandwidth": {
+      "naeu": "15 TB",
+      "apac": "7 TB"
+    },
+    "network": "10 Gbps",
+    "price": 58.50,
     "status": "in_stock",
-    "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-24g"
+    "useCase": "Game clusters, SaaS workloads",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=6"
   },
   {
-    "id": "ryzen-32g",
-    "name": "Ryzen 32G",
-    "description": "Strong performer for SaaS stacks.",
+    "id": "v7-ultra",
+    "name": "V7 - Ultra",
     "cpu": {
       "cores": "8 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "32GB",
+    "ram": "32 GB",
     "storage": {
-      "size": "256GB",
+      "size": "480 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "8TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 69.68,
+    "bandwidth": {
+      "naeu": "20 TB",
+      "apac": "10 TB"
+    },
+    "network": "10 Gbps",
+    "price": 78.00,
     "status": "in_stock",
-    "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-32g"
+    "useCase": "Heavy apps, large databases",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=7"
   },
   {
-    "id": "ryzen-48g",
-    "name": "Ryzen 48G",
-    "description": "Advanced use cases & game servers.",
+    "id": "v8-omega",
+    "name": "V8 - Omega",
     "cpu": {
       "cores": "10 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "48GB",
+    "ram": "48 GB",
     "storage": {
-      "size": "384GB",
+      "size": "720 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "12TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 100.52,
+    "bandwidth": {
+      "naeu": "25 TB",
+      "apac": "12 TB"
+    },
+    "network": "10 Gbps",
+    "price": 109.50,
     "status": "in_stock",
-    "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-48g"
+    "useCase": "Compute or enterprise stack hosting",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=8"
   },
   {
-    "id": "ryzen-64g",
-    "name": "Ryzen 64G",
-    "description": "Built for AI, compute, or dense VPS.",
+    "id": "v9-apex",
+    "name": "V9 - Apex",
     "cpu": {
       "cores": "12 vCPU",
       "speed": "AMD Ryzen 9 9950X",
       "type": "Ryzen"
     },
-    "ram": "64GB",
+    "ram": "64 GB",
     "storage": {
-      "size": "512GB",
+      "size": "960 GB",
       "type": "NVMe SSD"
     },
-    "bandwidth": "16TB",
-    "network": "1Gbps",
-    "features": [
-      "Full Root Access",
-      "DDoS Protection",
-      "99.9% Uptime SLA",
-      "24/7 Support",
-      "1 IPv4"
-    ],
-    "price": 131.36,
+    "bandwidth": {
+      "naeu": "30 TB",
+      "apac": "15 TB"
+    },
+    "network": "10 Gbps",
+    "price": 141.00,
     "status": "in_stock",
-    "deliveryTime": "Instant",
     "popular": false,
     "availableLocations": ["us-ny", "de", "sg", "my"],
     "availableCPUs": ["Ryzen"],
-    "orderLink": "https://expanse.host/order/ryzen-64g"
+    "useCase": "Large game clusters, production-grade compute",
+    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=9"
+  },
+  {
+    "id": "epyc-coming-soon",
+    "name": "EPYC Plans",
+    "cpu": {
+      "cores": "Coming Soon",
+      "speed": "AMD EPYC",
+      "type": "EPYC"
+    },
+    "ram": "Coming Soon",
+    "storage": {
+      "size": "Coming Soon",
+      "type": "NVMe SSD"
+    },
+    "bandwidth": {
+      "naeu": "Coming Soon",
+      "apac": "Coming Soon"
+    },
+    "network": "10 Gbps",
+    "price": 0,
+    "status": "out_of_stock",
+    "popular": false,
+    "availableLocations": ["us-ny", "de", "sg", "my"],
+    "availableCPUs": ["EPYC"],
+    "useCase": "Coming Soon",
+    "orderLink": "#"
   }
 ]

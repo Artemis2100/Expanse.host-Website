@@ -1,116 +1,271 @@
 {
   "title": "Terms of Service",
-  "lastUpdated": "January 2025",
-  "introduction": "Welcome to ExpanseHost. By using our services, you agree to comply with and be bound by the following terms and conditions. Please review these terms carefully.",
+  "lastUpdated": "November 2025",
+  "introduction": "These Terms of Service (\"Terms\") govern the use of products and services provided by Expanse Hosting, operated by Cosmorack LTD (\"Expanse,\" \"we,\" \"our,\" \"us\"). By creating an account, purchasing a service, or accessing any Expanse platform, you acknowledge that you have read, understood, and agree to be legally bound by these Terms, together with our Service Level Agreement (SLA), Privacy Policy, and Acceptable Use Policy (AUP). If you do not agree, you must immediately discontinue use of our services.",
   "sections": [
     {
       "id": 1,
-      "title": "Acceptance of Terms",
-      "content": "By accessing and using ExpanseHost's services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+      "title": "Introduction & Acceptance of Terms",
+      "content": "1.1 These Terms apply to all users of Expanse services. 1.2 By accessing or using Expanse services, you agree to be bound by these Terms, as well as our SLA, Privacy Policy, and AUP. 1.3 Continued use of Expanse services constitutes acceptance of these Terms."
     },
     {
       "id": 2,
-      "title": "Service Description",
-      "content": "ExpanseHost provides web hosting, VPS hosting, Minecraft server hosting, and related services. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time.",
+      "title": "Eligibility & Age Requirements",
+      "content": "",
       "subsections": [
         {
-          "subtitle": "Service Availability",
-          "text": "While we strive for 99.9% uptime, we do not guarantee uninterrupted service availability."
+          "subtitle": "2.1 Minimum Age",
+          "text": "You must be at least 13 years old to use Expanse services."
         },
         {
-          "subtitle": "Service Modifications",
-          "text": "We reserve the right to modify or discontinue services with reasonable notice to customers."
+          "subtitle": "2.2 Contractual Capacity",
+          "text": "You must be 18 years of age or older to enter into binding agreements, purchase paid services, or manage billing. Users aged 13–17 may use services with the explicit consent of a parent or legal guardian. Expanse may request evidence of consent but does not routinely verify it."
         }
       ]
     },
     {
       "id": 3,
-      "title": "User Responsibilities",
-      "content": "As a user of our services, you agree to:",
+      "title": "Services Provided",
+      "content": "3.1 Expanse provides the following services. 3.2 Expanse may modify, improve, or discontinue services at its sole discretion. 3.3 Service uptime commitments are defined exclusively in the Service Level Agreement (SLA).",
       "list": [
-        "Provide accurate and complete registration information",
-        "Maintain the security of your account credentials",
-        "Comply with all applicable laws and regulations",
-        "Not use our services for illegal activities or to harm others",
-        "Not engage in activities that could damage or overburden our infrastructure"
+        "Minecraft Hosting",
+        "VPS Hosting",
+        "Dedicated/Bare Metal Servers",
+        "Web Hosting",
+        "Domain services (third-party)",
+        "Control Panels (Pterodactyl, VirtFusion, Expanse Panel)"
       ]
     },
     {
       "id": 4,
-      "title": "Prohibited Activities",
-      "content": "Users are strictly prohibited from:",
-      "list": [
-        "Hosting or distributing malware, viruses, or malicious code",
-        "Engaging in phishing, spam, or other fraudulent activities",
-        "Hosting copyright-infringing content without proper authorization",
-        "Running adult content, gambling sites, or illegal services",
-        "Mining cryptocurrency without prior written approval",
-        "Attempting to gain unauthorized access to our systems or other users' accounts"
-      ]
+      "title": "Account Responsibilities",
+      "content": "4.1 You agree to: (a) provide accurate registration and billing details; (b) maintain the security and confidentiality of your credentials; (c) ensure all activity under your account complies with the AUP and these Terms; and (d) use the services only for lawful purposes. 4.2 You are fully responsible for all actions performed through your account or using your services."
     },
     {
       "id": 5,
-      "title": "Payment Terms",
-      "content": "All services must be paid for in accordance with the pricing and payment terms presented at the time of purchase.",
+      "title": "Payment, Billing & Refunds",
+      "content": "",
       "subsections": [
         {
-          "subtitle": "Billing Cycles",
-          "text": "Services are billed according to the selected billing cycle (monthly, quarterly, annually)."
+          "subtitle": "5.1 Billing",
+          "text": "Services are billed in advance for the selected billing cycle. Failure to pay may result in suspension or termination after a seven (7) day grace period. Subscriptions auto‑renew unless cancelled in the client area prior to renewal."
         },
         {
-          "subtitle": "Refund Policy",
-          "text": "We offer a 7-day money-back guarantee for first-time customers. Refunds are processed within 5-10 business days."
+          "subtitle": "5.2 Refund Policy",
+          "text": "Minecraft Hosting & Web Hosting: Full refund within forty‑eight (48) hours of initial purchase (no questions asked). Between forty‑eight (48) hours and seven (7) days, refunds may be issued as store credit only, prorated, and at Expanse’s sole discretion. VPS & Dedicated/Bare Metal: No refunds under any circumstances. General refund conditions: no refunds for abuse‑related suspensions, AUP/Terms violations, prepaid or bulk billing cycles, add‑ons, domains, or software licenses, or for cancellations after seven (7) days."
         },
         {
-          "subtitle": "Late Payments",
-          "text": "Accounts with overdue payments may be suspended or terminated after a grace period of 7 days."
+          "subtitle": "5.3 Chargebacks",
+          "text": "Any chargeback or payment dispute will result in immediate account termination, irreversible data loss, and possible permanent ban. Expanse reserves the right to pursue legal remedies for fraudulent disputes."
         }
       ]
     },
     {
       "id": 6,
-      "title": "Data and Privacy",
-      "content": "We are committed to protecting your privacy and data. Your use of our services is also governed by our Privacy Policy, which is incorporated into these terms by reference."
+      "title": "Data Responsibility, Backups & Retention",
+      "content": "",
+      "subsections": [
+        {
+          "subtitle": "6.1 Customer Responsibility",
+          "text": "You are responsible for all data stored on your service, maintaining backups, securing your applications, and preventing unauthorized access."
+        },
+        {
+          "subtitle": "6.2 Expanse Liability",
+          "text": "Expanse does not guarantee data retention and is not liable for data loss caused by hardware failure, software corruption, OS reinstalls, node crashes, human error, suspension or termination, or force majeure events."
+        },
+        {
+          "subtitle": "6.3 Backup Policy",
+          "text": "Any backups provided by Expanse are best‑effort only and are not guaranteed to be error‑free, complete, or current."
+        },
+        {
+          "subtitle": "6.4 Data on Terminated Services",
+          "text": "Data may be permanently deleted at any time following suspension or termination and cannot be recovered."
+        }
+      ]
     },
     {
       "id": 7,
-      "title": "Service Termination",
-      "content": "We reserve the right to suspend or terminate your account if you violate these terms, engage in fraudulent activity, or use our services in a manner that causes harm to our infrastructure or other users.",
+      "title": "Acceptable Use & Prohibited Activities",
+      "content": "7.1 Use of Expanse services must comply with the Acceptable Use Policy (AUP). 7.2 The following activities are strictly prohibited and may result in immediate suspension or termination:",
+      "list": [
+        "Malware, botnets, or malicious scripts",
+        "Spam, bulk email, or SMTP abuse",
+        "Unauthorized scanning, brute forcing, or penetration testing",
+        "Cryptocurrency mining",
+        "TOR relays or anonymization networks",
+        "Flooding, DDoS, stress testing, or attack tools",
+        "Illegal content (including CSAM, terrorism-related content, hate material)",
+        "High-risk workloads (e.g., stressors, stresser panels, flooders)",
+        "Using Minecraft proxies to access external servers to exploit DDoS protection",
+        "Mass scanning, scraping, or network abuse",
+        "Actions generating upstream provider complaints"
+      ],
       "subsections": [
         {
-          "subtitle": "Termination by User",
-          "text": "You may cancel your services at any time through your account dashboard or by contacting support."
-        },
-        {
-          "subtitle": "Termination by ExpanseHost",
-          "text": "We may terminate services immediately for violations of our terms without prior notice or refund."
+          "subtitle": "7.3 Resource Abuse",
+          "text": "Expanse may throttle or limit CPU/Network usage to protect infrastructure. Customers are responsible for all actions originating from their services."
         }
       ]
     },
     {
       "id": 8,
-      "title": "Limitation of Liability",
-      "content": "ExpanseHost shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use our services. Our total liability shall not exceed the amount paid by you for the services in the past 12 months."
+      "title": "Abuse Handling, Suspension & Null Routing",
+      "content": "",
+      "subsections": [
+        {
+          "subtitle": "8.1 Immediate Suspension Triggers",
+          "text": "Expanse may suspend or null-route without notice for: malware or botnets; DDoS origination; verified abuse complaints; illegal content; brute force or scanning attempts; crypto mining; TOR relays; or actions threatening our infrastructure or other customers."
+        },
+        {
+          "subtitle": "8.2 24-Hour Response Cases",
+          "text": "For issues such as spam or SMTP abuse, the customer will be notified and must respond within twenty‑four (24) hours, failing which suspension may occur."
+        },
+        {
+          "subtitle": "8.3 Null Routing",
+          "text": "Expanse may null-route IP addresses if an attack materially impacts other customers or upstream networks."
+        }
+      ]
     },
     {
       "id": 9,
-      "title": "Indemnification",
-      "content": "You agree to indemnify and hold harmless ExpanseHost, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services or violation of these terms."
+      "title": "DMCA & Copyright Policy",
+      "content": "Expanse complies with applicable copyright laws, including DMCA‑equivalent procedures.",
+      "subsections": [
+        {
+          "subtitle": "9.1 Filing a Complaint",
+          "text": "Copyright holders may send reports to: abuse@expanse.host"
+        }
+      ]
     },
     {
       "id": 10,
       "title": "Changes to Terms",
-      "content": "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services after changes constitutes acceptance of the modified terms."
+      "content": "We may modify these Terms at any time. Changes are effective when posted to our website. Continued use of the services after changes constitutes acceptance."
     },
     {
       "id": 11,
       "title": "Governing Law",
-      "content": "These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which ExpanseHost operates, without regard to its conflict of law provisions."
+      "content": "These Terms are governed by the laws applicable to Cosmorack LTD, without regard to conflict‑of‑law provisions."
     },
     {
       "id": 12,
       "title": "Contact Information",
-      "content": "If you have any questions about these Terms of Service, please contact us at support@expansehost.com or through our support ticket system."
+      "content": "For questions about these Terms, contact support@expanse.host or open a ticket via the client area."
+    },
+    {
+      "id": 13,
+      "title": "Service Agreement",
+      "content": "1.1 Expanse Host agrees to provide game hosting and web hosting services to the Customer as described on our website or in a signed agreement. 1.2 The Customer agrees to use the services in compliance with these Terms and all applicable laws and regulations."
+    },
+    {
+      "id": 14,
+      "title": "Account Setup",
+      "subsections": [
+        { "subtitle": "2.1 Registration Accuracy", "text": "You must provide accurate and complete information during registration." },
+        { "subtitle": "2.2 Credential Security", "text": "You are responsible for maintaining the confidentiality of your account credentials." },
+        { "subtitle": "2.3 Suspension for Inaccuracies", "text": "We may suspend or terminate your account for inaccurate, incomplete, or misleading information." }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Additional Policies and Agreements",
+      "content": "Use of the Services is also governed by our Privacy Policy, Acceptable Use Policy (AUP), Refund Policy, and any additional agreements such as Domain Registration terms where applicable."
+    },
+    {
+      "id": 16,
+      "title": "Account Eligibility (Additional Requirements)",
+      "subsections": [
+        { "subtitle": "Age Requirement", "text": "You must be 18 years or older to purchase paid Services. Guardian‑supervised accounts are allowed where applicable." },
+        { "subtitle": "Accurate Contact Information", "text": "You must provide accurate contact information. Providing false information may result in termination." },
+        { "subtitle": "Verification", "text": "Expanse may require identification and payment method verification (e.g., ID and credit card verification) for certain purchases." }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Transfers",
+      "content": "We assist with migrations as a courtesy within thirty (30) days of signup. Outside this window, a fee may apply. No guarantees are made regarding transfer completeness or success. You remain responsible for maintaining backups."
+    },
+    {
+      "id": 18,
+      "title": "Expanse Content",
+      "list": [
+        "All Expanse‑provided content (including text, images, and templates) is our property or properly licensed.",
+        "Unauthorized reproduction, distribution, or modification is prohibited.",
+        "Servers suspended for unpaid dues must clear payments before any backup access is considered."
+      ]
+    },
+    {
+      "id": 19,
+      "title": "User Content",
+      "content": "You are responsible for all content uploaded, displayed, or transmitted via your account. Expanse may take corrective action, including removal or suspension, for violations without refund."
+    },
+    {
+      "id": 20,
+      "title": "Compliance with Applicable Law",
+      "content": "You agree to comply with all applicable laws and regulations, including GDPR where applicable. You are the Data Controller for any personal data you store using our Services."
+    },
+    {
+      "id": 21,
+      "title": "Game Hosting Limitations",
+      "list": [
+        "Game hosting performance may vary based on shared resources.",
+        "You must avoid using malicious files/plugins.",
+        "Chunk generation or other heavy‑load tasks must be pre‑approved with Expanse support to limit CPU usage."
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Support Limitations",
+      "content": "Support covers general server and network issues. VPS services are self‑managed unless critical issues arise. Support is provided via email, live chat, or tickets, and does not include game‑specific configurations unless expressly stated."
+    },
+    {
+      "id": 23,
+      "title": "Money‑Back Guarantee (Gameservers)",
+      "content": "A forty‑eight (48) hour money‑back guarantee is available only for gameservers (excluding VPS and dedicated servers)."
+    },
+    {
+      "id": 24,
+      "title": "Cancellations and Refunds (Additional Terms)",
+      "list": [
+        "Chargebacks without notice may result in immediate service suspension.",
+        "Refunds after 48 hours are issued as in‑store credit only if requested within seven (7) days of purchase.",
+        "Cancellations must be submitted properly through the billing area to avoid further charges."
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Uptime Guarantee",
+      "content": "We target 99.9% uptime. Detailed availability commitments and remedies are defined exclusively in the Service Level Agreement (SLA)."
+    },
+    {
+      "id": 26,
+      "title": "Service Level Agreement and Credit Policy (Summary)",
+      "content": "The SLA applies to network, panel, and DDoS protection incidents subject to its stated conditions and exclusions. Clients may be eligible for service credits in accordance with the SLA. Where applicable and unless superseded by the SLA, credits may be requested by submitting a ticket within seven (7) days of the incident. The total amount of service credits for any month shall not exceed thirty percent (30%) of the monthly fee for the affected services."
+    },
+    {
+      "id": 27,
+      "title": "Affiliate Cashouts",
+      "content": "Affiliate payouts are processed within ten (10) to fifteen (15) business days via the selected payment method."
+    },
+    {
+      "id": 28,
+      "title": "Support Rules",
+      "content": "When opening a support ticket, you authorize Expanse to make necessary changes to resolve the issue unless you explicitly state otherwise."
+    },
+    {
+      "id": 29,
+      "title": "Tebex Checkout",
+      "content": "Purchases of certain digital content must be completed via Tebex Limited. You must agree to their applicable terms (\"Tebex Terms\")."
+    },
+    {
+      "id": 30,
+      "title": "Billing and Auto‑Renewals",
+      "content": "Subscriptions auto‑renew unless cancelled before the next billing cycle. Customers are responsible for managing cancellations in the client area to avoid further charges."
+    },
+    {
+      "id": 31,
+      "title": "Disclaimer of Warranties",
+      "content": "Except as required by law, services are provided \"as is\" and \"as available\" without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non‑infringement."
     }
   ]
 }

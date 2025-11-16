@@ -54,42 +54,6 @@
     "title": "Open Roles",
     "subtitle": "Join our team of explorers and help us build the future of hosting. We're looking for passionate individuals who share our vision and values.",
     "roles": [
-      {
-        "id": 1,
-        "title": "Full Stack Developer",
-        "department": "Engineering",
-        "location": "Remote (Global)",
-        "type": "Part-time (Internship-Voluntary)",
-        "description": "Help us build Expanse's next-gen billing and management panel. You'll work with our core team to create fast, modern, and modular UI/UX systems that integrate with our VPS provisioning, billing, and user dashboard logic.",
-        "tags": ["Internship", "Urgent"]
-      },
-      {
-        "id": 2,
-        "title": "AI Integration Developer",
-        "department": "Engineering",
-        "location": "Remote (Global)",
-        "type": "Part-time (Internship-Voluntary)",
-        "description": "Shape the intelligence behind Expanse. Work on LLM-based tools to summarize internal activity, monitor customer conversations, automate support, and generate insights across Expanse systems.",
-        "tags": ["AI", "Internship"]
-      },
-      {
-        "id": 3,
-        "title": "Content Writer",
-        "department": "Creative",
-        "location": "Remote",
-        "type": "Full-time (Internship-Voluntary)",
-        "description": "Craft clear, engaging, and technically accurate content for our knowledge base, blog, and product documentation. You'll help users understand our infrastructure and services through tutorials, feature guides, and educational articles, collaborating with our support and engineering teams to simplify complex topics into user-friendly resources.",
-        "tags": ["Writing", "Internship"]
-      },
-      {
-        "id": 4,
-        "title": "Growth & Marketing",
-        "department": "Marketing",
-        "location": "Remote (Global)",
-        "type": "Part-time (Internship-Voluntary)",
-        "description": "Fuel Expanse's growth. Help us reach more customers, refine our positioning, and drive adoption of our new billing panel, VPS offerings, and AI tools. This is a perfect role for someone who loves tech, marketing, and fast-paced startups.",
-        "tags": ["Growth", "Internship"]
-      }
     ]
   },
   "team": {

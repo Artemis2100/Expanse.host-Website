@@ -19,6 +19,51 @@ const iconMap: Record<string, React.ReactNode> = {
     'FaRocket': <FaRocket className="w-6 h-6" />
 }
 
+// Renders an image and automatically falls back across .jpg/.jpeg/.png extensions
+function FlexibleImage({
+    src,
+    alt,
+    className,
+    sizes
+}: {
+    src: string
+    alt: string
+    className?: string
+    sizes?: string
+}) {
+    const [currentIndex, setCurrentIndex] = React.useState(0)
+
+    // Build candidate list: if src has an extension, try it first, then swap to the other extensions.
+    const candidates = React.useMemo(() => {
+        const exts = ['jpg', 'jpeg', 'png']
+        const hasExtMatch = src.match(/\.([a-zA-Z0-9]+)$/)
+        if (hasExtMatch) {
+            const currentExt = hasExtMatch[1].toLowerCase()
+            const base = src.replace(/\.[a-zA-Z0-9]+$/, '')
+            const ordered = [src, ...exts.filter(e => e !== currentExt).map(e => `${base}.${e}`)]
+            return Array.from(new Set(ordered))
+        }
+        // No extension provided → try all
+        const ordered = exts.map(e => `${src}.${e}`)
+        return Array.from(new Set(ordered))
+    }, [src])
+
+    const handleError = React.useCallback(() => {
+        setCurrentIndex(prev => (prev + 1 < candidates.length ? prev + 1 : prev))
+    }, [candidates.length])
+
+    return (
+        <Image
+            src={candidates[currentIndex]}
+            alt={alt}
+            fill
+            className={className}
+            sizes={sizes}
+            onError={handleError}
+        />
+    )
+}
+
 const roadmapItems = roadmapData.map(item => ({
     ...item,
     icon: iconMap[item.icon] || <AiOutlineCloudServer className="w-6 h-6" />
@@ -134,7 +179,7 @@ export default function InfrastructurePage() {
                                     <h4 className="font-semibold">Memory</h4>
                                 </div>
                                 <p className="text-foreground font-medium">{regionsData[selectedRegion].specs.memory}</p>
-                                <p className="text-sm text-muted">ECC Memory for data integrity</p>
+                                <p className="text-sm text-muted">High-speed DDR5 for peak performance</p>
                             </div>
 
 
@@ -195,8 +240,20 @@ export default function InfrastructurePage() {
                                 
                                 <div id="ddos-protection">
                                     <p className="text-sm text-accent mb-2">DDoS Protection</p>
-                                    <p className="text-foreground font-medium mb-1">17Tbps Mitigation Capacity</p>
-                                    <p className="text-xs text-muted">Multi-layered protection against L3-L7 attacks</p>
+                                    {regionsData[selectedRegion].network?.protection ? (
+                                        <>
+                                            <p className="text-foreground font-medium mb-1">
+                                                {regionsData[selectedRegion].network.protection.provider}
+                                                {regionsData[selectedRegion].network.protection.capacity ? ` • ${regionsData[selectedRegion].network.protection.capacity}` : ''}
+                                            </p>
+                                            <p className="text-xs text-muted">Multi-layered protection against L3-L7 attacks</p>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <p className="text-foreground font-medium mb-1">Included with all services</p>
+                                            <p className="text-xs text-muted">Multi-layered protection against L3-L7 attacks</p>
+                                        </>
+                                    )}
                                 </div>
 
                                 
@@ -266,10 +323,9 @@ export default function InfrastructurePage() {
                                             className="relative rounded-xl overflow-hidden border border-muted"
                                         >
                                             <div className="relative w-full h-64 lg:h-full min-h-[300px]">
-                                                <Image
+                                                <FlexibleImage
                                                     src={regionsData[selectedRegion].datacenter.image}
                                                     alt={`${regionsData[selectedRegion].name} Datacenter`}
-                                                    fill
                                                     className="object-cover"
                                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                                 />

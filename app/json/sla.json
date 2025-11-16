@@ -1,70 +1,132 @@
 {
-  "title": "Service Level Agreement",
-  "introduction": "This agreement governs the use of Expanse Hosting's services and establishes the terms and conditions applicable to their use. By accessing or utilizing our services, you acknowledge that you have read, understood, and agreed to the terms outlined herein. Expanse Hosting reserves the right to amend or update this agreement at any time without prior notice.",
-  "lastReviewed": "September 30, 2025",
-  "nextReview": "January 2, 2026",
+  "title": "Service Level Agreement (SLA)",
+  "introduction": "This Service Level Agreement (\"SLA\") outlines the service commitments provided by Expanse Hosting (\"Expanse,\" \"we,\" \"our,\" or \"the Company\") to clients (\"you,\" \"your,\" \"Customer\") who purchase or utilize eligible Expanse services. This SLA forms part of the Terms of Service and applies only to paid services. Expanse may update or modify this SLA at any time. Continued use of our services constitutes acceptance of the updated terms.",
+  "lastReviewed": "November 16, 2025",
+  "nextReview": "March 1, 2026",
   "sections": [
     {
       "id": 1,
-      "title": "SLA COVERAGE",
-      "intro": "a. This Service Level Agreement (SLA) applies to the following types of service interruptions:",
+      "title": "1. Scope of Coverage",
+      "intro": "This SLA applies to the following services:",
+      "list": [
+        "Minecraft Hosting",
+        "VPS Hosting",
+        "Dedicated Servers / Bare Metal Servers",
+        "Web Hosting",
+        "Control Panels (Pterodactyl, VirtFusion, Expanse Panel)"
+      ],
       "subsections": [
         {
-          "subtitle": "i. Network",
-          "text": "We guarantee a network availability of 99.99% for all applicable services. In the event that network availability falls below this threshold for a continuous period of 10 minutes or more, the affected service will qualify for coverage under this Service Level Agreement (SLA)."
-        },
-        {
-          "subtitle": "ii. Panel",
-          "text": "We guarantee 99% availability of the control panel for all applicable services. If panel availability falls below this threshold for a continuous period of 20 minutes or more, the affected service will qualify for coverage under this Service Level Agreement (SLA). Please note that panel downtime differs from network downtime, as the server IP may remain pingable while the control panel is inaccessible."
-        },
-        {
-          "subtitle": "iii. Hardware",
-          "text": "We guarantee that our physical servers will maintain uninterrupted service for all applicable services. In the event that our physical machines fail to meet this standard for a continuous period of 5 minutes or more, the affected service will qualify for coverage under this Service Level Agreement (SLA)."
-        },
-        {
-          "subtitle": "iv. Denial of Service Attack (DoS/DDoS)",
-          "text": "We guarantee protection against all forms of Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks. If the Company is unable to mitigate such an attack within a continuous period of 5 minutes, the affected service will qualify for coverage under this Service Level Agreement (SLA)."
+          "subtitle": "Not Covered",
+          "text": "This SLA does not apply to Remote DDoS Protection services, beta services, test environments, reseller environments not directly contracted with Expanse, or any third-party platforms."
         }
       ]
     },
     {
       "id": 2,
-      "title": "SLA LIMITATIONS",
-      "intro": "a. This Service Level Agreement (SLA) does not apply under the following circumstances:",
+      "title": "2. Definitions",
+      "intro": "",
       "subsections": [
         {
-          "subtitle": "i. Planned Maintenance",
-          "text": "We will provide advance notice of all scheduled maintenance activities through email notifications or announcements on our official website."
+          "subtitle": "2.1. Downtime",
+          "text": "A period during which the Customer’s service is unavailable due to: network unreachability at Expanse’s datacenter edge; host node unavailability (for VPS, Minecraft, and Web Hosting); total outage of the assigned dedicated server hardware; or panel unavailability (for panel SLA only)."
         },
         {
-          "subtitle": "ii. Software Limitations",
-          "text": "Software-related issues are outside the scope of our services. As such, errors, crashes, or service interruptions caused by software are not covered under this Service Level Agreement (SLA)."
+          "subtitle": "2.2. Availability",
+          "text": "Availability (%) is calculated per calendar month as: Availability = (Total Minutes − Downtime Minutes) ÷ Total Minutes × 100."
         },
         {
-          "subtitle": "iii. Client-Caused Interruption",
-          "text": "We do not assume responsibility for service issues resulting from actions taken by the client, including but not limited to the installation of third-party files, plugins, software, or custom scripts. Such problems are not covered under this Service Level Agreement (SLA)."
+          "subtitle": "2.3. Scheduled Maintenance",
+          "text": "Pre-planned work performed by Expanse to maintain, upgrade, or improve infrastructure. Scheduled Maintenance does not count as downtime."
         },
         {
-          "subtitle": "iv. Resource Overutilization",
-          "text": "Service interruptions caused by the affected service exceeding its allocated resource limits are not covered under this Service Level Agreement (SLA)."
-        },
-        {
-          "subtitle": "v. Force Majeure",
-          "text": "Service interruptions caused by events beyond our reasonable control, including but not limited to acts of government, natural disasters, extreme weather conditions, or other force majeure events, are not covered under this Service Level Agreement (SLA)."
+          "subtitle": "2.4. Internal Monitoring",
+          "text": "All uptime and downtime measurements are based solely on Expanse’s internal monitoring systems. Third-party monitors are explicitly excluded."
         }
       ]
     },
     {
       "id": 3,
-      "title": "SERVICE COMPENSATION",
-      "intro": "a. In the event of non-compliance with this Service Level Agreement (SLA), the following terms apply:",
+      "title": "3. Guaranteed Service Levels",
+      "intro": "",
+      "subsections": [
+        {
+          "subtitle": "3.1. Network Uptime (99.9% or 99.99% depending on service tier)",
+          "text": "Enterprise-tier services (Dedicated Servers, Bare Metal, and infrastructure-level services): 99.99% Network Uptime Guarantee. Standard services (VPS, Minecraft Hosting, Web Hosting): 99.9% Network Uptime Guarantee. Network uptime refers to availability of the public network at the datacenter edge. Network saturation or upstream issues outside our control are excluded."
+        },
+        {
+          "subtitle": "3.2. VPS, Minecraft, and Web Hosting Node Availability (99.9%)",
+          "text": "We guarantee 99.9% host node availability for VPS, Minecraft Hosting, and Web Hosting services. Downtime includes node crashes, hypervisor failure, and power failure at the facility."
+        },
+        {
+          "subtitle": "3.3. Dedicated Servers / Bare Metal (99.99%)",
+          "text": "We guarantee 99.99% availability for dedicated servers. Downtime includes complete hardware failure, network unavailability, or power failure affecting your physical machine. We do not provide a hardware replacement SLA at this time; however, hardware issues resulting in service unavailability are counted as downtime."
+        },
+        {
+          "subtitle": "3.4. Control Panel Availability (99%)",
+          "text": "Pterodactyl, VirtFusion, and Expanse-branded control panels carry 99% availability. Panel availability affects only panel access — not server availability. If the panel is down but your server is reachable via its IP, this counts as panel downtime, not network downtime."
+        },
+        {
+          "subtitle": "3.5. DDoS Mitigation (Best Effort)",
+          "text": "Expanse provides DDoS mitigation on a best-effort basis, utilizing upstream scrubbing providers. No SLA credit is offered for DDoS-related downtime. Extremely large or atypical attacks may exceed provider filtering capacity."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "4. Exclusions from SLA Coverage",
+      "intro": "Downtime resulting from any of the following does not qualify for SLA compensation:",
       "list": [
-        "i. For every twelve (12) hours of uninterrupted downtime, the client will receive one (1) additional day of service as compensation",
-        "ii. To request compensation, the client must submit an SLA claim via a support ticket through their client account within seven (7) days of the outage.",
-        "iii. All SLA claims will undergo a thorough investigation, and the outcome will be determined solely at our discretion.",
-        "iv. SLA claims for scheduled maintenance or downtime will not be considered.",
-        "v. We reserve the right to deny SLA claims if there is reasonable evidence that the client intentionally caused or contributed to a service disruption (e.g., initiating a Denial of Service (DoS) or Distributed Denial of Service (DDoS) attack on their own service).",
-        "vi. This SLA applies exclusively to direct clients of Expanse Hosting and does not extend to third-party users or resellers."
+        "Scheduled Maintenance (announced via website, panel notice, or email).",
+        "Customer-Caused Issues, including misconfiguration, third-party software/plugins, excessive resource usage, custom scripts, or intentional/accidental self-DDoS.",
+        "Force Majeure Events, including natural disasters, government actions, or datacenter-level uncontrollable incidents.",
+        "External Factors, including upstream network failures, routing anomalies, or connectivity issues outside Expanse’s network boundary.",
+        "Third-party Monitoring Discrepancies (internal monitoring is authoritative).",
+        "Beta features, early-access services, or experimental platforms.",
+        "Temporary null-routing due to ongoing attacks exceeding capacity."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "5. SLA Compensation",
+      "intro": "",
+      "subsections": [
+        {
+          "subtitle": "5.1. Credit Calculation",
+          "text": "For eligible downtime, Expanse will provide the following compensation: 5% of the monthly service fee for every 30 minutes of verified downtime. Credits are applied to the affected service only."
+        },
+        {
+          "subtitle": "5.2. Compensation Cap",
+          "text": "Credits are capped at a maximum of 100% of the monthly value of the affected service. No monetary refunds are issued under any circumstances. Credits have no cash value and are non-transferable."
+        },
+        {
+          "subtitle": "5.3. Claim Submission",
+          "text": "To submit an SLA claim: A ticket must be opened within 7 days of the incident and must include the date and time of outage, description of impact, and affected service ID. Expanse will verify the incident using internal monitoring systems. Decision is final and at Expanse’s discretion."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "6. SLA Limitations",
+      "intro": "This SLA is the Customer’s exclusive remedy for downtime. This SLA does not apply to:",
+      "list": [
+        "Add-on or free services",
+        "Licenses (Windows, cPanel, Plesk, etc.)",
+        "Domains",
+        "Third-party hardware",
+        "Custom cross-connects or private routing",
+        "Any service lacking a recurring monthly fee"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "7. General Terms",
+      "intro": "",
+      "list": [
+        "Expanse may improve or modify infrastructure without notice.",
+        "SLA credits do not stack across multiple incidents unless individually eligible.",
+        "SLA does not apply if the Customer is in violation of the Terms of Service.",
+        "This SLA applies only to the directly contracted Customer — not downstream users, clients, or resold services."
       ]
     }
   ]

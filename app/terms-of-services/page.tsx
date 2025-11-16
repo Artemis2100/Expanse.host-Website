@@ -16,7 +16,7 @@ interface Subsection {
 interface Section {
     id: number;
     title: string;
-    content: string;
+    content?: string;
     subsections?: Subsection[];
     list?: string[];
 }
@@ -34,9 +34,11 @@ const TOSSection = memo(({ section, index }: { section: Section; index: number }
                 <span className="text-accent">{section.id}.</span>
                 {section.title}
             </h2>
-            <p className="text-sm sm:text-base text-muted leading-relaxed mb-4">
-                {section.content}
-            </p>
+            {section.content && (
+                <p className="text-sm sm:text-base text-muted leading-relaxed mb-4">
+                    {section.content}
+                </p>
+            )}
 
             
             {section.list && section.list.length > 0 && (

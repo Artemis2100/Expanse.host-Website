@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Chatwoot from "./components/Chatwoot";
 import ScrollToTop from "./components/ScrollToTop";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <CurrencyProvider>
           {children}
           <ScrollToTop />
+          <Chatwoot />
         </CurrencyProvider>
       </body>
     </html>

@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Advertisements = () => {
   const companies = [
-    { name: 'Hetzner', logo: '/advertisement/hetzner.png' },
+    // { name: 'Hetzner', logo: '/advertisement/hetzner.png' },
     { name: 'Intel', logo: '/advertisement/intel.png' },
     { name: 'Pterodactyl', logo: '/advertisement/pterodactyl.png' },
     { name: 'G-Core', logo: '/advertisement/G-core.png' },
@@ -13,7 +13,7 @@ const Advertisements = () => {
     { name: 'AMD', logo: '/advertisement/amd.png' },
     { name: 'Gigabyte', logo: '/advertisement/gigabyte.png' },
     { name: 'SuperMicro', logo: '/advertisement/supermicro.png' },
-    { name: 'VirtFusion', logo: '/advertisement/virtfusion.png' },
+    // { name: 'VirtFusion', logo: '/advertisement/virtfusion.png' },
   ]
 
   // Duplicate the array for seamless infinite scroll
@@ -40,20 +40,22 @@ const Advertisements = () => {
               e.currentTarget.style.animationPlayState = 'running'
             }}
           >
-            {duplicatedCompanies.map((company, index) => (
-              <div
-                key={`${company.name}-${index}`}
-                className="relative h-12 w-32 md:h-14 md:w-36 lg:h-16 lg:w-40 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
-              >
-                <Image
-                  src={company.logo}
-                  alt={`${company.name} logo`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 128px, (max-width: 1024px) 144px, 160px"
-                />
-              </div>
-            ))}
+            {duplicatedCompanies.map((company, index) => {
+              return (
+                <div
+                  key={`${company.name}-${index}`}
+                  className="relative h-12 w-32 md:h-14 md:w-36 lg:h-16 lg:w-40 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                >
+                  <Image
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 128px, (max-width: 1024px) 144px, 160px"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

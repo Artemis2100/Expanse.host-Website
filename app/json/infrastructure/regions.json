@@ -1,39 +1,5 @@
 [
-    {
-        "name": "Phoenix",
-        "country": "United States",
-        "flag": "/flags/usa.png",
-        "emoji": "🇺🇸",
-        "status": "active",
-        "specs": {
-            "processor": "Dual Intel Xeon E5-2697v4",
-            "cores": "36 Cores / 72 Threads",
-            "boost": "3.6 GHz Boost",
-            "memory": "512GB DDR4-3200",
-            "storage": "2x4TB SSD RAID",
-            "network": "10Gbps",
-            "tdp": "290W TDP"
-        },
-        "network": {
-            "providers": ["Path.net"],
-            "latency": {
-                "us": "< 20ms",
-                "europe": "90-110ms",
-                "asia": "150-180ms"
-            }
-        },
-        "datacenter": {
-            "location": "1200 N 75th Ave, Phoenix, AZ 85043, United States",
-            "image": "/datacenters/phoenix.jpg",
-            "certifications": [
-                "ISO 27001",
-                "SOC 2 Type II",
-                "PCI DSS Level 1",
-                "HIPAA Compliant",
-                "Tier III Data Center"
-            ]
-        }
-    },
+    
     {
         "name": "NewYork",
         "country": "United States",
@@ -41,24 +7,28 @@
         "emoji": "🇺🇸",
         "status": "active",
         "specs": {
-            "processor": "Dual Intel Xeon E5-2697v4",
-            "cores": "36 Cores / 72 Threads",
-            "boost": "3.6 GHz Boost",
-            "memory": "512GB DDR4-3200",
-            "storage": "2x4TB SSD RAID",
+            "processor": "Ryzen 9 9950x",
+            "cores": "16 Cores / 32 Threads",
+            "boost": "4.3 GHz Boost",
+            "memory": "256GB DDR5-6400",
+            "storage": "2x4TB NVMe Raid 1",
             "network": "10Gbps",
             "tdp": "290W TDP"
         },
         "network": {
-            "providers": ["Path.net"],
+            "providers": ["G-Core Protection"],
             "latency": {
                 "us": "< 20ms",
                 "europe": "80-100ms",
                 "asia": "160-190ms"
+            },
+            "protection": {
+                "provider": "G-Core DDoS Protection",
+                "capacity": "220+ Tbit/s"
             }
         },
         "datacenter": {
-            "location": "111 8th Ave, New York, NY 10011, United States",
+            "location": "5851 West Side Avenue, North Bergen, NJ 07047, USA",
             "image": "/datacenters/newyork.jpg",
             "certifications": [
                 "ISO 27001",
@@ -76,24 +46,28 @@
         "emoji": "🇩🇪",
         "status": "active",
         "specs": {
-            "processor": "Dual Intel Xeon E5-2697v4",
-            "cores": "36 Cores / 72 Threads",
-            "boost": "3.6 GHz Boost",
-            "memory": "512GB DDR4-3200",
-            "storage": "2x4TB SSD RAID",
+            "processor": "Ryzen 9 9950x",
+            "cores": "16 Cores / 32 Threads",
+            "boost": "4.3 GHz Boost",
+            "memory": "256GB DDR5-6400",
+            "storage": "2x4TB NVMe Raid 1",
             "network": "10Gbps",
             "tdp": "290W TDP"
         },
         "network": {
-            "providers": ["Path.net"],
+            "providers": ["Aurologic DDoS Protection"],
             "latency": {
                 "us": "90-110ms",
                 "europe": "< 20ms",
                 "asia": "140-170ms"
+            },
+            "protection": {
+                "provider": "Aurologic DDoS Protection",
+                "capacity": "3.2+ Tbit/s"
             }
         },
         "datacenter": {
-            "location": "Lyoner Str. 15, 60528 Frankfurt am Main, Germany",
+            "location": "Interwerk Data Center, Diesel Road 37, 60314 Frankfurt am Main",
             "image": "/datacenters/frankfurt.jpg",
             "certifications": [
                 "ISO 27001",
@@ -111,59 +85,29 @@
         "emoji": "🇲🇾",
         "status": "active",
         "specs": {
-            "processor": "Dual Intel Xeon E5-2697v4",
-            "cores": "36 Cores / 72 Threads",
-            "boost": "3.6 GHz Boost",
-            "memory": "512GB DDR4-3200",
-            "storage": "2x4TB SSD RAID",
+            "processor": "Ryzen 9 9950x",
+            "cores": "16 Cores / 32 Threads",
+            "boost": "4.3 GHz Boost",
+            "memory": "256GB DDR5-6400",
+            "storage": "2x4TB NVMe Raid 1",
             "network": "10Gbps",
             "tdp": "290W TDP"
         },
         "network": {
-            "providers": ["Path.net"],
+            "providers": ["Global Secure Layer"],
             "latency": {
                 "us": "150-180ms",
                 "europe": "140-170ms",
                 "asia": "< 20ms"
+            },
+            "protection": {
+                "provider": "Global Secure Layer",
+                "capacity": "30+ Tbit/s"
             }
         },
         "datacenter": {
-            "location": "1 Jalan Tun Razak, 50400 Kuala Lumpur, Malaysia",
+            "location": "2 & 6, Jalan Teknologi Perintis 1/3, Taman Teknologi, Nusajaya, 79200 Iskandar Puteri, Johor Darul Ta'zim, Malaysia",
             "image": "/datacenters/johor.jpg",
-            "certifications": [
-                "ISO 27001",
-                "SOC 2 Type II",
-                "PCI DSS Level 1",
-                "Tier III Data Center"
-            ]
-        }
-    },
-    {
-        "name": "Hong Kong",
-        "country": "China",
-        "flag": "/flags/chinese.png",
-        "emoji": "🇭🇰",
-        "status": "active",
-        "specs": {
-            "processor": "Dual Intel Xeon E5-2697v4",
-            "cores": "36 Cores / 72 Threads",
-            "boost": "3.6 GHz Boost",
-            "memory": "512GB DDR4-3200",
-            "storage": "2x4TB SSD RAID",
-            "network": "10Gbps",
-            "tdp": "290W TDP"
-        },
-        "network": {
-            "providers": ["Path.net"],
-            "latency": {
-                "us": "160-190ms",
-                "europe": "150-180ms",
-                "asia": "< 20ms"
-            }
-        },
-        "datacenter": {
-            "location": "1 Leighton Road, Causeway Bay, Hong Kong",
-            "image": "/datacenters/hongkong.jpg",
             "certifications": [
                 "ISO 27001",
                 "SOC 2 Type II",
@@ -179,20 +123,24 @@
         "emoji": "🇸🇬",
         "status": "active",
         "specs": {
-            "processor": "Dual Intel Xeon E5-2697v4",
-            "cores": "36 Cores / 72 Threads",
-            "boost": "3.6 GHz Boost",
-            "memory": "512GB DDR4-3200",
-            "storage": "2x4TB SSD RAID",
+            "processor": "Ryzen 9 9950x",
+            "cores": "16 Cores / 32 Threads",
+            "boost": "4.3 GHz Boost",
+            "memory": "256GB DDR5-6400",
+            "storage": "2x4TB NVMe Raid 1",
             "network": "10Gbps",
             "tdp": "290W TDP"
         },
         "network": {
-            "providers": ["Path.net"],
+            "providers": ["Global Secure Layer"],
             "latency": {
                 "us": "150-180ms",
                 "europe": "140-170ms",
                 "asia": "< 20ms"
+            },
+            "protection": {
+                "provider": "Global Secure Layer",
+                "capacity": "30+ Tbit/s"
             }
         },
         "datacenter": {
@@ -204,35 +152,6 @@
                 "PCI DSS Level 1",
                 "Tier III Data Center"
             ]
-        }
-    },
-    {
-        "name": "Mumbai",
-        "country": "India",
-        "flag": "/flags/india.png",
-        "emoji": "🇮🇳",
-        "status": "coming-soon",
-        "specs": {
-            "processor": "TBA",
-            "cores": "TBA",
-            "boost": "TBA",
-            "memory": "TBA",
-            "storage": "TBA",
-            "network": "TBA",
-            "tdp": "TBA"
-        },
-        "network": {
-            "providers": ["TBA"],
-            "latency": {
-                "us": "TBA",
-                "europe": "TBA",
-                "asia": "TBA"
-            }
-        },
-        "datacenter": {
-            "location": "TBA",
-            "image": "/datacenters/mumbai.jpg",
-            "certifications": []
         }
     }
 ]

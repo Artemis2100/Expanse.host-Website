@@ -352,7 +352,7 @@ const Navbar = () => {
                                                 transition={{ delay: 0.1 }}
                                             >
                                                 <Link
-                                                    href="/panel/vps"
+                                                    href="https://vps.expanse.host"
                                                     className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 hover:border-cyan-500/40 hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 overflow-hidden"
                                                 >
                                                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -380,7 +380,7 @@ const Navbar = () => {
                                                 transition={{ delay: 0.15 }}
                                             >
                                                 <Link
-                                                    href="/panel/starbase"
+                                                    href="https://game.expanse.host"
                                                     className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 hover:border-green-500/40 hover:from-green-500/20 hover:to-emerald-500/20 transition-all duration-300 overflow-hidden"
                                                 >
                                                     <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/5 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -409,7 +409,7 @@ const Navbar = () => {
                                                 transition={{ delay: 0.2 }}
                                             >
                                                 <Link
-                                                    href="/panel/baremetal"
+                                                    href="https://dedicated.expanse.host"
                                                     className="group relative flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 hover:border-orange-500/40 hover:from-orange-500/20 hover:to-red-500/20 transition-all duration-300 overflow-hidden"
                                                 >
                                                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
