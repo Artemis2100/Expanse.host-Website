@@ -347,11 +347,11 @@ export default function CareersPage() {
           </motion.p>
 
           {careersData.openRoles.roles && careersData.openRoles.roles.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {careersData.openRoles.roles.map((role, index) => (
-                <JobCard key={role.id} role={role} index={index} />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {(careersData.openRoles.roles as any[]).map((role: any, index: number) => (
+              <JobCard key={index} role={role} index={index} />
+            ))}
+          </div>
           ) : (
             <motion.div
               initial={{ opacity: 0, y: 10 }}

@@ -36,9 +36,7 @@ const ContactMethod = memo(({ emoji, title, description, action, link, index }: 
                 onClick={(e) => {
                     if (link === '#live-chat') {
                         e.preventDefault();
-                        // @ts-ignore
                         if (typeof window !== 'undefined' && (window as any).$chatwoot) {
-                            // @ts-ignore
                             (window as any).$chatwoot.toggle();
                         }
                     }

@@ -41,24 +41,6 @@ const Advertisements = () => {
             }}
           >
             {duplicatedCompanies.map((company, index) => {
-              const companyAny = company as any;
-              
-              // Use regular img tag for SVG files (like VirtFusion) to avoid Next.js optimization issues
-              if (companyAny.useImgTag) {
-                return (
-                  <div
-                    key={`${company.name}-${index}`}
-                    className="relative h-12 w-32 md:h-14 md:w-36 lg:h-16 lg:w-40 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
-                  >
-                    <img
-                      src={company.logo}
-                      alt={`${company.name} logo`}
-                      className="absolute inset-0 w-full h-full object-contain"
-                    />
-                  </div>
-                );
-              }
-
               return (
                 <div
                   key={`${company.name}-${index}`}

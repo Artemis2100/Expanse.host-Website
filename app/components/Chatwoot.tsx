@@ -7,9 +7,7 @@ export default function Chatwoot() {
   useEffect(() => {
     const baseUrl = 'https://chatwoot.expanse.host'
     // If SDK already loaded, initialize immediately
-    // @ts-ignore
     if (typeof window !== 'undefined' && (window as any).chatwootSDK) {
-      // @ts-ignore
       ;(window as any).chatwootSDK.run({
         websiteToken: 'CvYQta8cFktSBty8uyMThVy1',
         baseUrl
@@ -25,9 +23,7 @@ export default function Chatwoot() {
         strategy="afterInteractive"
         onLoad={() => {
           // Initialize after script loads
-          // @ts-ignore
           if (typeof window !== 'undefined' && (window as any).chatwootSDK) {
-            // @ts-ignore
             (window as any).chatwootSDK.run({
               websiteToken: 'CvYQta8cFktSBty8uyMThVy1',
               baseUrl: 'https://chatwoot.expanse.host'
