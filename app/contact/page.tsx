@@ -1,19 +1,5 @@
 "use client";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Contact Expanse — Sales, Billing & 24/7 Support",
-  description:
-    "Get in touch with Expanse. Sales, billing, and 24/7 technical support via live chat, ticket, or email. We’re here to help.",
-  keywords: [
-    "Contact hosting",
-    "Hosting support",
-    "Sales hosting",
-    "Billing hosting",
-    "Expanse contact",
-  ],
-  alternates: { canonical: "/contact" },
-};
 import { motion } from "motion/react";
 import { useState, memo } from "react";
 import Navbar from "../components/Navbar";

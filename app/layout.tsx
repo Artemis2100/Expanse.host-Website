@@ -4,6 +4,7 @@ import "./globals.css";
 import Chatwoot from "./components/Chatwoot";
 import ScrollToTop from "./components/ScrollToTop";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -80,6 +81,19 @@ export default function RootLayout({
           <ScrollToTop />
           <Chatwoot />
         </CurrencyProvider>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1TQ8CNNC1E"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1TQ8CNNC1E');
+          `}
+        </Script>
       </body>
     </html>
   );
