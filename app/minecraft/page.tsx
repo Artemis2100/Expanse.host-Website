@@ -1,4 +1,5 @@
 "use client"
+import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import { FeaturesSection } from "../pages/FeaturesSection";
 import MinecraftPricingSection from "./MinecraftPricingSection";
@@ -10,6 +11,19 @@ import { Spotlight } from "@/components/ui/ripple";
 import VPSPanelShowcase from "../pages/VPSPanelShowcase";
 import { FiMonitor, FiServer, FiSettings, FiShield } from "react-icons/fi";
 
+export const metadata: Metadata = {
+  title: "Minecraft Hosting — Paper, Forge, Fabric on Ryzen 9",
+  description:
+    "Launch your Minecraft server in minutes with Expanse. High‑clock Ryzen 9, NVMe storage, 1‑click mod installers, daily backups, enterprise DDoS protection.",
+  keywords: [
+    "Minecraft hosting",
+    "Paper server",
+    "Forge server",
+    "Fabric server",
+    "DDoS protected Minecraft",
+  ],
+  alternates: { canonical: "/minecraft" },
+};
 export default function Home() {
   return (
     <div className="relative">
