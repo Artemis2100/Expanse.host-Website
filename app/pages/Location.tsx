@@ -28,7 +28,7 @@ const locations: Location[] = [
         status: "active",
         lat: 40.7128,
         lng: -74.0060,
-        wsEndpoint: "wss://echo.websocket.org",
+        wsEndpoint: "wss://lg-nyc.expanse.host",
     },
     // Europe
     {
@@ -39,7 +39,7 @@ const locations: Location[] = [
         status: "active",
         lat: 51.1657,
         lng: 10.4515,
-        wsEndpoint: "wss://echo.websocket.org",
+        wsEndpoint: "wss://lg-de.expanse.host",
     },
     // Asia Pacific
     {
@@ -50,7 +50,7 @@ const locations: Location[] = [
         status: "active",
         lat: 1.3521,
         lng: 103.8198,
-        wsEndpoint: "wss://echo.websocket.org",
+        wsEndpoint: "wss://lg-sg.expanse.host",
     },
     {
         name: "Johor Bahru",
@@ -60,7 +60,7 @@ const locations: Location[] = [
         status: "active",
         lat: 1.4927,
         lng: 103.7414,
-        wsEndpoint: "wss://jhb.expanse.host/ping",
+        wsEndpoint: "wss://lg-jhb.expanse.host",
     },
 ];
 

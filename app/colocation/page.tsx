@@ -1,16 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { usePageRedirect } from "../utils/use-page-redirect";
 
 export default function ColocationPage() {
-    const router = useRouter();
-
-    useEffect(() => {
-        // Redirect to coming soon page
-        router.push('/coming-soon');
-    }, [router]);
-
-    // Return null or a loading state while redirecting
+    // Automatically redirects to /coming-soon if configured in page-status.ts
+    usePageRedirect();
+    
+    // Return null while redirecting
     return null;
 }

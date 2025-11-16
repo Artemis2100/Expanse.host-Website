@@ -7,53 +7,11 @@
     "ping": "5ms"
   },
   {
-    "id": "us-la",
-    "name": "United States",
-    "city": "Los Angeles",
-    "flag": "/flags/usa.png",
-    "ping": "TBD"
-  },
-  {
-    "id": "us-ch",
-    "name": "United States",
-    "city": "Chicago",
-    "flag": "/flags/usa.png",
-    "ping": "8ms"
-  },
-  {
-    "id": "us-dl",
-    "name": "United States",
-    "city": "Dallas",
-    "flag": "/flags/usa.png",
-    "ping": "10ms"
-  },
-  {
-    "id": "us-se",
-    "name": "United States",
-    "city": "Seattle",
-    "flag": "/flags/usa.png",
-    "ping": "12ms"
-  },
-  {
-    "id": "uk",
-    "name": "United Kingdom",
-    "city": "United Kingdom",
-    "flag": "/flags/usa.png",
-    "ping": "TBD"
-  },
-  {
     "id": "germany",
     "name": "Germany",
-    "city": "Germany",
+    "city": "Frankfurt",
     "flag": "/flags/germany.png",
     "ping": "15ms"
-  },
-  {
-    "id": "nl",
-    "name": "Netherlands",
-    "city": "Amsterdam",
-    "flag": "/flags/germany.png",
-    "ping": "18ms"
   },
   {
     "id": "sg",
@@ -61,33 +19,6 @@
     "city": "Singapore",
     "flag": "/flags/singapore.png",
     "ping": "20ms"
-  },
-  {
-    "id": "my",
-    "name": "Malaysia",
-    "city": "Johor Bahru",
-    "flag": "/flags/malaysia.png",
-    "ping": "22ms"
-  },
-  {
-    "id": "in",
-    "name": "India",
-    "city": "India",
-    "flag": "/flags/india.png",
-    "ping": "TBD"
-  },
-  {
-    "id": "hk",
-    "name": "Hong Kong",
-    "city": "Hong Kong",
-    "flag": "/flags/chinese.png",
-    "ping": "TBD"
-  },
-  {
-    "id": "au",
-    "name": "Australia",
-    "city": "Australia",
-    "flag": "/flags/usa.png",
-    "ping": "TBD"
   }
+
 ]

@@ -1,0 +1,187 @@
+{
+  "title": "Acceptable Use Policy (AUP)",
+  "lastUpdated": "November 2025",
+  "introduction": "This Acceptable Use Policy (\"AUP\") defines permissible and prohibited uses of Expanse services. By using our services, you agree to comply with this AUP in addition to the Terms of Service (ToS), Privacy Policy, and Service Level Agreement (SLA).",
+  "sections": [
+    {
+      "id": 1,
+      "title": "General Principles",
+      "content": "The Customer must use Expanse services legally, ethically, responsibly, and without harming Expanse infrastructure, customers, or upstream providers. You are responsible for all activity originating from your services."
+    },
+    {
+      "id": 2,
+      "title": "Prohibited Content & Activities",
+      "content": "The following are strictly prohibited on all Expanse services:"
+    },
+    {
+      "id": 2.1,
+      "title": "2.1 Illegal Content",
+      "list": [
+        "Child sexual abuse material (CSAM)",
+        "Terrorism-related content",
+        "Hate, extremist, or violent content",
+        "Copyrighted content shared without authorization",
+        "Anything illegal under UK law or the customer’s jurisdiction"
+      ]
+    },
+    {
+      "id": 2.2,
+      "title": "2.2 Malicious Activity",
+      "list": [
+        "Malware, viruses, worms, trojans",
+        "Botnets or command-and-control servers",
+        "Remote exploit kits",
+        "Keyloggers, stealers, RATs",
+        "Hosting or distributing malicious scripts",
+        "Any malicious activity triggers immediate termination"
+      ]
+    },
+    {
+      "id": 2.3,
+      "title": "2.3 Network Abuse",
+      "list": [
+        "DDoS attacks (launching or participating)",
+        "Flooding, packet crafting, amplification, or stress-testing tools",
+        "Port scanning, OS fingerprinting, or brute force attempts",
+        "VPN/proxy services used for abuse",
+        "Bypassing DDoS protection systems",
+        "Using Expanse Minecraft proxies to reach external servers",
+        "IP spoofing, ARP spoofing, MITM attempts"
+      ]
+    },
+    {
+      "id": 2.4,
+      "title": "2.4 Spam & Email Misuse",
+      "content": "SMTP abuse results in a 24-hour window to respond, then suspension.",
+      "list": [
+        "Sending bulk unsolicited email",
+        "Running mailers, spam tools, or email bombers",
+        "Open SMTP relays",
+        "Sending phishing emails",
+        "Using compromised mailing lists"
+      ]
+    },
+    {
+      "id": 2.5,
+      "title": "2.5 Resource Abuse",
+      "list": [
+        "Excessively consuming CPU, RAM, or disk I/O to degrade node performance",
+        "Causing abnormal load (e.g., chunk pregeneration) without permission",
+        "Running infinite loops or faulty scripts causing crashes",
+        "Intentionally bypassing resource limits"
+      ],
+      "content": "Expanse may throttle, cap, or limit usage to maintain stability."
+    },
+    {
+      "id": 2.6,
+      "title": "2.6 High-Risk Workloads",
+      "content": "These workloads are banned across all services:",
+      "list": [
+        "Stresser/stress-testing services",
+        "Botnet control or distribution",
+        "Crypto mining (any cryptocurrency)",
+        "TOR exit nodes or relays",
+        "Click-fraud, scalping, or automation bots",
+        "Mass scanning or scraping platforms",
+        "“Bulletproof hosting” activities",
+        "Any workload generating upstream provider complaints"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Service-Specific Rules",
+      "content": ""
+    },
+    {
+      "id": 3.1,
+      "title": "3.1 Minecraft Hosting",
+      "list": [
+        "No malicious plugins, illegal modpacks, or compromised server jars",
+        "No using our MC proxy to connect to external servers",
+        "Heavy tasks (pregeneration, world expansion) must be approved",
+        "No automated bot swarms or high-risk modpacks",
+        "No bypassing DDoS protections"
+      ]
+    },
+    {
+      "id": 3.2,
+      "title": "3.2 Web Hosting",
+      "content": "The following are prohibited:",
+      "list": [
+        "Mass mailing scripts",
+        "Phishing pages",
+        "Hosting nulled/cracked files",
+        "Malicious CMS plugins",
+        "Warez or pirated content",
+        "Hosting videos/movies without proper rights"
+      ]
+    },
+    {
+      "id": 3.3,
+      "title": "3.3 VPS & Dedicated Servers",
+      "list": [
+        "Crypto mining",
+        "TOR relays",
+        "Proxy/VPN services used for public traffic",
+        "Traffic tunneling used for attacks or evasion",
+        "Running anything that intentionally saturates the network"
+      ],
+      "content": "Private VPNs/proxies are allowed only if not used for abuse."
+    },
+    {
+      "id": 4,
+      "title": "Security Requirements",
+      "list": [
+        "Keep software and plugins up to date",
+        "Secure servers against unauthorized access",
+        "Maintain strong passwords and authentication",
+        "Ensure web apps are not vulnerable (SQLi, RCE, LFI, etc.)",
+        "Prevent outbound attacks through misconfigurations"
+      ],
+      "content": "Failure to secure services results in customer liability."
+    },
+    {
+      "id": 5,
+      "title": "Abuse Handling",
+      "list": [
+        "Verified abuse may result in immediate suspension",
+        "You must respond to abuse tickets within 24 hours",
+        "Continued abuse or no response leads to termination",
+        "Illegal activity will be reported to law enforcement",
+        "Null-routing may be applied to protect infrastructure"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Fair Use Guidelines",
+      "list": [
+        "Resource usage must be reasonable",
+        "Services must not degrade performance for other customers",
+        "Unlimited features are subject to fair use",
+        "Expanse may enforce rate limits",
+        "Expanse may migrate, throttle, or isolate noisy workloads"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Enforcement & Penalties",
+      "content": "Depending on severity, Expanse may:",
+      "list": [
+        "Warn the customer",
+        "Throttle CPU/network",
+        "Block ports or traffic",
+        "Null-route IP addresses",
+        "Suspend service",
+        "Terminate service without refund",
+        "Ban the account",
+        "Report illegal actions to authorities"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Reporting Abuse",
+      "content": "Report abuse to: abuse@expanse.host"
+    }
+  ]
+}
+

@@ -2,35 +2,43 @@
 
 import React from 'react'
 import { motion } from 'motion/react'
-import { FaDiscord, FaTwitter, FaGithub, FaGamepad, FaServer, FaDatabase, FaGlobe, FaInfoCircle, FaEnvelope, FaFileContract, FaShieldAlt, FaBook, FaQuestionCircle, FaChartLine, FaHeadset } from 'react-icons/fa'
+import { FaDiscord, FaTwitter, FaGithub, FaGamepad, FaServer, FaDatabase, FaGlobe, FaInfoCircle, FaEnvelope, FaFileContract, FaShieldAlt, FaBook, FaQuestionCircle, FaChartLine, FaHeadset, FaTag, FaGavel, FaFileAlt, FaCreditCard, FaBriefcase, FaHandshake } from 'react-icons/fa'
 import Image from 'next/image'
 
 export const Footer = () => {
   const footerLinks = {
     products: [
-      { label: 'Game Hosting', href: '/minecraft', icon: <FaGamepad className="w-4 h-4" /> },
+      { label: 'Minecraft Hosting', href: '/minecraft', icon: <FaGamepad className="w-4 h-4" /> },
       { label: 'VPS Hosting', href: '/vps', icon: <FaServer className="w-4 h-4" /> },
       { label: 'Dedicated Servers', href: '/dedicated', icon: <FaDatabase className="w-4 h-4" /> },
-      { label: 'Colocation', href: '/colocation', icon: <FaServer className="w-4 h-4" /> },
       { label: 'Web Hosting', href: '/webhosting', icon: <FaGlobe className="w-4 h-4" /> },
+      { label: 'Domain Registration', href: '/domains', icon: <FaTag className="w-4 h-4" /> },
+      { label: 'Colocation', href: '/colocation', icon: <FaServer className="w-4 h-4" /> },
     ],
     company: [
       { label: 'About Us', href: '/about', icon: <FaInfoCircle className="w-4 h-4" /> },
       { label: 'Contact', href: '/contact', icon: <FaEnvelope className="w-4 h-4" /> },
-      { label: 'Terms of Service', href: '/terms-of-services', icon: <FaFileContract className="w-4 h-4" /> },
-      { label: 'Privacy Policy', href: '/privacy-policy', icon: <FaShieldAlt className="w-4 h-4" /> },
+      { label: 'Careers', href: '/careers', icon: <FaBriefcase className="w-4 h-4" /> },
+      { label: 'Affiliate Program', href: '/affiliate', icon: <FaHandshake className="w-4 h-4" /> },
     ],
     support: [
-      { label: 'Knowledge Base', href: '#', icon: <FaBook className="w-4 h-4" /> },
-      { label: 'Server Status', href: '#', icon: <FaChartLine className="w-4 h-4" /> },
+      { label: 'Knowledge Base', href: 'https://kb.expanse.host', icon: <FaBook className="w-4 h-4" /> },
+      { label: 'Server Status', href: 'https://status.expanse.host', icon: <FaChartLine className="w-4 h-4" /> },
       { label: 'Contact Support', href: '/contact', icon: <FaHeadset className="w-4 h-4" /> },
+      { label: 'Infrastructure', href: '/infrastructure', icon: <FaServer className="w-4 h-4" /> },
+    ],
+    legal: [
+      { label: 'Terms of Service', href: '/terms-of-services', icon: <FaFileContract className="w-4 h-4" /> },
+      { label: 'Privacy Policy', href: '/privacy-policy', icon: <FaShieldAlt className="w-4 h-4" /> },
+      { label: 'SLA', href: '/sla', icon: <FaFileAlt className="w-4 h-4" /> },
+      { label: 'Acceptable Use', href: '/acceptable-use-policy', icon: <FaGavel className="w-4 h-4" /> },
+      { label: 'Payment Methods', href: '/payment-methods', icon: <FaCreditCard className="w-4 h-4" /> },
     ],
   }
 
   const socialLinks = [
     { icon: <FaDiscord className="w-5 h-5" />, href: 'https://discord.expanse.host', label: 'Discord' },
-    { icon: <FaTwitter className="w-5 h-5" />, href: '#', label: 'Twitter' },
-    { icon: <FaGithub className="w-5 h-5" />, href: '#', label: 'GitHub' },
+    { icon: <FaTwitter className="w-5 h-5" />, href: 'https://x.com/expanse_host', label: 'Twitter' },
   ]
 
   return (
@@ -53,7 +61,7 @@ export const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-16 relative ">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -148,11 +156,38 @@ export const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
             <h4 className="text-sm font-bold text-accent mb-6 tracking-wider uppercase">Support</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="text-muted text-sm hover:text-accent transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="text-primary/40 group-hover:text-accent transition-colors">
+                      {link.icon}
+                    </span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+          >
+            <h4 className="text-sm font-bold text-accent mb-6 tracking-wider uppercase">Legal</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
@@ -189,6 +224,7 @@ export const Footer = () => {
             <motion.button
               whileTap={{ scale: 0.98 }}
               className="px-8 py-3 bg-button text-primary-foreground font-semibold rounded-lg transition-colors whitespace-nowrap"
+              onClick={() => { window.location.href = '/vps' }}
             >
               TAKE ME THERE
             </motion.button>

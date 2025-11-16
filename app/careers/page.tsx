@@ -346,11 +346,26 @@ export default function CareersPage() {
             {careersData.openRoles.subtitle}
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {careersData.openRoles.roles.map((role, index) => (
-              <JobCard key={role.id} role={role} index={index} />
-            ))}
-          </div>
+          {careersData.openRoles.roles && careersData.openRoles.roles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {careersData.openRoles.roles.map((role, index) => (
+                <JobCard key={role.id} role={role} index={index} />
+              ))}
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="border border-dashed border-muted rounded-xl p-6 bg-card/40"
+            >
+              <h3 className="text-lg font-semibold text-foreground mb-2">No openings right now</h3>
+              <p className="text-sm text-muted">
+                We don&apos;t have any roles open at the moment. Please check back later or follow our socials for updates.
+              </p>
+            </motion.div>
+          )}
         </div>
       </section>
 <section className="w-full py-4 px-4 relative">

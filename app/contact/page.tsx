@@ -33,6 +33,16 @@ const ContactMethod = memo(({ emoji, title, description, action, link, index }: 
             <p className="text-sm text-muted mb-4 flex-grow">{description}</p>
             <a
                 href={link}
+                onClick={(e) => {
+                    if (link === '#live-chat') {
+                        e.preventDefault();
+                        // @ts-ignore
+                        if (typeof window !== 'undefined' && (window as any).$chatwoot) {
+                            // @ts-ignore
+                            (window as any).$chatwoot.toggle();
+                        }
+                    }
+                }}
                 target={link.startsWith('http') ? '_blank' : '_self'}
                 rel={link.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="text-accent text-sm font-medium hover:underline flex items-center gap-2 group-hover:gap-3 transition-all"
@@ -72,11 +82,24 @@ export default function ContactPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate form submission
-        setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            const resp = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            const result = await resp.json();
+            if (!resp.ok || !result.success) {
+                throw new Error(result.error || 'Failed to submit');
+            }
             alert("Message sent successfully!");
-        }, 2000);
+            setFormData({ name: "", email: "", department: "", subject: "", message: "" });
+        } catch (err) {
+            alert("Failed to send message. Please try again later.");
+            console.error(err);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
