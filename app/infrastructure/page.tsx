@@ -1,5 +1,21 @@
 'use client'
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Global Infrastructure — Regions, Network & DDoS",
+  description:
+    "Explore Expanse’s global infrastructure: Frankfurt, New York, Johor, Singapore. Ryzen 9 9950X, DDR5, NVMe, premium upstreams, and enterprise DDoS protection.",
+  keywords: [
+    "Global network",
+    "DDoS protection",
+    "Datacenters",
+    "Frankfurt",
+    "New York",
+    "Singapore",
+    "Johor",
+  ],
+  alternates: { canonical: "/infrastructure" },
+};
 import React, { useState } from 'react'
 import { motion } from 'motion/react'
 import Image from 'next/image'
