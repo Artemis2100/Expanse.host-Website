@@ -186,14 +186,8 @@ const ReviewsSection = () => {
           </div>
 
           
-          <div className="hidden lg:flex relative h-[500px] flex-1 flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
-            <div
-              className="flex flex-row items-center gap-4"
-              style={{
-                transform:
-                  "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
-              }}
-            >
+          <div className="hidden lg:flex relative h-[500px] flex-1 flex-row items-center justify-center gap-4 overflow-hidden">
+            <div className="flex flex-row items-center gap-4">
               <Marquee pauseOnHover vertical className="[--duration:20s]">
                 {firstRow.map((review) => (
                   <ReviewCard 

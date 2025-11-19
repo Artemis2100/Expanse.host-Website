@@ -1,14 +1,14 @@
 {
   "hero": {
-    "title": "Secure your domain registration today",
-    "subtitle": "Take the first step towards digital success with a strong, reliable domain, no gimmicks, no hidden costs. Enjoy straightforward pricing with no low introductory rates followed by high renewal fees.",
-    "transferText": "Already have domain? Transfer to us"
+    "title": "Enterprise-Grade Domain Registration Services",
+    "subtitle": "Establish your digital presence with industry-leading domain registration. Transparent pricing, no introductory rates, and enterprise-level reliability for businesses that demand excellence.",
+    "transferText": "Transfer your existing domain to Expanse Hosting"
   },
   "popularExtensions": [
     {
       "extension": ".com",
       "name": ".com",
-      "description": "Get more trust with .com",
+      "description": "Industry standard for business credibility",
       "price": 12.99,
       "renewalPrice": 14.99,
       "popular": true
@@ -16,7 +16,7 @@
     {
       "extension": ".net",
       "name": ".net",
-      "description": "For your tech company",
+      "description": "Network and technology-focused organizations",
       "price": 13.99,
       "renewalPrice": 15.99,
       "popular": false
@@ -24,7 +24,7 @@
     {
       "extension": ".org",
       "name": ".org",
-      "description": "For your organisation",
+      "description": "Non-profit and organizational entities",
       "price": 13.99,
       "renewalPrice": 15.99,
       "popular": false
@@ -32,7 +32,7 @@
     {
       "extension": ".io",
       "name": ".io",
-      "description": "Popular for tech startups",
+      "description": "Technology and software companies",
       "price": 29.99,
       "renewalPrice": 34.99,
       "popular": true
@@ -40,7 +40,7 @@
     {
       "extension": ".co",
       "name": ".co",
-      "description": "Short and memorable",
+      "description": "Concise and professional branding",
       "price": 19.99,
       "renewalPrice": 24.99,
       "popular": false
@@ -48,7 +48,7 @@
     {
       "extension": ".xyz",
       "name": ".xyz",
-      "description": "Modern and versatile",
+      "description": "Contemporary and adaptable",
       "price": 1.99,
       "renewalPrice": 14.99,
       "popular": false
@@ -56,7 +56,7 @@
     {
       "extension": ".dev",
       "name": ".dev",
-      "description": "For developers",
+      "description": "Development and engineering teams",
       "price": 19.99,
       "renewalPrice": 24.99,
       "popular": false
@@ -64,154 +64,154 @@
     {
       "extension": ".app",
       "name": ".app",
-      "description": "For applications",
+      "description": "Application and software platforms",
       "price": 19.99,
       "renewalPrice": 24.99,
       "popular": false
     }
   ],
   "bundle": {
-    "title": "Bundle your domain with our services and get more benefits",
-    "description": "Choose from a range of web hosting packages. We have packages designed to fit every budget",
-    "cta": "Find Services"
+    "title": "Integrated Domain and Hosting Solutions",
+    "description": "Optimize your infrastructure with comprehensive hosting packages. Enterprise-grade solutions designed to scale with your business requirements.",
+    "cta": "Explore Services"
   },
   "whyImportant": {
-    "title": "Why a strong domain name is crucial for your business",
-    "subtitle": "Your domain name is the first impression people get. Make it count!",
+    "title": "Strategic Domain Management for Enterprise Success",
+    "subtitle": "Your domain serves as the foundation of your digital identity and brand presence in the marketplace.",
     "benefits": [
       {
         "title": "Brand Credibility & Authority",
-        "description": "A custom domain builds trust and shows you're serious. Professional web and email addresses make a big difference"
+        "description": "A professional domain establishes brand authority and instills confidence. Enterprise-grade web and email infrastructure enhances corporate credibility."
       },
       {
         "title": "Memorability & SEO Benefits",
-        "description": "Short, keyword-relevant domains are easier to remember and help drive organic traffic"
+        "description": "Strategically selected domains improve brand recall and enhance search engine optimization, driving measurable business outcomes."
       },
       {
         "title": "Protect Your Brand",
-        "description": "Owning your domain prevents competitors from grabbing similar names"
+        "description": "Securing your domain portfolio protects intellectual property and prevents brand infringement or competitive acquisition."
       }
     ]
   },
   "tips": {
-    "title": "Choose a domain that works for you",
-    "subtitle": "These expert tips might help you find a domain that's memorable, functional, and future-proof.",
+    "title": "Domain Selection Best Practices",
+    "subtitle": "Strategic guidelines for selecting domains that align with your business objectives and long-term growth strategy.",
     "items": [
       {
         "number": "1",
-        "title": "Keep It Short & Memorable",
-        "description": "Aim for 6–14 characters, easy to spell."
+        "title": "Optimize Length and Memorability",
+        "description": "Target 6–14 characters with clear spelling to maximize brand recall and user accessibility."
       },
       {
         "number": "2",
-        "title": "Use Relevant Keywords",
-        "description": "Helps both users and search engines."
+        "title": "Incorporate Strategic Keywords",
+        "description": "Integrate relevant industry terms to enhance discoverability and search engine performance."
       },
       {
         "number": "3",
-        "title": "Use the Right TLD",
-        "description": ".com is universal; local TLDs build regional trust."
+        "title": "Select Appropriate Top-Level Domain",
+        "description": ".com remains the global standard; country-specific TLDs enhance regional market presence and trust."
       },
       {
         "number": "4",
-        "title": "Avoid Numbers & Hyphens",
-        "description": "They're easy to misinterpret or forget."
+        "title": "Minimize Numbers and Hyphens",
+        "description": "Avoid characters that may cause confusion or reduce brand clarity in communication."
       },
       {
         "number": "5",
-        "title": "Check Social Handles",
-        "description": "Consistency across domain + social media boosts brand cohesion."
+        "title": "Verify Social Media Availability",
+        "description": "Ensure consistent branding across all digital channels to maintain cohesive brand identity."
       },
       {
         "number": "6",
-        "title": "Act Fast",
-        "description": "Good domains get snapped up quickly—lock in yours today"
+        "title": "Secure Your Domain Promptly",
+        "description": "Premium domains are in high demand. Secure your preferred domain to protect your brand positioning."
       }
     ]
   },
   "transfer": {
-    "title": "Already have a domain? Move it to Expanse Hosting without hassle",
-    "description": "Transfer now to let Expanse Hosting manage your domain. Our renewal process is fully automated upon payment.",
-    "cta": "Transfer Now!"
+    "title": "Domain Transfer Services",
+    "description": "Migrate your existing domain to Expanse Hosting with seamless transfer protocols. Automated renewal processes ensure uninterrupted service continuity.",
+    "cta": "Initiate Transfer"
   },
   "howItWorks": {
-    "title": "Simple & transparent domain registration",
-    "subtitle": "Just follow these simple steps to secure your domain in minutes.",
+    "title": "Streamlined Domain Registration Process",
+    "subtitle": "Enterprise-grade domain registration completed through our standardized workflow.",
     "steps": [
       {
         "number": "#1",
-        "title": "Search",
-        "description": "for your ideal domain"
+        "title": "Domain Search",
+        "description": "Query available domain names and extensions"
       },
       {
         "number": "#2",
-        "title": "Select",
-        "description": "from available TLD options and pricing."
+        "title": "TLD Selection",
+        "description": "Choose from available top-level domains with transparent pricing"
       },
       {
         "number": "#3",
-        "title": "Add-ons",
-        "description": "Forwarding, email setup"
+        "title": "Additional Services",
+        "description": "Configure email forwarding and domain management services"
       },
       {
         "number": "#4",
-        "title": "Bundle & save",
-        "description": "Combine with hosting, SSL, email plans."
+        "title": "Service Integration",
+        "description": "Integrate with hosting, SSL certificates, and enterprise email solutions"
       },
       {
         "number": "#5",
-        "title": "Manage everything",
-        "description": "via our easy control panel."
+        "title": "Centralized Management",
+        "description": "Administer all domain services through our enterprise control panel"
       },
       {
         "number": "#6",
-        "title": "Transfer with ease",
-        "description": "Already have a domain? Move it to Expanse Hosting without hassle"
+        "title": "Domain Migration",
+        "description": "Transfer existing domains with streamlined migration protocols"
       }
     ]
   },
   "whyChoose": {
-    "title": "Why choose Expanse Hosting as your provider?",
-    "description": "Expanse Hosting is your trusted partner for reliable and scalable domain registration services. We empower businesses with cutting-edge solutions and unparalleled support.",
+    "title": "Enterprise Domain Services by Expanse Hosting",
+    "description": "Expanse Hosting delivers enterprise-grade domain registration and management services. Our infrastructure provides reliability, scalability, and comprehensive support for mission-critical operations.",
     "features": [
       {
         "title": "Global Network",
-        "description": "Our servers have low latency worldwide. New York, Germany, Singapore, Malaysia, and more locations."
+        "description": "Global infrastructure with optimized latency across strategic locations including New York, Germany, Singapore, Malaysia, and additional data centers worldwide."
       },
       {
         "title": "Enterprise Grade Hardware",
-        "description": "Discover unmatched performance and reliability with our enterprise-grade hardware and servers."
+        "description": "Enterprise-grade infrastructure delivering exceptional performance, reliability, and uptime for mission-critical domain operations."
       },
       {
         "title": "Scalable Infrastructure",
-        "description": "Our infrastructure will scale with you as your business grows."
+        "description": "Scalable architecture designed to accommodate enterprise growth and evolving business requirements."
       },
       {
         "title": "Expert Support",
-        "description": "Our dedicated support team is available 24/7 to assist you with everything from domain setup to advanced configuration."
+        "description": "24/7 dedicated support team providing expert assistance for domain configuration, management, and advanced enterprise requirements."
       }
     ]
   },
   "faq": [
     {
       "question": "Do I need hosting after registering a domain?",
-      "answer": "Yes, registering a domain is only the first step. To make your website accessible online, you'll need a hosting plan. After completing your domain registration, you can explore our VPS hosting and web hosting packages to get your site up and running quickly."
+      "answer": "Domain registration establishes your digital identity. To deploy web services, you will require a hosting solution. We offer enterprise VPS and web hosting packages to complement your domain registration."
     },
     {
       "question": "Can I just purchase domain registration services?",
-      "answer": "Yes, you can purchase your domain from us and choose any hosting service you prefer with no obligations. However, please note that support is only available for our hosting customers, and domain management will be self-managed."
+      "answer": "Domain registration is available as a standalone service with no hosting obligations. Please note that comprehensive support services are provided to hosting customers, while domain-only registrations include self-service management tools."
     },
     {
       "question": "What is the cookie duration for domain referrals?",
-      "answer": "We offer a 90-day cookie window for our affiliate program. This means if someone clicks your affiliate link, you'll receive credit for any purchase they make within 90 days."
+      "answer": "Our affiliate program utilizes a 90-day attribution window. Affiliate referrals resulting in purchases within this period are credited to your account."
     },
     {
       "question": "Can I transfer my domain to Expanse Hosting?",
-      "answer": "Yes! Transferring your domain to Expanse Hosting is easy. Our renewal process is fully automated upon payment, and we'll help you through the transfer process."
+      "answer": "Domain transfers to Expanse Hosting are supported through our streamlined migration process. Automated renewal systems ensure service continuity upon payment confirmation."
     },
     {
       "question": "Are there any hidden fees?",
-      "answer": "No! We offer transparent pricing with no low introductory rates followed by high renewal fees. What you see is what you pay."
+      "answer": "Our pricing structure is transparent with no introductory rates or hidden fees. Displayed pricing reflects actual costs for both initial registration and renewal periods."
     }
   ],
   "features": [

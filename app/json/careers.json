@@ -73,12 +73,6 @@
         "image": "/team/shaun.jpg"
       },
       {
-        "name": "Daniel C.",
-        "role": "Minecraft-side Management",
-        "description": "Passionate software engineer from New Zealand, currently leading infrastructure and development initiatives at Expanse Host with a focus on scalable, efficient hosting solutions.",
-        "image": "/team/daniel.jpg"
-      },
-      {
         "name": "Micheal C.",
         "role": "Minecraft-side Management",
         "description": "DevOps & Software Engineer focused on scalable infrastructure, automation, and cloud-native deployments for Minecraft servers.",
