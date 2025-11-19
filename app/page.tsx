@@ -1,16 +1,29 @@
 "use client"
 import React, { memo, useCallback, useRef } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import HeroSection from "./pages/HeroSection";
 import Advertisements from "./pages/Advertisements";
 import { FeaturesSection } from "./pages/FeaturesSection";
 import PricingSection from "./pages/PricingSection";
-import LocationsSection from "./pages/Location";
-import { BackgroundBeams } from "../components/ui/background-beams"
 import { motion } from "motion/react";
 import { Footer } from "./components/Footer";
-import ReviewsSection from "./components/ReviewsSection";
 import FaqSection from "./pages/FaqSection";
+
+// Lazy load heavy components
+const LocationsSection = dynamic(() => import("./pages/Location").then(mod => ({ default: mod.default })), {
+  ssr: false,
+  loading: () => <div className="h-[600px] w-full" />
+});
+
+const BackgroundBeams = dynamic(() => import("../components/ui/background-beams").then(mod => ({ default: mod.BackgroundBeams })), {
+  ssr: false,
+});
+
+const ReviewsSection = dynamic(() => import("./components/ReviewsSection"), {
+  ssr: false,
+  loading: () => <div className="h-[400px] w-full" />
+});
 
 // Memoized Domain Search Component to prevent re-renders of parent
 const DomainSearchSection = memo(() => {
@@ -61,9 +74,9 @@ const DomainSearchSection = memo(() => {
     >
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
         <div className="flex-1">
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
             FIND THE PERFECT DOMAIN
-          </h3>
+          </h2>
           <p className="text-muted text-sm md:text-base leading-relaxed max-w-xl uppercase tracking-wide">
             SECURE YOUR IDEAL DOMAIN NAME AND ESTABLISH YOUR ONLINE PRESENCE TODAY. FIND THE PERFECT MATCH FOR YOUR BRAND WITH EASE.
           </p>
@@ -104,7 +117,7 @@ const DomainSearchSection = memo(() => {
               <button
                 key={ext}
                 onClick={() => handleExtensionClick(ext)}
-                className="px-4 py-2 bg-button rounded text-primary-foreground text-sm font-mono transition-all hover:bg-blue-400/50 cursor-pointer"
+                className="px-4 py-2 bg-[#2563eb] hover:bg-[#1d4ed8] rounded text-white text-sm font-mono transition-all cursor-pointer"
                 type="button"
               >
                 {ext}

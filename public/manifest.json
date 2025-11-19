@@ -1,0 +1,26 @@
+{
+  "name": "Expanse Host",
+  "short_name": "Expanse",
+  "description": "High-performance Minecraft hosting, VPS, and dedicated servers with enterprise DDoS protection, low latency global network, and 24/7 support.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "screenshots": [],
+  "shortcuts": []
+}
+

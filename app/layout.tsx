@@ -3,6 +3,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Chatwoot from "./components/Chatwoot";
 import ScrollToTop from "./components/ScrollToTop";
+import ServiceWorker from "./components/ServiceWorker";
+import PreconnectLinks from "./components/PreconnectLinks";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import Script from "next/script";
 
@@ -64,6 +66,14 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
+  other: {
+    "theme-color": "#3b82f6",
+  },
+  // Add preconnect links via metadata
+  alternates: {
+    canonical: "https://www.expanse.host",
+  },
 };
 
 export default function RootLayout({
@@ -76,17 +86,19 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased overflow-x-hidden`}
       >
+        <PreconnectLinks />
+        <ServiceWorker />
         <CurrencyProvider>
           {children}
           <ScrollToTop />
           <Chatwoot />
         </CurrencyProvider>
-        {/* Google Analytics */}
+        {/* Google Analytics - Lazy loaded */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1TQ8CNNC1E"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

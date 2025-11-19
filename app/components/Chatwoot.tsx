@@ -20,7 +20,7 @@ export default function Chatwoot() {
       <Script
         id="chatwoot-sdk"
         src="https://chatwoot.expanse.host/packs/js/sdk.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         onLoad={() => {
           // Initialize after script loads
           if (typeof window !== 'undefined' && (window as any).chatwootSDK) {
