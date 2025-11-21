@@ -28,7 +28,7 @@ const locations: Location[] = [
         status: "active",
         lat: 40.7128,
         lng: -74.0060,
-        wsEndpoint: "wss://lg-nyc.expanse.host",
+        wsEndpoint: "wss://lg-nyc.expanse.host/ws",
     },
     // Europe
     {
@@ -39,7 +39,7 @@ const locations: Location[] = [
         status: "active",
         lat: 51.1657,
         lng: 10.4515,
-        wsEndpoint: "wss://lg-de.expanse.host",
+        wsEndpoint: "wss://lg-de.expanse.host/ws",
     },
     // Asia Pacific
     {
@@ -50,7 +50,7 @@ const locations: Location[] = [
         status: "active",
         lat: 1.3521,
         lng: 103.8198,
-        wsEndpoint: "wss://lg-sg.expanse.host",
+        wsEndpoint: "wss://lg-sg.expanse.host/ws",
     },
     {
         name: "Johor Bahru",
@@ -60,15 +60,16 @@ const locations: Location[] = [
         status: "active",
         lat: 1.4927,
         lng: 103.7414,
-        wsEndpoint: "wss://lg-jhb.expanse.host",
+        wsEndpoint: "wss://lg-jhb.expanse.host/ws",
     },
 ];
 
-// Rate limiter: 10 requests per second
+// Rate limiter: limits requests per second per user/tab
+// Default: 5 requests per second (configurable via maxRequests)
 class RateLimiter {
     private requests: number[] = [];
-    private readonly maxRequests = 10;
-    private readonly windowMs = 1000;
+    private readonly maxRequests = 5; // Requests per second per user
+    private readonly windowMs = 1000; // 1 second window
 
     canMakeRequest(): boolean {
         const now = Date.now();
@@ -92,6 +93,7 @@ class RateLimiter {
 const globalRateLimiter = new RateLimiter();
 
 // WebSocket latency hook with manual refresh support
+// Uses JSON ping/pong messages with rate limiting
 const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTrigger?: number) => {
     const [latency, setLatency] = useState<string>("TBD");
     const [isPinging, setIsPinging] = useState(false);
@@ -105,7 +107,7 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
     ping.current = () => {
         if (!wsEndpoint || !isActive) return;
         
-        // Check rate limit
+        // Check rate limit - prevents excessive requests
         if (!globalRateLimiter.canMakeRequest()) {
             const delay = globalRateLimiter.getTimeUntilNextSlot();
             pendingPingRef.current = ping.current;
@@ -151,6 +153,11 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
 
         const connect = () => {
             try {
+                // Development logging
+                if (process.env.NODE_ENV === "development") {
+                    console.log("Dialing WS:", wsEndpoint);
+                }
+
                 const ws = new WebSocket(wsEndpoint);
                 wsRef.current = ws;
 
@@ -168,6 +175,7 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
                             if (timeoutRef.current) clearTimeout(timeoutRef.current);
                         }
                     } catch (e) {
+                        // If parsing fails, try to use timestamp if available
                         const elapsed = Date.now() - startTimeRef.current;
                         setLatency(`${elapsed}ms`);
                         setIsPinging(false);
