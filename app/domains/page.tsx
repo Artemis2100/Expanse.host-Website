@@ -264,7 +264,7 @@ export default function DomainsPage() {
                         </span>
                         
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-                            {domainsData.hero.title}
+                                {domainsData.hero.title}
                         </h1>
                         
                         <p className="text-lg sm:text-xl text-muted/80 max-w-3xl mx-auto mb-4 leading-relaxed">

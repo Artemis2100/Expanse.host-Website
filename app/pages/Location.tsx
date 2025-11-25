@@ -42,16 +42,16 @@ const locations: Location[] = [
         wsEndpoint: "wss://lg-de.expanse.host/ws",
     },
     // Asia Pacific
-    {
-        name: "Singapore",
-        region: "APAC",
-        flag: "/flags/singapore.png",
-        ping: "TBD",
-        status: "active",
-        lat: 1.3521,
-        lng: 103.8198,
-        wsEndpoint: "wss://lg-sg.expanse.host/ws",
-    },
+    // {
+    //     name: "Singapore",
+    //     region: "APAC",
+    //     flag: "/flags/singapore.png",
+    //     ping: "TBD",
+    //     status: "active",
+    //     lat: 1.3521,
+    //     lng: 103.8198,
+    //     wsEndpoint: "wss://lg-jhb.expanse.host/ws",
+    // },
     {
         name: "Johor Bahru",
         region: "APAC",
@@ -94,13 +94,18 @@ const globalRateLimiter = new RateLimiter();
 
 // WebSocket latency hook with manual refresh support
 // Uses JSON ping/pong messages with rate limiting
-const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTrigger?: number) => {
+// Includes latency normalization and location-specific offsets
+const useLatency = (wsEndpoint: string | undefined, isActive: boolean, locationName?: string, refreshTrigger?: number) => {
     const [latency, setLatency] = useState<string>("TBD");
     const [isPinging, setIsPinging] = useState(false);
     const wsRef = useRef<WebSocket | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const startTimeRef = useRef<number>(0);
     const pendingPingRef = useRef<(() => void) | null>(null);
+    // Latency normalization: store recent measurements
+    const latencySamplesRef = useRef<number[]>([]);
+    const previousEndpointRef = useRef<string | undefined>(undefined);
+    const MAX_SAMPLES = 5; // Number of samples to average
 
     const ping = useRef<(() => void) | null>(null);
     
@@ -148,20 +153,62 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
     useEffect(() => {
         if (!wsEndpoint || !isActive) {
             setLatency("TBD");
+            latencySamplesRef.current = []; // Reset samples when inactive
+            previousEndpointRef.current = undefined;
+            // Clean up existing connection
+            if (wsRef.current) {
+                wsRef.current.close(1000);
+                wsRef.current = null;
+            }
             return;
+        }
+        
+        // Only reset samples when endpoint actually changes for this location
+        if (previousEndpointRef.current !== wsEndpoint) {
+            latencySamplesRef.current = [];
+            previousEndpointRef.current = wsEndpoint;
+        }
+
+        // Close existing connection if it exists before creating a new one
+        if (wsRef.current && wsRef.current.readyState !== WebSocket.CLOSED) {
+            wsRef.current.close(1000);
+            wsRef.current = null;
         }
 
         const connect = () => {
+            // Don't connect if we already have an open connection
+            if (wsRef.current?.readyState === WebSocket.OPEN) {
+                if (process.env.NODE_ENV === "development") {
+                    console.log(`[${locationName}] Already connected, skipping`);
+                }
+                return;
+            }
+            
+            // Don't connect if we're already connecting
+            if (wsRef.current?.readyState === WebSocket.CONNECTING) {
+                if (process.env.NODE_ENV === "development") {
+                    console.log(`[${locationName}] Already connecting, skipping`);
+                }
+                return;
+            }
+            
             try {
                 // Development logging
                 if (process.env.NODE_ENV === "development") {
-                    console.log("Dialing WS:", wsEndpoint);
+                    console.log(`[${locationName}] Dialing WS:`, wsEndpoint);
                 }
 
                 const ws = new WebSocket(wsEndpoint);
                 wsRef.current = ws;
 
                 ws.onopen = () => {
+                    if (process.env.NODE_ENV === "development") {
+                        console.log(`[${locationName}] WebSocket connected successfully`);
+                    }
+                    // Reset latency to show we're connected
+                    if (latencySamplesRef.current.length === 0) {
+                        setLatency("...");
+                    }
                     if (ping.current) ping.current();
                 };
 
@@ -169,28 +216,107 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
                     try {
                         const data = JSON.parse(event.data);
                         if (data.type === "pong" || data.type === "ping") {
-                            const elapsed = Date.now() - startTimeRef.current;
-                            setLatency(`${elapsed}ms`);
+                            let elapsed = Date.now() - startTimeRef.current;
+                            
+                            if (process.env.NODE_ENV === "development") {
+                                console.log(`[${locationName}] Raw latency: ${elapsed}ms`);
+                            }
+                            
+                            // Add +1ms offset for Johor Bahru only
+                            if (locationName === "Johor Bahru") {
+                                elapsed += 1;
+                                if (process.env.NODE_ENV === "development") {
+                                    console.log(`[${locationName}] Adjusted latency: ${elapsed}ms (+1ms offset)`);
+                                }
+                            }
+                            
+                            // Add to samples array for normalization
+                            latencySamplesRef.current.push(elapsed);
+                            
+                            // Keep only the most recent MAX_SAMPLES measurements
+                            if (latencySamplesRef.current.length > MAX_SAMPLES) {
+                                latencySamplesRef.current.shift();
+                            }
+                            
+                            // Calculate average if we have enough samples
+                            if (latencySamplesRef.current.length >= 3) {
+                                const sum = latencySamplesRef.current.reduce((a, b) => a + b, 0);
+                                const average = Math.round(sum / latencySamplesRef.current.length);
+                                setLatency(`${average}ms`);
+                            } else {
+                                // Show raw value until we have enough samples
+                                setLatency(`${elapsed}ms`);
+                            }
+                            
                             setIsPinging(false);
                             if (timeoutRef.current) clearTimeout(timeoutRef.current);
                         }
                     } catch (e) {
                         // If parsing fails, try to use timestamp if available
-                        const elapsed = Date.now() - startTimeRef.current;
-                        setLatency(`${elapsed}ms`);
+                        let elapsed = Date.now() - startTimeRef.current;
+                        
+                        // Add +1ms offset for Johor Bahru only
+                        if (locationName === "Johor Bahru") {
+                            elapsed += 1;
+                        }
+                        
+                        // Add to samples array for normalization
+                        latencySamplesRef.current.push(elapsed);
+                        
+                        // Keep only the most recent MAX_SAMPLES measurements
+                        if (latencySamplesRef.current.length > MAX_SAMPLES) {
+                            latencySamplesRef.current.shift();
+                        }
+                        
+                        // Calculate average if we have enough samples
+                        if (latencySamplesRef.current.length >= 3) {
+                            const sum = latencySamplesRef.current.reduce((a, b) => a + b, 0);
+                            const average = Math.round(sum / latencySamplesRef.current.length);
+                            setLatency(`${average}ms`);
+                        } else {
+                            // Show raw value until we have enough samples
+                            setLatency(`${elapsed}ms`);
+                        }
+                        
                         setIsPinging(false);
                         if (timeoutRef.current) clearTimeout(timeoutRef.current);
                     }
                 };
 
-                ws.onerror = () => {
-                    setLatency("Error");
+                ws.onerror = (error) => {
+                    if (process.env.NODE_ENV === "development") {
+                        console.error(`[${locationName}] WebSocket error:`, error);
+                        console.error(`[${locationName}] WebSocket readyState:`, ws.readyState);
+                    }
+                    // Don't set error immediately - wait for onclose to handle reconnection
                     setIsPinging(false);
                     if (timeoutRef.current) clearTimeout(timeoutRef.current);
                 };
 
-                ws.onclose = () => {
-                    setTimeout(connect, 10000);
+                ws.onclose = (event) => {
+                    if (process.env.NODE_ENV === "development") {
+                        console.log(`[${locationName}] WebSocket closed:`, event.code, event.reason, `wasClean: ${event.wasClean}`);
+                    }
+                    // Clear the ref if this was our connection
+                    if (wsRef.current === ws) {
+                        wsRef.current = null;
+                    }
+                    // Set error state if it was an unexpected close
+                    if (event.code !== 1000 && !event.wasClean) {
+                        setLatency("Error");
+                    }
+                    // Only reconnect if it wasn't a clean close (code 1000) and we're still active
+                    if (event.code !== 1000 && isActive && wsEndpoint) {
+                        setTimeout(() => {
+                            // Double-check we're still supposed to be connected
+                            if (isActive && wsEndpoint && (!wsRef.current || wsRef.current.readyState === WebSocket.CLOSED)) {
+                                if (process.env.NODE_ENV === "development") {
+                                    console.log(`[${locationName}] Attempting to reconnect...`);
+                                }
+                                connect();
+                            }
+                        }, 10000);
+                    }
                 };
             } catch (error) {
                 setLatency("Error");
@@ -204,15 +330,27 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
         }, 30000);
 
         return () => {
+            // Clean up connection
             if (wsRef.current) {
-                wsRef.current.close();
+                // Remove event listeners to prevent callbacks after cleanup
+                wsRef.current.onopen = null;
+                wsRef.current.onmessage = null;
+                wsRef.current.onerror = null;
+                wsRef.current.onclose = null;
+                // Close with code 1000 (normal closure) to prevent auto-reconnect
+                if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
+                    wsRef.current.close(1000);
+                }
+                wsRef.current = null;
             }
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
+                timeoutRef.current = null;
             }
             clearInterval(interval);
+            // Don't clear samples on cleanup - let them persist across re-renders
         };
-    }, [wsEndpoint, isActive]);
+    }, [wsEndpoint, isActive, locationName]);
 
     // Trigger refresh when refreshTrigger changes
     useEffect(() => {
@@ -227,7 +365,7 @@ const useLatency = (wsEndpoint: string | undefined, isActive: boolean, refreshTr
 const LocationCard = memo(({ location, index, refreshTrigger, isLowestLatency }: { location: Location; index: number; refreshTrigger?: number; isLowestLatency?: boolean }) => {
     const isActive = location.status === "active";
     const isComingSoon = location.status === "coming soon";
-    const { latency, isPinging } = useLatency(location.wsEndpoint, isActive, refreshTrigger);
+    const { latency, isPinging } = useLatency(location.wsEndpoint, isActive, location.name, refreshTrigger);
 
     const displayLatency = location.wsEndpoint ? latency : location.ping;
 
@@ -382,7 +520,7 @@ const LocationCardWithLatency = memo(({
     onLatencyUpdate: (name: string, latency: string) => void;
 }) => {
     const isActive = location.status === "active";
-    const { latency, isPinging } = useLatency(location.wsEndpoint, isActive, refreshTrigger);
+    const { latency, isPinging } = useLatency(location.wsEndpoint, isActive, location.name, refreshTrigger);
     const displayLatency = location.wsEndpoint ? latency : location.ping;
     const prevLatencyRef = useRef<string>("");
 
@@ -552,7 +690,7 @@ export default function LocationsSection() {
     // Tooltip component that uses latency hook
     const HoveredLocationTooltip = memo(({ location, mousePos, refreshTrigger }: { location: Location | null; mousePos: { x: number; y: number } | null; refreshTrigger?: number }) => {
         // Call hook unconditionally at the top level
-        const { latency, isPinging } = useLatency(location?.wsEndpoint, !!location, refreshTrigger);
+        const { latency, isPinging } = useLatency(location?.wsEndpoint, !!location, location?.name, refreshTrigger);
         
         // Early return after hook call
         if (!location || !mousePos) return null;

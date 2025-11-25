@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaDiscord, FaServer, FaCloud, FaGlobe, FaDatabase, FaTag } from 'react-icons/fa'
+import { FaDiscord, FaServer, FaCloud, FaGlobe, FaDatabase, FaTag, FaGamepad } from 'react-icons/fa'
 import { Ripple } from '@/components/ui/background-ripple-effect'
 
 const PricingSection = () => {
@@ -44,6 +44,12 @@ const PricingSection = () => {
             description: 'Enterprise colocation services with 99.99% uptime, 24/7 security, and SLA reliability.',
             icon: <FaDatabase className="w-12 h-12 text-accent" />,
             href: '/colocation'
+        },
+        {
+            title: 'Hytale Hosting',
+            description: 'Join the waitlist for enterprise-grade Hytale server hosting. High performance, DDoS protection, and instant setup.',
+            icon: <FaGamepad className="w-12 h-12 text-accent" />,
+            href: '/hytale'
         }
     ]
 

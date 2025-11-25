@@ -160,14 +160,17 @@ const ReviewsSection = () => {
               <p className="text-muted text-base leading-relaxed mb-6">
                 Join thousands of satisfied customers who trust us with their hosting needs
               </p>
-              <motion.button
+              <motion.a
+                href="https://www.trustpilot.com/review/expanse.host"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg  transition-colors shadow-inner flex items-center gap-2"
+                className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg  transition-colors shadow-inner flex items-center gap-2 cursor-pointer"
               >
                 <FaStar className="w-4 h-4" />
                 Check our Trustpilot
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -259,15 +262,18 @@ const ReviewsSection = () => {
             <p className="text-muted text-base leading-relaxed mb-6">
               Join thousands of satisfied customers who trust us with their hosting needs
             </p>
-            <motion.button
+            <motion.a
+              href="https://www.trustpilot.com/review/expanse.host"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-inner flex items-center gap-2"
+              className="px-6 py-3 bg-button border border-blue-400/20 text-primary-foreground font-semibold rounded-lg hover:bg-blue-400/30 transition-colors shadow-inner flex items-center gap-2 cursor-pointer"
               style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
             >
               <FaStar className="w-4 h-4" />
               Check our Trustpilot
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </div>

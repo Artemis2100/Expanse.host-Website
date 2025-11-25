@@ -53,12 +53,12 @@ const HeroSection = (props: HeroSectionProps = {}) => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 bg-gradient-to-r from-blue-400/30 to-blue-400/10 border border-blue-500/20 rounded-3xl backdrop-blur-sm shadow-inner"
                 >
-                    <span className="inline-flex items-center text-xs sm:text-sm md:text-base text-foreground dark:text-gray-200 font-medium">
+                    <Link href="/vps" className="inline-flex items-center text-xs sm:text-sm md:text-base text-foreground dark:text-gray-200 font-medium hover:opacity-80 transition-opacity">
                         <svg className="w-4 sm:w-5 md:w-6 text-primary h-4 sm:h-5 md:h-6 mr-1.5 sm:mr-2 flex-shrink-0" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 25.64l-12.8 12.72 160 160.04 12.8-12.8-160-159.96zm-32 95.96L128 128l-6.4 6.4 160 160 12.8-12.8-160-160zm-96.08 32L25.6 166.4l160 160 12.8-12.8-160.08-160zm314.78 86.6l-29.4 84.1-85.4 26 71 54-1.7 89.2 73.2-50.8 84.4 29.1-25.7-85.3 53.8-71.2-89.1-2-51.1-73.1z"></path></svg>
                         <span className="hidden xs:inline">New VPS lineup released!</span>
                         <span className="xs:hidden">New VPS lineup!</span>
                         <span className='underline ml-1 text-accent'> Get started</span>
-                    </span>
+                    </Link>
                     <svg stroke="currentColor" fill="currentColor" className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-primary/60 flex-shrink-0" strokeWidth="0" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
                 </motion.div>
 
