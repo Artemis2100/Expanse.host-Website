@@ -3,9 +3,13 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { FiMonitor, FiServer, FiSettings, FiShield } from "react-icons/fi";
 import { Ripple } from "@/components/ui/background-ripple-effect";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+
+const BackgroundBeams = dynamic(() => import("@/components/ui/background-beams").then(mod => ({ default: mod.BackgroundBeams })), {
+  ssr: false,
+});
 
 interface PanelFeature {
     icon: React.ReactNode;

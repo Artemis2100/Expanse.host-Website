@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   },
   // Enable code splitting and optimize bundle size
   experimental: {
-    optimizePackageImports: ['react-icons', 'lucide-react', '@react-three/fiber', '@react-three/drei'],
+    optimizePackageImports: ['react-icons', 'lucide-react'],
   },
   // Compress output
   compress: true,
