@@ -11,9 +11,10 @@ import Script from "next/script";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"], // Reduced from 4 to 3 weights
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -95,7 +96,7 @@ export default function RootLayout({
           <ScrollToTop />
           <Chatwoot />
         </CurrencyProvider>
-        {/* Google Analytics - Lazy loaded */}
+        {/* Google Analytics - Deferred even further */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1TQ8CNNC1E"
           strategy="lazyOnload"
@@ -105,7 +106,9 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-1TQ8CNNC1E');
+            gtag('config', 'G-1TQ8CNNC1E', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
       </body>

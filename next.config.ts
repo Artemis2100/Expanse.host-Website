@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
         hostname: 'avatar.vercel.sh',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
   },
   // Enable code splitting and optimize bundle size
   experimental: {
@@ -16,6 +18,8 @@ const nextConfig: NextConfig = {
   },
   // Compress output
   compress: true,
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
   // Note: swcMinify is enabled by default in Next.js 15, no need to specify
 };
 

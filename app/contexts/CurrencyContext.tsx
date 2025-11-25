@@ -83,7 +83,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
         }
     }, []);
 
-    // Detect user location and set currency
+    // Detect user location and set currency - deferred to not block initial render
     useEffect(() => {
         const detectCurrency = async () => {
             try {
@@ -93,6 +93,9 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
                     setIsLoading(false);
                     return;
                 }
+
+                // Defer location detection to not block initial render
+                await new Promise(resolve => setTimeout(resolve, 1000));
 
                 // Detect location via IP
                 const response = await fetch('https://ipapi.co/json/');
@@ -107,7 +110,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
                     }
                 }
             } catch (error) {
-                console.error('Failed to detect location:', error);
+                // Silently fail - not critical
             } finally {
                 setIsLoading(false);
             }
@@ -116,7 +119,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
         detectCurrency();
     }, []);
 
-    // Fetch exchange rates daily
+    // Fetch exchange rates daily - deferred to not block initial render
     useEffect(() => {
         const fetchExchangeRates = async () => {
             try {
@@ -132,6 +135,9 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
                         return;
                     }
                 }
+
+                // Defer API call to not block initial render
+                await new Promise(resolve => setTimeout(resolve, 2000));
 
                 // Fetch from API (using a free API)
                 // Using exchangerate-api.com free tier
@@ -160,8 +166,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
                     setExchangeRates(defaultRates);
                 }
             } catch (error) {
-                console.error('Failed to fetch exchange rates:', error);
-                // Use default rates on error
+                // Silently fail - use default rates
                 setExchangeRates(defaultRates);
             }
         };

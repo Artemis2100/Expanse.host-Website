@@ -2,9 +2,15 @@
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { memo, useMemo, useState, useEffect, useRef, useCallback } from "react";
-import { Globe } from "@/components/ui/globe";
+import dynamic from "next/dynamic";
 import { FiActivity, FiX, FiRefreshCw } from "react-icons/fi";
 import { FaCrown } from "react-icons/fa";
+
+// Lazy load Globe component - it's heavy with cobe library
+const Globe = dynamic(() => import("@/components/ui/globe").then(mod => ({ default: mod.Globe })), {
+  ssr: false,
+  loading: () => <div className="w-full h-full flex items-center justify-center"><div className="animate-pulse text-muted">Loading globe...</div></div>
+});
 
 interface Location {
     name: string;
