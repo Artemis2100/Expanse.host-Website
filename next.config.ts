@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   },
   // Enable code splitting and optimize bundle size
   experimental: {
-    optimizePackageImports: ['react-icons', 'lucide-react'],
+    optimizePackageImports: ['react-icons', 'lucide-react', 'motion'],
   },
   // Compress output
   compress: true,

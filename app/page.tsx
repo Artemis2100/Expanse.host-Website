@@ -1,14 +1,37 @@
 "use client"
 import React, { memo, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
-import Navbar from "./components/Navbar";
 import HeroSection from "./pages/HeroSection";
-import Advertisements from "./pages/Advertisements";
-import { FeaturesSection } from "./pages/FeaturesSection";
-import PricingSection from "./pages/PricingSection";
-import { motion } from "motion/react";
-import { Footer } from "./components/Footer";
-import FaqSection from "./pages/FaqSection";
+
+// Lazy load all heavy components
+const Navbar = dynamic(() => import("./components/Navbar"), {
+  ssr: true, // Keep SSR for SEO
+  loading: () => <div className="h-16 w-full" />
+});
+
+const Advertisements = dynamic(() => import("./pages/Advertisements"), {
+  ssr: false,
+});
+
+const FeaturesSection = dynamic(() => import("./pages/FeaturesSection").then(mod => ({ default: mod.FeaturesSection })), {
+  ssr: false,
+  loading: () => <div className="h-[400px] w-full" />
+});
+
+const PricingSection = dynamic(() => import("./pages/PricingSection"), {
+  ssr: false,
+  loading: () => <div className="h-[600px] w-full" />
+});
+
+const FaqSection = dynamic(() => import("./pages/FaqSection"), {
+  ssr: false,
+  loading: () => <div className="h-[400px] w-full" />
+});
+
+const Footer = dynamic(() => import("./components/Footer").then(mod => ({ default: mod.Footer })), {
+  ssr: false,
+  loading: () => <div className="h-[300px] w-full" />
+});
 
 // Lazy load heavy components
 const LocationsSection = dynamic(() => import("./pages/Location").then(mod => ({ default: mod.default })), {
@@ -69,7 +92,7 @@ const DomainSearchSection = memo(() => {
   }, [handleDomainSearch]);
 
   return (
-    <motion.div
+    <div
       className="mt-12 relative border-t border-b border-muted bg-gradient-to-br from-blue-400/20 to-card/30 p-8 md:p-12 backdrop-blur-sm overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
@@ -126,7 +149,7 @@ const DomainSearchSection = memo(() => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 });
 

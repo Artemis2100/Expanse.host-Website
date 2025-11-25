@@ -13,7 +13,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "600", "700"], // Reduced from 4 to 3 weights
   display: "swap",
-  preload: true,
+  preload: false, // Disable preload for faster LCP
   adjustFontFallback: true,
 });
 
