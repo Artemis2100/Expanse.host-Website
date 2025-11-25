@@ -16,8 +16,7 @@ const nextConfig: NextConfig = {
   },
   // Compress output
   compress: true,
-  // Optimize production builds
-  swcMinify: true,
+  // Note: swcMinify is enabled by default in Next.js 15, no need to specify
 };
 
 export default nextConfig;

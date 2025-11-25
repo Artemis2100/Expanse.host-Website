@@ -163,7 +163,7 @@ export default function HytaleWaitlistSection() {
                 className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400"
               >
                 <FiCheck className="w-5 h-5 flex-shrink-0" />
-                <span className="text-sm">Successfully joined the waitlist! We'll notify you when Hytale hosting launches.</span>
+                <span className="text-sm">Successfully joined the waitlist! We&apos;ll notify you when Hytale hosting launches.</span>
               </motion.div>
             )}
           </form>
