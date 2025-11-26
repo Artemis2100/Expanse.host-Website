@@ -424,6 +424,7 @@ export default function VPSPricing() {
                             <h4 className="font-semibold text-foreground mb-2 text-sm">Network & Security</h4>
                             <ul className="space-y-1 text-muted">
                                 <li>• Extra IPs: <strong className="text-foreground">$2.5/IP</strong> address</li>
+                                <li>• VLAN Support: <strong className="text-foreground">Available</strong> (Debian 13 & RHEL 10 only)</li>
                                 <li>• BGP Sessions: <span className="text-muted italic">Available soon</span></li>
                                 <li>• DDoS Protection: <strong className="text-foreground">Included</strong> in each plan</li>
                                 <li>• For more DDoS info, see our <Link href="/infrastructure" className="text-accent hover:underline">Infrastructure page</Link></li>
