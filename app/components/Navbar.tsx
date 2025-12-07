@@ -6,6 +6,7 @@ import { ChevronDown, Menu, X } from 'lucide-react'
 import Image from "next/image"
 import { motion, AnimatePresence } from 'motion/react'
 import CurrencySelector from './CurrencySelector'
+import GamesModal from './GamesModal'
 
 type NavLink = {
     label: string
@@ -62,6 +63,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false)
     const [theme, setTheme] = useState<'light' | 'dark'>('dark')
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+    const [isGamesModalOpen, setIsGamesModalOpen] = useState<boolean>(false)
 
     const toggleDropdown = (menu: string) => {
         setActiveDropdown(activeDropdown === menu ? null : menu)
@@ -189,7 +191,16 @@ const Navbar = () => {
                     <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
                         {navigationConfig.map((navItem, index) => (
                             <div key={index} className="relative">
-                                {navItem.items ? (
+                                {navItem.label === 'GAMES' ? (
+                                    // Games modal trigger
+                                    <button
+                                        onClick={() => setIsGamesModalOpen(true)}
+                                        className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
+                                    >
+                                        <span className="font-medium">{navItem.label}</span>
+                                        <ChevronDown className="w-4 h-4" />
+                                    </button>
+                                ) : navItem.items ? (
                                     // Dropdown menu
                                     <>
                                         <button
@@ -449,7 +460,20 @@ const Navbar = () => {
                                 <nav className="space-y-2">
                                     {navigationConfig.map((navItem, index) => (
                                         <div key={index}>
-                                            {navItem.items ? (
+                                            {navItem.label === 'GAMES' ? (
+                                                <div className="border-b border-muted pb-2 mb-2">
+                                                    <button
+                                                        onClick={() => {
+                                                            setIsGamesModalOpen(true)
+                                                            closeMobileMenu()
+                                                        }}
+                                                        className="w-full flex items-center justify-between p-3 text-foreground hover:text-accent transition-colors"
+                                                    >
+                                                        <span className="font-semibold">{navItem.label}</span>
+                                                        <ChevronDown className="w-5 h-5" />
+                                                    </button>
+                                                </div>
+                                            ) : navItem.items ? (
                                                 <div className="border-b border-muted pb-2 mb-2">
                                                     <button
                                                         onClick={() => toggleDropdown(navItem.label)}
@@ -595,6 +619,9 @@ const Navbar = () => {
                     </>
                 )}
             </AnimatePresence>
+
+            {/* Games Modal */}
+            <GamesModal isOpen={isGamesModalOpen} onClose={() => setIsGamesModalOpen(false)} />
         </nav>
     )
 }
