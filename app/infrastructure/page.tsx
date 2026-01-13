@@ -345,7 +345,8 @@ export default function InfrastructurePage() {
                 </motion.div>
             </section>
 
-            <section id="storage-architecture" className="relative z-10 max-w-7xl mx-auto mb-16 sm:mb-24">
+            {/* Ceph Storage Architecture section - Hidden for now */}
+            {/* <section id="storage-architecture" className="relative z-10 max-w-7xl mx-auto mb-16 sm:mb-24">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -396,10 +397,10 @@ export default function InfrastructurePage() {
                         </motion.div>
                     ))}
                 </div>
-            </section>
+            </section> */}
 
-            
-            <section id="roadmap" className="relative z-10 max-w-7xl mx-auto mb-16">
+            {/* Future Roadmap section - Hidden for now */}
+            {/* <section id="roadmap" className="relative z-10 max-w-7xl mx-auto mb-16">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -463,7 +464,7 @@ export default function InfrastructurePage() {
                         </motion.div>
                     ))}
                 </div>
-            </section>
+            </section> */}
         </div>
         <Footer />
         </>

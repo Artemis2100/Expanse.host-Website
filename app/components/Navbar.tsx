@@ -141,10 +141,10 @@ const Navbar = () => {
                         <div className="container mx-auto flex items-center justify-center relative">
                             <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm md:text-base">
                                 <span className="font-semibold">
-                                    <span className="hidden sm:inline">Limited Time Offer: </span>Save 10% on Game Servers
+                                    <span className="hidden sm:inline">Limited Time Offer: </span>Save 15% off on Game Servers
                                 </span>
                                 <span className="bg-white/20 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs font-bold">
-                                    WELCOME
+                                    3UX37XLVPL
                                 </span>
                             </div>
                             <button
