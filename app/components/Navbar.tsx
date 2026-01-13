@@ -195,10 +195,9 @@ const Navbar = () => {
                                     // Games modal trigger
                                     <button
                                         onClick={() => setIsGamesModalOpen(true)}
-                                        className="flex items-center space-x-1 px-4 py-2 text-foreground hover:text-accent transition-colors"
+                                        className="flex items-center px-4 py-2 text-foreground hover:text-accent transition-colors"
                                     >
                                         <span className="font-medium">{navItem.label}</span>
-                                        <ChevronDown className="w-4 h-4" />
                                     </button>
                                 ) : navItem.items ? (
                                     // Dropdown menu
@@ -467,10 +466,9 @@ const Navbar = () => {
                                                             setIsGamesModalOpen(true)
                                                             closeMobileMenu()
                                                         }}
-                                                        className="w-full flex items-center justify-between p-3 text-foreground hover:text-accent transition-colors"
+                                                        className="w-full flex items-center p-3 text-foreground hover:text-accent transition-colors"
                                                     >
                                                         <span className="font-semibold">{navItem.label}</span>
-                                                        <ChevronDown className="w-5 h-5" />
                                                     </button>
                                                 </div>
                                             ) : navItem.items ? (

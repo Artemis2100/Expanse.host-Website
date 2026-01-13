@@ -23,8 +23,8 @@ const games = [
     name: 'Hytale',
     href: '/hytale',
     image: '/games/hytale.png',
-    description: 'Coming soon - Join waitlist',
-    price: 'TBA'
+    description: 'Premium server hosting',
+    price: 'From $8/month'
   }
 ]
 
