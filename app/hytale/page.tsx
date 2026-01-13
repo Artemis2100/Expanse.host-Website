@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
 import { Footer } from "../components/Footer";
-import HytaleWaitlistSection from "./HytaleWaitlistSection";
+import HytalePricingSection from "./HytalePricingSection";
 
 // Lazy load heavy components
 const ReviewsSection = dynamic(() => import("../components/ReviewsSection"), {
@@ -14,7 +14,7 @@ export default function HytalePage() {
   return (
     <div className="relative">
       <Navbar />
-      <HytaleWaitlistSection />
+      <HytalePricingSection />
       <ReviewsSection />
       <Footer />
     </div>

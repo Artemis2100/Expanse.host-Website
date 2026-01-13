@@ -45,7 +45,7 @@ export default function HytaleWaitlistSection() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url(/wallpapers/hytale.png)',
+          backgroundImage: 'url(/wallpapers/hytale.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

@@ -397,7 +397,7 @@ Thanks in advance!`;
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative w-full"
         >
-            <div className="group relative rounded-lg border border-muted hover:border-accent/50 transition-all duration-300 overflow-hidden bg-card/50 backdrop-blur-sm">
+            <div className="group relative rounded-lg border border-muted hover:border-accent/50 transition-all duration-300 bg-card/50 backdrop-blur-sm">
                 <Ripple />
                 <div className="relative z-10 p-4">
                     {/* Header - Compact */}
