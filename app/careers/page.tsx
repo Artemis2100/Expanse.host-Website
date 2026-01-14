@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -52,6 +53,170 @@ BenefitCard.displayName = 'BenefitCard';
 
 const JobCard = memo(({ role, index }: { role: any; index: number }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isExpanded) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+  }, [isExpanded]);
+
+  const handleClose = () => {
+    setIsExpanded(false);
+  };
+
+  const ModalContent = () => (
+    <AnimatePresence>
+      {isExpanded && role.details && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 dark:bg-black/95 z-[9999]"
+            onClick={handleClose}
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+          />
+          
+          {/* Modal */}
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            transition={{ type: 'spring', duration: 0.3 }}
+            className="fixed inset-0 z-[10000] flex items-center justify-center p-4 pointer-events-none"
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+          >
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl max-w-3xl w-full max-h-[90vh] relative shadow-2xl flex flex-col pointer-events-auto"
+            >
+              <button
+                onClick={handleClose}
+                className="absolute top-4 right-4 z-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                aria-label="Close"
+              >
+                <FiX className="w-6 h-6" />
+              </button>
+              
+              <div className="flex-1 overflow-y-auto p-8 pr-6 min-h-0 custom-scrollbar">
+                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                    {role.title}
+                  </h2>
+                  <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-3">
+                    <span className="flex items-center gap-1.5">
+                      <FiBriefcase className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      <span className="font-medium">{role.department}</span>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <FiMapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      <span className="font-medium">{role.location}</span>
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                    {role.type}
+                  </p>
+                </div>
+
+                {role.details.overview && (
+                  <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Overview</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {role.details.overview}
+                    </p>
+                  </div>
+                )}
+
+                {role.details.whatYoullBuild && role.details.whatYoullBuild.length > 0 && (
+                  <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">What You'll Build</h3>
+                    <ul className="space-y-3">
+                      {role.details.whatYoullBuild.map((item: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                          <span className="text-blue-600 dark:text-blue-400 mt-1 font-bold">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {role.details.requirements && role.details.requirements.length > 0 && (
+                  <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">What We're Looking For</h3>
+                    <ul className="space-y-3">
+                      {role.details.requirements.map((requirement: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                          <span className="text-blue-600 dark:text-blue-400 mt-1 font-bold">•</span>
+                          <span>{requirement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {role.details.compensation && (
+                  <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Compensation</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {role.details.compensation}
+                    </p>
+                  </div>
+                )}
+
+                {role.details.platforms && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Platforms</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {role.details.platforms}
+                    </p>
+                  </div>
+                )}
+              </div>
+              
+              <div className="flex gap-4 px-8 pb-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 bg-white dark:bg-gray-900">
+                <a
+                  href={role.details.applyLink}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg flex items-center gap-2"
+                >
+                  Apply Now
+                  <FiArrowRight className="w-4 h-4" />
+                </a>
+                <button
+                  onClick={handleClose}
+                  className="px-6 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
 
   return (
     <>
@@ -107,133 +272,10 @@ const JobCard = memo(({ role, index }: { role: any; index: number }) => {
         </div>
       </motion.div>
 
-      <AnimatePresence>
-        {isExpanded && role.details && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 dark:bg-black/95 z-[100] flex items-start justify-center pb-4 px-4 overflow-y-auto"
-            style={{ minHeight: '100vh', paddingTop: '180px' }}
-            onClick={() => setIsExpanded(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl max-w-3xl w-full mb-8 relative shadow-2xl flex flex-col"
-              style={{ 
-                maxHeight: 'calc(100vh - 11rem)',
-                height: 'auto'
-              }}
-            >
-              <button
-                onClick={() => setIsExpanded(false)}
-                className="absolute top-4 right-4 z-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
-                aria-label="Close"
-              >
-                <FiX className="w-6 h-6" />
-              </button>
-              
-              <div 
-                className="flex-1 overflow-y-auto p-8 pr-6 min-h-0 custom-scrollbar"
-              >
-
-              <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                  {role.title}
-                </h2>
-                <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-3">
-                  <span className="flex items-center gap-1.5">
-                    <FiBriefcase className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    <span className="font-medium">{role.department}</span>
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <FiMapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    <span className="font-medium">{role.location}</span>
-                  </span>
-                </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-                  {role.type}
-                </p>
-              </div>
-
-              {role.details.overview && (
-                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Overview</h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {role.details.overview}
-                  </p>
-                </div>
-              )}
-
-              {role.details.whatYoullBuild && role.details.whatYoullBuild.length > 0 && (
-                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">What You'll Build</h3>
-                  <ul className="space-y-3">
-                    {role.details.whatYoullBuild.map((item: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                        <span className="text-blue-600 dark:text-blue-400 mt-1 font-bold">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {role.details.requirements && role.details.requirements.length > 0 && (
-                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">What We're Looking For</h3>
-                  <ul className="space-y-3">
-                    {role.details.requirements.map((requirement: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                        <span className="text-blue-600 dark:text-blue-400 mt-1 font-bold">•</span>
-                        <span>{requirement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {role.details.compensation && (
-                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Compensation</h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {role.details.compensation}
-                  </p>
-                </div>
-              )}
-
-              {role.details.platforms && (
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Platforms</h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {role.details.platforms}
-                  </p>
-                </div>
-              )}
-
-              </div>
-              <div className="flex gap-4 px-8 pb-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 bg-white dark:bg-gray-900">
-                <a
-                  href={role.details.applyLink}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg flex items-center gap-2"
-                >
-                  Apply Now
-                  <FiArrowRight className="w-4 h-4" />
-                </a>
-                <button
-                  onClick={() => setIsExpanded(false)}
-                  className="px-6 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                >
-                  Close
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mounted && typeof window !== 'undefined' && createPortal(
+        <ModalContent />,
+        document.body
+      )}
     </>
   );
 });
@@ -242,6 +284,11 @@ JobCard.displayName = 'JobCard';
 
 const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Determine the image path based on member name
   const getImagePath = (name: string) => {
@@ -250,6 +297,101 @@ const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
     if (firstName === 'shaun') return '/pfp/shaun.png';
     return '/pfp/unknown.png';
   };
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isExpanded) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+  }, [isExpanded]);
+
+  const handleClose = () => {
+    setIsExpanded(false);
+  };
+
+  const ModalContent = () => (
+    <AnimatePresence>
+      {isExpanded && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 dark:bg-black/95 z-[9999]"
+            onClick={handleClose}
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+          />
+          
+          {/* Modal */}
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            transition={{ type: 'spring', duration: 0.3 }}
+            className="fixed inset-0 z-[10000] flex items-center justify-center p-4 pointer-events-none"
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+          >
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-2xl pointer-events-auto custom-scrollbar"
+            >
+              <button
+                onClick={handleClose}
+                className="absolute top-4 right-4 z-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                aria-label="Close"
+              >
+                <FiX className="w-6 h-6" />
+              </button>
+
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-200 dark:border-gray-700">
+                  <Image
+                    src={getImagePath(member.name)}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    {member.name}
+                  </h3>
+                  <p className="text-base text-blue-600 dark:text-blue-400">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                {member.description}
+              </p>
+
+              <button
+                onClick={handleClose}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
 
   return (
     <motion.div
@@ -296,61 +438,17 @@ const TeamMember = memo(({ member, index }: { member: any; index: number }) => {
 
         
         <button
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={() => setIsExpanded(true)}
           className="mt-4 text-accent text-sm font-medium hover:underline flex items-center gap-2 transition-all"
         >
-          {isExpanded ? 'Show Less' : 'Read More'}
-          <FiArrowRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+          Read More
+          <FiArrowRight className="w-4 h-4" />
         </button>
       </div>
 
-      
-      {isExpanded && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-white/50 dark:bg-black/50 backdrop-blur-xl z-50 flex items-center justify-center p-4"
-          onClick={() => setIsExpanded(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            onClick={(e) => e.stopPropagation()}
-            className=" border border-muted rounded p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-muted">
-                <Image
-                  src={getImagePath(member.name)}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  {member.name}
-                </h3>
-                <p className="text-base text-accent">
-                  {member.role}
-                </p>
-              </div>
-            </div>
-
-            <p className="text-base text-muted leading-relaxed mb-6">
-              {member.description}
-            </p>
-
-            <button
-              onClick={() => setIsExpanded(false)}
-              className="px-4 py-2 bg-button text-white rounded hover:bg-accent/80 transition-colors"
-            >
-              Close
-            </button>
-          </motion.div>
-        </motion.div>
+      {mounted && typeof window !== 'undefined' && createPortal(
+        <ModalContent />,
+        document.body
       )}
     </motion.div>
   );
