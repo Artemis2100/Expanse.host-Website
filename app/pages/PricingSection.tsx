@@ -50,6 +50,12 @@ const PricingSection = () => {
             description: 'Join the waitlist for enterprise-grade Hytale server hosting. High performance, DDoS protection, and instant setup.',
             icon: <FaGamepad className="w-12 h-12 text-accent" />,
             href: '/hytale'
+        },
+        {
+            title: 'Discord Bot Hosting',
+            description: 'Host your Discord bots with high-performance servers, multiple language support, and instant deployment.',
+            icon: <FaDiscord className="w-12 h-12 text-accent" />,
+            href: '/discord-bot'
         }
     ]
 

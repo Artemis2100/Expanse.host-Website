@@ -125,11 +125,11 @@ export default function NotFound() {
                             </Link>
                             
                             <Link
-                                href="/contact"
+                                href="/discord-bot"
                                 className="p-4 bg-card/50 border border-muted hover:border-accent rounded-lg transition-all group"
                             >
                                 <div className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
-                                    Contact
+                                    Discord Bot
                                 </div>
                             </Link>
                         </motion.div>

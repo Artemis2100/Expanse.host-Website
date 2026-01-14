@@ -12,6 +12,7 @@ export const Footer = () => {
       { label: 'VPS Hosting', href: '/vps', icon: <FaServer className="w-4 h-4" /> },
       { label: 'Dedicated Servers', href: '/dedicated', icon: <FaDatabase className="w-4 h-4" /> },
       { label: 'Web Hosting', href: '/webhosting', icon: <FaGlobe className="w-4 h-4" /> },
+      { label: 'Discord Bot Hosting', href: '/discord-bot', icon: <FaDiscord className="w-4 h-4" /> },
       { label: 'Domain Registration', href: '/domains', icon: <FaTag className="w-4 h-4" /> },
       { label: 'Colocation', href: '/colocation', icon: <FaServer className="w-4 h-4" /> },
     ],

@@ -10,8 +10,9 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import {
   FiZap, FiGlobe, FiClock, FiTrendingUp,
   FiUsers, FiCpu, FiBookOpen, FiTarget,
-  FiArrowRight, FiMapPin, FiBriefcase
+  FiArrowRight, FiMapPin, FiBriefcase, FiX
 } from "react-icons/fi";
+import { AnimatePresence } from "motion/react";
 import careersData from "../json/careers.json";
 
 const iconMap: { [key: string]: React.ReactElement } = {
@@ -49,56 +50,193 @@ const BenefitCard = memo(({ benefit, index }: { benefit: any; index: number }) =
 
 BenefitCard.displayName = 'BenefitCard';
 
-const JobCard = memo(({ role, index }: { role: any; index: number }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="relative group"
-  >
-    <div className="p-6 border border-muted bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-all duration-300 h-full">
-      <div className="flex flex-wrap gap-2 mb-4">
-        {role.tags.map((tag: string, idx: number) => (
-          <span
-            key={idx}
-            className="px-3 py-1 text-xs font-medium bg-card text-accent rounded-md border border-muted"
+const JobCard = memo(({ role, index }: { role: any; index: number }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="relative group"
+      >
+        <div className="p-6 border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 h-full rounded-lg shadow-sm hover:shadow-md">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {role.tags.map((tag: string, idx: number) => (
+              <span
+                key={idx}
+                className="px-3 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md border border-blue-200 dark:border-blue-800"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            {role.title}
+          </h3>
+
+          <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-4">
+            <span className="flex items-center gap-1.5">
+              <FiBriefcase className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="font-medium">{role.department}</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <FiMapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="font-medium">{role.location}</span>
+            </span>
+          </div>
+
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">
+            {role.type}
+          </p>
+
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            {role.description}
+          </p>
+
+          <button 
+            onClick={() => setIsExpanded(true)}
+            className="text-blue-600 dark:text-blue-400 text-sm font-semibold hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-2 group-hover:gap-3 transition-all"
           >
-            {tag}
-          </span>
-        ))}
-      </div>
+            View Details
+            <FiArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </motion.div>
 
-      <h3 className="text-xl font-bold text-foreground mb-2">
-        {role.title}
-      </h3>
+      <AnimatePresence>
+        {isExpanded && role.details && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 dark:bg-black/95 z-[100] flex items-start justify-center pb-4 px-4 overflow-y-auto"
+            style={{ minHeight: '100vh', paddingTop: '180px' }}
+            onClick={() => setIsExpanded(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl max-w-3xl w-full mb-8 relative shadow-2xl flex flex-col"
+              style={{ 
+                maxHeight: 'calc(100vh - 11rem)',
+                height: 'auto'
+              }}
+            >
+              <button
+                onClick={() => setIsExpanded(false)}
+                className="absolute top-4 right-4 z-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                aria-label="Close"
+              >
+                <FiX className="w-6 h-6" />
+              </button>
+              
+              <div 
+                className="flex-1 overflow-y-auto p-8 pr-6 min-h-0 custom-scrollbar"
+              >
 
-      <div className="flex flex-wrap gap-4 text-sm text-muted mb-4">
-        <span className="flex items-center gap-1">
-          <FiBriefcase className="w-4 h-4" />
-          {role.department}
-        </span>
-        <span className="flex items-center gap-1">
-          <FiMapPin className="w-4 h-4" />
-          {role.location}
-        </span>
-      </div>
+              <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                  {role.title}
+                </h2>
+                <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <span className="flex items-center gap-1.5">
+                    <FiBriefcase className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    <span className="font-medium">{role.department}</span>
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <FiMapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    <span className="font-medium">{role.location}</span>
+                  </span>
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                  {role.type}
+                </p>
+              </div>
 
-      <p className="text-sm text-muted mb-4">
-        {role.type}
-      </p>
+              {role.details.overview && (
+                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Overview</h3>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {role.details.overview}
+                  </p>
+                </div>
+              )}
 
-      <p className="text-sm text-muted leading-relaxed mb-4">
-        {role.description}
-      </p>
+              {role.details.whatYoullBuild && role.details.whatYoullBuild.length > 0 && (
+                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">What You'll Build</h3>
+                  <ul className="space-y-3">
+                    {role.details.whatYoullBuild.map((item: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                        <span className="text-blue-600 dark:text-blue-400 mt-1 font-bold">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-      <button className="text-accent text-sm font-medium hover:underline flex items-center gap-2 group-hover:gap-3 transition-all">
-        View Details
-        <FiArrowRight className="w-4 h-4" />
-      </button>
-    </div>
-  </motion.div>
-));
+              {role.details.requirements && role.details.requirements.length > 0 && (
+                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">What We're Looking For</h3>
+                  <ul className="space-y-3">
+                    {role.details.requirements.map((requirement: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                        <span className="text-blue-600 dark:text-blue-400 mt-1 font-bold">•</span>
+                        <span>{requirement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {role.details.compensation && (
+                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Compensation</h3>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {role.details.compensation}
+                  </p>
+                </div>
+              )}
+
+              {role.details.platforms && (
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Platforms</h3>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {role.details.platforms}
+                  </p>
+                </div>
+              )}
+
+              </div>
+              <div className="flex gap-4 px-8 pb-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 bg-white dark:bg-gray-900">
+                <a
+                  href={role.details.applyLink}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg flex items-center gap-2"
+                >
+                  Apply Now
+                  <FiArrowRight className="w-4 h-4" />
+                </a>
+                <button
+                  onClick={() => setIsExpanded(false)}
+                  className="px-6 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+});
 
 JobCard.displayName = 'JobCard';
 

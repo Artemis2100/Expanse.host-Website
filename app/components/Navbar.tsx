@@ -26,6 +26,7 @@ const navigationConfig: NavLink[] = [
         items: [
             { label: 'VPS Hosting', href: '/vps', description: 'Virtual private servers' },
             { label: 'Web Hosting', href: '/webhosting', description: 'Shared & WordPress hosting' },
+            { label: 'Discord Bot Hosting', href: '/discord-bot', description: 'Host your Discord bots' },
             { label: 'Domains', href: '/domains', description: 'Domain registration' },
         ]
     },

@@ -54,6 +54,34 @@
     "title": "Open Roles",
     "subtitle": "Join our team of explorers and help us build the future of hosting. We're looking for passionate individuals who share our vision and values.",
     "roles": [
+      {
+        "title": "Plugin Developer (Ecosystem)",
+        "department": "Builders & Engineers",
+        "location": "Remote",
+        "type": "Long-term collaboration > short-term contracts",
+        "tags": ["Remote", "Project-based", "Development"],
+        "description": "Build plugins and tools for Expanse's ecosystem. Project-based collaboration with revenue share and milestone payments. Work on Minecraft plugins, experimental Hytale integrations, and internal tooling.",
+        "details": {
+          "overview": "This is a project-based ecosystem role, not a traditional payroll position. You'll collaborate with us on plugins, tools, and integrations that enhance Expanse's hosting platform. Each project is opt-in, and we prioritize long-term partnerships over one-off contracts.",
+          "whatYoullBuild": [
+            "Minecraft server plugins and mods for our hosting platform",
+            "Experimental integrations for Hytale (when available)",
+            "Internal tooling and automation systems",
+            "Developer tools and APIs that improve the platform experience",
+            "Open-source contributions that benefit the broader community"
+          ],
+          "requirements": [
+            "Show us what you've built — portfolio, GitHub, or live projects matter more than credentials",
+            "Experience with plugin development (Minecraft, Bukkit/Spigot/Paper, or similar)",
+            "Ability to write clean, documented code that others can maintain",
+            "Comfortable working independently and shipping on time",
+            "Open to feedback and iteration based on user needs"
+          ],
+          "compensation": "Project-based compensation with flexible models: revenue share on successful plugins, milestone payments for development phases, or hybrid arrangements. We're open to discussing what works best for each project and contributor.",
+          "platforms": "Primary focus on Minecraft plugins and server tools. Experimental work on Hytale integrations as the platform develops. Opportunities to build internal tooling and developer-facing APIs.",
+          "applyLink": "mailto:careers@expanse.host?subject=Application: Plugin Developer (Ecosystem)"
+        }
+      }
     ]
   },
   "team": {
