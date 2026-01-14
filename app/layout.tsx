@@ -45,24 +45,15 @@ export const metadata: Metadata = {
       "Expanse Host — High‑Performance Minecraft, VPS and Dedicated Hosting",
     description:
       "Premium Minecraft, VPS, and dedicated hosting with enterprise DDoS protection, latest-gen hardware, and global presence.",
-    images: [
-      {
-        url: "/og/expanse-og.png",
-        width: 1200,
-        height: 630,
-        alt: "Expanse Host",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     site: "@ExpanseHost",
     creator: "@ExpanseHost",
     title:
       "Expanse Host — High‑Performance Minecraft, VPS and Dedicated Hosting",
     description:
       "Premium Minecraft, VPS, and dedicated hosting with enterprise DDoS protection, latest-gen hardware, and global presence.",
-    images: ["/og/expanse-og.png"],
   },
   icons: {
     icon: "/favicon.ico",
