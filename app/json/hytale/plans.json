@@ -1,16 +1,16 @@
 [
   {
-    "name": "4GB Ram",
+    "name": "6GB Ram",
     "icon": "creeper",
-    "price": "$8.00",
-    "firstMonthPrice": "$6.8",
+    "price": "$12.00",
+    "firstMonthPrice": "$10.2",
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-4gb",
+    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-6gb",
     "features": [
-      { "icon": "ram", "text": "4GB RAM" },
-      { "icon": "players", "text": "6+ players" },
+      { "icon": "ram", "text": "6GB RAM" },
+      { "icon": "players", "text": "8+ players" },
       { "icon": "cpu", "text": "2 CPU Threads" },
       { "icon": "cpuModel", "text": "Ryzen 9950X" },
       { "icon": "storage", "text": "50GB NVMe Storage" }
@@ -159,6 +159,29 @@
     "bgColor": "bg-cyan-500",
     "hoverBgColor": "hover:bg-cyan-600",
     "glowColor": "6, 182, 212"
+  },
+  {
+    "name": "48GB Ram",
+    "icon": "creeper",
+    "price": "$96.00",
+    "firstMonthPrice": "$81.6",
+    "period": "/month",
+    "promoCode": "3UX37XLVPL",
+    "promoDiscount": "15% First Month Discount",
+    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-48gb",
+    "features": [
+      { "icon": "ram", "text": "48GB RAM" },
+      { "icon": "players", "text": "150+ players" },
+      { "icon": "cpu", "text": "10 CPU Threads" },
+      { "icon": "cpuModel", "text": "Ryzen 9950X" },
+      { "icon": "storage", "text": "500GB NVMe Storage" }
+    ],
+    "highlighted": false,
+    "color": "text-emerald-500",
+    "borderColor": "border-emerald-500",
+    "bgColor": "bg-emerald-500",
+    "hoverBgColor": "hover:bg-emerald-600",
+    "glowColor": "16, 185, 129"
   },
   {
     "name": "64GB Ram",

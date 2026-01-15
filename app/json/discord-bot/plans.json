@@ -10,8 +10,8 @@
     "orderLink": "https://my.expanse.host/index.php/store/discord-bot/dbot-basic",
     "features": [
       { "icon": "cpu", "text": "50% CPU (Ryzen 9 9950x)" },
-      { "icon": "ram", "text": "512MB RAM" },
-      { "icon": "storage", "text": "5GB SSD Storage" },
+      { "icon": "ram", "text": "512MBDDR5 RAM" },
+      { "icon": "storage", "text": "5GB NVMe Storage" },
       { "icon": "shield", "text": "Unmanaged - Basic Support" },
       { "icon": "backup", "text": "Free Low Traffic IP", "included": false }
     ],
@@ -33,8 +33,8 @@
     "orderLink": "https://my.expanse.host/index.php/store/discord-bot/dbot-advanced",
     "features": [
       { "icon": "cpu", "text": "75% CPU (Ryzen 9 9950x)" },
-      { "icon": "ram", "text": "1GB RAM" },
-      { "icon": "storage", "text": "15GB SSD Storage" },
+      { "icon": "ram", "text": "1GBDDR5 RAM" },
+      { "icon": "storage", "text": "15GB NVMe Storage" },
       { "icon": "shield", "text": "Unmanaged - Basic Support" },
       { "icon": "backup", "text": "Free Low Traffic IP", "included": false }
     ],
@@ -56,8 +56,8 @@
     "orderLink": "https://my.expanse.host/index.php/store/discord-bot/dbot-advanced-plus",
     "features": [
       { "icon": "cpu", "text": "100% CPU (Ryzen 9 9950x)" },
-      { "icon": "ram", "text": "3GB RAM" },
-      { "icon": "storage", "text": "40GB SSD Storage" },
+      { "icon": "ram", "text": "3GBDDR5 RAM" },
+      { "icon": "storage", "text": "40GB NVMe Storage" },
       { "icon": "shield", "text": "Unmanaged - Basic Support" },
       { "icon": "backup", "text": "Free Low Traffic IP", "included": false }
     ],
@@ -79,8 +79,8 @@
     "orderLink": "https://my.expanse.host/index.php/store/discord-bot/dbot-ultimate",
     "features": [
       { "icon": "cpu", "text": "300% CPU (Ryzen 9 9950x)" },
-      { "icon": "ram", "text": "7GB RAM" },
-      { "icon": "storage", "text": "100GB SSD Storage" },
+      { "icon": "ram", "text": "7GBDDR5 RAM" },
+      { "icon": "storage", "text": "100GB NVMe Storage" },
       { "icon": "shield", "text": "Unmanaged - Basic Support" },
       { "icon": "backup", "text": "Free Low Traffic IP", "included": true }
     ],

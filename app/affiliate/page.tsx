@@ -29,73 +29,95 @@ const iconMap: { [key: string]: React.ReactElement } = {
     dollar: <FiDollarSign className="w-6 h-6" />
 };
 
-const StatCard = memo(({ stat, index }: { stat: any; index: number }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="text-center"
-    >
-        <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-accent mb-2">
-            {stat.value}
-        </div>
-        <div className="text-sm sm:text-base text-muted">
-            {stat.label}
-        </div>
-    </motion.div>
-));
+const StatCard = memo(({ stat, index }: { stat: any; index: number }) => {
+    // Use green for earnings-related stats
+    const isEarning = stat.label.toLowerCase().includes('income') || stat.label.toLowerCase().includes('earnings');
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="text-center"
+        >
+            <div className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-2 ${
+                isEarning ? 'text-green-500 dark:text-green-400' : 'text-accent'
+            }`}>
+                {stat.value}
+            </div>
+            <div className="text-sm sm:text-base text-muted">
+                {stat.label}
+            </div>
+        </motion.div>
+    );
+});
 
 StatCard.displayName = 'StatCard';
 
-const BenefitCard = memo(({ benefit, index }: { benefit: any; index: number }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="relative group"
-    >
-        <div className="relative h-full p-6 border border-muted rounded-lg bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-all duration-300 text-center">
-            <Ripple />
-            <div className="relative z-10">
-                <div className="inline-flex items-center bg-button justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)] mx-auto">
-                    {iconMap[benefit.icon]}
+const BenefitCard = memo(({ benefit, index }: { benefit: any; index: number }) => {
+    // Make all benefit cards blue
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative group"
+        >
+            <div className="relative h-full p-6 border border-blue-500/30 dark:border-blue-400/30 hover:border-blue-500/50 dark:hover:border-blue-400/50 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 text-center">
+                <Ripple />
+                <div className="relative z-10">
+                    <div className="inline-flex items-center justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)] mx-auto bg-blue-500 dark:bg-blue-600">
+                        {iconMap[benefit.icon]}
+                    </div>
+                    <h3 className="text-lg font-bold tracking-wide text-blue-600 dark:text-blue-400">
+                        {benefit.title}
+                    </h3>
                 </div>
-                <h3 className="text-lg font-bold text-foreground tracking-wide">
-                    {benefit.title}
-                </h3>
             </div>
-        </div>
-    </motion.div>
-));
+        </motion.div>
+    );
+});
 
 BenefitCard.displayName = 'BenefitCard';
 
-const EarningsCard = memo(({ point, index }: { point: any; index: number }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="relative group"
-    >
-        <div className="relative h-full p-8 border border-muted rounded-lg bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-all duration-300 text-center">
-            <Ripple />
-            <div className="relative z-10">
-                <div className="text-5xl font-bold text-accent mb-3">
-                    {point.value}
+const EarningsCard = memo(({ point, index }: { point: any; index: number }) => {
+    // Keep payout section blue
+    const isCommission = point.label.toLowerCase().includes('commission');
+    
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative group"
+        >
+            <div className="relative h-full p-8 border border-blue-500/30 dark:border-blue-400/30 hover:border-blue-500/50 dark:hover:border-blue-400/50 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 text-center">
+                <Ripple />
+                <div className="relative z-10">
+                    <div className={`text-5xl font-bold mb-3 ${
+                        isCommission
+                            ? 'text-green-500 dark:text-green-400'
+                            : 'text-blue-500 dark:text-blue-400'
+                    }`}>
+                        {point.value}
+                    </div>
+                    <h3 className={`text-xl font-bold mb-3 ${
+                        isCommission
+                            ? 'text-green-600 dark:text-green-400'
+                            : 'text-blue-600 dark:text-blue-400'
+                    }`}>
+                        {point.label}
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                        {point.description}
+                    </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                    {point.label}
-                </h3>
-                <p className="text-sm text-muted leading-relaxed">
-                    {point.description}
-                </p>
             </div>
-        </div>
-    </motion.div>
-));
+        </motion.div>
+    );
+});
 
 EarningsCard.displayName = 'EarningsCard';
 
@@ -107,13 +129,13 @@ const TipCard = memo(({ tip, index }: { tip: any; index: number }) => (
         transition={{ duration: 0.5, delay: index * 0.1 }}
         className="relative group"
     >
-        <div className="relative h-full p-6 border border-muted rounded-lg bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-all duration-300">
+        <div className="relative h-full p-6 border border-green-500/20 dark:border-green-400/20 rounded-lg bg-card/50 backdrop-blur-sm hover:border-green-500/40 dark:hover:border-green-400/40 transition-all duration-300">
             <Ripple />
             <div className="relative z-10">
-                <div className="inline-flex items-center bg-button justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)]">
+                <div className="inline-flex items-center bg-green-500 dark:bg-green-600 justify-center text-primary-foreground w-16 h-16 mb-4 rounded-sm shadow-[inset_2px_2px_6px_rgba(0,0,0,0.15)] dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6)]">
                     {iconMap[tip.icon]}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 tracking-wide">
+                <h3 className="text-xl font-bold text-green-600 dark:text-green-400 mb-3 tracking-wide">
                     {tip.title}
                 </h3>
                 <p className="text-sm text-muted leading-relaxed">
@@ -134,8 +156,10 @@ const StepCard = memo(({ step, index }: { step: any; index: number }) => (
         transition={{ duration: 0.5, delay: index * 0.15 }}
         className="text-center"
     >
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 mb-4">
-            {iconMap[step.icon]}
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 dark:bg-green-400/10 mb-4 border-2 border-green-500/20 dark:border-green-400/20">
+            <div className="text-green-500 dark:text-green-400">
+                {iconMap[step.icon]}
+            </div>
         </div>
         <h3 className="text-lg font-semibold text-foreground">
             {step.title}
@@ -167,11 +191,11 @@ export default function AffiliatePage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <p className="text-sm sm:text-base text-accent font-semibold mb-4">
+                        <p className="text-sm sm:text-base text-green-500 dark:text-green-400 font-semibold mb-4">
                             {affiliateData.hero.tagline}
                         </p>
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                            {affiliateData.hero.title}
+                            Cover your <span className="text-green-500 dark:text-green-400">hosting costs</span>, and a whole lot more.
                         </h1>
                         <p className="text-base sm:text-lg text-muted max-w-3xl mx-auto mb-8">
                             {affiliateData.hero.description}
@@ -183,7 +207,7 @@ export default function AffiliatePage() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-accent/90 text-white rounded-lg font-semibold transition-all text-lg"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white rounded-lg font-semibold transition-all text-lg shadow-lg"
                             >
                                 <FiUserPlus className="w-5 h-5" />
                                 {affiliateData.hero.ctaPrimary}
@@ -225,7 +249,7 @@ export default function AffiliatePage() {
                         className="mb-20"
                     >
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 text-center">
-                            Exclusive Affiliate <span className="text-accent">Benefits</span>
+                            Exclusive Affiliate <span className="text-green-500 dark:text-green-400">Benefits</span>
                         </h2>
                         <p className="text-sm sm:text-base text-muted text-center mb-12 max-w-2xl mx-auto">
                             With everything you need to maximize your income.
@@ -247,7 +271,7 @@ export default function AffiliatePage() {
                         className="mb-20"
                     >
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                            {affiliateData.earnings.title}
+                            How much can I <span className="text-green-500 dark:text-green-400">earn?</span>
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                             {affiliateData.earnings.points.map((point, index) => (
@@ -283,7 +307,7 @@ export default function AffiliatePage() {
                         className="mb-20"
                     >
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                            {affiliateData.tips.title}
+                            <span className="text-green-500 dark:text-green-400">Tips</span> to Succeed in The Expanse Host Affiliate Program
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {affiliateData.tips.items.map((tip, index) => (
@@ -302,7 +326,7 @@ export default function AffiliatePage() {
                         className="mb-16"
                     >
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                            {affiliateData.gettingStarted.title}
+                            Getting started is <span className="text-green-500 dark:text-green-400">easy</span>.
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                             {affiliateData.gettingStarted.steps.map((step, index) => (
@@ -316,7 +340,7 @@ export default function AffiliatePage() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent/90 text-white rounded-lg font-semibold transition-all text-lg"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white rounded-lg font-semibold transition-all text-lg shadow-lg"
                             >
                                 {affiliateData.gettingStarted.cta}
                                 <FiArrowRight className="w-5 h-5" />
