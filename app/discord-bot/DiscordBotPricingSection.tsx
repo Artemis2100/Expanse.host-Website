@@ -59,9 +59,9 @@ type BillingCycle = 'monthly' | 'quarterly' | 'semi-annually' | 'annually';
 
 const billingCycles = [
   { value: 'monthly' as BillingCycle, label: 'Monthly', discount: 0 },
-  { value: 'quarterly' as BillingCycle, label: 'Quarterly', discount: 5 },
-  { value: 'semi-annually' as BillingCycle, label: 'Semi-annually', discount: 12 },
-  { value: 'annually' as BillingCycle, label: 'Annually', discount: 20 },
+  { value: 'quarterly' as BillingCycle, label: 'Quarterly', discount: 0 },
+  { value: 'semi-annually' as BillingCycle, label: 'Semi-annually', discount: 5 },
+  { value: 'annually' as BillingCycle, label: 'Annually', discount: 10 },
 ];
 
 export default function DiscordBotPricingSection() {
@@ -92,7 +92,45 @@ export default function DiscordBotPricingSection() {
     window.open(plan.orderLink, '_blank', 'noopener,noreferrer');
   };
 
-  const calculatePrice = (basePrice: string, cycle: BillingCycle): { price: number; displayPrice: string; period: string } => {
+  const calculatePrice = (basePrice: string, cycle: BillingCycle, planName: string): { price: number; displayPrice: string; period: string } => {
+    // Basic plan always uses quarterly pricing
+    const isBasicPlan = planName.toLowerCase() === 'basic';
+    
+    if (isBasicPlan) {
+      // Basic plan: $3 is the quarterly base price
+      const quarterlyBase = 3.00;
+      const effectiveCycle = cycle === 'monthly' ? 'quarterly' : cycle;
+      const selectedCycle = billingCycles.find(c => c.value === effectiveCycle)!;
+      const discountMultiplier = 1 - (selectedCycle.discount / 100);
+      
+      let multiplier = 1;
+      let period = '/quarter';
+      
+      switch (effectiveCycle) {
+        case 'quarterly':
+          multiplier = 1;
+          period = '/quarter';
+          break;
+        case 'semi-annually':
+          multiplier = 2; // 2 quarters
+          period = '/6 months';
+          break;
+        case 'annually':
+          multiplier = 4; // 4 quarters
+          period = '/year';
+          break;
+        default:
+          multiplier = 1;
+          period = '/quarter';
+      }
+      
+      const totalPrice = quarterlyBase * multiplier * discountMultiplier;
+      const displayPrice = `$${totalPrice.toFixed(2)}`;
+      
+      return { price: totalPrice, displayPrice, period };
+    }
+    
+    // Other plans use normal calculation
     const priceNum = parseFloat(basePrice.replace('$', ''));
     const selectedCycle = billingCycles.find(c => c.value === cycle)!;
     const discountMultiplier = 1 - (selectedCycle.discount / 100);
@@ -257,7 +295,9 @@ export default function DiscordBotPricingSection() {
                 {/* Pricing Section */}
                 <div className="text-center mb-3">
                   {(() => {
-                    const calculated = calculatePrice(tier.price, billingCycle);
+                    const isBasicPlan = tier.name.toLowerCase() === 'basic';
+                    const calculated = calculatePrice(tier.price, billingCycle, tier.name);
+                    const effectiveCycle = isBasicPlan ? 'quarterly' : billingCycle;
                     return (
                       <div className="flex flex-col items-center gap-1">
                         <div className="flex items-baseline justify-center gap-1">
@@ -266,9 +306,14 @@ export default function DiscordBotPricingSection() {
                           </span>
                           <span className="text-sm text-gray-600 dark:text-gray-400">{calculated.period}</span>
                         </div>
-                        {billingCycle !== 'monthly' && (
+                        {isBasicPlan && (
                           <p className="text-xs text-gray-500 dark:text-gray-400">
-                            Billed {billingCycle === 'quarterly' ? 'quarterly' : billingCycle === 'semi-annually' ? 'semi-annually' : 'annually'}
+                            Quarterly billing only
+                          </p>
+                        )}
+                        {!isBasicPlan && effectiveCycle !== 'monthly' && (
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            Billed {effectiveCycle === 'quarterly' ? 'quarterly' : effectiveCycle === 'semi-annually' ? 'semi-annually' : 'annually'}
                           </p>
                         )}
                       </div>

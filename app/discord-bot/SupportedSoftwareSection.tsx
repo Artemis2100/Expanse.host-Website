@@ -6,6 +6,7 @@ import Image from 'next/image';
 const supportedSoftware = [
   { name: 'Python', logo: '/software/discord-bot/python.png' },
   { name: 'Java', logo: '/software/discord-bot/java.png' },
+  { name: 'Rust', logo: '/software/discord-bot/rust.png' },
   { name: 'Lua', logo: '/software/discord-bot/lua.png', comingSoon: true },
   { name: 'Bun', logo: '/software/discord-bot/bun.png' },
   { name: 'Discord.js', logo: '/software/discord-bot/discordjs.png' },
@@ -25,7 +26,7 @@ export default function SupportedSoftwareSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
           {supportedSoftware.map((software, index) => (
             <div
               key={index}
@@ -44,8 +45,10 @@ export default function SupportedSoftwareSection() {
                 <Image
                   src={software.logo}
                   alt={software.name}
-                  fill
-                  className="object-contain"
+                  width={64}
+                  height={64}
+                  className="object-contain max-w-full max-h-full"
+                  style={{ width: '64px', height: '64px', objectFit: 'contain' }}
                   onError={(e) => {
                     // Hide image if it doesn't exist
                     e.currentTarget.style.display = 'none';
