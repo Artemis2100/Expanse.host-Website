@@ -21,6 +21,24 @@ const nextConfig: NextConfig = {
   // Optimize production builds
   productionBrowserSourceMaps: false,
   // Note: swcMinify is enabled by default in Next.js 15, no need to specify
+  // Security headers to prevent clickjacking
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self'",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
