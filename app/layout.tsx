@@ -5,7 +5,6 @@ import Chatwoot from "./components/Chatwoot";
 import ScrollToTop from "./components/ScrollToTop";
 import ServiceWorker from "./components/ServiceWorker";
 import PreconnectLinks from "./components/PreconnectLinks";
-import PlausibleAnalytics from "./components/PlausibleAnalytics";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import Script from "next/script";
 
@@ -81,7 +80,6 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased overflow-x-hidden`}
       >
-        <PlausibleAnalytics />
         <PreconnectLinks />
         <ServiceWorker />
         <CurrencyProvider>
@@ -104,6 +102,18 @@ export default function RootLayout({
             });
           `}
         </Script>
+        {/* Plausible Analytics */}
+        <Script
+          id="plausible-queue"
+          strategy="beforeInteractive"
+        >
+          {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+        </Script>
+        <Script
+          src="https://analytics.exnet.online/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"
+          data-domain="expanse.host"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
