@@ -11,7 +11,7 @@ export default function PlausibleAnalytics() {
     if (typeof document === "undefined") return;
 
     const scriptSrc =
-      "http://expanse-internal-tools-plausible-9871e5-109-230-233-69.traefik.me/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js";
+      "https://analytics.exnet.online/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js";
 
     if (document.querySelector(`script[src="${scriptSrc}"]`)) return;
 
