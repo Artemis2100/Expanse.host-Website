@@ -5,6 +5,7 @@ import Chatwoot from "./components/Chatwoot";
 import ScrollToTop from "./components/ScrollToTop";
 import ServiceWorker from "./components/ServiceWorker";
 import PreconnectLinks from "./components/PreconnectLinks";
+import PlausibleAnalytics from "./components/PlausibleAnalytics";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import Script from "next/script";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased overflow-x-hidden`}
       >
+        <PlausibleAnalytics />
         <PreconnectLinks />
         <ServiceWorker />
         <CurrencyProvider>
