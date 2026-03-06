@@ -2,7 +2,8 @@
 
 import { motion } from "motion/react";
 import { useState, useMemo, memo, useEffect, useRef } from "react";
-import { FiCpu, FiHardDrive, FiShield, FiServer, FiChevronDown, FiSearch } from "react-icons/fi";
+import { createPortal } from "react-dom";
+import { FiCpu, FiHardDrive, FiShield, FiServer, FiChevronDown, FiSearch, FiBriefcase } from "react-icons/fi";
 import { BiNetworkChart } from "react-icons/bi";
 import { Ripple } from "@/components/ui/background-ripple-effect";
 import Image from "next/image";
@@ -54,6 +55,14 @@ interface DedicatedPlan {
 
 const locations: Location[] = locationsData as Location[];
 const dedicatedPlans: DedicatedPlan[] = dedicatedPlansData as DedicatedPlan[];
+
+type BillingCycle = "monthly" | "quarterly" | "semi-annually" | "annually";
+const billingCycles: { value: BillingCycle; label: string; discount: number }[] = [
+    { value: "monthly", label: "Monthly", discount: 0 },
+    { value: "quarterly", label: "Quarterly", discount: 2 },
+    { value: "semi-annually", label: "6 months", discount: 5 },
+    { value: "annually", label: "Annual", discount: 10 }
+];
 
 const LocationDropdown = memo(({
     selectedLocation,
@@ -251,32 +260,115 @@ const OptionDropdown = memo(({
     disabled?: boolean;
 }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [position, setPosition] = useState({ top: 0, left: 0, width: 0 });
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const uniqueOptions = useMemo(
+        () => options.filter((opt, i, arr) => arr.findIndex(o => o.value === opt.value) === i),
+        [options]
+    );
+
+    const updatePosition = () => {
+        if (buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            setPosition({
+                top: rect.bottom + 8,
+                left: rect.left,
+                width: rect.width
+            });
+        }
+    };
+
+    useEffect(() => {
+        if (isOpen && buttonRef.current) {
+            updatePosition();
+            const handleResize = () => updatePosition();
+            window.addEventListener("resize", handleResize);
+            window.addEventListener("scroll", handleResize, true);
+            return () => {
+                window.removeEventListener("resize", handleResize);
+                window.removeEventListener("scroll", handleResize, true);
+            };
+        }
+    }, [isOpen]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            const target = event.target as Node;
+            if (
+                isOpen &&
+                buttonRef.current &&
+                !buttonRef.current.contains(target) &&
+                dropdownRef.current &&
+                !dropdownRef.current.contains(target)
+            ) {
                 setIsOpen(false);
             }
         };
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+    }, [isOpen]);
 
     const handleSelect = (optionValue: string) => {
         onChange(optionValue);
         setIsOpen(false);
     };
 
+    const dropdownContent = isOpen && !disabled && typeof document !== "undefined" ? createPortal(
+        <div
+            ref={dropdownRef}
+            className="fixed z-[99999] backdrop-blur-xl bg-card border border-muted rounded-lg shadow-2xl overflow-y-auto max-h-[min(20rem,70vh)]"
+            style={{
+                top: position.top,
+                left: position.left,
+                width: position.width
+            }}
+        >
+            {uniqueOptions.map((option) => (
+                <button
+                    type="button"
+                    key={option.value}
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleSelect(option.value);
+                    }}
+                    className={`w-full px-3 py-2.5 flex items-center justify-between transition-colors text-left hover:bg-muted/10 active:bg-muted/20 ${
+                        value === option.value
+                            ? 'bg-accent/10 border-l-2 border-accent'
+                            : ''
+                    }`}
+                >
+                    <span className="text-foreground font-medium text-xs truncate">{option.value}</span>
+                    {option.price !== 0 && (
+                        <span className={`text-xs ml-2 flex-shrink-0 ${option.price > 0 ? 'text-green-500' : 'text-red-500'}`}>
+                            {option.price > 0 ? '+' : ''}
+                            <PriceDisplay usdPrice={Math.abs(option.price)} />
+                        </span>
+                    )}
+                </button>
+            ))}
+        </div>,
+        document.body
+    ) : null;
+
     return (
-        <div className="relative w-full" ref={dropdownRef}>
+        <div className="relative w-full overflow-visible">
             <button
+                ref={buttonRef}
                 type="button"
                 onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    if (!disabled) setIsOpen(!isOpen);
+                    if (!disabled) {
+                        if (!isOpen && buttonRef.current) {
+                            const rect = buttonRef.current.getBoundingClientRect();
+                            setPosition({ top: rect.bottom + 8, left: rect.left, width: rect.width });
+                        }
+                        setIsOpen(!isOpen);
+                    }
                 }}
                 disabled={disabled}
                 className={`w-full px-2 py-1.5 backdrop-blur-sm bg-card border border-muted rounded text-foreground text-xs hover:border-accent focus:outline-none transition-all flex items-center justify-between gap-2 ${
@@ -288,44 +380,14 @@ const OptionDropdown = memo(({
                     className={`w-3 h-3 text-muted transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
                 />
             </button>
-
-            {isOpen && !disabled && (
-                <div
-                    className="absolute top-full left-0 right-0 mt-2 z-[9999] backdrop-blur-xl bg-card border border-muted rounded-lg shadow-2xl overflow-hidden max-h-60 overflow-y-auto"
-                >
-                    {options.map((option) => (
-                        <button
-                            type="button"
-                            key={option.value}
-                            onMouseDown={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                handleSelect(option.value);
-                            }}
-                            className={`w-full px-3 py-2.5 flex items-center justify-between transition-colors text-left hover:bg-muted/10 active:bg-muted/20 ${
-                                value === option.value
-                                    ? 'bg-accent/10 border-l-2 border-accent'
-                                    : ''
-                            }`}
-                        >
-                            <span className="text-foreground font-medium text-xs truncate">{option.value}</span>
-                            {option.price !== 0 && (
-                                <span className={`text-xs ml-2 ${option.price > 0 ? 'text-green-500' : 'text-red-500'}`}>
-                                    {option.price > 0 ? '+' : ''}
-                                    <PriceDisplay usdPrice={Math.abs(option.price)} />
-                                </span>
-                            )}
-                        </button>
-                    ))}
-                </div>
-            )}
+            {dropdownContent}
         </div>
     );
 });
 
 OptionDropdown.displayName = "OptionDropdown";
 
-const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: number }) => {
+const DedicatedCard = memo(({ plan, index, billingCycle }: { plan: DedicatedPlan; index: number; billingCycle: BillingCycle }) => {
     const [selectedRAM, setSelectedRAM] = useState(plan.ram.default);
     const [selectedStorage, setSelectedStorage] = useState(plan.storage.default);
     const [selectedNetwork, setSelectedNetwork] = useState(plan.network.default);
@@ -346,19 +408,24 @@ const DedicatedCard = memo(({ plan, index }: { plan: DedicatedPlan; index: numbe
         const networkOption = plan.network.options.find(opt => opt.value === selectedNetwork);
         const networkPrice = networkOption?.price || 0;
         
-        return basePrice + ramPrice + storagePrice + networkPrice;
-    }, [plan.price, plan.ram.options, plan.storage.options, plan.network.options, selectedRAM, selectedStorage, selectedNetwork]);
+        const monthlyTotal = basePrice + ramPrice + storagePrice + networkPrice;
+        const cycleConfig = billingCycles.find(c => c.value === billingCycle)!;
+        const discountMultiplier = 1 - (cycleConfig.discount / 100);
+        return monthlyTotal * discountMultiplier;
+    }, [plan.price, plan.ram.options, plan.storage.options, plan.network.options, selectedRAM, selectedStorage, selectedNetwork, billingCycle]);
 
     // Generate order link with selected options
     const generateOrderLink = () => {
         const locationName = locations.find(l => l.id === plan.location);
         const locationLabel = locationName ? `${locationName.city}, ${locationName.countryCode}` : plan.location;
+        const cycleLabel = billingCycles.find(c => c.value === billingCycle)?.label ?? billingCycle;
         
         const message = `Hi, I'd like to purchase the dedicated server listed on your website with the following specs:
 
 ${plan.name}, ${selectedRAM}, ${selectedStorage}
 ${selectedNetwork}
 ${locationLabel}
+Billing: ${cycleLabel}${billingCycle !== "monthly" ? ` (${billingCycles.find(c => c.value === billingCycle)?.discount}% discount)` : ""}
 Unmanaged
 
 Thanks in advance!`;
@@ -466,7 +533,7 @@ Thanks in advance!`;
                             <BiNetworkChart className="w-4 h-4 text-accent flex-shrink-0" />
                             <div className="flex flex-col">
                                 <span className="text-xs font-bold text-foreground leading-tight">{selectedNetwork.split(' @ ')[0]}</span>
-                                <span className="text-xs text-muted leading-tight">Network Speed : {selectedNetwork.split(' @ ')[1] || selectedNetwork.split(' : ')[1] || '10Gbps'}</span>
+                                <span className="text-xs text-muted leading-tight">Network Speed : {selectedNetwork.includes(' @ ') ? (selectedNetwork.split(' @ ')[1] || '') : selectedNetwork}</span>
                             </div>
                         </div>
                     </div>
@@ -503,6 +570,12 @@ Thanks in advance!`;
                             <span className="text-lg font-bold text-foreground">
                                 <PriceDisplay usdPrice={calculateTotalPrice} />/mo
                             </span>
+                            {billingCycle !== "monthly" && (() => {
+                                const discount = billingCycles.find(c => c.value === billingCycle)?.discount ?? 0;
+                                return discount > 0 ? (
+                                    <span className="text-xs font-medium text-green-500">Save {discount}%</span>
+                                ) : null;
+                            })()}
                         </div>
                         {plan.status === "out_of_stock" ? (
                             <button
@@ -534,6 +607,7 @@ export default function DedicatedPricing() {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedLocation, setSelectedLocation] = useState<string>("all");
     const [selectedCPU, setSelectedCPU] = useState<string>("all");
+    const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
     const [showOutOfStock, setShowOutOfStock] = useState(false);
     const [isDark, setIsDark] = useState(true);
 
@@ -574,6 +648,16 @@ export default function DedicatedPricing() {
         const cpus = Array.from(new Set(dedicatedPlans.map(plan => plan.cpu.model)));
         return ["all", ...cpus];
     }, []);
+
+    const plansByLocation = useMemo(() => {
+        const grouped = new Map<string, typeof filteredPlans>();
+        for (const plan of filteredPlans) {
+            const loc = plan.location;
+            if (!grouped.has(loc)) grouped.set(loc, []);
+            grouped.get(loc)!.push(plan);
+        }
+        return grouped;
+    }, [filteredPlans]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -640,14 +724,71 @@ export default function DedicatedPricing() {
                     </p>
                 </motion.div>
 
+                {/* Reseller Pill - Prominent standalone */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="mb-10"
+                >
+                    <a
+                        href="https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Reseller%20Program%20Inquiry"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-semibold bg-accent/25 text-accent border-2 border-accent/40 hover:bg-accent/35 hover:border-accent/60 transition-all shadow-lg shadow-accent/5"
+                    >
+                        <FiBriefcase className="w-5 h-5 flex-shrink-0" />
+                        Reseller? Contact sales for lower hardware pricing
+                    </a>
+                </motion.div>
+
+                {/* Billing Cycle - Clear section with prominent discounts */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.08 }}
+                    className="mb-8 p-4 sm:p-5 rounded-xl bg-card/80 border border-muted"
+                >
+                    <h3 className="text-sm font-semibold text-foreground mb-3">Choose billing term</h3>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        {billingCycles.map((cycle) => (
+                            <button
+                                key={cycle.value}
+                                type="button"
+                                onClick={() => setBillingCycle(cycle.value)}
+                                className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                                    billingCycle === cycle.value
+                                        ? "bg-accent text-white border-2 border-accent shadow-md"
+                                        : "bg-muted/30 border-2 border-muted text-foreground hover:border-accent/50 hover:bg-muted/50"
+                                }`}
+                            >
+                                <span>{cycle.label}</span>
+                                {cycle.discount > 0 && (
+                                    <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                                        billingCycle === cycle.value
+                                            ? "bg-white/20 text-white"
+                                            : "bg-green-500/20 text-green-500"
+                                    }`}>
+                                        Save {cycle.discount}%
+                                    </span>
+                                )}
+                            </button>
+                        ))}
+                    </div>
+                </motion.div>
+
                 {/* Location Buttons */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8"
+                    className="mb-6 sm:mb-8"
                 >
+                    <h3 className="text-sm font-semibold text-foreground mb-3">Choose location</h3>
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
                     {locations.map((location) => (
                         <button
                             key={location.id}
@@ -669,6 +810,7 @@ export default function DedicatedPricing() {
                             <span className="whitespace-nowrap">{location.city}, {location.countryCode}</span>
                         </button>
                     ))}
+                    </div>
                 </motion.div>
 
                 {/* Search and Filters */}
@@ -729,18 +871,34 @@ export default function DedicatedPricing() {
                     </p>
                 </motion.div>
 
-                {/* Server Cards */}
+                {/* Server Cards - grouped by location, one CPU per block */}
                 {filteredPlans.length > 0 ? (
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
-                        className="flex flex-col gap-4"
+                        className="flex flex-col gap-8"
                     >
-                        {filteredPlans.map((plan, index) => (
-                            <DedicatedCard key={plan.id} plan={plan} index={index} />
-                        ))}
+                        {locations.map((loc) => {
+                            const plans = plansByLocation.get(loc.id) ?? [];
+                            if (plans.length === 0) return null;
+                            return (
+                                <div key={loc.id} className="flex flex-col gap-4">
+                                    <div className="flex items-center gap-2">
+                                        <div className="relative w-6 h-5 rounded-sm overflow-hidden flex-shrink-0">
+                                            <Image src={loc.flag} alt={loc.country} fill className="object-cover" />
+                                        </div>
+                                        <h2 className="text-lg font-semibold text-foreground">{loc.city}, {loc.countryCode}</h2>
+                                    </div>
+                                    <div className="flex flex-col gap-4">
+                                        {plans.map((plan, index) => (
+                                            <DedicatedCard key={plan.id} plan={plan} index={index} billingCycle={billingCycle} />
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </motion.div>
                 ) : (
                     <motion.div

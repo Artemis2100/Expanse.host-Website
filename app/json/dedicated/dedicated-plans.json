@@ -13,22 +13,26 @@
       "default": "128GB DDR5",
       "options": [
         { "value": "128GB DDR5", "price": 0 },
-        { "value": "256GB DDR5", "price": 150 }
+        { "value": "192GB DDR5", "price": 60 },
+        { "value": "256GB DDR5", "price": 100 }
       ]
     },
     "storage": {
-      "default": "2x2TB NVMe",
+      "default": "1x2TB NVMe",
       "options": [
-        { "value": "2x2TB NVMe", "price": 0 },
-        { "value": "2x4TB NVMe", "price": 20 }
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
       ]
     },
     "network": {
-      "default": "20TB @ 10Gbps",
+      "default": "1Gbit/s",
       "options": [
-        { "value": "20TB @ 1Gbps", "price": 0 },
-        { "value": "50TB @ 1Gbps", "price": 30 },
-        { "value": "100TB @ 10Gbps", "price": 50 },
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
         { "value": "Unmetered @ 10Gbps", "price": 999 }
       ]
     },
@@ -40,7 +44,287 @@
     "status": "in_stock",
     "deliveryTime": "~1 Week",
     "location": "de",
-    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A20TB%20%40%2010Gbps%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-7443p-frankfurt",
+    "name": "AMD EPYC 7443P",
+    "description": "High core-count server for demanding workloads. Ideal for virtualization and multi-threaded applications.",
+    "cpu": {
+      "model": "AMD EPYC 7443P",
+      "cores": "24C/48T",
+      "frequency": "2.85GHz/4.0GHz"
+    },
+    "ram": {
+      "default": "128GB DDR4",
+      "options": [
+        { "value": "128GB DDR4", "price": 0 },
+        { "value": "256GB DDR4", "price": 90 },
+        { "value": "512GB DDR4", "price": 599 }
+      ]
+    },
+    "storage": {
+      "default": "1x2TB NVMe",
+      "options": [
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
+      ]
+    },
+    "network": {
+      "default": "1Gbit/s",
+      "options": [
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
+        { "value": "Unmetered @ 10Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "Aurologic DDoS Protection",
+      "level": "Upto 3.2+ Tbps"
+    },
+    "price": 299.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%207443P%2C%20128GB%20DDR4%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-7543-frankfurt",
+    "name": "AMD EPYC 7543",
+    "description": "32-core powerhouse for virtualization and high-density workloads.",
+    "cpu": {
+      "model": "AMD EPYC 7543",
+      "cores": "32C/64T",
+      "frequency": "2.8GHz/3.7GHz"
+    },
+    "ram": {
+      "default": "128GB DDR4",
+      "options": [
+        { "value": "128GB DDR4", "price": 0 },
+        { "value": "256GB DDR4", "price": 90 },
+        { "value": "512GB DDR4", "price": 599 }
+      ]
+    },
+    "storage": {
+      "default": "1x2TB NVMe",
+      "options": [
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
+      ]
+    },
+    "network": {
+      "default": "1Gbit/s",
+      "options": [
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
+        { "value": "Unmetered @ 10Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "Aurologic DDoS Protection",
+      "level": "Upto 3.2+ Tbps"
+    },
+    "price": 329.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%207543%2C%20128GB%20DDR4%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-7742-frankfurt",
+    "name": "AMD EPYC 7742",
+    "description": "64-core enterprise server for maximum parallel processing and large-scale workloads.",
+    "cpu": {
+      "model": "AMD EPYC 7742",
+      "cores": "64C/128T",
+      "frequency": "2.25GHz/3.4GHz"
+    },
+    "ram": {
+      "default": "128GB DDR4",
+      "options": [
+        { "value": "128GB DDR4", "price": 0 },
+        { "value": "256GB DDR4", "price": 90 },
+        { "value": "512GB DDR4", "price": 599 }
+      ]
+    },
+    "storage": {
+      "default": "1x2TB NVMe",
+      "options": [
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
+      ]
+    },
+    "network": {
+      "default": "1Gbit/s",
+      "options": [
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
+        { "value": "Unmetered @ 10Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "Aurologic DDoS Protection",
+      "level": "Upto 3.2+ Tbps"
+    },
+    "price": 329.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%207742%2C%20128GB%20DDR4%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-7763-frankfurt",
+    "name": "AMD EPYC 7763",
+    "description": "64-core Zen 3 server with exceptional single-thread performance for demanding applications.",
+    "cpu": {
+      "model": "AMD EPYC 7763",
+      "cores": "64C/128T",
+      "frequency": "2.45GHz/3.5GHz"
+    },
+    "ram": {
+      "default": "128GB DDR4",
+      "options": [
+        { "value": "128GB DDR4", "price": 0 },
+        { "value": "256GB DDR4", "price": 90 },
+        { "value": "512GB DDR4", "price": 599 }
+      ]
+    },
+    "storage": {
+      "default": "1x2TB NVMe",
+      "options": [
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
+      ]
+    },
+    "network": {
+      "default": "1Gbit/s",
+      "options": [
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
+        { "value": "Unmetered @ 10Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "Aurologic DDoS Protection",
+      "level": "Upto 3.2+ Tbps"
+    },
+    "price": 399.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%207763%2C%20128GB%20DDR4%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-9354-frankfurt",
+    "name": "AMD EPYC 9354",
+    "description": "Zen 4 architecture with DDR5. High frequency for gaming and latency-sensitive workloads.",
+    "cpu": {
+      "model": "AMD EPYC 9354",
+      "cores": "32C/64T",
+      "frequency": "3.25GHz/3.8GHz"
+    },
+    "ram": {
+      "default": "128GB DDR5",
+      "options": [
+        { "value": "128GB DDR5", "price": 0 },
+        { "value": "192GB DDR5", "price": 90 },
+        { "value": "512GB DDR5", "price": 270 },
+        { "value": "768GB DDR5", "price": 499 },
+        { "value": "1.2TB DDR5", "price": 799 }
+      ]
+    },
+    "storage": {
+      "default": "1x2TB NVMe",
+      "options": [
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
+      ]
+    },
+    "network": {
+      "default": "1Gbit/s",
+      "options": [
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
+        { "value": "Unmetered @ 10Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "Aurologic DDoS Protection",
+      "level": "Upto 3.2+ Tbps"
+    },
+    "price": 349.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%209354%2C%20128GB%20DDR5%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
+  },
+  {
+    "id": "epyc-9374f-frankfurt",
+    "name": "AMD EPYC 9374F",
+    "description": "Zen 4 high-frequency variant. Best single-thread performance for game servers and real-time apps.",
+    "cpu": {
+      "model": "AMD EPYC 9374F",
+      "cores": "32C/64T",
+      "frequency": "3.85GHz/4.0GHz"
+    },
+    "ram": {
+      "default": "128GB DDR5",
+      "options": [
+        { "value": "128GB DDR5", "price": 0 },
+        { "value": "192GB DDR5", "price": 90 },
+        { "value": "512GB DDR5", "price": 270 },
+        { "value": "768GB DDR5", "price": 499 },
+        { "value": "1.2TB DDR5", "price": 799 }
+      ]
+    },
+    "storage": {
+      "default": "1x2TB NVMe",
+      "options": [
+        { "value": "1x2TB NVMe", "price": 0 },
+        { "value": "2x2TB NVMe", "price": 40 },
+        { "value": "1x4TB NVMe", "price": 40 },
+        { "value": "2x4TB NVMe", "price": 60 }
+      ]
+    },
+    "network": {
+      "default": "1Gbit/s",
+      "options": [
+        { "value": "1Gbit/s", "price": 0 },
+        { "value": "50TB @ 10Gbps", "price": 75 },
+        { "value": "100TB @ 10Gbps", "price": 120 },
+        { "value": "250TB @ 10Gbps", "price": 250 },
+        { "value": "Unmetered @ 10Gbps", "price": 999 }
+      ]
+    },
+    "ddos": {
+      "provider": "Aurologic DDoS Protection",
+      "level": "Upto 3.2+ Tbps"
+    },
+    "price": 429.99,
+    "status": "in_stock",
+    "deliveryTime": "~1 Week",
+    "location": "de",
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20EPYC%209374F%2C%20128GB%20DDR5%2C%201x2TB%20NVMe%0A1Gbit%2Fs%20DDoS%20Protected%0AFrankfurt%2C%20DE%0AUnmanaged%0A%0AThanks%20in%20advance!"
   },
 
   {
@@ -81,7 +365,7 @@
       "level": "over 200Tbps"
     },
     "price": 279.99,
-    "status": "in_stock",
+    "status": "out_of_stock",
     "deliveryTime": "~1 Week",
     "location": "us-ny",
     "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A20TB%20%40%2010Gbps%0ANew%20York%2C%20USA%0AUnmanaged%0A%0AThanks%20in%20advance!"
@@ -120,48 +404,10 @@
       "level": "Upto 30+Tbps"
     },
     "price": 389.99,
-    "status": "pre_order",
-    "deliveryTime": "2-3 weeks",
-    "location": "sg",
-    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0ASingapore%2C%20SG%0AUnmanaged%0A%0AThanks%20in%20advance!"
-  },
-  {
-    "id": "epyc-7c13-singapore",
-    "name": "AMD EPYC 7C13",
-    "description": "For servers that need the absolute best performance at high population. Perfect for Rust or Garry's Mod.",
-    "cpu": {
-      "model": "AMD EPYC 7C13",
-      "cores": "64C/128T",
-      "frequency": "2.0GHz/3.7GHz"
-    },
-    "ram": {
-      "default": "256GB DDR4",
-      "options": [
-        { "value": "256GB DDR4", "price": 0 },
-        { "value": "512GB DDR4", "price": 60 }
-      ]
-    },
-    "storage": {
-      "default": "2x4TB NVMe",
-      "options": [
-        { "value": "2x4TB NVMe", "price": 0 }
-      ]
-    },
-    "network": {
-      "default": "25TB @ 10Gbps",
-      "options": [
-        { "value": "25TB @ 10Gbps", "price": 0 }
-      ]
-    },
-    "ddos": {
-      "provider": "GSL DDoS Protection",
-      "level": "Upto 2Gbps*"
-    },
-    "price": 549.99,
     "status": "out_of_stock",
     "deliveryTime": "2-3 weeks",
     "location": "sg",
-    "orderLink": ""
+    "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950X%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0ASingapore%2C%20SG%0AUnmanaged%0A%0AThanks%20in%20advance!"
   },
   {
     "id": "ryzen-9950x-johor",
@@ -201,7 +447,7 @@
       "level": "Upto 30+Tbps"
     },
     "price": 319.99,
-    "status": "pre_order",
+    "status": "out_of_stock",
     "deliveryTime": "1-3 weeks",
     "location": "my",
     "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950x%2C%20256GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0AJohor%20Bahru%2C%20MY%0AUnmanaged%0A%0AThanks%20in%20advance!"
@@ -244,7 +490,7 @@
       "level": ""
     },
     "price": 319.99,
-    "status": "pre_order",
+    "status": "out_of_stock",
     "deliveryTime": "1-3 weeks",
     "location": "in",
     "orderLink": "https://my.expanse.host/submitticket.php?step=2&deptid=1&subject=Dedicated%20Server%20Inquiry&message=Hi%2C%20I'd%20like%20to%20purchase%20the%20dedicated%20server%20listed%20on%20your%20website%20with%20the%20following%20specs%3A%0A%0AAMD%20Ryzen%209%209950x%2C%20128GB%20DDR5%2C%202x4TB%20NVMe%0A10TB%20%40%2010Gbps%0AMumbai%2C%20IN%0AUnmanaged%0A%0AThanks%20in%20advance!"
