@@ -12,7 +12,7 @@ export default function AbuseIPDBContributorPage() {
           href="https://www.abuseipdb.com/user/277125"
           title="AbuseIPDB is an IP address blacklist for webmasters and sysadmins to report IP addresses engaging in abusive behavior on their networks"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           <img
             src="https://www.abuseipdb.com/contributor/277125.svg"
