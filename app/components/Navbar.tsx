@@ -28,6 +28,7 @@ const navigationConfig: NavLink[] = [
             { label: 'Web Hosting', href: '/webhosting', description: 'Shared & WordPress hosting' },
             { label: 'Discord Bot Hosting', href: '/discord-bot', description: 'Host your Discord bots' },
             { label: 'Domains', href: '/domains', description: 'Domain registration' },
+            { label: 'DNS Management', href: '/dns', description: 'Zone management & DNSSEC (BETA)' },
         ]
     },
     {
