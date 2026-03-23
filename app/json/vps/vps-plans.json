@@ -20,10 +20,17 @@
     "price": 6.45,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Lightweight workloads, VPNs",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=1"
+    "orderLink": "https://panel.expanse.host/store/vps/v1-micro?billingPeriod=monthly"
   },
   {
     "id": "v2-starter",
@@ -43,13 +50,20 @@
       "apac": "1.5 TB"
     },
     "network": "10 Gbps",
-    "price": 11.70,
+    "price": 11.7,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Entry sites, control panels",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=2"
+    "orderLink": "https://panel.expanse.host/store/vps/v2-starter?billingPeriod=monthly"
   },
   {
     "id": "v3-standard",
@@ -69,13 +83,20 @@
       "apac": "2.5 TB"
     },
     "network": "10 Gbps",
-    "price": 21.60,
+    "price": 21.6,
     "status": "in_stock",
     "popular": true,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Web apps, databases, small game servers",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=3"
+    "orderLink": "https://panel.expanse.host/store/vps/v3-standard?billingPeriod=monthly"
   },
   {
     "id": "v4-pro",
@@ -95,13 +116,20 @@
       "apac": "3.5 TB"
     },
     "network": "10 Gbps",
-    "price": 31.50,
+    "price": 31.5,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Production apps, backend workloads",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=4"
+    "orderLink": "https://panel.expanse.host/store/vps/v4-pro?billingPeriod=monthly"
   },
   {
     "id": "v5-enterprise",
@@ -121,13 +149,20 @@
       "apac": "5 TB"
     },
     "network": "10 Gbps",
-    "price": 41.40,
+    "price": 41.4,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Multi-service servers",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=5"
+    "orderLink": "https://panel.expanse.host/store/vps/v5-enterprise?billingPeriod=monthly"
   },
   {
     "id": "v6-titan",
@@ -147,13 +182,20 @@
       "apac": "7 TB"
     },
     "network": "10 Gbps",
-    "price": 58.50,
+    "price": 58.5,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Game clusters, SaaS workloads",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=6"
+    "orderLink": "https://panel.expanse.host/store/vps/v6-titan?billingPeriod=monthly"
   },
   {
     "id": "v7-ultra",
@@ -173,13 +215,20 @@
       "apac": "10 TB"
     },
     "network": "10 Gbps",
-    "price": 78.00,
+    "price": 78,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Heavy apps, large databases",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=7"
+    "orderLink": "https://panel.expanse.host/store/vps/v7-ultra?billingPeriod=monthly"
   },
   {
     "id": "v8-omega",
@@ -199,13 +248,20 @@
       "apac": "12 TB"
     },
     "network": "10 Gbps",
-    "price": 109.50,
+    "price": 109.5,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Compute or enterprise stack hosting",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=8"
+    "orderLink": "https://panel.expanse.host/store/vps/v8-omega?billingPeriod=monthly"
   },
   {
     "id": "v9-apex",
@@ -225,13 +281,20 @@
       "apac": "15 TB"
     },
     "network": "10 Gbps",
-    "price": 141.00,
+    "price": 141,
     "status": "in_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["Ryzen"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "Ryzen"
+    ],
     "useCase": "Large game clusters, production-grade compute",
-    "orderLink": "https://my.expanse.host/cart.php?a=add&pid=9"
+    "orderLink": "https://panel.expanse.host/store/vps/v9-apex?billingPeriod=monthly"
   },
   {
     "id": "epyc-coming-soon",
@@ -254,8 +317,15 @@
     "price": 0,
     "status": "out_of_stock",
     "popular": false,
-    "availableLocations": ["us-ny", "de", "sg", "my"],
-    "availableCPUs": ["EPYC"],
+    "availableLocations": [
+      "us-ny",
+      "de",
+      "sg",
+      "my"
+    ],
+    "availableCPUs": [
+      "EPYC"
+    ],
     "useCase": "Coming Soon",
     "orderLink": "#"
   }

@@ -13,6 +13,7 @@ interface LocationModalProps {
     name: string;
     price: string;
     orderLink: string;
+    planKey: string;
   } | null;
 }
 
@@ -28,6 +29,7 @@ export default function LocationModal({ isOpen, onClose, selectedPlan }: Locatio
 
     // Get the cart URL with all configuration options
     const cartUrl = getMinecraftCartUrl({
+      planKey: selectedPlan.planKey,
       planName: selectedPlan.name,
       locationId: selectedLocation,
       serverName: serverName || undefined,

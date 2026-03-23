@@ -6,6 +6,7 @@ import { FaMemory, FaMicrochip, FaDatabase, FaShieldAlt, FaUsers } from 'react-i
 import { MdBackup } from 'react-icons/md';
 import { HiCpuChip } from 'react-icons/hi2';
 import { PriceDisplay } from '../components/Price';
+import { panelStoreGameServerUrl } from '@/app/config/panel';
 
 interface Feature {
   icon: 'ram' | 'cpu' | 'storage' | 'backup' | 'shield' | 'players' | 'cpuModel';
@@ -14,6 +15,8 @@ interface Feature {
 
 interface PricingTier {
   name: string;
+  /** Panel store slug — must match PterodactylPlan.planId (e.g. hyt-8gb). */
+  planKey: string;
   icon: 'creeper' | 'zombie' | 'enderman' | 'blaze';
   price: string;
   firstMonthPrice?: string;
@@ -78,7 +81,8 @@ export default function HytalePricingSection() {
   }, []);
 
   const handleGetStarted = (plan: PricingTier) => {
-    window.open(plan.orderLink, '_blank', 'noopener,noreferrer');
+    const url = panelStoreGameServerUrl(plan.planKey, { billingPeriod: 'monthly' });
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

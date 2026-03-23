@@ -39,7 +39,8 @@ export const planPidMap: Record<string, number> = {
 // These values correspond to configoption[39] in WHMCS
 export const locationConfigMap: Record<string, number> = {
   "us-ny": 147,      // New York City, USA (from WHMCS screenshot)
-  "germany": 146,    // Frankfurt, Germany (from WHMCS screenshot)
+  de: 146,           // Frankfurt — marketing slug (aligned with VPS `de`)
+  germany: 146,      // Legacy alias
   "sg": 148,         // Singapore (from WHMCS screenshot)
   "hongkong": 149,   // Hong Kong (user provided, may need verification)
 };
@@ -83,7 +84,14 @@ export const backupsConfigMap: Record<string, number> = {
   "2+5": 175,         // 2+5 Backups $10.00 (inferred from screenshot)
 };
 
+/** Normalize marketing location ids (legacy `germany` → `de`). */
+const LOCATION_SLUG_ALIASES: Record<string, string> = {
+  germany: "de",
+};
+
 interface MinecraftCartOptions {
+  /** Panel Pterodactyl planId / store slug (e.g. premium-4gb). Preferred over planName. */
+  planKey?: string;
   planName: string;
   locationId: string;
   serverName?: string;
@@ -96,16 +104,20 @@ interface MinecraftCartOptions {
  * Panel store URL for a Minecraft plan. Software / splits / backups are chosen on the panel order form.
  */
 export function getMinecraftCartUrl(options: MinecraftCartOptions): string | null {
-  const { planName, locationId, serverName } = options;
+  const { planKey: explicitKey, planName, locationId, serverName } = options;
 
-  const planId = planNameToPlanId[planName];
+  const planId =
+    explicitKey?.trim() ||
+    planNameToPlanId[planName];
   if (!planId) {
     console.error(`No plan ID found for plan: ${planName}`);
     return null;
   }
 
+  const loc = LOCATION_SLUG_ALIASES[locationId] ?? locationId;
+
   return panelStoreGameServerUrl(planId, {
-    loc: locationId,
+    loc,
     serverName: serverName?.trim() || undefined,
     billingPeriod: "monthly",
   });

@@ -7,20 +7,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-6gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-6gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "6GB RAM" },
-      { "icon": "players", "text": "8+ players" },
-      { "icon": "cpu", "text": "2 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "50GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "6GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "8+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "2 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "50GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-green-500",
     "borderColor": "border-green-500",
     "bgColor": "bg-green-500",
     "hoverBgColor": "hover:bg-green-600",
-    "glowColor": "34, 197, 94"
+    "glowColor": "34, 197, 94",
+    "planKey": "hyt-6gb"
   },
   {
     "name": "8GB Ram",
@@ -30,20 +46,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-8gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-8gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "8GB RAM" },
-      { "icon": "players", "text": "10+ players" },
-      { "icon": "cpu", "text": "3 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "75GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "8GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "10+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "3 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "75GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-blue-500",
     "borderColor": "border-blue-500",
     "bgColor": "bg-blue-500",
     "hoverBgColor": "hover:bg-blue-600",
-    "glowColor": "59, 130, 246"
+    "glowColor": "59, 130, 246",
+    "planKey": "hyt-8gb"
   },
   {
     "name": "12GB Ram",
@@ -53,20 +85,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-12gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-12gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "12GB RAM" },
-      { "icon": "players", "text": "24+ players" },
-      { "icon": "cpu", "text": "4 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "100GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "12GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "24+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "4 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "100GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-yellow-500",
     "borderColor": "border-yellow-500",
     "bgColor": "bg-yellow-500",
     "hoverBgColor": "hover:bg-yellow-600",
-    "glowColor": "234, 179, 8"
+    "glowColor": "234, 179, 8",
+    "planKey": "hyt-12gb"
   },
   {
     "name": "16GB Ram",
@@ -76,20 +124,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-16gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-16gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "16GB RAM" },
-      { "icon": "players", "text": "32+ players" },
-      { "icon": "cpu", "text": "5 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "150GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "16GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "32+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "5 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "150GB NVMe Storage"
+      }
     ],
     "highlighted": true,
     "color": "text-orange-500",
     "borderColor": "border-orange-500",
     "bgColor": "bg-orange-500",
     "hoverBgColor": "hover:bg-orange-600",
-    "glowColor": "249, 115, 22"
+    "glowColor": "249, 115, 22",
+    "planKey": "hyt-16gb"
   },
   {
     "name": "20GB Ram",
@@ -99,20 +163,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-20gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-20gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "20GB RAM" },
-      { "icon": "players", "text": "40+ players" },
-      { "icon": "cpu", "text": "6 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "200GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "20GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "40+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "6 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "200GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-indigo-500",
     "borderColor": "border-indigo-500",
     "bgColor": "bg-indigo-500",
     "hoverBgColor": "hover:bg-indigo-600",
-    "glowColor": "99, 102, 241"
+    "glowColor": "99, 102, 241",
+    "planKey": "hyt-20gb"
   },
   {
     "name": "24GB Ram",
@@ -122,20 +202,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-24gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-24gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "24GB RAM" },
-      { "icon": "players", "text": "60+ players" },
-      { "icon": "cpu", "text": "7 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "250GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "24GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "60+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "7 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "250GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-pink-500",
     "borderColor": "border-pink-500",
     "bgColor": "bg-pink-500",
     "hoverBgColor": "hover:bg-pink-600",
-    "glowColor": "236, 72, 153"
+    "glowColor": "236, 72, 153",
+    "planKey": "hyt-24gb"
   },
   {
     "name": "32GB Ram",
@@ -145,20 +241,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-32gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-32gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "32GB RAM" },
-      { "icon": "players", "text": "100+ players" },
-      { "icon": "cpu", "text": "8 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "300GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "32GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "100+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "8 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "300GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-cyan-500",
     "borderColor": "border-cyan-500",
     "bgColor": "bg-cyan-500",
     "hoverBgColor": "hover:bg-cyan-600",
-    "glowColor": "6, 182, 212"
+    "glowColor": "6, 182, 212",
+    "planKey": "hyt-32gb"
   },
   {
     "name": "48GB Ram",
@@ -168,20 +280,36 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-48gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-48gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "48GB RAM" },
-      { "icon": "players", "text": "150+ players" },
-      { "icon": "cpu", "text": "10 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "500GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "48GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "150+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "10 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "500GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-emerald-500",
     "borderColor": "border-emerald-500",
     "bgColor": "bg-emerald-500",
     "hoverBgColor": "hover:bg-emerald-600",
-    "glowColor": "16, 185, 129"
+    "glowColor": "16, 185, 129",
+    "planKey": "hyt-48gb"
   },
   {
     "name": "64GB Ram",
@@ -191,19 +319,35 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-64gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-64gb?billingPeriod=monthly",
     "features": [
-      { "icon": "ram", "text": "64GB RAM" },
-      { "icon": "players", "text": "200+ players" },
-      { "icon": "cpu", "text": "12 CPU Threads" },
-      { "icon": "cpuModel", "text": "Ryzen 9950X" },
-      { "icon": "storage", "text": "1024GB NVMe Storage" }
+      {
+        "icon": "ram",
+        "text": "64GB RAM"
+      },
+      {
+        "icon": "players",
+        "text": "200+ players"
+      },
+      {
+        "icon": "cpu",
+        "text": "12 CPU Threads"
+      },
+      {
+        "icon": "cpuModel",
+        "text": "Ryzen 9950X"
+      },
+      {
+        "icon": "storage",
+        "text": "1024GB NVMe Storage"
+      }
     ],
     "highlighted": false,
     "color": "text-purple-500",
     "borderColor": "border-purple-500",
     "bgColor": "bg-purple-500",
     "hoverBgColor": "hover:bg-purple-600",
-    "glowColor": "168, 85, 247"
+    "glowColor": "168, 85, 247",
+    "planKey": "hyt-64gb"
   }
 ]

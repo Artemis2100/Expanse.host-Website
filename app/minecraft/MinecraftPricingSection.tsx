@@ -83,6 +83,8 @@ interface Feature {
 
 interface PricingTier {
   name: string;
+  /** Panel store slug — must match PterodactylPlan.planId (e.g. premium-8gb). */
+  planKey: string;
   icon: 'creeper' | 'zombie' | 'enderman' | 'blaze';
   price: string;
   firstMonthPrice?: string;
@@ -140,7 +142,12 @@ const renderFeatureIcon = (iconName: string, color: string) => {
 
 export default function MinecraftPricingSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<{ name: string; price: string; orderLink: string } | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<{
+    name: string;
+    price: string;
+    orderLink: string;
+    planKey: string;
+  } | null>(null);
   const [isDark, setIsDark] = useState(true);
   const [showAllPlans, setShowAllPlans] = useState(false);
 
@@ -164,7 +171,12 @@ export default function MinecraftPricingSection() {
   }, []);
 
   const handleGetStarted = (plan: PricingTier) => {
-    setSelectedPlan({ name: plan.name, price: plan.price, orderLink: plan.orderLink });
+    setSelectedPlan({
+      name: plan.name,
+      price: plan.price,
+      orderLink: plan.orderLink,
+      planKey: plan.planKey,
+    });
     setIsModalOpen(true);
   };
 
