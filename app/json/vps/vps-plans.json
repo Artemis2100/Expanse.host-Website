@@ -30,7 +30,7 @@
       "Ryzen"
     ],
     "useCase": "Lightweight workloads, VPNs",
-    "orderLink": "https://panel.expanse.host/store/vps/v1-micro?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v1-micro&billingPeriod=monthly"
   },
   {
     "id": "v2-starter",
@@ -63,7 +63,7 @@
       "Ryzen"
     ],
     "useCase": "Entry sites, control panels",
-    "orderLink": "https://panel.expanse.host/store/vps/v2-starter?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v2-starter&billingPeriod=monthly"
   },
   {
     "id": "v3-standard",
@@ -96,7 +96,7 @@
       "Ryzen"
     ],
     "useCase": "Web apps, databases, small game servers",
-    "orderLink": "https://panel.expanse.host/store/vps/v3-standard?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v3-standard&billingPeriod=monthly"
   },
   {
     "id": "v4-pro",
@@ -129,7 +129,7 @@
       "Ryzen"
     ],
     "useCase": "Production apps, backend workloads",
-    "orderLink": "https://panel.expanse.host/store/vps/v4-pro?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v4-pro&billingPeriod=monthly"
   },
   {
     "id": "v5-enterprise",
@@ -162,7 +162,7 @@
       "Ryzen"
     ],
     "useCase": "Multi-service servers",
-    "orderLink": "https://panel.expanse.host/store/vps/v5-enterprise?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v5-enterprise&billingPeriod=monthly"
   },
   {
     "id": "v6-titan",
@@ -195,7 +195,7 @@
       "Ryzen"
     ],
     "useCase": "Game clusters, SaaS workloads",
-    "orderLink": "https://panel.expanse.host/store/vps/v6-titan?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v6-titan&billingPeriod=monthly"
   },
   {
     "id": "v7-ultra",
@@ -228,7 +228,7 @@
       "Ryzen"
     ],
     "useCase": "Heavy apps, large databases",
-    "orderLink": "https://panel.expanse.host/store/vps/v7-ultra?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v7-ultra&billingPeriod=monthly"
   },
   {
     "id": "v8-omega",
@@ -261,7 +261,7 @@
       "Ryzen"
     ],
     "useCase": "Compute or enterprise stack hosting",
-    "orderLink": "https://panel.expanse.host/store/vps/v8-omega?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v8-omega&billingPeriod=monthly"
   },
   {
     "id": "v9-apex",
@@ -294,7 +294,7 @@
       "Ryzen"
     ],
     "useCase": "Large game clusters, production-grade compute",
-    "orderLink": "https://panel.expanse.host/store/vps/v9-apex?billingPeriod=monthly"
+    "orderLink": "https://panel.expanse.host/order/continue?service=vps&planKey=v9-apex&billingPeriod=monthly"
   },
   {
     "id": "epyc-coming-soon",

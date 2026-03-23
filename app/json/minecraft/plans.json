@@ -7,7 +7,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-4gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-4gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -46,7 +46,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-8gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-8gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -85,7 +85,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-12gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-12gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -124,7 +124,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-16gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-16gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -163,7 +163,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-20gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-20gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -202,7 +202,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-24gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-24gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -241,7 +241,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-32gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-32gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
@@ -280,7 +280,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://panel.expanse.host/store/game-servers/premium-64gb?billingPeriod=monthly",
+    "orderLink": "https://panel.expanse.host/order/continue?service=game&planKey=premium-64gb&billingPeriod=monthly",
     "features": [
       {
         "icon": "ram",
