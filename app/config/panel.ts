@@ -1,10 +1,9 @@
 /**
  * Expanse Panel (newcorepanel) URLs for marketing → checkout handoff.
  *
- * Handoff uses panel `/order/continue` → login if needed → `/{teamId}/cloud/.../order`.
- * Canonical plan/region ids live in newcorepanel `src/config/marketing-catalog.ts`
- * and must match DB: VirtFusionPlan.planId, VirtFusionLocation.storeSlug,
- * PterodactylPlan.planId, and Pterodactyl settings location `slug` or `region`.
+ * `/order/continue` → Clerk if needed → team picker when user has multiple teams
+ * → `/{teamId}/cloud/.../order` with the same query params (`planKey`, `loc`, etc.).
+ * Those keys must match panel DB plan_id / location identifiers used by the order APIs.
  */
 export function getPanelBaseUrl(): string {
   const raw = process.env.NEXT_PUBLIC_PANEL_URL ?? "https://panel.expanse.host";
