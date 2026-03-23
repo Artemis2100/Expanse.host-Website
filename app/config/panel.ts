@@ -10,8 +10,8 @@ export function getPanelBaseUrl(): string {
   return raw.replace(/\/$/, "");
 }
 
-/** Marketing → panel: sign in if needed, then land on team dashboard order page with prefilled query. */
-export function panelOrderContinueUrl(
+/** Build `panel.expanse.host/order/continue?service=…&planKey=…` (and optional params). */
+export function panelOrderHandoffUrl(
   service: "vps" | "game",
   query?: Record<string, string | undefined>,
 ): string {
@@ -25,10 +25,16 @@ export function panelOrderContinueUrl(
   return u.toString();
 }
 
-export function panelStoreVpsUrl(planKey: string, query?: Record<string, string | undefined>): string {
-  return panelOrderContinueUrl("vps", { planKey, ...query });
+export function panelVpsOrderHandoffUrl(
+  planKey: string,
+  query?: Record<string, string | undefined>,
+): string {
+  return panelOrderHandoffUrl("vps", { planKey, ...query });
 }
 
-export function panelStoreGameServerUrl(planKey: string, query?: Record<string, string | undefined>): string {
-  return panelOrderContinueUrl("game", { planKey, ...query });
+export function panelGameServerOrderHandoffUrl(
+  planKey: string,
+  query?: Record<string, string | undefined>,
+): string {
+  return panelOrderHandoffUrl("game", { planKey, ...query });
 }

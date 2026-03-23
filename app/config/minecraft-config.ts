@@ -5,7 +5,7 @@
  * Legacy WHMCS PID / config maps kept for reference only.
  */
 
-import { panelStoreGameServerUrl } from "@/app/config/panel";
+import { panelGameServerOrderHandoffUrl } from "@/app/config/panel";
 
 // Plan ID mapping: Maps plan names (e.g., "4GB Ram") to plan IDs (e.g., "premium-4gb")
 export const planNameToPlanId: Record<string, string> = {
@@ -116,7 +116,7 @@ export function getMinecraftCartUrl(options: MinecraftCartOptions): string | nul
 
   const loc = LOCATION_SLUG_ALIASES[locationId] ?? locationId;
 
-  return panelStoreGameServerUrl(planId, {
+  return panelGameServerOrderHandoffUrl(planId, {
     loc,
     serverName: serverName?.trim() || undefined,
     billingPeriod: "monthly",

@@ -6,7 +6,7 @@ import { FaMemory, FaMicrochip, FaDatabase, FaShieldAlt, FaUsers } from 'react-i
 import { MdBackup } from 'react-icons/md';
 import { HiCpuChip } from 'react-icons/hi2';
 import { PriceDisplay } from '../components/Price';
-import { panelStoreGameServerUrl } from '@/app/config/panel';
+import { panelGameServerOrderHandoffUrl } from '@/app/config/panel';
 
 interface Feature {
   icon: 'ram' | 'cpu' | 'storage' | 'backup' | 'shield' | 'players' | 'cpuModel';
@@ -81,7 +81,7 @@ export default function HytalePricingSection() {
   }, []);
 
   const handleGetStarted = (plan: PricingTier) => {
-    const url = panelStoreGameServerUrl(plan.planKey, { billingPeriod: 'monthly' });
+    const url = panelGameServerOrderHandoffUrl(plan.planKey, { billingPeriod: 'monthly' });
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 

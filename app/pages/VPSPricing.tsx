@@ -10,7 +10,7 @@ import vpsPlansData from "@/app/json/vps/vps-plans.json";
 import locationsData from "@/app/json/dedicated/locations.json";
 import { PriceDisplay } from "../components/Price";
 import Link from "next/link";
-import { panelStoreVpsUrl } from "@/app/config/panel";
+import { panelVpsOrderHandoffUrl } from "@/app/config/panel";
 
 interface Location {
     id: string;
@@ -81,7 +81,7 @@ const VPSCard = memo(({
     
     const generateOrderLink = () => {
         if (isComingSoon) return "#";
-        return panelStoreVpsUrl(planWithLocation.id, {
+        return panelVpsOrderHandoffUrl(planWithLocation.id, {
             loc: planWithLocation.locationId,
             billingPeriod: "monthly",
         });
