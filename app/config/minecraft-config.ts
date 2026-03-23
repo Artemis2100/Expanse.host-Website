@@ -1,9 +1,11 @@
 /**
  * Minecraft Plans Configuration
- * 
- * Maps plan names to product IDs (PIDs) for cart redirects
- * Update these PIDs based on your WHMCS configuration
+ *
+ * Plan keys map to panel `PterodactylPlan.planId` and `/store/game-servers/[planSlug]`.
+ * Legacy WHMCS PID / config maps kept for reference only.
  */
+
+import { panelStoreGameServerUrl } from "@/app/config/panel";
 
 // Plan ID mapping: Maps plan names (e.g., "4GB Ram") to plan IDs (e.g., "premium-4gb")
 export const planNameToPlanId: Record<string, string> = {
@@ -91,71 +93,20 @@ interface MinecraftCartOptions {
 }
 
 /**
- * Get the cart redirect URL for a Minecraft plan with all configuration options
- * @param options - Configuration options for the cart URL
- * @returns The cart URL or null if mapping is invalid
+ * Panel store URL for a Minecraft plan. Software / splits / backups are chosen on the panel order form.
  */
 export function getMinecraftCartUrl(options: MinecraftCartOptions): string | null {
-  const { planName, locationId, serverName, software = "paper", splits = "no-extra", backups = "2-included" } = options;
+  const { planName, locationId, serverName } = options;
 
-  // Get plan ID from plan name
   const planId = planNameToPlanId[planName];
   if (!planId) {
     console.error(`No plan ID found for plan: ${planName}`);
     return null;
   }
 
-  // Get PID from plan ID
-  const pid = planPidMap[planId];
-  if (!pid || pid === 0) {
-    console.error(`No PID found for plan ID: ${planId}. Please update minecraft-config.ts`);
-    return null;
-  }
-
-  // Get config ID from location ID
-  const locationConfigId = locationConfigMap[locationId];
-  if (!locationConfigId) {
-    console.error(`No config ID found for location: ${locationId}`);
-    return null;
-  }
-
-  // Get software config ID
-  const softwareConfigId = softwareConfigMap[software];
-  if (!softwareConfigId || softwareConfigId === 0) {
-    console.error(`No config ID found for software: ${software}`);
-    return null;
-  }
-
-  // Get splits config ID
-  const splitsConfigId = splitsConfigMap[splits];
-  if (!splitsConfigId || splitsConfigId === 0) {
-    console.error(`No config ID found for splits: ${splits}`);
-    return null;
-  }
-
-  // Get backups config ID
-  const backupsConfigId = backupsConfigMap[backups];
-  if (!backupsConfigId) {
-    console.error(`No config ID found for backups: ${backups}`);
-    return null;
-  }
-
-  // Build the cart URL with all config options
-  const baseUrl = `https://my.expanse.host/cart.php?a=add&pid=${pid}`;
-  const params: string[] = [];
-  
-  // Add config options (these need to be in the format configoption[39]=146)
-  params.push(`configoption[${PREMIUM_CONFIG_OPTION_LOCATION}]=${locationConfigId}`);
-  params.push(`configoption[${PREMIUM_CONFIG_OPTION_SOFTWARE}]=${softwareConfigId}`);
-  params.push(`configoption[${PREMIUM_CONFIG_OPTION_SPLITS}]=${splitsConfigId}`);
-  params.push(`configoption[${PREMIUM_CONFIG_OPTION_BACKUPS}]=${backupsConfigId}`);
-  
-  // Add server name if provided (encode the value but keep brackets in the key)
-  if (serverName && serverName.trim()) {
-    const encodedServerName = encodeURIComponent(serverName.trim());
-    params.push(`customfield[${PREMIUM_CUSTOMFIELD_SERVER_NAME}]=${encodedServerName}`);
-  }
-
-  const url = `${baseUrl}&${params.join('&')}`;
-  return url;
+  return panelStoreGameServerUrl(planId, {
+    loc: locationId,
+    serverName: serverName?.trim() || undefined,
+    billingPeriod: "monthly",
+  });
 }

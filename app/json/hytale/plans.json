@@ -7,7 +7,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-6gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-6gb",
     "features": [
       { "icon": "ram", "text": "6GB RAM" },
       { "icon": "players", "text": "8+ players" },
@@ -30,7 +30,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-8gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-8gb",
     "features": [
       { "icon": "ram", "text": "8GB RAM" },
       { "icon": "players", "text": "10+ players" },
@@ -53,7 +53,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-12gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-12gb",
     "features": [
       { "icon": "ram", "text": "12GB RAM" },
       { "icon": "players", "text": "24+ players" },
@@ -76,7 +76,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-16gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-16gb",
     "features": [
       { "icon": "ram", "text": "16GB RAM" },
       { "icon": "players", "text": "32+ players" },
@@ -99,7 +99,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-20gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-20gb",
     "features": [
       { "icon": "ram", "text": "20GB RAM" },
       { "icon": "players", "text": "40+ players" },
@@ -122,7 +122,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-24gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-24gb",
     "features": [
       { "icon": "ram", "text": "24GB RAM" },
       { "icon": "players", "text": "60+ players" },
@@ -145,7 +145,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-32gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-32gb",
     "features": [
       { "icon": "ram", "text": "32GB RAM" },
       { "icon": "players", "text": "100+ players" },
@@ -168,7 +168,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-48gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-48gb",
     "features": [
       { "icon": "ram", "text": "48GB RAM" },
       { "icon": "players", "text": "150+ players" },
@@ -191,7 +191,7 @@
     "period": "/month",
     "promoCode": "3UX37XLVPL",
     "promoDiscount": "15% First Month Discount",
-    "orderLink": "https://my.expanse.host/index.php/store/hytale/hyt-64gb",
+    "orderLink": "https://panel.expanse.host/store/game-servers/hyt-64gb",
     "features": [
       { "icon": "ram", "text": "64GB RAM" },
       { "icon": "players", "text": "200+ players" },

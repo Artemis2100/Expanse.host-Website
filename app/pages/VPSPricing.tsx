@@ -10,8 +10,7 @@ import vpsPlansData from "@/app/json/vps/vps-plans.json";
 import locationsData from "@/app/json/dedicated/locations.json";
 import { PriceDisplay } from "../components/Price";
 import Link from "next/link";
-import { useVPSPrices } from "@/app/hooks/use-vps-prices";
-import { vpsPlanToPID } from "@/app/config/whmcs-config";
+import { panelStoreVpsUrl } from "@/app/config/panel";
 
 interface Location {
     id: string;
@@ -60,11 +59,9 @@ interface VPSPlanWithLocation extends VPSPlan {
 const VPSCard = memo(({ 
     planWithLocation, 
     index,
-    whmcsPrice
 }: { 
     planWithLocation: VPSPlanWithLocation; 
     index: number;
-    whmcsPrice?: number;
 }) => {
     if (!planWithLocation || !planWithLocation.location) {
         return null;
@@ -73,8 +70,7 @@ const VPSCard = memo(({
     const location = planWithLocation.location;
     const isComingSoon = planWithLocation.name === "EPYC Plans" || planWithLocation.status === "out_of_stock";
     
-    // Use WHMCS price if available, otherwise fall back to JSON price
-    const displayPrice = whmcsPrice !== undefined ? whmcsPrice : planWithLocation.price;
+    const displayPrice = planWithLocation.price;
     
     // Determine if location is NA/EU or APAC
     const isAPAC = planWithLocation.locationId === "sg" || 
@@ -83,20 +79,12 @@ const VPSCard = memo(({
     const isNAEU = !isAPAC;
     const bandwidth = isNAEU ? planWithLocation.bandwidth.naeu : planWithLocation.bandwidth.apac;
     
-    // Generate order link with correct PID based on location
     const generateOrderLink = () => {
         if (isComingSoon) return "#";
-        
-        // Build the plan ID key: use -apac suffix for APAC locations
-        const planIdKey = isAPAC ? `${planWithLocation.id}-apac` : planWithLocation.id;
-        const pid = vpsPlanToPID[planIdKey] || vpsPlanToPID[planWithLocation.id];
-        
-        if (!pid) {
-            console.warn(`No PID found for plan ${planIdKey}, using fallback`);
-            return planWithLocation.orderLink; // Fallback to JSON orderLink
-        }
-        
-        return `https://my.expanse.host/cart.php?a=add&pid=${pid}`;
+        return panelStoreVpsUrl(planWithLocation.id, {
+            loc: planWithLocation.locationId,
+            billingPeriod: "monthly",
+        });
     };
     
     const orderLink = generateOrderLink();
@@ -232,9 +220,6 @@ export default function VPSPricing() {
     // Default to first available location instead of "all"
     const [selectedLocation, setSelectedLocation] = useState<string>(locations[0]?.id || "all");
     const [selectedCPUType, setSelectedCPUType] = useState<"Ryzen" | "EPYC">("Ryzen");
-    
-    // Fetch prices from WHMCS (refreshes every 10 minutes)
-    const { prices: whmcsPrices } = useVPSPrices();
 
     // Expand plans to create location-specific instances
     const plansWithLocations = useMemo(() => {
@@ -375,25 +360,13 @@ export default function VPSPricing() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8"
                     >
-                        {filteredPlans.map((planWithLocation, index) => {
-                            // Determine if this is an APAC location
-                            const isAPAC = planWithLocation.locationId === "sg" || 
-                                         planWithLocation.locationId === "my" || 
-                                         planWithLocation.locationId === "in";
-                            
-                            // Build price lookup key: regular plans use planId, APAC plans use planId-apac
-                            const priceKey = isAPAC ? `${planWithLocation.id}-apac` : planWithLocation.id;
-                            const whmcsPrice = whmcsPrices[priceKey] || whmcsPrices[planWithLocation.id];
-                            
-                            return (
+                        {filteredPlans.map((planWithLocation, index) => (
                                 <VPSCard 
                                     key={`${planWithLocation.id}-${planWithLocation.locationId}`} 
                                     planWithLocation={planWithLocation} 
                                     index={index}
-                                    whmcsPrice={whmcsPrice}
                                 />
-                            );
-                        })}
+                            ))}
                     </motion.div>
                 ) : (
                     <div className="text-center py-12">

@@ -7,6 +7,7 @@ import Image from "next/image"
 import { motion, AnimatePresence } from 'motion/react'
 import CurrencySelector from './CurrencySelector'
 import GamesModal from './GamesModal'
+import { getPanelBaseUrl } from '@/app/config/panel'
 
 type NavLink = {
     label: string
@@ -338,7 +339,7 @@ const Navbar = () => {
                                                 transition={{ delay: 0.05 }}
                                             >
                                                 <Link
-                                                    href="https://my.expanse.host"
+                                                    href={getPanelBaseUrl()}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="block p-3 rounded-lg hover:bg-accent/10 transition-colors group"
@@ -560,7 +561,7 @@ const Navbar = () => {
                                     <h3 className="text-xs font-bold text-foreground uppercase tracking-wide mb-3 px-3">Control Panels</h3>
                                     <div className="space-y-2">
                                         <Link
-                                            href="https://my.expanse.host"
+                                            href={getPanelBaseUrl()}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             onClick={closeMobileMenu}
