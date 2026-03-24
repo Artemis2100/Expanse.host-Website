@@ -102,9 +102,11 @@ export function Globe({
         window.addEventListener("resize", onResize)
         onResize()
 
+        const { onRender: userOnRender, ...configRest } = config
+
         // Theme-aware colors
         const themeConfig = {
-            ...config,
+            ...configRest,
             dark: isDark ? 1 : 0,
             baseColor: isDark ? [0.1, 0.2, 0.3] as [number, number, number] : [0.8, 0.85, 0.9] as [number, number, number],
             markerColor: isDark
@@ -122,6 +124,7 @@ export function Globe({
                 state.phi = phi + rs.get()
                 state.width = width * 2
                 state.height = width * 2
+                userOnRender?.(state)
             },
         })
 

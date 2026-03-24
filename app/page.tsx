@@ -1,5 +1,5 @@
 "use client"
-import React, { memo, useCallback, useRef } from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import HeroSection from "./pages/HeroSection";
 
@@ -156,11 +156,24 @@ const DomainSearchSection = memo(() => {
 DomainSearchSection.displayName = 'DomainSearchSection';
 
 export default function Home() {
+  const [beamsReady, setBeamsReady] = useState(false);
+
+  useEffect(() => {
+    const enable = () => setBeamsReady(true);
+    const ric = window.requestIdleCallback;
+    if (typeof ric === "function") {
+      const id = ric(enable, { timeout: 2800 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const t = window.setTimeout(enable, 1800);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <div className="relative">
 
       <div className="absolute top-0 left-0 right-0 h-screen bg-black/20 overflow-hidden pointer-events-none">
-        <BackgroundBeams />
+        {beamsReady ? <BackgroundBeams /> : null}
       </div>
 
       <Navbar />

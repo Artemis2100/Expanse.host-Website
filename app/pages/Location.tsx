@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import { memo, useMemo, useState, useRef } from "react";
+import { memo, useMemo, useState, useRef, useEffect } from "react";
 import { Globe } from "@/components/ui/globe";
 
 interface Location {
@@ -175,7 +175,22 @@ export default function LocationsSection() {
     const [hoveredLocation, setHoveredLocation] = useState<Location | null>(null);
     const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
     const globeContainerRef = useRef<HTMLDivElement>(null);
-    const [globeRotation, setGlobeRotation] = useState({ phi: 0, theta: 0.3 });
+    const globeColumnRef = useRef<HTMLDivElement>(null);
+    const [mountGlobe, setMountGlobe] = useState(false);
+    const globeRotationRef = useRef({ phi: 0, theta: 0.3 });
+
+    useEffect(() => {
+        const el = globeColumnRef.current;
+        if (!el) return;
+        const io = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) setMountGlobe(true);
+            },
+            { rootMargin: "280px", threshold: 0.01 },
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
 
     const containerVariants = useMemo(
         () => ({
@@ -192,11 +207,11 @@ export default function LocationsSection() {
             width: 900,
             height: 900,
             devicePixelRatio: 2,
-            phi: globeRotation.phi,
-            theta: globeRotation.theta,
+            phi: 0,
+            theta: 0.3,
             dark: 1,
             diffuse: 0.4,
-            mapSamples: 16000,
+            mapSamples: 8192,
             mapBrightness: 3,
             baseColor: [0.1, 0.2, 0.3] as [number, number, number],
             markerColor: [96 / 255, 165 / 255, 250 / 255] as [number, number, number],
@@ -206,13 +221,13 @@ export default function LocationsSection() {
                 size: 0.08,
             })),
             onRender: (state: Record<string, unknown>) => {
-                setGlobeRotation({
+                globeRotationRef.current = {
                     phi: state.phi as number,
                     theta: state.theta as number,
-                });
+                };
             },
         }),
-        [activeLocations, globeRotation],
+        [activeLocations],
     );
 
     const handleGlobeMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -229,14 +244,16 @@ export default function LocationsSection() {
         let minDistance = Infinity;
         const hoverRadius = 30;
 
+        const { phi, theta } = globeRotationRef.current;
+
         activeLocations.forEach((location) => {
             const screenPos = latLngToScreen(
                 location.lat,
                 location.lng,
                 width,
                 height,
-                globeRotation.phi,
-                globeRotation.theta,
+                phi,
+                theta,
             );
 
             if (screenPos) {
@@ -311,13 +328,16 @@ export default function LocationsSection() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.3 }}
-                        ref={globeContainerRef}
-                        onMouseMove={handleGlobeMouseMove}
-                        onMouseLeave={handleGlobeMouseLeave}
+                        ref={globeColumnRef}
                     >
-                        <div className="relative h-full w-full">
+                        <div
+                            className="relative h-full w-full"
+                            ref={globeContainerRef}
+                            onMouseMove={handleGlobeMouseMove}
+                            onMouseLeave={handleGlobeMouseLeave}
+                        >
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <Globe config={globeConfig} />
+                                {mountGlobe ? <Globe config={globeConfig} /> : null}
                             </div>
 
                             <div className="absolute top-4 left-4 bg-card/80 backdrop-blur-sm border border-muted rounded-lg p-3 space-y-2">
