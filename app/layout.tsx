@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Chatwoot from "./components/Chatwoot";
@@ -7,6 +7,7 @@ import ServiceWorker from "./components/ServiceWorker";
 import PreconnectLinks from "./components/PreconnectLinks";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import Script from "next/script";
+import ThirdPartyAnalytics from "./components/ThirdPartyAnalytics";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -61,13 +62,16 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
-  other: {
-    "theme-color": "#3b82f6",
-  },
   // Add preconnect links via metadata
   alternates: {
     canonical: "https://www.expanse.host",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#3b82f6",
 };
 
 export default function RootLayout({
@@ -87,33 +91,10 @@ export default function RootLayout({
           <ScrollToTop />
           <Chatwoot />
         </CurrencyProvider>
-        {/* Google Analytics - Deferred even further */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1TQ8CNNC1E"
-          strategy="lazyOnload"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-1TQ8CNNC1E', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
-        {/* Plausible Analytics */}
-        <Script
-          id="plausible-queue"
-          strategy="beforeInteractive"
-        >
+        <Script id="plausible-queue" strategy="beforeInteractive">
           {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
         </Script>
-        <Script
-          src="https://analytics.exnet.online/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"
-          data-domain="expanse.host"
-          strategy="afterInteractive"
-        />
+        <ThirdPartyAnalytics />
       </body>
     </html>
   );

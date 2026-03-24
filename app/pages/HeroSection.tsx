@@ -50,7 +50,7 @@ const HeroSection = (props: HeroSectionProps = {}) => {
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
                     className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 bg-gradient-to-r from-blue-400/30 to-blue-400/10 border border-blue-500/20 rounded-3xl backdrop-blur-sm shadow-inner"
                 >
                     <Link href="/vps" className="inline-flex items-center text-xs sm:text-sm md:text-base text-foreground dark:text-gray-200 font-medium hover:opacity-80 transition-opacity">
@@ -65,7 +65,7 @@ const HeroSection = (props: HeroSectionProps = {}) => {
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                    transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
                     className="text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] font-bold mb-4 sm:mb-6 md:mb-8"
                 >
                     Hosting perfected, <br className="hidden xs:block" />that&apos;s <span className='relative inline-block text-accent'>
@@ -76,7 +76,7 @@ const HeroSection = (props: HeroSectionProps = {}) => {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+                    transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
                     className="text-sm sm:text-base md:text-lg lg:text-xl text-muted mb-6 sm:mb-8 px-2 sm:px-0"
                 >
                     Expanse fuels the leaders — and you&apos;re next. Our platform delivers unmatched features and performance you simply won&apos;t find anywhere else.
@@ -84,7 +84,7 @@ const HeroSection = (props: HeroSectionProps = {}) => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2"
                 >
                     <motion.div
@@ -97,8 +97,8 @@ const HeroSection = (props: HeroSectionProps = {}) => {
                             className="w-full sm:w-auto flex border border-blue-400/20 items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 bg-button text-primary-foreground rounded-xl font-medium hover:bg-blue-400/30 transition-colors shadow-inner text-sm sm:text-base"
                             style={{ boxShadow: "inset 2px 2px 6px rgba(0, 0, 0, 0.2)" }}
                         >
-                            <Image 
-                            alt="logo"
+                            <Image
+                            alt="Expanse Host"
                             width={32}
                             height={32}
                             className='mr-2 invert brightness-0'

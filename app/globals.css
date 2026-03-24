@@ -56,7 +56,8 @@
 
   /* Primary colors */
   --primary: #fafafa;
-  --primary-foreground: #ecebeb;
+  /* Used on blue `bg-button` in dark mode — keep light for contrast */
+  --primary-foreground: #ffffff;
 
   /* Secondary colors */
   --secondary: #374151;
@@ -68,7 +69,8 @@
 
   /* Muted colors */
   --muted: #174a91;
-  --muted-foreground: #9ca3af;
+  /* Brighter body copy on near-black bg for WCAG AA */
+  --muted-foreground: #b8c0cc;
 
   /* Card colors */
   --card: #111827c2;

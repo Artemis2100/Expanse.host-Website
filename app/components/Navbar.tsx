@@ -167,7 +167,7 @@ const Navbar = () => {
             <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.35, delay: 0.03 }}
                 className="w-full px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-3 sm:pb-4 overflow-visible"
             >
                 <div className="flex items-center justify-between gap-2 sm:gap-4 h-16 sm:h-20 w-full max-w-[1400px] mx-auto relative">
@@ -181,7 +181,9 @@ const Navbar = () => {
                         <Image
                             width={48}
                             height={48}
-                            alt="logo"
+                            alt="Expanse Host"
+                            priority
+                            fetchPriority="high"
                             src="/logo.png"
                             className="w-10 h-10 sm:w-12 sm:h-12" />
                             <div className="flex flex-col">

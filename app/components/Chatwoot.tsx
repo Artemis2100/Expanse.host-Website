@@ -7,27 +7,21 @@ export default function Chatwoot() {
   const [shouldLoad, setShouldLoad] = useState(false)
 
   useEffect(() => {
-    // Only load Chatwoot after user interaction or after 3 seconds
     const loadOnInteraction = () => {
       setShouldLoad(true)
     }
 
-    // Load after 3 seconds if no interaction
-    const timeoutId = setTimeout(() => {
-      setShouldLoad(true)
-    }, 3000)
-
-    // Load on user interaction - using once: true so listeners auto-remove
     document.addEventListener('mousedown', loadOnInteraction, { once: true })
-    document.addEventListener('touchstart', loadOnInteraction, { once: true })
-    document.addEventListener('scroll', loadOnInteraction, { once: true, passive: true })
+    document.addEventListener('touchstart', loadOnInteraction, {
+      once: true,
+      passive: true,
+    })
+    document.addEventListener('keydown', loadOnInteraction, { once: true })
 
     return () => {
-      clearTimeout(timeoutId)
-      // Since we use { once: true }, listeners auto-remove, but we clean up just in case
       document.removeEventListener('mousedown', loadOnInteraction)
       document.removeEventListener('touchstart', loadOnInteraction)
-      document.removeEventListener('scroll', loadOnInteraction)
+      document.removeEventListener('keydown', loadOnInteraction)
     }
   }, [])
 
