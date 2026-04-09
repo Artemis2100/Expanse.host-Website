@@ -55,23 +55,19 @@ const DomainSearchSection = memo(() => {
   const handleDomainSearch = useCallback((domain?: string) => {
     const inputValue = inputRef.current?.value || "";
     const searchDomain = domain || inputValue.trim();
-    const baseUrl = "https://my.expanse.host/cart.php?a=add&domain=register";
-    
+    const panelUrl = new URL("https://panel.expanse.host/");
+
     if (searchDomain) {
-      // Clean the domain (remove http://, https://, www., spaces, and ensure it's lowercase)
       const cleanedDomain = searchDomain
         .toLowerCase()
         .replace(/^https?:\/\//, "")
         .replace(/^www\./, "")
         .replace(/\s+/g, "")
         .trim();
-      
-      // Redirect to WHMCS domain registration page with the domain query
-      window.location.href = `${baseUrl}&query=${encodeURIComponent(cleanedDomain)}`;
-    } else {
-      // If no domain entered, just redirect to the registration page
-      window.location.href = baseUrl;
+      panelUrl.searchParams.set("domain", cleanedDomain);
     }
+
+    window.location.href = panelUrl.toString();
   }, []);
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
