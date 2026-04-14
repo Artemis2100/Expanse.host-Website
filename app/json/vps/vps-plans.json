@@ -75,7 +75,7 @@
     },
     "ram": "8 GB",
     "storage": {
-      "size": "120 GB",
+      "size": "100 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
@@ -108,7 +108,7 @@
     },
     "ram": "12 GB",
     "storage": {
-      "size": "180 GB",
+      "size": "150 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
@@ -141,7 +141,7 @@
     },
     "ram": "16 GB",
     "storage": {
-      "size": "240 GB",
+      "size": "180 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
@@ -174,7 +174,7 @@
     },
     "ram": "24 GB",
     "storage": {
-      "size": "360 GB",
+      "size": "220 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
@@ -207,7 +207,7 @@
     },
     "ram": "32 GB",
     "storage": {
-      "size": "480 GB",
+      "size": "280 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
@@ -240,7 +240,7 @@
     },
     "ram": "48 GB",
     "storage": {
-      "size": "720 GB",
+      "size": "380 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
@@ -273,7 +273,7 @@
     },
     "ram": "64 GB",
     "storage": {
-      "size": "960 GB",
+      "size": "480 GB",
       "type": "NVMe SSD"
     },
     "bandwidth": {
