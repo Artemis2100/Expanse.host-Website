@@ -266,6 +266,21 @@
       "id": 31,
       "title": "Disclaimer of Warranties",
       "content": "Except as required by law, services are provided \"as is\" and \"as available\" without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non‑infringement."
+    },
+    {
+      "id": 32,
+      "title": "Abuse & Blocklist Fee Policy",
+      "content": "Outbound SMTP (port 25) access is disabled by default and must be explicitly requested and approved by Expanse Networks. By requesting and using port 25 access, the customer acknowledges and agrees that:",
+      "list": [
+        "Their use of SMTP must comply with all applicable anti-spam laws and Expanse Networks' Acceptable Use Policy.",
+        "In the event that any IP address assigned to the customer's services is listed on a recognised abuse or blocklist database (including but not limited to Spamhaus SBL, CBL, Invaluement, SpamCop, or AbuseIPDB) as a result of mail activity originating from their services, the following cleanup and remediation fees will be immediately invoiced and are payable within 48 hours:",
+        "$200 USD per affected VM as a base remediation fee",
+        "$50 USD per listed IP beyond the first IP per VM",
+        "Example: 1 VM with 5 listed IPs = $200 + (4 × $50) = $400",
+        "The customer explicitly authorises Expanse Networks to charge any saved payment method on file for the cleanup and remediation fee without further notice or approval. This authorisation is granted at the time of requesting port 25 access and remains in effect for the duration of the customer's account.",
+        "Failure to pay the cleanup fee within 48 hours, or if no valid payment method is on file, may result in immediate account suspension or termination without refund.",
+        "Expanse Networks reserves the right to suspend port 25 access or the customer's account immediately upon detection of abusive mail activity, without prior notice."
+      ]
     }
   ]
 }
